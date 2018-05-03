@@ -1,23 +1,23 @@
 //
-//  GPKGGeometryProjectionTransform.m
-//  geopackage-ios
+//  SFPGeometryProjectionTransform.m
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 1/18/16.
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGGeometryProjectionTransform.h"
-#import "GPKGSLocationCoordinate3D.h"
+#import "SFPGeometryProjectionTransform.h"
+#import "SFPLocationCoordinate3D.h"
 
-@interface GPKGGeometryProjectionTransform()
+@interface SFPGeometryProjectionTransform()
 
-@property (nonatomic, strong) GPKGProjectionTransform *transform;
+@property (nonatomic, strong) SFPProjectionTransform *transform;
 
 @end
 
-@implementation GPKGGeometryProjectionTransform
+@implementation SFPGeometryProjectionTransform
 
--(instancetype) initWithProjectionTransform: (GPKGProjectionTransform *) transform{
+-(instancetype) initWithProjectionTransform: (SFPProjectionTransform *) transform{
     self = [super init];
     if(self){
         self.transform = transform;
@@ -77,12 +77,12 @@
 -(WKBPoint *) transformPoint: (WKBPoint *) point{
     
     CLLocationCoordinate2D fromCoord2d = CLLocationCoordinate2DMake([point.y doubleValue], [point.x doubleValue]);
-    GPKGSLocationCoordinate3D * fromCoord = [[GPKGSLocationCoordinate3D alloc] initWithCoordinate:fromCoord2d];
+    SFPLocationCoordinate3D * fromCoord = [[SFPLocationCoordinate3D alloc] initWithCoordinate:fromCoord2d];
     if(point.hasZ){
         [fromCoord setZ:point.z];
     }
     
-    GPKGSLocationCoordinate3D * toCoord = [self.transform transform3d:fromCoord];
+    SFPLocationCoordinate3D * toCoord = [self.transform transform3d:fromCoord];
     
     NSDecimalNumber * x = [[NSDecimalNumber alloc] initWithDouble:toCoord.coordinate.longitude];
     NSDecimalNumber * y = [[NSDecimalNumber alloc] initWithDouble:toCoord.coordinate.latitude];

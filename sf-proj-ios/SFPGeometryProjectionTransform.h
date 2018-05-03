@@ -1,13 +1,13 @@
 //
-//  GPKGGeometryProjectionTransform.h
-//  geopackage-ios
+//  SFPGeometryProjectionTransform.h
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 1/18/16.
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "GPKGProjectionTransform.h"
+#import "SFPProjectionTransform.h"
 #import "WKBPoint.h"
 #import "WKBLineString.h"
 #import "WKBPolygon.h"
@@ -21,7 +21,7 @@
 #import "WKBTriangle.h"
 #import "WKBGeometryCollection.h"
 
-@interface GPKGGeometryProjectionTransform : NSObject
+@interface SFPGeometryProjectionTransform : NSObject
 
 /**
  *  Initialize
@@ -30,7 +30,7 @@
  *
  *  @return new instance
  */
--(instancetype) initWithProjectionTransform: (GPKGProjectionTransform *) transform;
+-(instancetype) initWithProjectionTransform: (SFPProjectionTransform *) transform;
 
 /**
  *  Transform the geometry

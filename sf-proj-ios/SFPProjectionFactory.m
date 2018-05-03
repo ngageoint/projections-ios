@@ -1,60 +1,60 @@
 //
-//  GPKGProjectionFactory.m
-//  geopackage-ios
+//  SFPProjectionFactory.m
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 5/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGProjectionFactory.h"
+#import "SFPProjectionFactory.h"
 #import "proj_api.h"
-#import "GPKGProjectionRetriever.h"
-#import "GPKGProjectionConstants.h"
+#import "SFPProjectionRetriever.h"
+#import "SFPProjectionConstants.h"
 
-NSString * const GPKG_PROJ_TO_METER_PATTERN = @"\\+to_meter=(\\S+)";
+NSString * const SFP_PROJ_TO_METER_PATTERN = @"\\+to_meter=(\\S+)";
 
 /**
  * Mapping of authorities to projections
  */
-static NSMutableDictionary<NSString *, GPKGAuthorityProjections *> * authorities;
+static NSMutableDictionary<NSString *, SFPAuthorityProjections *> * authorities;
 
-@implementation GPKGProjectionFactory
+@implementation SFPProjectionFactory
 
-+(GPKGProjection *) projectionWithEpsg: (NSNumber *) epsg{
++(SFPProjection *) projectionWithEpsg: (NSNumber *) epsg{
     return [self projectionWithAuthority:PROJ_AUTHORITY_EPSG andNumberCode:epsg];
 }
 
-+(GPKGProjection *) projectionWithEpsgInt: (int) epsg{
++(SFPProjection *) projectionWithEpsgInt: (int) epsg{
     return [self projectionWithAuthority:PROJ_AUTHORITY_EPSG andCode:[NSString stringWithFormat:@"%d",epsg]];
 }
 
-+(GPKGProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code{
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code{
     return [self projectionWithAuthority:authority andCode:[code stringValue]];
 }
 
-+(GPKGProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code{
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code{
     return [self projectionWithAuthority:authority andCode:code andParams:nil andDefinition:nil];
 }
 
-+(GPKGProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params{
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params{
     return [self projectionWithAuthority:authority andCode:[code stringValue] andParams:params];
 }
 
-+(GPKGProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params{
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params{
     return [self projectionWithAuthority:authority andCode:code andParams:params andDefinition:nil];
 }
 
-+(GPKGProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params andDefinition: (NSString *) definition{
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params andDefinition: (NSString *) definition{
     return [self projectionWithAuthority:authority andCode:[code stringValue] andParams:params andDefinition:definition];
 }
 
-+(GPKGProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params andDefinition: (NSString *) definition{
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params andDefinition: (NSString *) definition{
     
     // Get or create the authority
-    GPKGAuthorityProjections *authorityProjections = [self projectionsWithAuthority:authority];
+    SFPAuthorityProjections *authorityProjections = [self projectionsWithAuthority:authority];
     
     // Check if the projection already exists
-    GPKGProjection *projection = [authorityProjections projectionForCode:code];
+    SFPProjection *projection = [authorityProjections projectionForCode:code];
     
     if(projection == nil){
         
@@ -81,15 +81,15 @@ static NSMutableDictionary<NSString *, GPKGAuthorityProjections *> * authorities
     return projection;
 }
 
-+(GPKGAuthorityProjections *) projectionsWithAuthority: (NSString *) authority{
++(SFPAuthorityProjections *) projectionsWithAuthority: (NSString *) authority{
     
     if(authorities == nil){
         authorities = [[NSMutableDictionary alloc] init];
     }
     
-    GPKGAuthorityProjections *authorityProjections = [authorities objectForKey:[authority uppercaseString]];
+    SFPAuthorityProjections *authorityProjections = [authorities objectForKey:[authority uppercaseString]];
     if(authorityProjections == nil){
-        authorityProjections = [[GPKGAuthorityProjections alloc] initWithAuthority:authority];
+        authorityProjections = [[SFPAuthorityProjections alloc] initWithAuthority:authority];
         [authorities setObject:authorityProjections forKey:[authority uppercaseString]];
     }
     return authorityProjections;
@@ -122,9 +122,9 @@ static NSMutableDictionary<NSString *, GPKGAuthorityProjections *> * authorities
  *            coordinate code
  * @return projection
  */
-+(GPKGProjection *) fromDefinition: (NSString *) definition withAuthorityProjections: (GPKGAuthorityProjections *) authorityProjections andCode: (NSString *) code{
++(SFPProjection *) fromDefinition: (NSString *) definition withAuthorityProjections: (SFPAuthorityProjections *) authorityProjections andCode: (NSString *) code{
 
-    GPKGProjection *projection = nil;
+    SFPProjection *projection = nil;
     
     if(definition != nil && definition.length > 0){
         
@@ -137,7 +137,7 @@ static NSMutableDictionary<NSString *, GPKGAuthorityProjections *> * authorities
             projPJ crs = pj_init_plus([parametersString UTF8String]);
             if(crs != nil){
                 NSDecimalNumber * toMeters = [self toMetersFromParameters:parametersString];
-                projection = [[GPKGProjection alloc] initWithAuthority:[authorityProjections authority] andCode:code andCrs:crs andToMeters:toMeters];
+                projection = [[SFPProjection alloc] initWithAuthority:[authorityProjections authority] andCode:code andCrs:crs andToMeters:toMeters];
                 [authorityProjections addProjection:projection];
             }else{
                 NSLog(@"Failed to create projection for authority: %@, code: %@, definition, %@, parameters: %@", [authorityProjections authority], code, definition, parametersString);
@@ -159,15 +159,15 @@ static NSMutableDictionary<NSString *, GPKGAuthorityProjections *> * authorities
  *            coordinate code
  * @return projection
  */
-+(GPKGProjection *) fromParams: (NSString *) params withAuthorityProjections: (GPKGAuthorityProjections *) authorityProjections andCode: (NSString *) code{
++(SFPProjection *) fromParams: (NSString *) params withAuthorityProjections: (SFPAuthorityProjections *) authorityProjections andCode: (NSString *) code{
     
-    GPKGProjection *projection = nil;
+    SFPProjection *projection = nil;
     
     if (params != nil && params.length > 0) {
         projPJ crs = pj_init_plus([params UTF8String]);
         if(crs != nil){
             NSDecimalNumber * toMeters = [self toMetersFromParameters:params];
-            projection = [[GPKGProjection alloc] initWithAuthority:[authorityProjections authority] andCode:code andCrs:crs andToMeters:toMeters];
+            projection = [[SFPProjection alloc] initWithAuthority:[authorityProjections authority] andCode:code andCrs:crs andToMeters:toMeters];
             [authorityProjections addProjection:projection];
         }else{
             NSLog(@"Failed to create projection for authority: %@, code: %@, parameters: %@", [authorityProjections authority], code, params);
@@ -186,17 +186,17 @@ static NSMutableDictionary<NSString *, GPKGAuthorityProjections *> * authorities
  *            coordinate code
  * @return projection
  */
-+(GPKGProjection *) fromPropertiesWithAuthorityProjections: (GPKGAuthorityProjections *) authorityProjections andCode: (NSString *) code{
++(SFPProjection *) fromPropertiesWithAuthorityProjections: (SFPAuthorityProjections *) authorityProjections andCode: (NSString *) code{
     
-    GPKGProjection *projection = nil;
+    SFPProjection *projection = nil;
     
-    NSString *parameters = [GPKGProjectionRetriever projectionWithAuthority:[authorityProjections authority] andCode:code];
+    NSString *parameters = [SFPProjectionRetriever projectionWithAuthority:[authorityProjections authority] andCode:code];
     
     if(parameters != nil && parameters.length > 0){
         projPJ crs = pj_init_plus([parameters UTF8String]);
         if(crs != nil){
             NSDecimalNumber * toMeters = [self toMetersFromParameters:parameters];
-            projection = [[GPKGProjection alloc] initWithAuthority:[authorityProjections authority] andCode:code andCrs:crs andToMeters:toMeters];
+            projection = [[SFPProjection alloc] initWithAuthority:[authorityProjections authority] andCode:code andCrs:crs andToMeters:toMeters];
             [authorityProjections addProjection:projection];
         }else{
             NSLog(@"Failed to create projection for authority: %@, code: %@, parameters: %@", [authorityProjections authority], code, parameters);
@@ -206,7 +206,7 @@ static NSMutableDictionary<NSString *, GPKGAuthorityProjections *> * authorities
     return projection;
 }
 
-+(GPKGProjection *) projectionWithSrs: (GPKGSpatialReferenceSystem *) srs{
++(SFPProjection *) projectionWithSrs: (SFPSpatialReferenceSystem *) srs{
     
     NSString *authority = srs.organization;
     NSNumber *code = srs.organizationCoordsysId;
@@ -215,7 +215,7 @@ static NSMutableDictionary<NSString *, GPKGAuthorityProjections *> * authorities
         definition = srs.definition;
     }
     
-    GPKGProjection *projection = [self projectionWithAuthority:authority andNumberCode:code andParams:nil andDefinition:definition];
+    SFPProjection *projection = [self projectionWithAuthority:authority andNumberCode:code andParams:nil andDefinition:definition];
     
     return projection;
 }
@@ -225,7 +225,7 @@ static NSMutableDictionary<NSString *, GPKGAuthorityProjections *> * authorities
     NSDecimalNumber * toMeters = nil;
     
     NSError  *error = nil;
-    NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:GPKG_PROJ_TO_METER_PATTERN options:NSRegularExpressionCaseInsensitive error:&error];
+    NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:SFP_PROJ_TO_METER_PATTERN options:NSRegularExpressionCaseInsensitive error:&error];
     if(error){
         [NSException raise:@"To Meter Regular Expression" format:@"Failed to create projection to meter regular epxression with error: %@", error];
     }

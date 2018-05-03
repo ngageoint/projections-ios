@@ -1,18 +1,18 @@
 //
-//  GPKGAuthorityProjections.h
-//  geopackage-ios
+//  SFPAuthorityProjections.h
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 7/19/17.
 //  Copyright © 2017 NGA. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "GPKGProjection.h"
+#import "SFPProjection.h"
 
 /**
  *  Collection of projections for a single coordinate authority
  */
-@interface GPKGAuthorityProjections : NSObject
+@interface SFPAuthorityProjections : NSObject
 
 /**
  * Initialize
@@ -38,7 +38,7 @@
  *            coordinate code
  * @return projection
  */
--(GPKGProjection *) projectionForCode: (NSString *) code;
+-(SFPProjection *) projectionForCode: (NSString *) code;
 
 /**
  * Add the projection to the authority
@@ -46,7 +46,7 @@
  * @param projection
  *            projection
  */
--(void) addProjection: (GPKGProjection *) projection;
+-(void) addProjection: (SFPProjection *) projection;
 
 /**
  * Clear all projections for the authority

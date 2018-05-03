@@ -1,6 +1,6 @@
 //
-//  GPKGProjectionRetriever.h
-//  geopackage-ios
+//  SFPProjectionRetriever.h
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 7/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
@@ -11,7 +11,7 @@
 /**
  *  Retrieves the proj4 projection parameter string for an authority and coordinate code
  */
-@interface GPKGProjectionRetriever : NSObject
+@interface SFPProjectionRetriever : NSObject
 
 /**
  *  Get the proj4 projection string for the EPSG code

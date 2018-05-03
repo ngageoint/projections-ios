@@ -1,5 +1,5 @@
 //
-//  GPKGUnits.h
+//  SFPUnits.h
 //  Pods
 //
 //  Created by Brian Osborn on 6/3/16.
@@ -11,12 +11,12 @@
 /**
  * Enumeration of projection units
  */
-enum GPKGUnit{
-    GPKG_UNIT_DEGREES,
-    GPKG_UNIT_METERS,
-    GPKG_UNIT_NONE
+enum SFPUnit{
+    SFP_UNIT_DEGREES,
+    SFP_UNIT_METERS,
+    SFP_UNIT_NONE
 };
 
-@interface GPKGUnits : NSObject
+@interface SFPUnits : NSObject
 
 @end

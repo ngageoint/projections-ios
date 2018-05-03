@@ -1,18 +1,18 @@
 //
-//  GPKGProjectionRetriever.m
-//  geopackage-ios
+//  SFPProjectionRetriever.m
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 7/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGProjectionRetriever.h"
-#import "GPKGProjectionConstants.h"
-#import "GPKGIOUtils.h"
+#import "SFPProjectionRetriever.h"
+#import "SFPProjectionConstants.h"
+#import "SFPIOUtils.h"
 
 static NSMutableDictionary<NSString *, NSMutableDictionary *> *properties;
 
-@implementation GPKGProjectionRetriever
+@implementation SFPProjectionRetriever
 
 +(NSString *) projectionWithEpsg: (NSNumber *) epsg{
     return [self projectionWithAuthority:PROJ_AUTHORITY_EPSG andNumberCode:epsg];
@@ -79,7 +79,7 @@ static NSMutableDictionary<NSString *, NSMutableDictionary *> *properties;
 
 +(NSString *) propertiesPathForAuthority: (NSString *) authority{
     NSString *name = [NSString stringWithFormat:@"%@.%@", PROJ_PROPERTIES, [authority lowercaseString]];
-    return [GPKGIOUtils getPropertyListPathWithName:name];
+    return [SFPIOUtils getPropertyListPathWithName:name];
 }
 
 +(void) setProjections: (NSMutableDictionary *) projections forAuthority: (NSString *) authority{

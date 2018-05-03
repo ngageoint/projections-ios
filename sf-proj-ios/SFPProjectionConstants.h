@@ -1,6 +1,6 @@
 //
-//  GPKGProjectionConstants.h
-//  geopackage-ios
+//  SFPProjectionConstants.h
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 5/15/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
@@ -26,6 +26,6 @@ extern double const PROJ_MERCATOR_RADIUS;
 extern double const PROJ_WGS84_HALF_WORLD_LON_WIDTH;
 extern double const PROJ_WGS84_HALF_WORLD_LAT_HEIGHT;
 
-@interface GPKGProjectionConstants : NSObject
+@interface SFPProjectionConstants : NSObject
 
 @end

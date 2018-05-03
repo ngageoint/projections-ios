@@ -1,14 +1,14 @@
 //
-//  GPKGAuthorityProjections.m
-//  geopackage-ios
+//  SFPAuthorityProjections.m
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 7/19/17.
 //  Copyright © 2017 NGA. All rights reserved.
 //
 
-#import "GPKGAuthorityProjections.h"
+#import "SFPAuthorityProjections.h"
 
-@interface GPKGAuthorityProjections()
+@interface SFPAuthorityProjections()
 
 /**
  *  Coordinate authority
@@ -18,11 +18,11 @@
 /**
  * Projections by code
  */
-@property (nonatomic, strong) NSMutableDictionary<NSString *, GPKGProjection *> *projections;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, SFPProjection *> *projections;
 
 @end
 
-@implementation GPKGAuthorityProjections
+@implementation SFPAuthorityProjections
 
 -(instancetype) initWithAuthority: (NSString *) authority{
     self = [super init];
@@ -37,11 +37,11 @@
     return _authority;
 }
 
--(GPKGProjection *) projectionForCode: (NSString *) code{
+-(SFPProjection *) projectionForCode: (NSString *) code{
     return [_projections objectForKey:code];
 }
 
--(void) addProjection: (GPKGProjection *) projection{
+-(void) addProjection: (SFPProjection *) projection{
     [_projections setObject:projection forKey:projection.code];
 }
 

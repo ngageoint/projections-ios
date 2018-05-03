@@ -1,20 +1,20 @@
 //
-//  GPKGProjectionTransform.m
-//  geopackage-ios
+//  SFPProjectionTransform.m
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 5/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGProjectionTransform.h"
-#import "GPKGUtils.h"
-#import "GPKGProjectionFactory.h"
-#import "GPKGGeometryProjectionTransform.h"
-#import "GPKGProjectionConstants.h"
+#import "SFPProjectionTransform.h"
+#import "SFPUtils.h"
+#import "SFPProjectionFactory.h"
+#import "SFPGeometryProjectionTransform.h"
+#import "SFPProjectionConstants.h"
 
-@implementation GPKGProjectionTransform
+@implementation SFPProjectionTransform
 
--(instancetype) initWithFromProjection: (GPKGProjection *) fromProjection andToProjection: (GPKGProjection *) toProjection{
+-(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToProjection: (SFPProjection *) toProjection{
     self = [super init];
     if(self != nil){
         self.fromProjection = fromProjection;
@@ -38,41 +38,41 @@
 
 -(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode{
     
-    GPKGProjection * fromProjection = [GPKGProjectionFactory projectionWithAuthority:fromAuthority andCode:fromCode];
-    GPKGProjection * toProjection = [GPKGProjectionFactory projectionWithAuthority:toAuthority andCode:toCode];
+    SFPProjection * fromProjection = [SFPProjectionFactory projectionWithAuthority:fromAuthority andCode:fromCode];
+    SFPProjection * toProjection = [SFPProjectionFactory projectionWithAuthority:toAuthority andCode:toCode];
     
     return [self initWithFromProjection:fromProjection andToProjection:toProjection];
 }
 
--(instancetype) initWithFromProjection: (GPKGProjection *) fromProjection andToEpsg: (int) toEpsg{
+-(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToEpsg: (int) toEpsg{
     
     NSString *toCode = [NSString stringWithFormat:@"%d", toEpsg];
     
     return [self initWithFromProjection:fromProjection andToAuthority:PROJ_AUTHORITY_EPSG andToCode:toCode];
 }
 
--(instancetype) initWithFromProjection: (GPKGProjection *) fromProjection andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode{
+-(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode{
     
-    GPKGProjection * toProjection = [GPKGProjectionFactory projectionWithAuthority:toAuthority andCode:toCode];
+    SFPProjection * toProjection = [SFPProjectionFactory projectionWithAuthority:toAuthority andCode:toCode];
     
     return [self initWithFromProjection:fromProjection andToProjection:toProjection];
 }
 
--(instancetype) initWithFromEpsg: (int) fromEpsg andToProjection: (GPKGProjection *) toProjection{
+-(instancetype) initWithFromEpsg: (int) fromEpsg andToProjection: (SFPProjection *) toProjection{
     
     NSString *fromCode = [NSString stringWithFormat:@"%d", fromEpsg];
     
     return [self initWithFromAuthority:PROJ_AUTHORITY_EPSG andFromCode:fromCode andToProjection:toProjection];
 }
 
--(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (GPKGProjection *) toProjection{
+-(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (SFPProjection *) toProjection{
     
-    GPKGProjection * fromProjection = [GPKGProjectionFactory projectionWithAuthority:fromAuthority andCode:fromCode];
+    SFPProjection * fromProjection = [SFPProjectionFactory projectionWithAuthority:fromAuthority andCode:fromCode];
     
     return [self initWithFromProjection:fromProjection andToProjection:toProjection];
 }
 
--(instancetype) initWithFromSrs: (GPKGSpatialReferenceSystem *) fromSrs andToSrs: (GPKGSpatialReferenceSystem *) toSrs{
+-(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToSrs: (SFPSpatialReferenceSystem *) toSrs{
     
     NSString *fromCode = [fromSrs.organizationCoordsysId stringValue];
     NSString *toCode = [toSrs.organizationCoordsysId stringValue];
@@ -80,42 +80,42 @@
     return [self initWithFromAuthority:fromSrs.organization andFromCode:fromCode andToAuthority:toSrs.organization andToCode:toCode];
 }
 
--(instancetype) initWithFromSrs: (GPKGSpatialReferenceSystem *) fromSrs andToProjection: (GPKGProjection *) toProjection{
+-(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToProjection: (SFPProjection *) toProjection{
     
     NSString *fromCode = [fromSrs.organizationCoordsysId stringValue];
     
     return [self initWithFromAuthority:fromSrs.organization andFromCode:fromCode andToProjection:toProjection];
 }
 
--(instancetype) initWithFromProjection: (GPKGProjection *) fromProjection andToSrs: (GPKGSpatialReferenceSystem *) toSrs{
+-(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToSrs: (SFPSpatialReferenceSystem *) toSrs{
     
     NSString *toCode = [toSrs.organizationCoordsysId stringValue];
     
     return [self initWithFromProjection:fromProjection andToAuthority:toSrs.organization andToCode:toCode];
 }
 
--(instancetype) initWithFromSrs: (GPKGSpatialReferenceSystem *) fromSrs andToEpsg: (int) toEpsg{
+-(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToEpsg: (int) toEpsg{
     
     NSString *toCode = [NSString stringWithFormat:@"%d", toEpsg];
     
     return [self initWithFromSrs:fromSrs andToAuthority:PROJ_AUTHORITY_EPSG andToCode:toCode];
 }
 
--(instancetype) initWithFromSrs: (GPKGSpatialReferenceSystem *) fromSrs andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode{
+-(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode{
     
     NSString *fromCode = [fromSrs.organizationCoordsysId stringValue];
     
     return [self initWithFromAuthority:fromSrs.organization andFromCode:fromCode andToAuthority:toAuthority andToCode:toCode];
 }
 
--(instancetype) initWithFromEpsg: (int) fromEpsg andToSrs: (GPKGSpatialReferenceSystem *) toSrs{
+-(instancetype) initWithFromEpsg: (int) fromEpsg andToSrs: (SFPSpatialReferenceSystem *) toSrs{
     
     NSString *fromCode = [NSString stringWithFormat:@"%d", fromEpsg];
     
     return [self initWithFromAuthority:PROJ_AUTHORITY_EPSG andFromCode:fromCode andToSrs:toSrs];
 }
 
--(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToSrs: (GPKGSpatialReferenceSystem *) toSrs{
+-(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToSrs: (SFPSpatialReferenceSystem *) toSrs{
     
     NSString *toCode = [toSrs.organizationCoordsysId stringValue];
     
@@ -123,11 +123,11 @@
 }
 
 -(CLLocationCoordinate2D) transform: (CLLocationCoordinate2D) from{
-    GPKGSLocationCoordinate3D * result = [self transform3d:[[GPKGSLocationCoordinate3D alloc] initWithCoordinate:from]];
+    SFPLocationCoordinate3D * result = [self transform3d:[[SFPLocationCoordinate3D alloc] initWithCoordinate:from]];
     return result.coordinate;
 }
 
--(GPKGSLocationCoordinate3D *) transform3d: (GPKGSLocationCoordinate3D *) from{
+-(SFPLocationCoordinate3D *) transform3d: (SFPLocationCoordinate3D *) from{
     
     CLLocationCoordinate2D to = CLLocationCoordinate2DMake(from.coordinate.latitude, from.coordinate.longitude);
     
@@ -158,12 +158,12 @@
         toZ = [[NSDecimalNumber alloc] initWithDouble:zValue];
     }
     
-    return [[GPKGSLocationCoordinate3D alloc] initWithCoordinate:to andZ:toZ];
+    return [[SFPLocationCoordinate3D alloc] initWithCoordinate:to andZ:toZ];
 }
 
 -(WKBPoint *) transformWithPoint: (WKBPoint *) from{
     
-    GPKGGeometryProjectionTransform * geometryTransform = [[GPKGGeometryProjectionTransform alloc] initWithProjectionTransform:self];
+    SFPGeometryProjectionTransform * geometryTransform = [[SFPGeometryProjectionTransform alloc] initWithProjectionTransform:self];
     WKBPoint * to = [geometryTransform transformPoint:from];
     
     return to;
@@ -173,7 +173,7 @@
     
     NSMutableArray<WKBPoint *> *to = [[NSMutableArray alloc] init];
     
-    GPKGGeometryProjectionTransform * geometryTransform = [[GPKGGeometryProjectionTransform alloc] initWithProjectionTransform:self];
+    SFPGeometryProjectionTransform * geometryTransform = [[SFPGeometryProjectionTransform alloc] initWithProjectionTransform:self];
     for(WKBPoint *fromPoint in from){
         WKBPoint * toPoint = [geometryTransform transformPoint:fromPoint];
         [to addObject:toPoint];
@@ -184,13 +184,13 @@
 
 -(WKBGeometry *) transformWithGeometry: (WKBGeometry *) from{
     
-    GPKGGeometryProjectionTransform * geometryTransform = [[GPKGGeometryProjectionTransform alloc] initWithProjectionTransform:self];
+    SFPGeometryProjectionTransform * geometryTransform = [[SFPGeometryProjectionTransform alloc] initWithProjectionTransform:self];
     WKBGeometry * to = [geometryTransform transformGeometry:from];
     
     return to;
 }
 
--(GPKGBoundingBox *) transformWithBoundingBox: (GPKGBoundingBox *) boundingBox{
+-(SFPBoundingBox *) transformWithBoundingBox: (SFPBoundingBox *) boundingBox{
     
     CLLocationCoordinate2D lowerLeft = CLLocationCoordinate2DMake([boundingBox.minLatitude doubleValue], [boundingBox.minLongitude doubleValue]);
     CLLocationCoordinate2D lowerRight = CLLocationCoordinate2DMake([boundingBox.minLatitude doubleValue], [boundingBox.maxLongitude doubleValue]);
@@ -207,7 +207,7 @@
     double minY = MIN(projectedLowerLeft.latitude, projectedLowerRight.latitude);
     double maxY = MAX(projectedUpperLeft.latitude, projectedUpperRight.latitude);
     
-    GPKGBoundingBox * projectedBoundingBox = [[GPKGBoundingBox alloc] initWithMinLongitudeDouble:minX andMinLatitudeDouble:minY andMaxLongitudeDouble:maxX andMaxLatitudeDouble:maxY];
+    SFPBoundingBox * projectedBoundingBox = [[SFPBoundingBox alloc] initWithMinLongitudeDouble:minX andMinLatitudeDouble:minY andMaxLongitudeDouble:maxX andMaxLatitudeDouble:maxY];
     
     return projectedBoundingBox;
 }

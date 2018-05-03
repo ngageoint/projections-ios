@@ -1,20 +1,20 @@
 //
-//  GPKGProjectionFactory.h
-//  geopackage-ios
+//  SFPProjectionFactory.h
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 5/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "GPKGProjection.h"
-#import "GPKGSpatialReferenceSystem.h"
-#import "GPKGAuthorityProjections.h"
+#import "SFPProjection.h"
+#import "SFPSpatialReferenceSystem.h"
+#import "SFPAuthorityProjections.h"
 
 /**
  *  Projection factory for coordinate projections and transformations
  */
-@interface GPKGProjectionFactory : NSObject
+@interface SFPProjectionFactory : NSObject
 
 /**
  *  Get the projection with the epsg number
@@ -23,7 +23,7 @@
  *
  *  @return projection
  */
-+(GPKGProjection *) projectionWithEpsg: (NSNumber *) epsg;
++(SFPProjection *) projectionWithEpsg: (NSNumber *) epsg;
 
 /**
  *  Get the projection with the epsg int
@@ -32,7 +32,7 @@
  *
  *  @return projection
  */
-+(GPKGProjection *) projectionWithEpsgInt: (int) epsg;
++(SFPProjection *) projectionWithEpsgInt: (int) epsg;
 
 /**
  * Get the projection for authority and code
@@ -43,7 +43,7 @@
  *            authority coordinate code
  * @return projection
  */
-+(GPKGProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code;
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code;
 
 /**
  * Get the projection for authority and code
@@ -54,7 +54,7 @@
  *            authority coordinate code
  * @return projection
  */
-+(GPKGProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code;
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code;
 
 /**
  * Get the projection for authority, code, and parameter string
@@ -67,7 +67,7 @@
  *            proj4 string
  * @return projection
  */
-+(GPKGProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params;
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params;
 
 /**
  * Get the projection for authority, code, and parameter string
@@ -80,7 +80,7 @@
  *            proj4 string
  * @return projection
  */
-+(GPKGProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params;
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params;
 
 /**
  * Get the projection for the authority, code, definition, and custom
@@ -96,7 +96,7 @@
  *            definition
  * @return projection
  */
-+(GPKGProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params andDefinition: (NSString *) definition;
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the authority, code, definition, and custom
@@ -112,7 +112,7 @@
  *            definition
  * @return projection
  */
-+(GPKGProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params andDefinition: (NSString *) definition;
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params andDefinition: (NSString *) definition;
 
 /**
  * Get or create projections for the authority
@@ -121,7 +121,7 @@
  *            coordinate authority
  * @return authority projections
  */
-+(GPKGAuthorityProjections *) projectionsWithAuthority: (NSString *) authority;
++(SFPAuthorityProjections *) projectionsWithAuthority: (NSString *) authority;
 
 /**
  * Clear all authority projections
@@ -163,6 +163,6 @@
  *            spatial reference system
  * @return projection
  */
-+(GPKGProjection *) projectionWithSrs: (GPKGSpatialReferenceSystem *) srs;
++(SFPProjection *) projectionWithSrs: (SFPSpatialReferenceSystem *) srs;
 
 @end

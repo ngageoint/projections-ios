@@ -1,32 +1,32 @@
 //
-//  GPKGProjectionTransform.h
-//  geopackage-ios
+//  SFPProjectionTransform.h
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 5/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "GPKGProjection.h"
-#import "GPKGBoundingBox.h"
+#import "SFPProjection.h"
+#import "SFPBoundingBox.h"
 #import "WKBPoint.h"
-#import "GPKGSLocationCoordinate3D.h"
-#import "GPKGSpatialReferenceSystem.h"
+#import "SFPLocationCoordinate3D.h"
+#import "SFPSpatialReferenceSystem.h"
 
 /**
  *  Projection transformation between a from and to projection
  */
-@interface GPKGProjectionTransform : NSObject
+@interface SFPProjectionTransform : NSObject
 
 /**
  *  From projection
  */
-@property (nonatomic, strong) GPKGProjection *fromProjection;
+@property (nonatomic, strong) SFPProjection *fromProjection;
 
 /**
  *  To projection
  */
-@property (nonatomic, strong) GPKGProjection *toProjection;
+@property (nonatomic, strong) SFPProjection *toProjection;
 
 /**
  *  Initialize
@@ -36,7 +36,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromProjection: (GPKGProjection *) fromProjection andToProjection: (GPKGProjection *) toProjection;
+-(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToProjection: (SFPProjection *) toProjection;
 
 /**
  *  Initialize
@@ -80,7 +80,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromProjection: (GPKGProjection *) fromProjection andToEpsg: (int) toEpsg;
+-(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToEpsg: (int) toEpsg;
 
 /**
  *  Initialize
@@ -91,7 +91,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromProjection: (GPKGProjection *) fromProjection andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode;
+-(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode;
 
 /**
  *  Initialize
@@ -101,7 +101,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromEpsg: (int) fromEpsg andToProjection: (GPKGProjection *) toProjection;
+-(instancetype) initWithFromEpsg: (int) fromEpsg andToProjection: (SFPProjection *) toProjection;
 
 /**
  *  Initialize
@@ -112,7 +112,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (GPKGProjection *) toProjection;
+-(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (SFPProjection *) toProjection;
 
 /**
  *  Initialize
@@ -122,7 +122,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromSrs: (GPKGSpatialReferenceSystem *) fromSrs andToSrs: (GPKGSpatialReferenceSystem *) toSrs;
+-(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToSrs: (SFPSpatialReferenceSystem *) toSrs;
 
 /**
  *  Initialize
@@ -132,7 +132,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromSrs: (GPKGSpatialReferenceSystem *) fromSrs andToProjection: (GPKGProjection *) toProjection;
+-(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToProjection: (SFPProjection *) toProjection;
 
 /**
  *  Initialize
@@ -142,7 +142,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromProjection: (GPKGProjection *) fromProjection andToSrs: (GPKGSpatialReferenceSystem *) toSrs;
+-(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToSrs: (SFPSpatialReferenceSystem *) toSrs;
 
 /**
  *  Initialize
@@ -152,7 +152,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromSrs: (GPKGSpatialReferenceSystem *) fromSrs andToEpsg: (int) toEpsg;
+-(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToEpsg: (int) toEpsg;
 
 /**
  *  Initialize
@@ -163,7 +163,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromSrs: (GPKGSpatialReferenceSystem *) fromSrs andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode;
+-(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode;
 
 /**
  *  Initialize
@@ -173,7 +173,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromEpsg: (int) fromEpsg andToSrs: (GPKGSpatialReferenceSystem *) toSrs;
+-(instancetype) initWithFromEpsg: (int) fromEpsg andToSrs: (SFPSpatialReferenceSystem *) toSrs;
 
 /**
  *  Initialize
@@ -184,7 +184,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToSrs: (GPKGSpatialReferenceSystem *) toSrs;
+-(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToSrs: (SFPSpatialReferenceSystem *) toSrs;
 
 /**
  *  Transform a location coordinate
@@ -202,7 +202,7 @@
  *
  *  @return transformed 3d location coordinate
  */
--(GPKGSLocationCoordinate3D *) transform3d: (GPKGSLocationCoordinate3D *) from;
+-(SFPLocationCoordinate3D *) transform3d: (SFPLocationCoordinate3D *) from;
 
 /**
  *  Transform a point
@@ -238,7 +238,7 @@
  *
  *  @return transformed bounding box
  */
--(GPKGBoundingBox *) transformWithBoundingBox: (GPKGBoundingBox *) boundingBox;
+-(SFPBoundingBox *) transformWithBoundingBox: (SFPBoundingBox *) boundingBox;
 
 /**
  *  Transform a x and y coordinate

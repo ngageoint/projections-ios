@@ -1,14 +1,14 @@
 //
-//  GPKGSLocationCoordinate3D.m
-//  geopackage-ios
+//  SFPLocationCoordinate3D.m
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 7/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGSLocationCoordinate3D.h"
+#import "SFPLocationCoordinate3D.h"
 
-@implementation GPKGSLocationCoordinate3D
+@implementation SFPLocationCoordinate3D
 
 -(instancetype) initWithCoordinate: (CLLocationCoordinate2D) coordinate{
     return [self initWithCoordinate:coordinate andZ:nil];

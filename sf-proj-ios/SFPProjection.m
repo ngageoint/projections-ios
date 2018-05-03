@@ -1,14 +1,14 @@
 //
-//  GPKGProjection.m
-//  geopackage-ios
+//  SFPProjection.m
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 5/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGProjection.h"
+#import "SFPProjection.h"
 
-@interface GPKGProjection()
+@interface SFPProjection()
 
 /**
  *  Projection authority
@@ -37,7 +37,7 @@
 
 @end
 
-@implementation GPKGProjection
+@implementation SFPProjection
 
 -(instancetype) initWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andCrs: (projPJ) crs andToMeters: (NSDecimalNumber *) toMeters{
     return [self initWithAuthority:authority andCode:(code != nil ? [code stringValue] : nil) andCrs:crs andToMeters:toMeters];
@@ -87,14 +87,14 @@
     return value;
 }
 
--(enum GPKGUnit) getUnit{
+-(enum SFPUnit) getUnit{
     
-    enum GPKGUnit unit = GPKG_UNIT_NONE;
+    enum SFPUnit unit = SFP_UNIT_NONE;
     
     if(self.isLatLong){
-        unit = GPKG_UNIT_DEGREES;
+        unit = SFP_UNIT_DEGREES;
     }else{
-        unit = GPKG_UNIT_METERS;
+        unit = SFP_UNIT_METERS;
     }
     
     return unit;
@@ -108,7 +108,7 @@
     return [_authority isEqualToString:authority] && [_code isEqualToString:code];
 }
 
--(BOOL) isEqualToProjection: (GPKGProjection *) projection{
+-(BOOL) isEqualToProjection: (SFPProjection *) projection{
     return [self isEqualToAuthority:projection.authority andCode:projection.code];
 }
 
@@ -117,11 +117,11 @@
         return YES;
     }
     
-    if(![object isKindOfClass:[GPKGProjection class]]){
+    if(![object isKindOfClass:[SFPProjection class]]){
         return NO;
     }
     
-    return [self isEqualToProjection: (GPKGProjection *)object];
+    return [self isEqualToProjection: (SFPProjection *)object];
 }
 
 -(NSUInteger) hash{

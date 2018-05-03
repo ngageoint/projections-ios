@@ -1,6 +1,6 @@
 //
-//  GPKGSLocationCoordinate3D.h
-//  geopackage-ios
+//  SFPLocationCoordinate3D.h
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 7/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
@@ -12,7 +12,7 @@
 /**
  *  3D Location Coordinate
  */
-@interface GPKGSLocationCoordinate3D : NSObject
+@interface SFPLocationCoordinate3D : NSObject
 
 /**
  *  Location Coordinate

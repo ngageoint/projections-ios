@@ -1,6 +1,6 @@
 //
-//  GPKGProjection.h
-//  geopackage-ios
+//  SFPProjection.h
+//  sf-ios-proj
 //
 //  Created by Brian Osborn on 5/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "proj_api.h"
-#import "GPKGUnits.h"
+#import "SFPUnits.h"
 
 /**
  *  Single Projection for an authority and code
  */
-@interface GPKGProjection : NSObject
+@interface SFPProjection : NSObject
 
 /**
  *  Initialize
@@ -88,7 +88,7 @@
  *
  *  @return unit
  */
--(enum GPKGUnit) getUnit;
+-(enum SFPUnit) getUnit;
 
 /**
  * Check if this projection is equal to the authority and code
@@ -119,6 +119,6 @@
  *            projection
  * @return true if equal
  */
--(BOOL) isEqualToProjection: (GPKGProjection *) projection;
+-(BOOL) isEqualToProjection: (SFPProjection *) projection;
 
 @end
