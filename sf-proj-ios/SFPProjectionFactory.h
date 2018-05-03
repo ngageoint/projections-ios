@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "SFPProjection.h"
-#import "SFPSpatialReferenceSystem.h"
 #import "SFPAuthorityProjections.h"
 
 /**
@@ -155,14 +154,5 @@
  *            coordinate code
  */
 +(void) clearAuthority: (NSString *) authority andCode: (NSString *) code;
-
-/**
- * Get the projection for the Spatial Reference System
- *
- * @param srs
- *            spatial reference system
- * @return projection
- */
-+(SFPProjection *) projectionWithSrs: (SFPSpatialReferenceSystem *) srs;
 
 @end

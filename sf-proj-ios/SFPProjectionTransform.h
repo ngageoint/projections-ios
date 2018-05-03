@@ -8,10 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "SFPProjection.h"
-#import "SFPBoundingBox.h"
-#import "WKBPoint.h"
+#import "SFPoint.h"
 #import "SFPLocationCoordinate3D.h"
-#import "SFPSpatialReferenceSystem.h"
 
 /**
  *  Projection transformation between a from and to projection
@@ -115,78 +113,6 @@
 -(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (SFPProjection *) toProjection;
 
 /**
- *  Initialize
- *
- *  @param fromSrs from spatial reference system
- *  @param toSrs   to spatial reference system
- *
- *  @return new projection transform
- */
--(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToSrs: (SFPSpatialReferenceSystem *) toSrs;
-
-/**
- *  Initialize
- *
- *  @param fromSrs      from spatial reference system
- *  @param toProjection to projection
- *
- *  @return new projection transform
- */
--(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToProjection: (SFPProjection *) toProjection;
-
-/**
- *  Initialize
- *
- *  @param fromProjection from projection
- *  @param toSrs          to spatial reference system
- *
- *  @return new projection transform
- */
--(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToSrs: (SFPSpatialReferenceSystem *) toSrs;
-
-/**
- *  Initialize
- *
- *  @param fromSrs from spatial reference system
- *  @param toEpsg  to epsg
- *
- *  @return new projection transform
- */
--(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToEpsg: (int) toEpsg;
-
-/**
- *  Initialize
- *
- *  @param fromSrs from spatial reference system
- *  @param toAuthority   to authority
- *  @param toCode        to code
- *
- *  @return new projection transform
- */
--(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode;
-
-/**
- *  Initialize
- *
- *  @param fromEpsg from epsg
- *  @param toSrs    to spatial reference system
- *
- *  @return new projection transform
- */
--(instancetype) initWithFromEpsg: (int) fromEpsg andToSrs: (SFPSpatialReferenceSystem *) toSrs;
-
-/**
- *  Initialize
- *
- *  @param fromAuthority from authority
- *  @param fromCode      from code
- *  @param toSrs    to spatial reference system
- *
- *  @return new projection transform
- */
--(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToSrs: (SFPSpatialReferenceSystem *) toSrs;
-
-/**
  *  Transform a location coordinate
  *
  *  @param from location coordinate
@@ -211,7 +137,7 @@
  *
  *  @return transformed point
  */
--(WKBPoint *) transformWithPoint: (WKBPoint *) from;
+-(SFPoint *) transformWithPoint: (SFPoint *) from;
 
 /**
  *  Transform an array of points
@@ -220,7 +146,7 @@
  *
  *  @return transformed points
  */
--(NSArray<WKBPoint *> *) transformWithPoints: (NSArray<WKBPoint *> *) from;
+-(NSArray<SFPoint *> *) transformWithPoints: (NSArray<SFPoint *> *) from;
 
 /**
  *  Transform a geometry
@@ -229,16 +155,16 @@
  *
  *  @return projected geometry
  */
--(WKBGeometry *) transformWithGeometry: (WKBGeometry *) from;
+-(SFGeometry *) transformWithGeometry: (SFGeometry *) from;
 
 /**
- *  Transform a bounding box
+ *  Transform the geometry envelope
  *
- *  @param boundingBox bounding box to transform
+ *  @param envelope geometry envelope
  *
- *  @return transformed bounding box
+ *  @return geometry envelope
  */
--(SFPBoundingBox *) transformWithBoundingBox: (SFPBoundingBox *) boundingBox;
+-(SFGeometryEnvelope *) transformWithGeometryEnvelope: (SFGeometryEnvelope *) envelope;
 
 /**
  *  Transform a x and y coordinate

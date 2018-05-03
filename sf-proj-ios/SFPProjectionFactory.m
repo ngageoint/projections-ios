@@ -206,20 +206,6 @@ static NSMutableDictionary<NSString *, SFPAuthorityProjections *> * authorities;
     return projection;
 }
 
-+(SFPProjection *) projectionWithSrs: (SFPSpatialReferenceSystem *) srs{
-    
-    NSString *authority = srs.organization;
-    NSNumber *code = srs.organizationCoordsysId;
-    NSString *definition = srs.definition_12_063;
-    if(definition == nil){
-        definition = srs.definition;
-    }
-    
-    SFPProjection *projection = [self projectionWithAuthority:authority andNumberCode:code andParams:nil andDefinition:definition];
-    
-    return projection;
-}
-
 +(NSDecimalNumber *) toMetersFromParameters: (NSString *) parameters{
     
     NSDecimalNumber * toMeters = nil;

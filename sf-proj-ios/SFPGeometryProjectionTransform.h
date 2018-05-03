@@ -8,18 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "SFPProjectionTransform.h"
-#import "WKBPoint.h"
-#import "WKBLineString.h"
-#import "WKBPolygon.h"
-#import "WKBMultiPoint.h"
-#import "WKBMultiLineString.h"
-#import "WKBMultiPolygon.h"
-#import "WKBCircularString.h"
-#import "WKBCompoundCurve.h"
-#import "WKBPolyhedralSurface.h"
-#import "WKBTIN.h"
-#import "WKBTriangle.h"
-#import "WKBGeometryCollection.h"
+#import "SFPoint.h"
+#import "SFLineString.h"
+#import "SFPolygon.h"
+#import "SFMultiPoint.h"
+#import "SFMultiLineString.h"
+#import "SFMultiPolygon.h"
+#import "SFCircularString.h"
+#import "SFCompoundCurve.h"
+#import "SFPolyhedralSurface.h"
+#import "SFTIN.h"
+#import "SFTriangle.h"
+#import "SFGeometryCollection.h"
 
 @interface SFPGeometryProjectionTransform : NSObject
 
@@ -39,7 +39,7 @@
  *
  *  @return projected geometry
  */
--(WKBGeometry *) transformGeometry: (WKBGeometry *) geometry;
+-(SFGeometry *) transformGeometry: (SFGeometry *) geometry;
 
 /**
  *  Transform the point
@@ -48,7 +48,7 @@
  *
  *  @return projected point
  */
--(WKBPoint *) transformPoint: (WKBPoint *) point;
+-(SFPoint *) transformPoint: (SFPoint *) point;
 
 /**
  *  Transform the line string
@@ -57,7 +57,7 @@
  *
  *  @return projected line string
  */
--(WKBLineString *) transformLineString: (WKBLineString *) lineString;
+-(SFLineString *) transformLineString: (SFLineString *) lineString;
 
 /**
  *  Transform the polygon
@@ -66,7 +66,7 @@
  *
  *  @return projected polygon
  */
--(WKBPolygon *) transformPolygon: (WKBPolygon *) polygon;
+-(SFPolygon *) transformPolygon: (SFPolygon *) polygon;
 
 /**
  *  Transform the multi point
@@ -75,7 +75,7 @@
  *
  *  @return projected multi point
  */
--(WKBMultiPoint *) transformMultiPoint: (WKBMultiPoint *) multiPoint;
+-(SFMultiPoint *) transformMultiPoint: (SFMultiPoint *) multiPoint;
 
 /**
  *  Transform the multi line string
@@ -84,7 +84,7 @@
  *
  *  @return projected multi line string
  */
--(WKBMultiLineString *) transformMultiLineString: (WKBMultiLineString *) multiLineString;
+-(SFMultiLineString *) transformMultiLineString: (SFMultiLineString *) multiLineString;
 
 /**
  *  Transform the multi polygon
@@ -93,7 +93,7 @@
  *
  *  @return projected multi polygon
  */
--(WKBMultiPolygon *) transformMultiPolygon: (WKBMultiPolygon *) multiPolygon;
+-(SFMultiPolygon *) transformMultiPolygon: (SFMultiPolygon *) multiPolygon;
 
 /**
  *  Transform the circular string
@@ -102,7 +102,7 @@
  *
  *  @return projected circular string
  */
--(WKBCircularString *) transformCircularString: (WKBCircularString *) circularString;
+-(SFCircularString *) transformCircularString: (SFCircularString *) circularString;
 
 /**
  *  Transform the compound curve
@@ -111,7 +111,7 @@
  *
  *  @return projected compound curve
  */
--(WKBCompoundCurve *) transformCompoundCurve: (WKBCompoundCurve *) compoundCurve;
+-(SFCompoundCurve *) transformCompoundCurve: (SFCompoundCurve *) compoundCurve;
 
 /**
  *  Transform the polyhedrals surface
@@ -120,7 +120,7 @@
  *
  *  @return projected polyhedrals surface
  */
--(WKBPolyhedralSurface *) transformPolyhedralSurface: (WKBPolyhedralSurface *) polyhedralSurface;
+-(SFPolyhedralSurface *) transformPolyhedralSurface: (SFPolyhedralSurface *) polyhedralSurface;
 
 /**
  *  Transform the tin
@@ -129,7 +129,7 @@
  *
  *  @return projected tin
  */
--(WKBTIN *) transformTIN: (WKBTIN *) tin;
+-(SFTIN *) transformTIN: (SFTIN *) tin;
 
 /**
  *  Transform the triangle
@@ -138,7 +138,7 @@
  *
  *  @return projected triangle
  */
--(WKBTriangle *) transformTriangle: (WKBTriangle *) triangle;
+-(SFTriangle *) transformTriangle: (SFTriangle *) triangle;
 
 /**
  *  Transform the geometry collection
@@ -147,6 +147,6 @@
  *
  *  @return projected geometry collection
  */
--(WKBGeometryCollection *) transformGeometryCollection: (WKBGeometryCollection *) geometryCollection;
+-(SFGeometryCollection *) transformGeometryCollection: (SFGeometryCollection *) geometryCollection;
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "SFPProjectionTransform.h"
-#import "SFPUtils.h"
 #import "SFPProjectionFactory.h"
 #import "SFPGeometryProjectionTransform.h"
 #import "SFPProjectionConstants.h"
@@ -72,56 +71,6 @@
     return [self initWithFromProjection:fromProjection andToProjection:toProjection];
 }
 
--(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToSrs: (SFPSpatialReferenceSystem *) toSrs{
-    
-    NSString *fromCode = [fromSrs.organizationCoordsysId stringValue];
-    NSString *toCode = [toSrs.organizationCoordsysId stringValue];
-    
-    return [self initWithFromAuthority:fromSrs.organization andFromCode:fromCode andToAuthority:toSrs.organization andToCode:toCode];
-}
-
--(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToProjection: (SFPProjection *) toProjection{
-    
-    NSString *fromCode = [fromSrs.organizationCoordsysId stringValue];
-    
-    return [self initWithFromAuthority:fromSrs.organization andFromCode:fromCode andToProjection:toProjection];
-}
-
--(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToSrs: (SFPSpatialReferenceSystem *) toSrs{
-    
-    NSString *toCode = [toSrs.organizationCoordsysId stringValue];
-    
-    return [self initWithFromProjection:fromProjection andToAuthority:toSrs.organization andToCode:toCode];
-}
-
--(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToEpsg: (int) toEpsg{
-    
-    NSString *toCode = [NSString stringWithFormat:@"%d", toEpsg];
-    
-    return [self initWithFromSrs:fromSrs andToAuthority:PROJ_AUTHORITY_EPSG andToCode:toCode];
-}
-
--(instancetype) initWithFromSrs: (SFPSpatialReferenceSystem *) fromSrs andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode{
-    
-    NSString *fromCode = [fromSrs.organizationCoordsysId stringValue];
-    
-    return [self initWithFromAuthority:fromSrs.organization andFromCode:fromCode andToAuthority:toAuthority andToCode:toCode];
-}
-
--(instancetype) initWithFromEpsg: (int) fromEpsg andToSrs: (SFPSpatialReferenceSystem *) toSrs{
-    
-    NSString *fromCode = [NSString stringWithFormat:@"%d", fromEpsg];
-    
-    return [self initWithFromAuthority:PROJ_AUTHORITY_EPSG andFromCode:fromCode andToSrs:toSrs];
-}
-
--(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToSrs: (SFPSpatialReferenceSystem *) toSrs{
-    
-    NSString *toCode = [toSrs.organizationCoordsysId stringValue];
-    
-    return [self initWithFromAuthority:fromAuthority andFromCode:fromCode andToAuthority:toSrs.organization andToCode:toCode];
-}
-
 -(CLLocationCoordinate2D) transform: (CLLocationCoordinate2D) from{
     SFPLocationCoordinate3D * result = [self transform3d:[[SFPLocationCoordinate3D alloc] initWithCoordinate:from]];
     return result.coordinate;
@@ -161,41 +110,41 @@
     return [[SFPLocationCoordinate3D alloc] initWithCoordinate:to andZ:toZ];
 }
 
--(WKBPoint *) transformWithPoint: (WKBPoint *) from{
+-(SFPoint *) transformWithPoint: (SFPoint *) from{
     
     SFPGeometryProjectionTransform * geometryTransform = [[SFPGeometryProjectionTransform alloc] initWithProjectionTransform:self];
-    WKBPoint * to = [geometryTransform transformPoint:from];
+    SFPoint * to = [geometryTransform transformPoint:from];
     
     return to;
 }
 
--(NSArray<WKBPoint *> *) transformWithPoints: (NSArray<WKBPoint *> *) from{
+-(NSArray<SFPoint *> *) transformWithPoints: (NSArray<SFPoint *> *) from{
     
-    NSMutableArray<WKBPoint *> *to = [[NSMutableArray alloc] init];
+    NSMutableArray<SFPoint *> *to = [[NSMutableArray alloc] init];
     
     SFPGeometryProjectionTransform * geometryTransform = [[SFPGeometryProjectionTransform alloc] initWithProjectionTransform:self];
-    for(WKBPoint *fromPoint in from){
-        WKBPoint * toPoint = [geometryTransform transformPoint:fromPoint];
+    for(SFPoint *fromPoint in from){
+        SFPoint * toPoint = [geometryTransform transformPoint:fromPoint];
         [to addObject:toPoint];
     }
     
     return to;
 }
 
--(WKBGeometry *) transformWithGeometry: (WKBGeometry *) from{
+-(SFGeometry *) transformWithGeometry: (SFGeometry *) from{
     
     SFPGeometryProjectionTransform * geometryTransform = [[SFPGeometryProjectionTransform alloc] initWithProjectionTransform:self];
-    WKBGeometry * to = [geometryTransform transformGeometry:from];
+    SFGeometry * to = [geometryTransform transformGeometry:from];
     
     return to;
 }
 
--(SFPBoundingBox *) transformWithBoundingBox: (SFPBoundingBox *) boundingBox{
+-(SFGeometryEnvelope *) transformWithGeometryEnvelope: (SFGeometryEnvelope *) envelope{
     
-    CLLocationCoordinate2D lowerLeft = CLLocationCoordinate2DMake([boundingBox.minLatitude doubleValue], [boundingBox.minLongitude doubleValue]);
-    CLLocationCoordinate2D lowerRight = CLLocationCoordinate2DMake([boundingBox.minLatitude doubleValue], [boundingBox.maxLongitude doubleValue]);
-    CLLocationCoordinate2D upperRight = CLLocationCoordinate2DMake([boundingBox.maxLatitude doubleValue], [boundingBox.maxLongitude doubleValue]);
-    CLLocationCoordinate2D upperLeft = CLLocationCoordinate2DMake([boundingBox.maxLatitude doubleValue], [boundingBox.minLongitude doubleValue]);
+    CLLocationCoordinate2D lowerLeft = CLLocationCoordinate2DMake([envelope.minY doubleValue], [envelope.minX doubleValue]);
+    CLLocationCoordinate2D lowerRight = CLLocationCoordinate2DMake([envelope.minY doubleValue], [envelope.maxX doubleValue]);
+    CLLocationCoordinate2D upperRight = CLLocationCoordinate2DMake([envelope.maxY doubleValue], [envelope.maxX doubleValue]);
+    CLLocationCoordinate2D upperLeft = CLLocationCoordinate2DMake([envelope.maxY doubleValue], [envelope.minX doubleValue]);
 
     CLLocationCoordinate2D projectedLowerLeft = [self transform:lowerLeft];
     CLLocationCoordinate2D projectedLowerRight = [self transform:lowerRight];
@@ -207,9 +156,9 @@
     double minY = MIN(projectedLowerLeft.latitude, projectedLowerRight.latitude);
     double maxY = MAX(projectedUpperLeft.latitude, projectedUpperRight.latitude);
     
-    SFPBoundingBox * projectedBoundingBox = [[SFPBoundingBox alloc] initWithMinLongitudeDouble:minX andMinLatitudeDouble:minY andMaxLongitudeDouble:maxX andMaxLatitudeDouble:maxY];
+    SFGeometryEnvelope * projectedGeometryEnvelope = [[SFGeometryEnvelope alloc] initWithMinXDouble:minX andMinYDouble:minY andMaxXDouble:maxX andMaxYDouble:maxY];
     
-    return projectedBoundingBox;
+    return projectedGeometryEnvelope;
 }
 
 -(NSArray *) transformWithX: (double) x andY: (double) y{

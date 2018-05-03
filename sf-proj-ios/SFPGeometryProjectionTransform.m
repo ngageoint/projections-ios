@@ -25,47 +25,47 @@
     return self;
 }
 
--(WKBGeometry *) transformGeometry: (WKBGeometry *) geometry{
+-(SFGeometry *) transformGeometry: (SFGeometry *) geometry{
     
-    WKBGeometry * to = nil;
+    SFGeometry * to = nil;
     
-    enum WKBGeometryType geometryType = geometry.geometryType;
+    enum SFGeometryType geometryType = geometry.geometryType;
     switch(geometryType){
-        case WKB_POINT:
-            to = [self transformPoint:(WKBPoint *)geometry];
+        case SF_POINT:
+            to = [self transformPoint:(SFPoint *)geometry];
             break;
-        case WKB_LINESTRING:
-            to = [self transformLineString:(WKBLineString *)geometry];
+        case SF_LINESTRING:
+            to = [self transformLineString:(SFLineString *)geometry];
             break;
-        case WKB_POLYGON:
-            to = [self transformPolygon:(WKBPolygon *)geometry];
+        case SF_POLYGON:
+            to = [self transformPolygon:(SFPolygon *)geometry];
             break;
-        case WKB_MULTIPOINT:
-            to = [self transformMultiPoint:(WKBMultiPoint *)geometry];
+        case SF_MULTIPOINT:
+            to = [self transformMultiPoint:(SFMultiPoint *)geometry];
             break;
-        case WKB_MULTILINESTRING:
-            to = [self transformMultiLineString:(WKBMultiLineString *)geometry];
+        case SF_MULTILINESTRING:
+            to = [self transformMultiLineString:(SFMultiLineString *)geometry];
             break;
-        case WKB_MULTIPOLYGON:
-            to = [self transformMultiPolygon:(WKBMultiPolygon *)geometry];
+        case SF_MULTIPOLYGON:
+            to = [self transformMultiPolygon:(SFMultiPolygon *)geometry];
             break;
-        case WKB_CIRCULARSTRING:
-            to = [self transformCircularString:(WKBCircularString *)geometry];
+        case SF_CIRCULARSTRING:
+            to = [self transformCircularString:(SFCircularString *)geometry];
             break;
-        case WKB_COMPOUNDCURVE:
-            to = [self transformCompoundCurve:(WKBCompoundCurve *)geometry];
+        case SF_COMPOUNDCURVE:
+            to = [self transformCompoundCurve:(SFCompoundCurve *)geometry];
             break;
-        case WKB_POLYHEDRALSURFACE:
-            to = [self transformPolyhedralSurface:(WKBPolyhedralSurface *)geometry];
+        case SF_POLYHEDRALSURFACE:
+            to = [self transformPolyhedralSurface:(SFPolyhedralSurface *)geometry];
             break;
-        case WKB_TIN:
-            to = [self transformTIN:(WKBTIN *)geometry];
+        case SF_TIN:
+            to = [self transformTIN:(SFTIN *)geometry];
             break;
-        case WKB_TRIANGLE:
-            to = [self transformTriangle:(WKBTriangle *)geometry];
+        case SF_TRIANGLE:
+            to = [self transformTriangle:(SFTriangle *)geometry];
             break;
-        case WKB_GEOMETRYCOLLECTION:
-            to = [self transformGeometryCollection:(WKBGeometryCollection *)geometry];
+        case SF_GEOMETRYCOLLECTION:
+            to = [self transformGeometryCollection:(SFGeometryCollection *)geometry];
             break;
         default:
             [NSException raise:@"Unsupported Geometry" format:@"Unsupported Geometry Type: %u", geometryType];
@@ -74,7 +74,7 @@
     return to;
 }
 
--(WKBPoint *) transformPoint: (WKBPoint *) point{
+-(SFPoint *) transformPoint: (SFPoint *) point{
     
     CLLocationCoordinate2D fromCoord2d = CLLocationCoordinate2DMake([point.y doubleValue], [point.x doubleValue]);
     SFPLocationCoordinate3D * fromCoord = [[SFPLocationCoordinate3D alloc] initWithCoordinate:fromCoord2d];
@@ -86,7 +86,7 @@
     
     NSDecimalNumber * x = [[NSDecimalNumber alloc] initWithDouble:toCoord.coordinate.longitude];
     NSDecimalNumber * y = [[NSDecimalNumber alloc] initWithDouble:toCoord.coordinate.latitude];
-    WKBPoint * to = [[WKBPoint alloc] initWithHasZ:point.hasZ andHasM:point.hasM andX:x andY:y];
+    SFPoint * to = [[SFPoint alloc] initWithHasZ:point.hasZ andHasM:point.hasM andX:x andY:y];
     
     if(point.hasZ){
         [to setZ:toCoord.z];
@@ -98,132 +98,132 @@
     return to;
 }
 
--(WKBLineString *) transformLineString: (WKBLineString *) lineString{
+-(SFLineString *) transformLineString: (SFLineString *) lineString{
     
-    WKBLineString * to = [[WKBLineString alloc] initWithHasZ:lineString.hasZ andHasM:lineString.hasM];
+    SFLineString * to = [[SFLineString alloc] initWithHasZ:lineString.hasZ andHasM:lineString.hasM];
     
-    for(WKBPoint * point in lineString.points){
-        WKBPoint * toPoint = [self transformPoint:point];
+    for(SFPoint * point in lineString.points){
+        SFPoint * toPoint = [self transformPoint:point];
         [to addPoint:toPoint];
     }
     
     return to;
 }
 
--(WKBPolygon *) transformPolygon: (WKBPolygon *) polygon{
+-(SFPolygon *) transformPolygon: (SFPolygon *) polygon{
     
-    WKBPolygon * to = [[WKBPolygon alloc] initWithHasZ:polygon.hasZ andHasM:polygon.hasM];
+    SFPolygon * to = [[SFPolygon alloc] initWithHasZ:polygon.hasZ andHasM:polygon.hasM];
     
-    for(WKBLineString * ring in polygon.rings){
-        WKBLineString * toRing = [self transformLineString:ring];
+    for(SFLineString * ring in polygon.rings){
+        SFLineString * toRing = [self transformLineString:ring];
         [to addRing:toRing];
     }
     
     return to;
 }
 
--(WKBMultiPoint *) transformMultiPoint: (WKBMultiPoint *) multiPoint{
+-(SFMultiPoint *) transformMultiPoint: (SFMultiPoint *) multiPoint{
 
-    WKBMultiPoint * to = [[WKBMultiPoint alloc] initWithHasZ:multiPoint.hasZ andHasM:multiPoint.hasM];
+    SFMultiPoint * to = [[SFMultiPoint alloc] initWithHasZ:multiPoint.hasZ andHasM:multiPoint.hasM];
     
-    for(WKBPoint * point in [multiPoint getPoints]){
-        WKBPoint * toPoint = [self transformPoint:point];
+    for(SFPoint * point in [multiPoint points]){
+        SFPoint * toPoint = [self transformPoint:point];
         [to addPoint:toPoint];
     }
     
     return to;
 }
 
--(WKBMultiLineString *) transformMultiLineString: (WKBMultiLineString *) multiLineString{
+-(SFMultiLineString *) transformMultiLineString: (SFMultiLineString *) multiLineString{
 
-    WKBMultiLineString * to = [[WKBMultiLineString alloc] initWithHasZ:multiLineString.hasZ andHasM:multiLineString.hasM];
+    SFMultiLineString * to = [[SFMultiLineString alloc] initWithHasZ:multiLineString.hasZ andHasM:multiLineString.hasM];
     
-    for(WKBLineString * lineString in [multiLineString getLineStrings]){
-        WKBLineString * toLineString = [self transformLineString:lineString];
+    for(SFLineString * lineString in [multiLineString lineStrings]){
+        SFLineString * toLineString = [self transformLineString:lineString];
         [to addLineString:toLineString];
     }
     
     return to;
 }
 
--(WKBMultiPolygon *) transformMultiPolygon: (WKBMultiPolygon *) multiPolygon{
+-(SFMultiPolygon *) transformMultiPolygon: (SFMultiPolygon *) multiPolygon{
     
-    WKBMultiPolygon * to = [[WKBMultiPolygon alloc] initWithHasZ:multiPolygon.hasZ andHasM:multiPolygon.hasM];
+    SFMultiPolygon * to = [[SFMultiPolygon alloc] initWithHasZ:multiPolygon.hasZ andHasM:multiPolygon.hasM];
     
-    for(WKBPolygon * polygon in [multiPolygon getPolygons]){
-        WKBPolygon * toPolygon = [self transformPolygon:polygon];
+    for(SFPolygon * polygon in [multiPolygon polygons]){
+        SFPolygon * toPolygon = [self transformPolygon:polygon];
         [to addPolygon:toPolygon];
     }
     
     return to;
 }
 
--(WKBCircularString *) transformCircularString: (WKBCircularString *) circularString{
+-(SFCircularString *) transformCircularString: (SFCircularString *) circularString{
     
-    WKBCircularString * to = [[WKBCircularString alloc] initWithHasZ:circularString.hasZ andHasM:circularString.hasM];
+    SFCircularString * to = [[SFCircularString alloc] initWithHasZ:circularString.hasZ andHasM:circularString.hasM];
     
-    for(WKBPoint * point in circularString.points){
-        WKBPoint * toPoint = [self transformPoint:point];
+    for(SFPoint * point in circularString.points){
+        SFPoint * toPoint = [self transformPoint:point];
         [to addPoint:toPoint];
     }
     
     return to;
 }
 
--(WKBCompoundCurve *) transformCompoundCurve: (WKBCompoundCurve *) compoundCurve{
+-(SFCompoundCurve *) transformCompoundCurve: (SFCompoundCurve *) compoundCurve{
     
-    WKBCompoundCurve * to = [[WKBCompoundCurve alloc] initWithHasZ:compoundCurve.hasZ andHasM:compoundCurve.hasM];
+    SFCompoundCurve * to = [[SFCompoundCurve alloc] initWithHasZ:compoundCurve.hasZ andHasM:compoundCurve.hasM];
     
-    for(WKBLineString * lineString in compoundCurve.lineStrings){
-        WKBLineString * toLineString = [self transformLineString:lineString];
+    for(SFLineString * lineString in compoundCurve.lineStrings){
+        SFLineString * toLineString = [self transformLineString:lineString];
         [to addLineString:toLineString];
     }
     
     return to;
 }
 
--(WKBPolyhedralSurface *) transformPolyhedralSurface: (WKBPolyhedralSurface *) polyhedralSurface{
+-(SFPolyhedralSurface *) transformPolyhedralSurface: (SFPolyhedralSurface *) polyhedralSurface{
     
-    WKBPolyhedralSurface * to = [[WKBPolyhedralSurface alloc] initWithHasZ:polyhedralSurface.hasZ andHasM:polyhedralSurface.hasM];
+    SFPolyhedralSurface * to = [[SFPolyhedralSurface alloc] initWithHasZ:polyhedralSurface.hasZ andHasM:polyhedralSurface.hasM];
     
-    for(WKBPolygon * polygon in polyhedralSurface.polygons){
-        WKBPolygon * toPolygon = [self transformPolygon:polygon];
+    for(SFPolygon * polygon in polyhedralSurface.polygons){
+        SFPolygon * toPolygon = [self transformPolygon:polygon];
         [to addPolygon:toPolygon];
     }
     
     return to;
 }
 
--(WKBTIN *) transformTIN: (WKBTIN *) tin{
+-(SFTIN *) transformTIN: (SFTIN *) tin{
     
-    WKBTIN * to = [[WKBTIN alloc] initWithHasZ:tin.hasZ andHasM:tin.hasM];
+    SFTIN * to = [[SFTIN alloc] initWithHasZ:tin.hasZ andHasM:tin.hasM];
     
-    for(WKBPolygon * polygon in tin.polygons){
-        WKBPolygon * toPolygon = [self transformPolygon:polygon];
+    for(SFPolygon * polygon in tin.polygons){
+        SFPolygon * toPolygon = [self transformPolygon:polygon];
         [to addPolygon:toPolygon];
     }
     
     return to;
 }
 
--(WKBTriangle *) transformTriangle: (WKBTriangle *) triangle{
+-(SFTriangle *) transformTriangle: (SFTriangle *) triangle{
     
-    WKBTriangle * to = [[WKBTriangle alloc] initWithHasZ:triangle.hasZ andHasM:triangle.hasM];
+    SFTriangle * to = [[SFTriangle alloc] initWithHasZ:triangle.hasZ andHasM:triangle.hasM];
     
-    for(WKBLineString * ring in triangle.rings){
-        WKBLineString * toRing = [self transformLineString:ring];
+    for(SFLineString * ring in triangle.rings){
+        SFLineString * toRing = [self transformLineString:ring];
         [to addRing:toRing];
     }
     
     return to;
 }
 
--(WKBGeometryCollection *) transformGeometryCollection: (WKBGeometryCollection *) geometryCollection{
+-(SFGeometryCollection *) transformGeometryCollection: (SFGeometryCollection *) geometryCollection{
     
-    WKBGeometryCollection * to = [[WKBGeometryCollection alloc] initWithHasZ:geometryCollection.hasZ andHasM:geometryCollection.hasM];
+    SFGeometryCollection * to = [[SFGeometryCollection alloc] initWithHasZ:geometryCollection.hasZ andHasM:geometryCollection.hasM];
     
-    for(WKBGeometry * geometry in geometryCollection.geometries){
-        WKBGeometry * toGeometry = [self transformGeometry:geometry];
+    for(SFGeometry * geometry in geometryCollection.geometries){
+        SFGeometry * toGeometry = [self transformGeometry:geometry];
         [to addGeometry:toGeometry];
     }
 
