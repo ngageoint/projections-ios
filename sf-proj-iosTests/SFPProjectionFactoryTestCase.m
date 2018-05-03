@@ -48,7 +48,7 @@ static int code = 100001;
     authorityCode = [NSNumber numberWithInt:[authorityCode intValue] + 1];
     
     @try {
-        [SFPProjectionFactory projectionWithEpsg:authorityCode];
+        [SFPProjectionFactory projectionWithAuthority:authority andNumberCode:authorityCode];
         [SFPTestUtils fail:@"Invalid projection did not fail"];
     } @catch (NSException *exception) {
         // pass

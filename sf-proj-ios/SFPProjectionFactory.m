@@ -25,11 +25,15 @@ static NSMutableDictionary<NSString *, SFPAuthorityProjections *> * authorities;
 }
 
 +(SFPProjection *) projectionWithEpsgInt: (int) epsg{
-    return [self projectionWithAuthority:PROJ_AUTHORITY_EPSG andCode:[NSString stringWithFormat:@"%d",epsg]];
+    return [self projectionWithEpsg:[NSNumber numberWithInt:epsg]];
 }
 
 +(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code{
     return [self projectionWithAuthority:authority andCode:[code stringValue]];
+}
+
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code{
+    return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code]];
 }
 
 +(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code{
@@ -40,12 +44,20 @@ static NSMutableDictionary<NSString *, SFPAuthorityProjections *> * authorities;
     return [self projectionWithAuthority:authority andCode:[code stringValue] andParams:params];
 }
 
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params{
+    return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params];
+}
+
 +(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params{
     return [self projectionWithAuthority:authority andCode:code andParams:params andDefinition:nil];
 }
 
 +(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params andDefinition: (NSString *) definition{
     return [self projectionWithAuthority:authority andCode:[code stringValue] andParams:params andDefinition:definition];
+}
+
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params andDefinition: (NSString *) definition{
+    return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params andDefinition:definition];
 }
 
 +(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params andDefinition: (NSString *) definition{
@@ -105,6 +117,10 @@ static NSMutableDictionary<NSString *, SFPAuthorityProjections *> * authorities;
 
 +(void) clearAuthority: (NSString *) authority andNumberCode: (NSNumber *) code{
     [[self projectionsWithAuthority:authority] clearNumberCode:code];
+}
+
++(void) clearAuthority: (NSString *) authority andIntCode: (int) code{
+    [self clearAuthority:authority andNumberCode:[NSNumber numberWithInt:code]];
 }
 
 +(void) clearAuthority: (NSString *) authority andCode: (NSString *) code{

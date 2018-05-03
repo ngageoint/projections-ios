@@ -53,6 +53,17 @@
  *            authority coordinate code
  * @return projection
  */
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code;
+
+/**
+ * Get the projection for authority and code
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @return projection
+ */
 +(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code;
 
 /**
@@ -67,6 +78,19 @@
  * @return projection
  */
 +(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params;
+
+/**
+ * Get the projection for authority, code, and parameter string
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param params
+ *            proj4 string
+ * @return projection
+ */
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params;
 
 /**
  * Get the projection for authority, code, and parameter string
@@ -96,6 +120,22 @@
  * @return projection
  */
 +(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the authority, code, definition, and custom
+ * parameter array
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param params
+ *            proj4 string
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(SFPProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the authority, code, definition, and custom
@@ -144,6 +184,16 @@
  *            coordinate code
  */
 +(void) clearAuthority: (NSString *) authority andNumberCode: (NSNumber *) code;
+
+/**
+ * Clear the authority projection code
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            coordinate code
+ */
++(void) clearAuthority: (NSString *) authority andIntCode: (int) code;
 
 /**
  * Clear the authority projection code
