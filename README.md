@@ -23,10 +23,16 @@ View the latest [Appledoc on CocoaDocs](http://cocoadocs.org/docsets/sf-proj-ios
 
 //SFGeometry *geometry = nil;
 
-SFPProjection *projection1 = [SFPProjectionFactory projectionWithAuthority:PROJ_AUTHORITY_EPSG andIntCode:PROJ_EPSG_WEB_MERCATOR];
-SFPProjection *projection2 = [SFPProjectionFactory projectionWithAuthority:PROJ_AUTHORITY_EPSG andIntCode:PROJ_EPSG_WORLD_GEODETIC_SYSTEM];
+SFPProjection *projection1 =
+    [SFPProjectionFactory projectionWithAuthority:PROJ_AUTHORITY_EPSG
+    andIntCode:PROJ_EPSG_WEB_MERCATOR];
+SFPProjection *projection2 = 
+    [SFPProjectionFactory projectionWithAuthority:PROJ_AUTHORITY_EPSG
+    andIntCode:PROJ_EPSG_WORLD_GEODETIC_SYSTEM];
 
-SFPProjectionTransform *transform = [[SFPProjectionTransform alloc] initWithFromProjection:projection1 andToProjection:projection2];
+SFPProjectionTransform *transform =
+    [[SFPProjectionTransform alloc] initWithFromProjection:projection1
+    andToProjection:projection2];
 
 SFGeometry *transformed = [transform transformWithGeometry:geometry];
 
