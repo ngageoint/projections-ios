@@ -26,7 +26,7 @@ View the latest [Appledoc on CocoaDocs](http://cocoadocs.org/docsets/sf-proj-ios
 SFPProjection *projection1 =
     [SFPProjectionFactory projectionWithAuthority:PROJ_AUTHORITY_EPSG
     andIntCode:PROJ_EPSG_WEB_MERCATOR];
-SFPProjection *projection2 = 
+SFPProjection *projection2 =
     [SFPProjectionFactory projectionWithAuthority:PROJ_AUTHORITY_EPSG
     andIntCode:PROJ_EPSG_WORLD_GEODETIC_SYSTEM];
 
@@ -68,3 +68,8 @@ Pull from GitHub:
 Include as local project:
 
     pod 'sf-proj-ios', :path => '../simple-features-proj-ios'
+
+### Remote Dependencies ###
+
+* [Simple Features](https://github.com/ngageoint/simple-features-ios) (The MIT License (MIT)) - Simple Features Lib
+* [proj4](https://trac.osgeo.org/proj/) (The MIT License (MIT)) - Cartographic projection software
