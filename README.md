@@ -42,6 +42,7 @@ SFGeometry *transformed = [transform transformWithGeometry:geometry];
 
 Build this repository using Xcode and/or CocoaPods:
 
+    pod repo update
     pod install
 
 Open sf-proj-ios.xcworkspace in Xcode or build from command line:
