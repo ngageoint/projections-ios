@@ -27,7 +27,7 @@
 
 -(SFGeometry *) transformGeometry: (SFGeometry *) geometry{
     
-    SFGeometry * to = nil;
+    SFGeometry *to = nil;
     
     enum SFGeometryType geometryType = geometry.geometryType;
     switch(geometryType){
@@ -55,6 +55,9 @@
         case SF_COMPOUNDCURVE:
             to = [self transformCompoundCurve:(SFCompoundCurve *)geometry];
             break;
+        case SF_CURVEPOLYGON:
+            to = [self transformCurvePolygon:(SFCurvePolygon *)geometry];
+            break;
         case SF_POLYHEDRALSURFACE:
             to = [self transformPolyhedralSurface:(SFPolyhedralSurface *)geometry];
             break;
@@ -77,16 +80,16 @@
 -(SFPoint *) transformPoint: (SFPoint *) point{
     
     CLLocationCoordinate2D fromCoord2d = CLLocationCoordinate2DMake([point.y doubleValue], [point.x doubleValue]);
-    SFPLocationCoordinate3D * fromCoord = [[SFPLocationCoordinate3D alloc] initWithCoordinate:fromCoord2d];
+    SFPLocationCoordinate3D *fromCoord = [[SFPLocationCoordinate3D alloc] initWithCoordinate:fromCoord2d];
     if(point.hasZ){
         [fromCoord setZ:point.z];
     }
     
-    SFPLocationCoordinate3D * toCoord = [self.transform transform3d:fromCoord];
+    SFPLocationCoordinate3D *toCoord = [self.transform transform3d:fromCoord];
     
-    NSDecimalNumber * x = [[NSDecimalNumber alloc] initWithDouble:toCoord.coordinate.longitude];
-    NSDecimalNumber * y = [[NSDecimalNumber alloc] initWithDouble:toCoord.coordinate.latitude];
-    SFPoint * to = [[SFPoint alloc] initWithHasZ:point.hasZ andHasM:point.hasM andX:x andY:y];
+    NSDecimalNumber *x = [[NSDecimalNumber alloc] initWithDouble:toCoord.coordinate.longitude];
+    NSDecimalNumber *y = [[NSDecimalNumber alloc] initWithDouble:toCoord.coordinate.latitude];
+    SFPoint *to = [[SFPoint alloc] initWithHasZ:point.hasZ andHasM:point.hasM andX:x andY:y];
     
     if(point.hasZ){
         [to setZ:toCoord.z];
@@ -100,10 +103,18 @@
 
 -(SFLineString *) transformLineString: (SFLineString *) lineString{
     
-    SFLineString * to = [[SFLineString alloc] initWithHasZ:lineString.hasZ andHasM:lineString.hasM];
+    SFLineString *to = nil;
     
-    for(SFPoint * point in lineString.points){
-        SFPoint * toPoint = [self transformPoint:point];
+    switch (lineString.geometryType) {
+        case SF_CIRCULARSTRING:
+            to = [[SFCircularString alloc] initWithHasZ:lineString.hasZ andHasM:lineString.hasM];
+            break;
+        default:
+            to = [[SFLineString alloc] initWithHasZ:lineString.hasZ andHasM:lineString.hasM];
+    }
+    
+    for(SFPoint *point in lineString.points){
+        SFPoint *toPoint = [self transformPoint:point];
         [to addPoint:toPoint];
     }
     
@@ -112,10 +123,18 @@
 
 -(SFPolygon *) transformPolygon: (SFPolygon *) polygon{
     
-    SFPolygon * to = [[SFPolygon alloc] initWithHasZ:polygon.hasZ andHasM:polygon.hasM];
+    SFPolygon *to = nil;
     
-    for(SFLineString * ring in polygon.rings){
-        SFLineString * toRing = [self transformLineString:ring];
+    switch (polygon.geometryType) {
+        case SF_TRIANGLE:
+            to = [[SFTriangle alloc] initWithHasZ:polygon.hasZ andHasM:polygon.hasM];
+            break;
+        default:
+            to = [[SFPolygon alloc] initWithHasZ:polygon.hasZ andHasM:polygon.hasM];
+    }
+    
+    for(SFLineString *ring in polygon.rings){
+        SFLineString *toRing = [self transformLineString:ring];
         [to addRing:toRing];
     }
     
@@ -124,10 +143,10 @@
 
 -(SFMultiPoint *) transformMultiPoint: (SFMultiPoint *) multiPoint{
 
-    SFMultiPoint * to = [[SFMultiPoint alloc] initWithHasZ:multiPoint.hasZ andHasM:multiPoint.hasM];
+    SFMultiPoint *to = [[SFMultiPoint alloc] initWithHasZ:multiPoint.hasZ andHasM:multiPoint.hasM];
     
-    for(SFPoint * point in [multiPoint points]){
-        SFPoint * toPoint = [self transformPoint:point];
+    for(SFPoint *point in [multiPoint points]){
+        SFPoint *toPoint = [self transformPoint:point];
         [to addPoint:toPoint];
     }
     
@@ -136,10 +155,10 @@
 
 -(SFMultiLineString *) transformMultiLineString: (SFMultiLineString *) multiLineString{
 
-    SFMultiLineString * to = [[SFMultiLineString alloc] initWithHasZ:multiLineString.hasZ andHasM:multiLineString.hasM];
+    SFMultiLineString *to = [[SFMultiLineString alloc] initWithHasZ:multiLineString.hasZ andHasM:multiLineString.hasM];
     
-    for(SFLineString * lineString in [multiLineString lineStrings]){
-        SFLineString * toLineString = [self transformLineString:lineString];
+    for(SFLineString *lineString in [multiLineString lineStrings]){
+        SFLineString *toLineString = [self transformLineString:lineString];
         [to addLineString:toLineString];
     }
     
@@ -148,10 +167,10 @@
 
 -(SFMultiPolygon *) transformMultiPolygon: (SFMultiPolygon *) multiPolygon{
     
-    SFMultiPolygon * to = [[SFMultiPolygon alloc] initWithHasZ:multiPolygon.hasZ andHasM:multiPolygon.hasM];
+    SFMultiPolygon *to = [[SFMultiPolygon alloc] initWithHasZ:multiPolygon.hasZ andHasM:multiPolygon.hasM];
     
-    for(SFPolygon * polygon in [multiPolygon polygons]){
-        SFPolygon * toPolygon = [self transformPolygon:polygon];
+    for(SFPolygon *polygon in [multiPolygon polygons]){
+        SFPolygon *toPolygon = [self transformPolygon:polygon];
         [to addPolygon:toPolygon];
     }
     
@@ -159,24 +178,38 @@
 }
 
 -(SFCircularString *) transformCircularString: (SFCircularString *) circularString{
+    return (SFCircularString *) [self transformLineString:circularString];
+}
+
+-(SFCompoundCurve *) transformCompoundCurve: (SFCompoundCurve *) compoundCurve{
     
-    SFCircularString * to = [[SFCircularString alloc] initWithHasZ:circularString.hasZ andHasM:circularString.hasM];
+    SFCompoundCurve *to = [[SFCompoundCurve alloc] initWithHasZ:compoundCurve.hasZ andHasM:compoundCurve.hasM];
     
-    for(SFPoint * point in circularString.points){
-        SFPoint * toPoint = [self transformPoint:point];
-        [to addPoint:toPoint];
+    for(SFLineString *lineString in compoundCurve.lineStrings){
+        SFLineString *toLineString = [self transformLineString:lineString];
+        [to addLineString:toLineString];
     }
     
     return to;
 }
 
--(SFCompoundCurve *) transformCompoundCurve: (SFCompoundCurve *) compoundCurve{
+-(SFCurvePolygon *) transformCurvePolygon: (SFCurvePolygon *) curvePolygon{
     
-    SFCompoundCurve * to = [[SFCompoundCurve alloc] initWithHasZ:compoundCurve.hasZ andHasM:compoundCurve.hasM];
+    SFCurvePolygon *to = [[SFCurvePolygon alloc] initWithHasZ:curvePolygon.hasZ andHasM:curvePolygon.hasM];
     
-    for(SFLineString * lineString in compoundCurve.lineStrings){
-        SFLineString * toLineString = [self transformLineString:lineString];
-        [to addLineString:toLineString];
+    for(SFCurve *ring in curvePolygon.rings){
+        
+        SFCurve *toRing = nil;
+        
+        switch (ring.geometryType) {
+            case SF_COMPOUNDCURVE:
+                toRing = [self transformCompoundCurve:(SFCompoundCurve *)ring];
+                break;
+            default:
+                toRing = [self transformLineString:(SFLineString *)ring];
+        }
+        
+        [to addRing:toRing];
     }
     
     return to;
@@ -184,10 +217,18 @@
 
 -(SFPolyhedralSurface *) transformPolyhedralSurface: (SFPolyhedralSurface *) polyhedralSurface{
     
-    SFPolyhedralSurface * to = [[SFPolyhedralSurface alloc] initWithHasZ:polyhedralSurface.hasZ andHasM:polyhedralSurface.hasM];
+    SFPolyhedralSurface *to = nil;
     
-    for(SFPolygon * polygon in polyhedralSurface.polygons){
-        SFPolygon * toPolygon = [self transformPolygon:polygon];
+    switch (polyhedralSurface.geometryType) {
+        case SF_TIN:
+            to = [[SFTIN alloc] initWithHasZ:polyhedralSurface.hasZ andHasM:polyhedralSurface.hasM];
+            break;
+        default:
+            to = [[SFPolyhedralSurface alloc] initWithHasZ:polyhedralSurface.hasZ andHasM:polyhedralSurface.hasM];
+    }
+    
+    for(SFPolygon *polygon in polyhedralSurface.polygons){
+        SFPolygon *toPolygon = [self transformPolygon:polygon];
         [to addPolygon:toPolygon];
     }
     
@@ -195,35 +236,19 @@
 }
 
 -(SFTIN *) transformTIN: (SFTIN *) tin{
-    
-    SFTIN * to = [[SFTIN alloc] initWithHasZ:tin.hasZ andHasM:tin.hasM];
-    
-    for(SFPolygon * polygon in tin.polygons){
-        SFPolygon * toPolygon = [self transformPolygon:polygon];
-        [to addPolygon:toPolygon];
-    }
-    
-    return to;
+    return (SFTIN *) [self transformPolyhedralSurface:tin];
 }
 
 -(SFTriangle *) transformTriangle: (SFTriangle *) triangle{
-    
-    SFTriangle * to = [[SFTriangle alloc] initWithHasZ:triangle.hasZ andHasM:triangle.hasM];
-    
-    for(SFLineString * ring in triangle.rings){
-        SFLineString * toRing = [self transformLineString:ring];
-        [to addRing:toRing];
-    }
-    
-    return to;
+    return (SFTriangle *) [self transformPolygon:triangle];
 }
 
 -(SFGeometryCollection *) transformGeometryCollection: (SFGeometryCollection *) geometryCollection{
     
-    SFGeometryCollection * to = [[SFGeometryCollection alloc] initWithHasZ:geometryCollection.hasZ andHasM:geometryCollection.hasM];
+    SFGeometryCollection *to = [[SFGeometryCollection alloc] initWithHasZ:geometryCollection.hasZ andHasM:geometryCollection.hasM];
     
-    for(SFGeometry * geometry in geometryCollection.geometries){
-        SFGeometry * toGeometry = [self transformGeometry:geometry];
+    for(SFGeometry *geometry in geometryCollection.geometries){
+        SFGeometry *toGeometry = [self transformGeometry:geometry];
         [to addGeometry:toGeometry];
     }
 

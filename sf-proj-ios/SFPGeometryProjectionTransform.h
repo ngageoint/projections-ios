@@ -114,6 +114,15 @@
 -(SFCompoundCurve *) transformCompoundCurve: (SFCompoundCurve *) compoundCurve;
 
 /**
+ *  Transform the curve polygon
+ *
+ *  @param curvePolygon curve polygon
+ *
+ *  @return projected curve polygon
+ */
+-(SFCurvePolygon *) transformCurvePolygon: (SFCurvePolygon *) curvePolygon;
+
+/**
  *  Transform the polyhedrals surface
  *
  *  @param polyhedralSurface polyhedrals surface
