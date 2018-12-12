@@ -18,6 +18,6 @@ Pod::Spec.new do |s|
   s.resource_bundle = { 'sf-proj-ios' => ['sf-proj-ios/**/*.plist'] }
   s.frameworks = 'Foundation'
 
-  s.dependency 'sf-ios', '~> 2.0.1'
+  s.dependency 'sf-ios', '~> 2.0.2'
   s.dependency 'proj4-ios', '~> 4.9.3'
 end
