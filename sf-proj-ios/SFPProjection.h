@@ -91,6 +91,15 @@
 -(enum SFPUnit) getUnit;
 
 /**
+ * Determine if the projection is in the provided unit
+ *
+ * @param unit
+ *            unit
+ * @return true if in the provided unit
+ */
+-(BOOL) isUnit: (enum SFPUnit) unit;
+
+/**
  * Check if this projection is equal to the authority and code
  *
  * @param authority

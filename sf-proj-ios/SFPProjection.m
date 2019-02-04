@@ -100,6 +100,10 @@
     return unit;
 }
 
+-(BOOL) isUnit: (enum SFPUnit) unit{
+    return [self getUnit] == unit;
+}
+
 -(BOOL) isEqualToAuthority: (NSString *) authority andNumberCode: (NSNumber *) code{
     return [self isEqualToAuthority:authority andCode:[code stringValue]];
 }
