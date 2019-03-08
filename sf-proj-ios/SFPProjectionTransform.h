@@ -183,4 +183,11 @@
  */
 -(BOOL) isSameProjection;
 
+/**
+ * Get the inverse transformation
+ *
+ * @return inverse transformation
+ */
+-(SFPProjectionTransform *) inverseTransformation;
+
 @end

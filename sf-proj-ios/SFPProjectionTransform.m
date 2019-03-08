@@ -171,4 +171,8 @@
     return [self.fromProjection isEqualToProjection:self.toProjection];
 }
 
+-(SFPProjectionTransform *) inverseTransformation{
+    return [[SFPProjectionTransform alloc] initWithFromProjection:self.toProjection andToProjection:self.fromProjection];
+}
+
 @end
