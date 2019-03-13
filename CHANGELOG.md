@@ -6,7 +6,9 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ## 2.0.2 (TBD)
 
-* TBD
+* sf-ios 2.0.2
+* Projection is unit method
+* Projection Transform inverse transformation method
 
 ## [2.0.1](https://github.com/ngageoint/simple-features-proj-ios/releases/tag/2.0.1) (09-25-2018)
 
