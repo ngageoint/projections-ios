@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'sf-proj-ios' do
-  pod 'sf-ios', '~> 2.0.2'
+  pod 'sf-ios', '~> 2.0.3'
   pod 'proj4-ios', '~> 4.9.3'
 
   target 'sf-proj-iosTests' do
