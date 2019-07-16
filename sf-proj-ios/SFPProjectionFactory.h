@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SFPProjection.h"
 #import "SFPAuthorityProjections.h"
+#import "SFPProjections.h"
 
 /**
  *  Projection factory for coordinate projections and transformations
@@ -152,6 +153,13 @@
  * @return projection
  */
 +(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params andDefinition: (NSString *) definition;
+
+/**
+ * Get the projections
+ *
+ * @return projections
+ */
++(SFPProjections *) projections;
 
 /**
  * Get or create projections for the authority

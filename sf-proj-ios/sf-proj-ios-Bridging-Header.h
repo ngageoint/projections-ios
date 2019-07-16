@@ -17,6 +17,7 @@
 #import "SFPProjectionConstants.h"
 #import "SFPProjectionFactory.h"
 #import "SFPProjectionRetriever.h"
+#import "SFPProjections.h"
 #import "SFPProjectionTransform.h"
 #import "SFPLocationCoordinate3D.h"
 #import "SFPUnits.h"

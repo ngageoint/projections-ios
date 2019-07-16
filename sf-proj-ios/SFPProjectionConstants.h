@@ -14,11 +14,13 @@
 extern NSString * const PROJ_PROPERTIES;
 extern NSString * const PROJ_AUTHORITY_EPSG;
 extern NSString * const PROJ_AUTHORITY_NONE;
+extern NSString * const PROJ_AUTHORITY_OGC;
 extern int const PROJ_UNDEFINED_CARTESIAN;
 extern int const PROJ_UNDEFINED_GEOGRAPHIC;
 extern int const PROJ_EPSG_WORLD_GEODETIC_SYSTEM;
 extern int const PROJ_EPSG_WEB_MERCATOR;
 extern int const PROJ_EPSG_WORLD_GEODETIC_SYSTEM_GEOGRAPHICAL_3D;
+extern NSString * const PROJ_OGC_CRS84;
 extern double const PROJ_WEB_MERCATOR_MAX_LAT_RANGE;
 extern double const PROJ_WEB_MERCATOR_MIN_LAT_RANGE;
 extern double const PROJ_WEB_MERCATOR_HALF_WORLD_WIDTH;
