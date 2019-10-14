@@ -54,7 +54,7 @@
 }
 
 -(BOOL) hasProjectionCode: (NSString *) code{
-    return [self projectionForCode:code];
+    return [self projectionForCode:code] != nil;
 }
 
 -(void) addProjection: (SFPProjection *) projection{

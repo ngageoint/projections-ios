@@ -652,331 +652,331 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h",
-      "line": 20,
-      "symbol": "SFGeometryEnvelope.maxX",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h",
-      "line": 26,
-      "symbol": "SFGeometryEnvelope.maxY",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h",
-      "line": 32,
-      "symbol": "SFGeometryEnvelope.minZ",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h",
-      "line": 33,
-      "symbol": "SFGeometryEnvelope.maxZ",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h",
-      "line": 39,
-      "symbol": "SFGeometryEnvelope.minM",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h",
-      "line": 40,
-      "symbol": "SFGeometryEnvelope.maxM",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 15,
-      "symbol": "SFGeometryType.SF_GEOMETRY",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 16,
-      "symbol": "SFGeometryType.SF_POINT",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 17,
-      "symbol": "SFGeometryType.SF_LINESTRING",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 18,
-      "symbol": "SFGeometryType.SF_POLYGON",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 19,
-      "symbol": "SFGeometryType.SF_MULTIPOINT",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 20,
-      "symbol": "SFGeometryType.SF_MULTILINESTRING",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 21,
-      "symbol": "SFGeometryType.SF_MULTIPOLYGON",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 22,
-      "symbol": "SFGeometryType.SF_GEOMETRYCOLLECTION",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 23,
-      "symbol": "SFGeometryType.SF_CIRCULARSTRING",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 24,
-      "symbol": "SFGeometryType.SF_COMPOUNDCURVE",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 25,
-      "symbol": "SFGeometryType.SF_CURVEPOLYGON",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 26,
-      "symbol": "SFGeometryType.SF_MULTICURVE",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 27,
-      "symbol": "SFGeometryType.SF_MULTISURFACE",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 28,
-      "symbol": "SFGeometryType.SF_CURVE",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 29,
-      "symbol": "SFGeometryType.SF_SURFACE",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 30,
-      "symbol": "SFGeometryType.SF_POLYHEDRALSURFACE",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 31,
-      "symbol": "SFGeometryType.SF_TIN",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 32,
-      "symbol": "SFGeometryType.SF_TRIANGLE",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 33,
-      "symbol": "SFGeometryType.SF_NONE",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 40,
-      "symbol": "SF_POINT_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 41,
-      "symbol": "SF_LINESTRING_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 42,
-      "symbol": "SF_POLYGON_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 43,
-      "symbol": "SF_MULTIPOINT_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 44,
-      "symbol": "SF_MULTILINESTRING_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 45,
-      "symbol": "SF_MULTIPOLYGON_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 46,
-      "symbol": "SF_GEOMETRYCOLLECTION_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 47,
-      "symbol": "SF_CIRCULARSTRING_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 48,
-      "symbol": "SF_COMPOUNDCURVE_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 49,
-      "symbol": "SF_CURVEPOLYGON_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 50,
-      "symbol": "SF_MULTICURVE_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 51,
-      "symbol": "SF_MULTISURFACE_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 52,
-      "symbol": "SF_CURVE_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 53,
-      "symbol": "SF_SURFACE_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 54,
-      "symbol": "SF_POLYHEDRALSURFACE_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 55,
-      "symbol": "SF_TIN_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 56,
-      "symbol": "SF_TRIANGLE_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 57,
-      "symbol": "SF_NONE_NAME",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
-      "line": 59,
-      "symbol": "SFGeometryTypes",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/util/sweep/SFEventTypes.h",
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFEventTypes.h",
       "line": 15,
       "symbol": "SFEventType.SF_ET_LEFT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/util/sweep/SFEventTypes.h",
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFEventTypes.h",
       "line": 16,
       "symbol": "SFEventType.SF_ET_RIGHT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/sf-ios/sf-ios/util/sweep/SFEventTypes.h",
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFEventTypes.h",
       "line": 19,
       "symbol": "SFEventTypes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryEnvelope.h",
+      "line": 20,
+      "symbol": "SFGeometryEnvelope.maxX",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryEnvelope.h",
+      "line": 26,
+      "symbol": "SFGeometryEnvelope.maxY",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryEnvelope.h",
+      "line": 32,
+      "symbol": "SFGeometryEnvelope.minZ",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryEnvelope.h",
+      "line": 33,
+      "symbol": "SFGeometryEnvelope.maxZ",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryEnvelope.h",
+      "line": 39,
+      "symbol": "SFGeometryEnvelope.minM",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryEnvelope.h",
+      "line": 40,
+      "symbol": "SFGeometryEnvelope.maxM",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 15,
+      "symbol": "SFGeometryType.SF_GEOMETRY",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 16,
+      "symbol": "SFGeometryType.SF_POINT",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 17,
+      "symbol": "SFGeometryType.SF_LINESTRING",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 18,
+      "symbol": "SFGeometryType.SF_POLYGON",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 19,
+      "symbol": "SFGeometryType.SF_MULTIPOINT",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 20,
+      "symbol": "SFGeometryType.SF_MULTILINESTRING",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 21,
+      "symbol": "SFGeometryType.SF_MULTIPOLYGON",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 22,
+      "symbol": "SFGeometryType.SF_GEOMETRYCOLLECTION",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 23,
+      "symbol": "SFGeometryType.SF_CIRCULARSTRING",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 24,
+      "symbol": "SFGeometryType.SF_COMPOUNDCURVE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 25,
+      "symbol": "SFGeometryType.SF_CURVEPOLYGON",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 26,
+      "symbol": "SFGeometryType.SF_MULTICURVE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 27,
+      "symbol": "SFGeometryType.SF_MULTISURFACE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 28,
+      "symbol": "SFGeometryType.SF_CURVE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 29,
+      "symbol": "SFGeometryType.SF_SURFACE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 30,
+      "symbol": "SFGeometryType.SF_POLYHEDRALSURFACE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 31,
+      "symbol": "SFGeometryType.SF_TIN",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 32,
+      "symbol": "SFGeometryType.SF_TRIANGLE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 33,
+      "symbol": "SFGeometryType.SF_NONE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 40,
+      "symbol": "SF_POINT_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 41,
+      "symbol": "SF_LINESTRING_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 42,
+      "symbol": "SF_POLYGON_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 43,
+      "symbol": "SF_MULTIPOINT_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 44,
+      "symbol": "SF_MULTILINESTRING_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 45,
+      "symbol": "SF_MULTIPOLYGON_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 46,
+      "symbol": "SF_GEOMETRYCOLLECTION_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 47,
+      "symbol": "SF_CIRCULARSTRING_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 48,
+      "symbol": "SF_COMPOUNDCURVE_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 49,
+      "symbol": "SF_CURVEPOLYGON_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 50,
+      "symbol": "SF_MULTICURVE_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 51,
+      "symbol": "SF_MULTISURFACE_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 52,
+      "symbol": "SF_CURVE_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 53,
+      "symbol": "SF_SURFACE_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 54,
+      "symbol": "SF_POLYHEDRALSURFACE_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 55,
+      "symbol": "SF_TIN_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 56,
+      "symbol": "SF_TRIANGLE_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 57,
+      "symbol": "SF_NONE_NAME",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryTypes.h",
+      "line": 59,
+      "symbol": "SFGeometryTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
@@ -1032,83 +1032,97 @@
     {
       "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
       "line": 17,
-      "symbol": "PROJ_UNDEFINED_CARTESIAN",
+      "symbol": "PROJ_AUTHORITY_OGC",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
       "line": 18,
-      "symbol": "PROJ_UNDEFINED_GEOGRAPHIC",
+      "symbol": "PROJ_UNDEFINED_CARTESIAN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
       "line": 19,
-      "symbol": "PROJ_EPSG_WORLD_GEODETIC_SYSTEM",
+      "symbol": "PROJ_UNDEFINED_GEOGRAPHIC",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
       "line": 20,
-      "symbol": "PROJ_EPSG_WEB_MERCATOR",
+      "symbol": "PROJ_EPSG_WORLD_GEODETIC_SYSTEM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
       "line": 21,
-      "symbol": "PROJ_EPSG_WORLD_GEODETIC_SYSTEM_GEOGRAPHICAL_3D",
+      "symbol": "PROJ_EPSG_WEB_MERCATOR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
       "line": 22,
-      "symbol": "PROJ_WEB_MERCATOR_MAX_LAT_RANGE",
+      "symbol": "PROJ_EPSG_WORLD_GEODETIC_SYSTEM_GEOGRAPHICAL_3D",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
       "line": 23,
-      "symbol": "PROJ_WEB_MERCATOR_MIN_LAT_RANGE",
+      "symbol": "PROJ_OGC_CRS84",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
       "line": 24,
-      "symbol": "PROJ_WEB_MERCATOR_HALF_WORLD_WIDTH",
+      "symbol": "PROJ_WEB_MERCATOR_MAX_LAT_RANGE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
       "line": 25,
-      "symbol": "PROJ_MERCATOR_RADIUS",
+      "symbol": "PROJ_WEB_MERCATOR_MIN_LAT_RANGE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
       "line": 26,
-      "symbol": "PROJ_WGS84_HALF_WORLD_LON_WIDTH",
+      "symbol": "PROJ_WEB_MERCATOR_HALF_WORLD_WIDTH",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
       "line": 27,
-      "symbol": "PROJ_WGS84_HALF_WORLD_LAT_HEIGHT",
+      "symbol": "PROJ_MERCATOR_RADIUS",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
+      "line": 28,
+      "symbol": "PROJ_WGS84_HALF_WORLD_LON_WIDTH",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
       "line": 29,
+      "symbol": "PROJ_WGS84_HALF_WORLD_LAT_HEIGHT",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/sf-proj-ios/SFPProjectionConstants.h",
+      "line": 31,
       "symbol": "SFPProjectionConstants",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"

@@ -14,7 +14,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">sf-proj-ios Docs</a> (72% documented)</p>
+        <p><a href="index.html">sf-proj-ios Docs</a> (73% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-proj-ios"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -146,6 +146,9 @@
                 <a href="Classes/SFPProjectionTransform.html">SFPProjectionTransform</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/SFPProjections.html">SFPProjections</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes.html#/c:objc(cs)SFPUnits">SFPUnits</a>
               </li>
               <li class="nav-group-task">
@@ -187,6 +190,9 @@
                 <a href="Constants.html#/c:@PROJ_AUTHORITY_NONE">PROJ_AUTHORITY_NONE</a>
               </li>
               <li class="nav-group-task">
+                <a href="Constants.html#/c:@PROJ_AUTHORITY_OGC">PROJ_AUTHORITY_OGC</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Constants.html#/c:@PROJ_EPSG_WEB_MERCATOR">PROJ_EPSG_WEB_MERCATOR</a>
               </li>
               <li class="nav-group-task">
@@ -197,6 +203,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Constants.html#/c:@PROJ_MERCATOR_RADIUS">PROJ_MERCATOR_RADIUS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:@PROJ_OGC_CRS84">PROJ_OGC_CRS84</a>
               </li>
               <li class="nav-group-task">
                 <a href="Constants.html#/c:@PROJ_PROPERTIES">PROJ_PROPERTIES</a>
@@ -535,46 +544,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@SFGeometryType"></a>
-                    <a name="//apple_ref/objc/Enum/SFGeometryType" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@SFGeometryType">SFGeometryType</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Geometry Type enumeration</p>
-
-                        <a href="Enums/SFGeometryType.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SFGeometryType</span> <span class="p">{}</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">SFGeometryType</span> <span class="p">:</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt">RawRepresentable</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.2/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L14-L34">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/c:@E@SFEventType"></a>
                     <a name="//apple_ref/objc/Enum/SFEventType" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SFEventType">SFEventType</a>
@@ -602,8 +571,42 @@
 
                         </div>
                       </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.2/Pods/sf-ios/sf-ios/util/sweep/SFEventTypes.h#L14-L17">Show on GitHub</a>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SFGeometryType"></a>
+                    <a name="//apple_ref/objc/Enum/SFGeometryType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SFGeometryType">SFGeometryType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Geometry Type enumeration</p>
+
+                        <a href="Enums/SFGeometryType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SFGeometryType</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">SFGeometryType</span> <span class="p">:</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt">RawRepresentable</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -643,7 +646,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.2/sf-proj-ios/SFPUnits.h#L14-L18">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPUnits.h#L14-L18">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -653,7 +656,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-04-03)</p>
+          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
