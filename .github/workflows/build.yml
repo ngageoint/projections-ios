@@ -14,6 +14,10 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v1
+    - name: Install Utilities
+      run: |
+        brew install automake
+        brew install libtool
     - name: Install
       run: pod install
     - name: Build
