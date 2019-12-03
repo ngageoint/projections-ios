@@ -1,6 +1,6 @@
 //
 //  SFPProjectionConstants.h
-//  sf-ios-proj
+//  sf-proj-ios
 //
 //  Created by Brian Osborn on 5/15/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
