@@ -1,6 +1,6 @@
 //
 //  SFPGeometryProjectionTransform.m
-//  sf-ios-proj
+//  sf-proj-ios
 //
 //  Created by Brian Osborn on 1/18/16.
 //  Copyright © 2016 NGA. All rights reserved.
