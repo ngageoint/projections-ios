@@ -136,4 +136,8 @@
     return result;
 }
 
+-(NSString *) description{
+    return [NSString stringWithFormat:@"%@:%@", _authority, _code];
+}
+
 @end

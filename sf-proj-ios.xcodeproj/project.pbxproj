@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041F18E124CB2291001311E4 /* SFPReadmeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F18E024CB2291001311E4 /* SFPReadmeTest.m */; };
+		041F18E424CB3762001311E4 /* SFPSwiftReadmeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F18E324CB3762001311E4 /* SFPSwiftReadmeTest.swift */; };
 		042FC6571B963FE500549A4B /* sf_proj_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FC64B1B963FE500549A4B /* sf_proj_ios.framework */; };
 		042FC6AF1B96421E00549A4B /* (null) in Headers */ = {isa = PBXBuildFile; };
 		042FC6D31B96421E00549A4B /* sf-proj-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* sf-proj-ios-Prefix.pch */; };
@@ -57,6 +59,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041F18DF24CB2291001311E4 /* SFPReadmeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPReadmeTest.h; sourceTree = "<group>"; };
+		041F18E024CB2291001311E4 /* SFPReadmeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPReadmeTest.m; sourceTree = "<group>"; };
+		041F18E224CB3762001311E4 /* sf-proj-iosTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sf-proj-iosTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		041F18E324CB3762001311E4 /* SFPSwiftReadmeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFPSwiftReadmeTest.swift; sourceTree = "<group>"; };
 		042FC64B1B963FE500549A4B /* sf_proj_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sf_proj_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		042FC64F1B963FE500549A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		042FC6561B963FE500549A4B /* sf_proj_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sf_proj_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +201,10 @@
 		042FC65A1B963FE500549A4B /* sf-proj-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				041F18DF24CB2291001311E4 /* SFPReadmeTest.h */,
+				041F18E024CB2291001311E4 /* SFPReadmeTest.m */,
+				041F18E324CB3762001311E4 /* SFPSwiftReadmeTest.swift */,
+				041F18E224CB3762001311E4 /* sf-proj-iosTests-Bridging-Header.h */,
 				04F4562B209B6C0B00FC299E /* SFPProjectionFactoryTestCase.h */,
 				04F4562A209B6C0B00FC299E /* SFPProjectionFactoryTestCase.m */,
 				04F45630209B795F00FC299E /* SFPProjectionTransformTestCase.h */,
@@ -315,6 +325,7 @@
 					};
 					042FC6551B963FE500549A4B = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 1160;
 					};
 				};
 			};
@@ -421,6 +432,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F4562F209B6D1000FC299E /* SFPTestUtils.m in Sources */,
+				041F18E124CB2291001311E4 /* SFPReadmeTest.m in Sources */,
+				041F18E424CB3762001311E4 /* SFPSwiftReadmeTest.swift in Sources */,
 				04F4562C209B6C0B00FC299E /* SFPProjectionFactoryTestCase.m in Sources */,
 				04F45632209B795F00FC299E /* SFPProjectionTransformTestCase.m in Sources */,
 			);
@@ -590,6 +603,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6179C77188B4A0E8D4DEDBEB /* Pods-sf-proj-iosTests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -601,6 +615,9 @@
 				INFOPLIST_FILE = "sf-proj-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = sf_proj_iosTests;
+				SWIFT_OBJC_BRIDGING_HEADER = "sf-proj-iosTests/sf-proj-iosTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -608,6 +625,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B17E59AE80997CC09DD740D6 /* Pods-sf-proj-iosTests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -615,6 +633,8 @@
 				INFOPLIST_FILE = "sf-proj-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = sf_proj_iosTests;
+				SWIFT_OBJC_BRIDGING_HEADER = "sf-proj-iosTests/sf-proj-iosTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

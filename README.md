@@ -21,7 +21,7 @@ View the latest [Appledoc](http://ngageoint.github.io/simple-features-proj-ios/d
 
 ```objectivec
 
-//SFGeometry *geometry = nil;
+// SFGeometry *geometry = ...
 
 SFPProjection *projection1 =
     [SFPProjectionFactory projectionWithAuthority:PROJ_AUTHORITY_EPSG
@@ -71,6 +71,27 @@ Pull from GitHub:
 Include as local project:
 
     pod 'sf-proj-ios', :path => '../simple-features-proj-ios'
+
+### Swift ###
+
+To use from Swift, import the sf-proj-ios bridging header from the Swift project's bridging header
+
+    #import "sf-proj-ios-Bridging-Header.h"
+
+#### Transform ####
+
+```swift
+
+// var geometry: SFGeometry = ...
+
+let projection1: SFPProjection = SFPProjectionFactory.projection(withAuthority: PROJ_AUTHORITY_EPSG, andIntCode: PROJ_EPSG_WEB_MERCATOR)
+let projection2: SFPProjection = SFPProjectionFactory.projection(withAuthority: PROJ_AUTHORITY_EPSG, andIntCode: PROJ_EPSG_WORLD_GEODETIC_SYSTEM)
+
+let transform: SFPProjectionTransform = SFPProjectionTransform(from: projection1, andTo: projection2)
+
+let transformed: SFGeometry = transform.transform(with: geometry)
+
+```
 
 ### Remote Dependencies ###
 
