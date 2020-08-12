@@ -4,9 +4,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 2.0.4 (TBD)
+## 3.0.0 (TBD)
 
-* TBD
+* sf-ios 3.0.0
+* Projection description implementation as authority:code
 
 ## [2.0.3](https://github.com/ngageoint/simple-features-proj-ios/releases/tag/2.0.3) (10-14-2019)
 
