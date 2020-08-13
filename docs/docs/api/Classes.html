@@ -8,14 +8,22 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Section/Classes" class="dashAnchor"></a>
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">sf-proj-ios Docs</a> (73% documented)</p>
+        <p><a href="index.html">sf-proj-ios 3.0.0 Docs</a> (74% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-proj-ios"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -69,6 +77,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SFExtendedGeometryCollection.html">SFExtendedGeometryCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/c:objc(cs)SFFiniteFilterTypes">SFFiniteFilterTypes</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SFGeometry.html">SFGeometry</a>
@@ -155,6 +166,9 @@
                 <a href="Classes/SFPoint.html">SFPoint</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/SFPointFiniteFilter.html">SFPointFiniteFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/SFPolygon.html">SFPolygon</a>
               </li>
               <li class="nav-group-task">
@@ -176,6 +190,9 @@
                 <a href="Classes/SFTIN.html">SFTIN</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/SFTextReader.html">SFTextReader</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/SFTriangle.html">SFTriangle</a>
               </li>
             </ul>
@@ -183,6 +200,12 @@
           <li class="nav-group-name">
             <a href="Constants.html">Constants</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:SFByteReader.h@DEFAULT_READ_BYTE_ORDER">DEFAULT_READ_BYTE_ORDER</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:SFByteWriter.h@DEFAULT_WRITE_BYTE_ORDER">DEFAULT_WRITE_BYTE_ORDER</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Constants.html#/c:@PROJ_AUTHORITY_EPSG">PROJ_AUTHORITY_EPSG</a>
               </li>
@@ -309,6 +332,9 @@
                 <a href="Enums/SFEventType.html">SFEventType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/SFFiniteFilterType.html">SFFiniteFilterType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/SFGeometryType.html">SFGeometryType</a>
               </li>
               <li class="nav-group-task">
@@ -317,25 +343,33 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Type Definitions.html">Type Definitions</a>
+            <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
+                <a href="Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
+                <a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions/projFileAPI.html">projFileAPI</a>
+                <a href="Type%20Definitions/projFileAPI.html">projFileAPI</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
+                <a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions/projUV.html">projUV</a>
+                <a href="Type%20Definitions/projUV.html">projUV</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions/projUVW.html">projUVW</a>
+                <a href="Type%20Definitions/projUVW.html">projUVW</a>
               </li>
             </ul>
           </li>
@@ -574,10 +608,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -611,10 +641,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -651,10 +677,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -691,10 +713,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -731,10 +749,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -768,10 +782,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -805,10 +815,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -846,10 +852,6 @@ curve is called a ring.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -884,10 +886,6 @@ Each ring is defined by a Curve instance.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -921,10 +919,6 @@ Each ring is defined by a Curve instance.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -958,10 +952,6 @@ Each ring is defined by a Curve instance.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -996,10 +986,6 @@ Each ring is defined by a Curve instance.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1034,10 +1020,40 @@ support</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFFiniteFilterTypes"></a>
+                    <a name="//apple_ref/objc/Class/SFFiniteFilterTypes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFFiniteFilterTypes">SFFiniteFilterTypes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFFiniteFilterTypes</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="k">@end</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFFiniteFilterTypes</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -1071,10 +1087,6 @@ support</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1108,10 +1120,6 @@ support</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1145,10 +1153,6 @@ support</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1182,10 +1186,6 @@ support</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1219,10 +1219,6 @@ support</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1276,10 +1272,6 @@ support</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1315,10 +1307,6 @@ support</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1352,10 +1340,6 @@ support</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1389,10 +1373,6 @@ support</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1426,10 +1406,6 @@ support</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1464,10 +1440,6 @@ must be of type Curve.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1502,10 +1474,6 @@ type LineString.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1540,10 +1508,6 @@ must be of type Point.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1578,10 +1542,6 @@ be of type Polygon.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1616,10 +1576,6 @@ must be of type Surface.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1654,10 +1610,40 @@ optionally also have a Z and/or an M value.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFPointFiniteFilter"></a>
+                    <a name="//apple_ref/objc/Class/SFPointFiniteFilter" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFPointFiniteFilter">SFPointFiniteFilter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Point filter for finite checks on x and y properties, optionally filter on z
+and m properties and non finite values (NaN or infinity)</p>
+
+                        <a href="Classes/SFPointFiniteFilter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFPointFiniteFilter</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SFGeometryFilter.html">SFGeometryFilter</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFPointFiniteFilter</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="Protocols/SFGeometryFilter.html">SFGeometryFilter</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -1692,10 +1678,6 @@ closed LineString.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1729,10 +1711,6 @@ closed LineString.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1766,10 +1744,6 @@ closed LineString.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1814,10 +1788,6 @@ closed LineString.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1852,10 +1822,6 @@ is a geometry that has an area.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1889,10 +1855,6 @@ is a geometry that has an area.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1927,10 +1889,39 @@ coordinate digit.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFTextReader"></a>
+                    <a name="//apple_ref/objc/Class/SFTextReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFTextReader">SFTextReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Read through text string</p>
+
+                        <a href="Classes/SFTextReader.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFTextReader</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFTextReader</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -1964,10 +1955,6 @@ coordinate digit.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1999,15 +1986,11 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L15-L144">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L15-L144">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -2040,15 +2023,11 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPConstants.h#L14-L16">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPConstants.h#L14-L16">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -2217,15 +2196,11 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L24-L161">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L24-L161">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -2278,15 +2253,11 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPIOUtils.h#L11-L32">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPIOUtils.h#L11-L32">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -2318,15 +2289,11 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPLocationCoordinate3D.h#L15-L53">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPLocationCoordinate3D.h#L15-L53">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -2358,15 +2325,11 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L16-L133">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L16-L133">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -2399,15 +2362,11 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionConstants.h#L31-L33">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionConstants.h#L31-L33">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -2439,15 +2398,11 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L17-L216">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L17-L216">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -2479,15 +2434,11 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionRetriever.h#L14-L145">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionRetriever.h#L14-L145">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -2519,15 +2470,11 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionTransform.h#L17-L193">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionTransform.h#L17-L193">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -2559,15 +2506,11 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjections.h#L15-L134">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjections.h#L15-L134">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -2600,7 +2543,7 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPUnits.h#L20-L22">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPUnits.h#L20-L22">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2610,8 +2553,8 @@ coordinate digit.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

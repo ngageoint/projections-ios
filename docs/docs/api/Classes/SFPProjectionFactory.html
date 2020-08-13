@@ -8,14 +8,22 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Class/SFPProjectionFactory" class="dashAnchor"></a>
     <a title="SFPProjectionFactory Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">sf-proj-ios Docs</a> (73% documented)</p>
+        <p><a href="../index.html">sf-proj-ios 3.0.0 Docs</a> (74% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-proj-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -69,6 +77,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SFExtendedGeometryCollection.html">SFExtendedGeometryCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SFFiniteFilterTypes">SFFiniteFilterTypes</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SFGeometry.html">SFGeometry</a>
@@ -155,6 +166,9 @@
                 <a href="../Classes/SFPoint.html">SFPoint</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SFPointFiniteFilter.html">SFPointFiniteFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/SFPolygon.html">SFPolygon</a>
               </li>
               <li class="nav-group-task">
@@ -176,6 +190,9 @@
                 <a href="../Classes/SFTIN.html">SFTIN</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SFTextReader.html">SFTextReader</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/SFTriangle.html">SFTriangle</a>
               </li>
             </ul>
@@ -183,6 +200,12 @@
           <li class="nav-group-name">
             <a href="../Constants.html">Constants</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SFByteReader.h@DEFAULT_READ_BYTE_ORDER">DEFAULT_READ_BYTE_ORDER</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SFByteWriter.h@DEFAULT_WRITE_BYTE_ORDER">DEFAULT_WRITE_BYTE_ORDER</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Constants.html#/c:@PROJ_AUTHORITY_EPSG">PROJ_AUTHORITY_EPSG</a>
               </li>
@@ -309,6 +332,9 @@
                 <a href="../Enums/SFEventType.html">SFEventType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/SFFiniteFilterType.html">SFFiniteFilterType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/SFGeometryType.html">SFGeometryType</a>
               </li>
               <li class="nav-group-task">
@@ -317,25 +343,33 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Type Definitions.html">Type Definitions</a>
+            <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
+                <a href="../Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
+                <a href="../Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions/projFileAPI.html">projFileAPI</a>
+                <a href="../Type%20Definitions/projFileAPI.html">projFileAPI</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
+                <a href="../Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions/projUV.html">projUV</a>
+                <a href="../Type%20Definitions/projUV.html">projUV</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions/projUVW.html">projUVW</a>
+                <a href="../Type%20Definitions/projUVW.html">projUVW</a>
               </li>
             </ul>
           </li>
@@ -537,12 +571,21 @@
             <h1>SFPProjectionFactory</h1>
               <div class="declaration">
                 <div class="language">
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFPProjectionFactory</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFPProjectionFactory</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
             <p>Projection factory for coordinate projections and transformations</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L17-L216">Show on GitHub</a>
+              </div>
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -552,7 +595,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)projectionWithEpsg:"></a>
                     <a name="//apple_ref/objc/Method/+projectionWithEpsg:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithEpsg:">+projectionWithEpsg:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithEpsg:">+projectionWithEpsg:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -600,7 +643,7 @@
                         <p>projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L26">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L26">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -610,7 +653,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)projectionWithEpsgInt:"></a>
                     <a name="//apple_ref/objc/Method/+projectionWithEpsgInt:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithEpsgInt:">+projectionWithEpsgInt:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithEpsgInt:">+projectionWithEpsgInt:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -658,7 +701,7 @@
                         <p>projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L35">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L35">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -668,7 +711,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andNumberCode:"></a>
                     <a name="//apple_ref/objc/Method/+projectionWithAuthority:andNumberCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andNumberCode:">+projectionWithAuthority:andNumberCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andNumberCode:">+projectionWithAuthority:<wbr>andNumberCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -729,7 +772,7 @@
                         <p>projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L46">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L46">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -739,7 +782,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andIntCode:"></a>
                     <a name="//apple_ref/objc/Method/+projectionWithAuthority:andIntCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andIntCode:">+projectionWithAuthority:andIntCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andIntCode:">+projectionWithAuthority:<wbr>andIntCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -800,7 +843,7 @@
                         <p>projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L57">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L57">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -810,7 +853,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andCode:"></a>
                     <a name="//apple_ref/objc/Method/+projectionWithAuthority:andCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andCode:">+projectionWithAuthority:andCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andCode:">+projectionWithAuthority:<wbr>andCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -871,7 +914,7 @@
                         <p>projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L68">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L68">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -881,7 +924,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andNumberCode:andParams:"></a>
                     <a name="//apple_ref/objc/Method/+projectionWithAuthority:andNumberCode:andParams:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andNumberCode:andParams:">+projectionWithAuthority:andNumberCode:andParams:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andNumberCode:andParams:">+projectionWithAuthority:<wbr>andNumberCode:<wbr>andParams:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -955,7 +998,7 @@
                         <p>projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L81">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L81">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -965,7 +1008,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andIntCode:andParams:"></a>
                     <a name="//apple_ref/objc/Method/+projectionWithAuthority:andIntCode:andParams:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andIntCode:andParams:">+projectionWithAuthority:andIntCode:andParams:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andIntCode:andParams:">+projectionWithAuthority:<wbr>andIntCode:<wbr>andParams:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1039,7 +1082,7 @@
                         <p>projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L94">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L94">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1049,7 +1092,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andCode:andParams:"></a>
                     <a name="//apple_ref/objc/Method/+projectionWithAuthority:andCode:andParams:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andCode:andParams:">+projectionWithAuthority:andCode:andParams:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andCode:andParams:">+projectionWithAuthority:<wbr>andCode:<wbr>andParams:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1123,7 +1166,7 @@
                         <p>projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L107">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L107">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1133,7 +1176,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andNumberCode:andParams:andDefinition:"></a>
                     <a name="//apple_ref/objc/Method/+projectionWithAuthority:andNumberCode:andParams:andDefinition:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andNumberCode:andParams:andDefinition:">+projectionWithAuthority:andNumberCode:andParams:andDefinition:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andNumberCode:andParams:andDefinition:">+projectionWithAuthority:<wbr>andNumberCode:<wbr>andParams:<wbr>andDefinition:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1221,7 +1264,7 @@
                         <p>projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L123">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L123">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1231,7 +1274,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andIntCode:andParams:andDefinition:"></a>
                     <a name="//apple_ref/objc/Method/+projectionWithAuthority:andIntCode:andParams:andDefinition:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andIntCode:andParams:andDefinition:">+projectionWithAuthority:andIntCode:andParams:andDefinition:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andIntCode:andParams:andDefinition:">+projectionWithAuthority:<wbr>andIntCode:<wbr>andParams:<wbr>andDefinition:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1319,7 +1362,7 @@
                         <p>projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L139">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L139">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1329,7 +1372,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andCode:andParams:andDefinition:"></a>
                     <a name="//apple_ref/objc/Method/+projectionWithAuthority:andCode:andParams:andDefinition:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andCode:andParams:andDefinition:">+projectionWithAuthority:andCode:andParams:andDefinition:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionWithAuthority:andCode:andParams:andDefinition:">+projectionWithAuthority:<wbr>andCode:<wbr>andParams:<wbr>andDefinition:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1417,7 +1460,7 @@
                         <p>projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L155">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L155">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1456,7 +1499,7 @@
                         <p>projections</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L162">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L162">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1466,7 +1509,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)projectionsWithAuthority:"></a>
                     <a name="//apple_ref/objc/Method/+projectionsWithAuthority:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionsWithAuthority:">+projectionsWithAuthority:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)projectionsWithAuthority:">+projectionsWithAuthority:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1514,7 +1557,7 @@
                         <p>authority projections</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L171">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L171">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1549,7 +1592,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L176">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1559,7 +1602,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)clearAuthority:"></a>
                     <a name="//apple_ref/objc/Method/+clearAuthority:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)clearAuthority:">+clearAuthority:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)clearAuthority:">+clearAuthority:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1603,7 +1646,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L184">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L184">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1613,7 +1656,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)clearAuthority:andNumberCode:"></a>
                     <a name="//apple_ref/objc/Method/+clearAuthority:andNumberCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)clearAuthority:andNumberCode:">+clearAuthority:andNumberCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)clearAuthority:andNumberCode:">+clearAuthority:<wbr>andNumberCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1669,7 +1712,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L194">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L194">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1679,7 +1722,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)clearAuthority:andIntCode:"></a>
                     <a name="//apple_ref/objc/Method/+clearAuthority:andIntCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)clearAuthority:andIntCode:">+clearAuthority:andIntCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)clearAuthority:andIntCode:">+clearAuthority:<wbr>andIntCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1735,7 +1778,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L204">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L204">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1745,7 +1788,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjectionFactory(cm)clearAuthority:andCode:"></a>
                     <a name="//apple_ref/objc/Method/+clearAuthority:andCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)clearAuthority:andCode:">+clearAuthority:andCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjectionFactory(cm)clearAuthority:andCode:">+clearAuthority:<wbr>andCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1801,7 +1844,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjectionFactory.h#L214">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjectionFactory.h#L214">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1811,8 +1854,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

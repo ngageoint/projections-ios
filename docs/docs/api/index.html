@@ -8,13 +8,21 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a title="sf-proj-ios  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">sf-proj-ios Docs</a> (73% documented)</p>
+        <p><a href="index.html">sf-proj-ios 3.0.0 Docs</a> (74% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-proj-ios"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -68,6 +76,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SFExtendedGeometryCollection.html">SFExtendedGeometryCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/c:objc(cs)SFFiniteFilterTypes">SFFiniteFilterTypes</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SFGeometry.html">SFGeometry</a>
@@ -154,6 +165,9 @@
                 <a href="Classes/SFPoint.html">SFPoint</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/SFPointFiniteFilter.html">SFPointFiniteFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/SFPolygon.html">SFPolygon</a>
               </li>
               <li class="nav-group-task">
@@ -175,6 +189,9 @@
                 <a href="Classes/SFTIN.html">SFTIN</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/SFTextReader.html">SFTextReader</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/SFTriangle.html">SFTriangle</a>
               </li>
             </ul>
@@ -182,6 +199,12 @@
           <li class="nav-group-name">
             <a href="Constants.html">Constants</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:SFByteReader.h@DEFAULT_READ_BYTE_ORDER">DEFAULT_READ_BYTE_ORDER</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:SFByteWriter.h@DEFAULT_WRITE_BYTE_ORDER">DEFAULT_WRITE_BYTE_ORDER</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Constants.html#/c:@PROJ_AUTHORITY_EPSG">PROJ_AUTHORITY_EPSG</a>
               </li>
@@ -308,6 +331,9 @@
                 <a href="Enums/SFEventType.html">SFEventType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/SFFiniteFilterType.html">SFFiniteFilterType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/SFGeometryType.html">SFGeometryType</a>
               </li>
               <li class="nav-group-task">
@@ -316,25 +342,33 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Type Definitions.html">Type Definitions</a>
+            <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
+                <a href="Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
+                <a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions/projFileAPI.html">projFileAPI</a>
+                <a href="Type%20Definitions/projFileAPI.html">projFileAPI</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
+                <a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions/projUV.html">projUV</a>
+                <a href="Type%20Definitions/projUV.html">projUV</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions/projUVW.html">projUVW</a>
+                <a href="Type%20Definitions/projUVW.html">projUVW</a>
               </li>
             </ul>
           </li>
@@ -537,12 +571,12 @@
             <h1 id='simple-features-projection-ios' class='heading'>Simple Features Projection iOS</h1>
 <h4 id='simple-features-projection-lib' class='heading'>Simple Features Projection Lib</h4>
 
-<p>The Simple Features Libraries were developed at the <a href="http://www.nga.mil/">National Geospatial-Intelligence Agency (NGA)</a> in collaboration with <a href="http://www.bit-sys.com/">BIT Systems</a>. The government has <q>unlimited rights</q> and is releasing this software to increase the impact of government investments by providing developers with the opportunity to take things in new directions. The software use, modification, and distribution rights are stipulated within the <a href="http://choosealicense.com/licenses/mit/">MIT license</a>.</p>
+<p>The Simple Features Libraries were developed at the <a href="http://www.nga.mil/">National Geospatial-Intelligence Agency (NGA)</a> in collaboration with <a href="http://www.bit-sys.com/">BIT Systems</a>. The government has &ldquo;unlimited rights&rdquo; and is releasing this software to increase the impact of government investments by providing developers with the opportunity to take things in new directions. The software use, modification, and distribution rights are stipulated within the <a href="http://choosealicense.com/licenses/mit/">MIT license</a>.</p>
 <h3 id='pull-requests' class='heading'>Pull Requests</h3>
 
 <p>If you&rsquo;d like to contribute to this project, please make a pull request. We&rsquo;ll review the pull request and discuss the changes. All pull request contributions to this project will be released under the MIT license.</p>
 
-<p>Software source code previously released under an open source license and then modified by NGA staff is considered a <q>joint work</q> (see 17 USC § 101); it is partially copyrighted, partially public domain, and as a whole is protected by the copyrights of the non-government authors and must be released according to the terms of the original open source license.</p>
+<p>Software source code previously released under an open source license and then modified by NGA staff is considered a &ldquo;joint work&rdquo; (see 17 USC § 101); it is partially copyrighted, partially public domain, and as a whole is protected by the copyrights of the non-government authors and must be released according to the terms of the original open source license.</p>
 <h3 id='about' class='heading'>About</h3>
 
 <p><a href="http://ngageoint.github.io/simple-features-proj-ios/">Simple Features Projection</a> is an iOS library for performing projection conversions between <a href="https://github.com/ngageoint/simple-features-ios">Simple Feature</a> Geometries.</p>
@@ -551,23 +585,25 @@
 <p>View the latest <a href="http://ngageoint.github.io/simple-features-proj-ios/docs/api/">Appledoc</a></p>
 <h4 id='transform' class='heading'>Transform</h4>
 <pre class="highlight objective_c"><code>
-<span class="c1">//SFGeometry *geometry = nil;</span>
+<span class="c1">// SFGeometry *geometry = ...</span>
 
 <span class="n">SFPProjection</span> <span class="o">*</span><span class="n">projection1</span> <span class="o">=</span>
     <span class="p">[</span><span class="n">SFPProjectionFactory</span> <span class="nf">projectionWithAuthority</span><span class="p">:</span><span class="n">PROJ_AUTHORITY_EPSG</span>
-    <span class="nf">andIntCode</span><span class="p">:</span><span class="n">PROJ_EPSG_WEB_MERCATOR</span><span class="p">];</span>
+    <span class="nl">andIntCode:</span><span class="n">PROJ_EPSG_WEB_MERCATOR</span><span class="p">];</span>
 <span class="n">SFPProjection</span> <span class="o">*</span><span class="n">projection2</span> <span class="o">=</span>
     <span class="p">[</span><span class="n">SFPProjectionFactory</span> <span class="nf">projectionWithAuthority</span><span class="p">:</span><span class="n">PROJ_AUTHORITY_EPSG</span>
-    <span class="nf">andIntCode</span><span class="p">:</span><span class="n">PROJ_EPSG_WORLD_GEODETIC_SYSTEM</span><span class="p">];</span>
+    <span class="nl">andIntCode:</span><span class="n">PROJ_EPSG_WORLD_GEODETIC_SYSTEM</span><span class="p">];</span>
 
 <span class="n">SFPProjectionTransform</span> <span class="o">*</span><span class="n">transform</span> <span class="o">=</span>
     <span class="p">[[</span><span class="n">SFPProjectionTransform</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithFromProjection</span><span class="p">:</span><span class="n">projection1</span>
-    <span class="nf">andToProjection</span><span class="p">:</span><span class="n">projection2</span><span class="p">];</span>
+    <span class="nl">andToProjection:</span><span class="n">projection2</span><span class="p">];</span>
 
 <span class="n">SFGeometry</span> <span class="o">*</span><span class="n">transformed</span> <span class="o">=</span> <span class="p">[</span><span class="n">transform</span> <span class="nf">transformWithGeometry</span><span class="p">:</span><span class="n">geometry</span><span class="p">];</span>
 
 </code></pre>
 <h3 id='build' class='heading'>Build</h3>
+
+<p><a href="https://github.com/ngageoint/simple-features-proj-ios/actions?query=workflow%3A%22Build+%26+Test%22"><img src="https://github.com/ngageoint/simple-features-proj-ios/workflows/Build%20&%20Test/badge.svg" alt="Build &amp; Test"></a></p>
 
 <p>Build this repository using Xcode and/or CocoaPods:</p>
 <pre class="highlight plaintext"><code>pod repo update
@@ -586,16 +622,33 @@ pod install
 <p>Include this repository by specifying it in a Podfile using a supported option.</p>
 
 <p>Pull from <a href="https://cocoapods.org/pods/sf-proj-ios">CocoaPods</a>:</p>
-<pre class="highlight plaintext"><code>pod 'sf-proj-ios', '~&gt; 2.0.3'
+<pre class="highlight plaintext"><code>pod 'sf-proj-ios', '~&gt; 3.0.0'
 </code></pre>
 
 <p>Pull from GitHub:</p>
 <pre class="highlight plaintext"><code>pod 'sf-proj-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-proj-ios.git', :branch =&gt; 'master'
-pod 'sf-proj-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-proj-ios.git', :tag =&gt; '2.0.3'
+pod 'sf-proj-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-proj-ios.git', :tag =&gt; '3.0.0'
 </code></pre>
 
 <p>Include as local project:</p>
 <pre class="highlight plaintext"><code>pod 'sf-proj-ios', :path =&gt; '../simple-features-proj-ios'
+</code></pre>
+<h3 id='swift' class='heading'>Swift</h3>
+
+<p>To use from Swift, import the sf-proj-ios bridging header from the Swift project&rsquo;s bridging header</p>
+<pre class="highlight plaintext"><code>#import "sf-proj-ios-Bridging-Header.h"
+</code></pre>
+<h4 id='transform' class='heading'>Transform</h4>
+<pre class="highlight swift"><code>
+<span class="c1">// var geometry: SFGeometry = ...</span>
+
+<span class="k">let</span> <span class="nv">projection1</span><span class="p">:</span> <span class="kt">SFPProjection</span> <span class="o">=</span> <span class="kt">SFPProjectionFactory</span><span class="o">.</span><span class="nf">projection</span><span class="p">(</span><span class="nv">withAuthority</span><span class="p">:</span> <span class="kt">PROJ_AUTHORITY_EPSG</span><span class="p">,</span> <span class="nv">andIntCode</span><span class="p">:</span> <span class="kt">PROJ_EPSG_WEB_MERCATOR</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">projection2</span><span class="p">:</span> <span class="kt">SFPProjection</span> <span class="o">=</span> <span class="kt">SFPProjectionFactory</span><span class="o">.</span><span class="nf">projection</span><span class="p">(</span><span class="nv">withAuthority</span><span class="p">:</span> <span class="kt">PROJ_AUTHORITY_EPSG</span><span class="p">,</span> <span class="nv">andIntCode</span><span class="p">:</span> <span class="kt">PROJ_EPSG_WORLD_GEODETIC_SYSTEM</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">transform</span><span class="p">:</span> <span class="kt">SFPProjectionTransform</span> <span class="o">=</span> <span class="kt">SFPProjectionTransform</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="n">projection1</span><span class="p">,</span> <span class="nv">andTo</span><span class="p">:</span> <span class="n">projection2</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">transformed</span><span class="p">:</span> <span class="kt">SFGeometry</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">geometry</span><span class="p">)</span>
+
 </code></pre>
 <h3 id='remote-dependencies' class='heading'>Remote Dependencies</h3>
 
@@ -607,8 +660,8 @@ pod 'sf-proj-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-proj
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

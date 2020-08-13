@@ -8,14 +8,22 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Class/SFPAuthorityProjections" class="dashAnchor"></a>
     <a title="SFPAuthorityProjections Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">sf-proj-ios Docs</a> (73% documented)</p>
+        <p><a href="../index.html">sf-proj-ios 3.0.0 Docs</a> (74% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-proj-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -69,6 +77,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SFExtendedGeometryCollection.html">SFExtendedGeometryCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SFFiniteFilterTypes">SFFiniteFilterTypes</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SFGeometry.html">SFGeometry</a>
@@ -155,6 +166,9 @@
                 <a href="../Classes/SFPoint.html">SFPoint</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SFPointFiniteFilter.html">SFPointFiniteFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/SFPolygon.html">SFPolygon</a>
               </li>
               <li class="nav-group-task">
@@ -176,6 +190,9 @@
                 <a href="../Classes/SFTIN.html">SFTIN</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SFTextReader.html">SFTextReader</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/SFTriangle.html">SFTriangle</a>
               </li>
             </ul>
@@ -183,6 +200,12 @@
           <li class="nav-group-name">
             <a href="../Constants.html">Constants</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SFByteReader.h@DEFAULT_READ_BYTE_ORDER">DEFAULT_READ_BYTE_ORDER</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SFByteWriter.h@DEFAULT_WRITE_BYTE_ORDER">DEFAULT_WRITE_BYTE_ORDER</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Constants.html#/c:@PROJ_AUTHORITY_EPSG">PROJ_AUTHORITY_EPSG</a>
               </li>
@@ -309,6 +332,9 @@
                 <a href="../Enums/SFEventType.html">SFEventType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/SFFiniteFilterType.html">SFFiniteFilterType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/SFGeometryType.html">SFGeometryType</a>
               </li>
               <li class="nav-group-task">
@@ -317,25 +343,33 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Type Definitions.html">Type Definitions</a>
+            <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
+                <a href="../Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
+                <a href="../Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions/projFileAPI.html">projFileAPI</a>
+                <a href="../Type%20Definitions/projFileAPI.html">projFileAPI</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
+                <a href="../Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions/projUV.html">projUV</a>
+                <a href="../Type%20Definitions/projUV.html">projUV</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions/projUVW.html">projUVW</a>
+                <a href="../Type%20Definitions/projUVW.html">projUVW</a>
               </li>
             </ul>
           </li>
@@ -537,12 +571,21 @@
             <h1>SFPAuthorityProjections</h1>
               <div class="declaration">
                 <div class="language">
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFPAuthorityProjections</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFPAuthorityProjections</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
             <p>Collection of projections for a single coordinate authority</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L15-L144">Show on GitHub</a>
+              </div>
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -552,7 +595,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPAuthorityProjections(im)initWithAuthority:"></a>
                     <a name="//apple_ref/objc/Method/-initWithAuthority:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)initWithAuthority:">-initWithAuthority:</a>
+                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)initWithAuthority:">-initWithAuthority:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -600,7 +643,7 @@
                         <p>new authority projections</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L25">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L25">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -639,7 +682,7 @@
                         <p>authority</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L32">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L32">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -649,7 +692,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPAuthorityProjections(im)projectionForNumberCode:"></a>
                     <a name="//apple_ref/objc/Method/-projectionForNumberCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)projectionForNumberCode:">-projectionForNumberCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)projectionForNumberCode:">-projectionForNumberCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -697,7 +740,7 @@
                         <p>projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L41">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L41">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -707,7 +750,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPAuthorityProjections(im)projectionForCode:"></a>
                     <a name="//apple_ref/objc/Method/-projectionForCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)projectionForCode:">-projectionForCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)projectionForCode:">-projectionForCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -755,7 +798,7 @@
                         <p>projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L50">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L50">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -765,7 +808,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPAuthorityProjections(im)hasProjection:"></a>
                     <a name="//apple_ref/objc/Method/-hasProjection:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)hasProjection:">-hasProjection:</a>
+                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)hasProjection:">-hasProjection:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -813,7 +856,7 @@
                         <p>true if has the projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L59">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L59">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -823,7 +866,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPAuthorityProjections(im)hasProjectionNumberCode:"></a>
                     <a name="//apple_ref/objc/Method/-hasProjectionNumberCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)hasProjectionNumberCode:">-hasProjectionNumberCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)hasProjectionNumberCode:">-hasProjectionNumberCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -871,7 +914,7 @@
                         <p>true if has the projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L68">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L68">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -881,7 +924,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPAuthorityProjections(im)hasProjectionCode:"></a>
                     <a name="//apple_ref/objc/Method/-hasProjectionCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)hasProjectionCode:">-hasProjectionCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)hasProjectionCode:">-hasProjectionCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -929,7 +972,7 @@
                         <p>true if has the projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L77">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L77">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -939,7 +982,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPAuthorityProjections(im)addProjection:"></a>
                     <a name="//apple_ref/objc/Method/-addProjection:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)addProjection:">-addProjection:</a>
+                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)addProjection:">-addProjection:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -983,7 +1026,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L85">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L85">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1018,7 +1061,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L90">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L90">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1028,7 +1071,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPAuthorityProjections(im)removeNumberCode:"></a>
                     <a name="//apple_ref/objc/Method/-removeNumberCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)removeNumberCode:">-removeNumberCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)removeNumberCode:">-removeNumberCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1072,7 +1115,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L98">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L98">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1082,7 +1125,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPAuthorityProjections(im)removeCode:"></a>
                     <a name="//apple_ref/objc/Method/-removeCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)removeCode:">-removeCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)removeCode:">-removeCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1126,7 +1169,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L106">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L106">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1136,7 +1179,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPAuthorityProjections(im)removeProjection:"></a>
                     <a name="//apple_ref/objc/Method/-removeProjection:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)removeProjection:">-removeProjection:</a>
+                    <a class="token" href="#/c:objc(cs)SFPAuthorityProjections(im)removeProjection:">-removeProjection:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1180,7 +1223,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L114">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L114">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1219,7 +1262,7 @@
                         <p>count</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L121">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L121">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1258,7 +1301,7 @@
                         <p>true if empty</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L128">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L128">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1297,7 +1340,7 @@
                         <p>projection codes</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L135">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L135">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1336,7 +1379,7 @@
                         <p>projections</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPAuthorityProjections.h#L142">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPAuthorityProjections.h#L142">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1346,8 +1389,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -673,6 +673,34 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFFiniteFilterTypes.h",
+      "line": 16,
+      "symbol": "SFFiniteFilterType.SF_FF_FINITE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFFiniteFilterTypes.h",
+      "line": 17,
+      "symbol": "SFFiniteFilterType.SF_FF_FINITE_AND_INFINITE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFFiniteFilterTypes.h",
+      "line": 18,
+      "symbol": "SFFiniteFilterType.SF_FF_FINITE_AND_NAN",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFFiniteFilterTypes.h",
+      "line": 21,
+      "symbol": "SFFiniteFilterTypes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/osbornb/git/simple-features-proj-ios/Pods/Headers/Public/sf-ios/SFGeometryEnvelope.h",
       "line": 20,
       "symbol": "SFGeometryEnvelope.maxX",

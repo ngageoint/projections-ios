@@ -8,14 +8,22 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Class/SFPProjection" class="dashAnchor"></a>
     <a title="SFPProjection Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">sf-proj-ios Docs</a> (73% documented)</p>
+        <p><a href="../index.html">sf-proj-ios 3.0.0 Docs</a> (74% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-proj-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -69,6 +77,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SFExtendedGeometryCollection.html">SFExtendedGeometryCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SFFiniteFilterTypes">SFFiniteFilterTypes</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SFGeometry.html">SFGeometry</a>
@@ -155,6 +166,9 @@
                 <a href="../Classes/SFPoint.html">SFPoint</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SFPointFiniteFilter.html">SFPointFiniteFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/SFPolygon.html">SFPolygon</a>
               </li>
               <li class="nav-group-task">
@@ -176,6 +190,9 @@
                 <a href="../Classes/SFTIN.html">SFTIN</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SFTextReader.html">SFTextReader</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/SFTriangle.html">SFTriangle</a>
               </li>
             </ul>
@@ -183,6 +200,12 @@
           <li class="nav-group-name">
             <a href="../Constants.html">Constants</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SFByteReader.h@DEFAULT_READ_BYTE_ORDER">DEFAULT_READ_BYTE_ORDER</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SFByteWriter.h@DEFAULT_WRITE_BYTE_ORDER">DEFAULT_WRITE_BYTE_ORDER</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Constants.html#/c:@PROJ_AUTHORITY_EPSG">PROJ_AUTHORITY_EPSG</a>
               </li>
@@ -309,6 +332,9 @@
                 <a href="../Enums/SFEventType.html">SFEventType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/SFFiniteFilterType.html">SFFiniteFilterType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/SFGeometryType.html">SFGeometryType</a>
               </li>
               <li class="nav-group-task">
@@ -317,25 +343,33 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Type Definitions.html">Type Definitions</a>
+            <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
+                <a href="../Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
+                <a href="../Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions/projFileAPI.html">projFileAPI</a>
+                <a href="../Type%20Definitions/projFileAPI.html">projFileAPI</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
+                <a href="../Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions/projUV.html">projUV</a>
+                <a href="../Type%20Definitions/projUV.html">projUV</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions/projUVW.html">projUVW</a>
+                <a href="../Type%20Definitions/projUVW.html">projUVW</a>
               </li>
             </ul>
           </li>
@@ -537,12 +571,21 @@
             <h1>SFPProjection</h1>
               <div class="declaration">
                 <div class="language">
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFPProjection</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFPProjection</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
             <p>Single Projection for an authority and code</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L16-L133">Show on GitHub</a>
+              </div>
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -552,7 +595,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjection(im)initWithAuthority:andNumberCode:andCrs:andToMeters:"></a>
                     <a name="//apple_ref/objc/Method/-initWithAuthority:andNumberCode:andCrs:andToMeters:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjection(im)initWithAuthority:andNumberCode:andCrs:andToMeters:">-initWithAuthority:andNumberCode:andCrs:andToMeters:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjection(im)initWithAuthority:andNumberCode:andCrs:andToMeters:">-initWithAuthority:<wbr>andNumberCode:<wbr>andCrs:<wbr>andToMeters:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -569,13 +612,13 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithAuthority</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">authority</span>
                     <span class="nf">andNumberCode</span><span class="p">:(</span><span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">code</span>
-                           <span class="nf">andCrs</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span><span class="nv">crs</span>
+                           <span class="nf">andCrs</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span><span class="nv">crs</span>
                       <span class="nf">andToMeters</span><span class="p">:(</span><span class="n">NSDecimalNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">toMeters</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">authority</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">andNumberCode</span> <span class="nv">code</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="o">!</span><span class="p">,</span> <span class="n">andCrs</span> <span class="nv">crs</span><span class="p">:</span> <span class="n"><a href="../Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">andToMeters</span> <span class="nv">toMeters</span><span class="p">:</span> <span class="kt">NSDecimalNumber</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">authority</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">andNumberCode</span> <span class="nv">code</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="o">!</span><span class="p">,</span> <span class="n">andCrs</span> <span class="nv">crs</span><span class="p">:</span> <span class="n"><a href="../Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">andToMeters</span> <span class="nv">toMeters</span><span class="p">:</span> <span class="kt">NSDecimalNumber</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -639,7 +682,7 @@
                         <p>new projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L28">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L28">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -649,7 +692,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjection(im)initWithAuthority:andCode:andCrs:andToMeters:"></a>
                     <a name="//apple_ref/objc/Method/-initWithAuthority:andCode:andCrs:andToMeters:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjection(im)initWithAuthority:andCode:andCrs:andToMeters:">-initWithAuthority:andCode:andCrs:andToMeters:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjection(im)initWithAuthority:andCode:andCrs:andToMeters:">-initWithAuthority:<wbr>andCode:<wbr>andCrs:<wbr>andToMeters:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -666,13 +709,13 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithAuthority</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">authority</span>
                           <span class="nf">andCode</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">code</span>
-                           <span class="nf">andCrs</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span><span class="nv">crs</span>
+                           <span class="nf">andCrs</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span><span class="nv">crs</span>
                       <span class="nf">andToMeters</span><span class="p">:(</span><span class="n">NSDecimalNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">toMeters</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">authority</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">andCode</span> <span class="nv">code</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">andCrs</span> <span class="nv">crs</span><span class="p">:</span> <span class="n"><a href="../Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">andToMeters</span> <span class="nv">toMeters</span><span class="p">:</span> <span class="kt">NSDecimalNumber</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">authority</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">andCode</span> <span class="nv">code</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">andCrs</span> <span class="nv">crs</span><span class="p">:</span> <span class="n"><a href="../Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">andToMeters</span> <span class="nv">toMeters</span><span class="p">:</span> <span class="kt">NSDecimalNumber</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -736,7 +779,7 @@
                         <p>new projection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L40">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L40">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -775,7 +818,7 @@
                         <p>authority</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L47">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L47">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -814,7 +857,7 @@
                         <p>code</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L54">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L54">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -839,12 +882,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span><span class="n">crs</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span><span class="n">crs</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">crs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="../Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">crs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="../Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -853,7 +896,7 @@
                         <p>Coordinate Reference System</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L61">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L61">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -892,7 +935,7 @@
                         <p>to meters</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L68">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L68">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -931,7 +974,7 @@
                         <p>true if a lat lon crs</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L75">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L75">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -941,7 +984,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjection(im)toMeters:"></a>
                     <a name="//apple_ref/objc/Method/-toMeters:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjection(im)toMeters:">-toMeters:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjection(im)toMeters:">-toMeters:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -989,7 +1032,7 @@
                         <p>meters</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L84">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L84">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1028,7 +1071,7 @@
                         <p>unit</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L91">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L91">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1038,7 +1081,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjection(im)isUnit:"></a>
                     <a name="//apple_ref/objc/Method/-isUnit:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjection(im)isUnit:">-isUnit:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjection(im)isUnit:">-isUnit:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1086,7 +1129,7 @@
                         <p>true if in the provided unit</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L100">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L100">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1096,7 +1139,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjection(im)isEqualToAuthority:andNumberCode:"></a>
                     <a name="//apple_ref/objc/Method/-isEqualToAuthority:andNumberCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjection(im)isEqualToAuthority:andNumberCode:">-isEqualToAuthority:andNumberCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjection(im)isEqualToAuthority:andNumberCode:">-isEqualToAuthority:<wbr>andNumberCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1156,7 +1199,7 @@
                         <p>true if equal</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L111">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L111">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1166,7 +1209,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjection(im)isEqualToAuthority:andCode:"></a>
                     <a name="//apple_ref/objc/Method/-isEqualToAuthority:andCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjection(im)isEqualToAuthority:andCode:">-isEqualToAuthority:andCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjection(im)isEqualToAuthority:andCode:">-isEqualToAuthority:<wbr>andCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1226,7 +1269,7 @@
                         <p>true if equal</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L122">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L122">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1236,7 +1279,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPProjection(im)isEqualToProjection:"></a>
                     <a name="//apple_ref/objc/Method/-isEqualToProjection:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPProjection(im)isEqualToProjection:">-isEqualToProjection:</a>
+                    <a class="token" href="#/c:objc(cs)SFPProjection(im)isEqualToProjection:">-isEqualToProjection:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1284,7 +1327,7 @@
                         <p>true if equal</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPProjection.h#L131">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPProjection.h#L131">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1294,8 +1337,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

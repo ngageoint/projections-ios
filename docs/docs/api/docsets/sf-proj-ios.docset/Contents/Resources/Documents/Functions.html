@@ -8,14 +8,22 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Section/Functions" class="dashAnchor"></a>
     <a title="Functions  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">sf-proj-ios Docs</a> (73% documented)</p>
+        <p><a href="index.html">sf-proj-ios 3.0.0 Docs</a> (74% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-proj-ios"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -69,6 +77,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SFExtendedGeometryCollection.html">SFExtendedGeometryCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/c:objc(cs)SFFiniteFilterTypes">SFFiniteFilterTypes</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SFGeometry.html">SFGeometry</a>
@@ -155,6 +166,9 @@
                 <a href="Classes/SFPoint.html">SFPoint</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/SFPointFiniteFilter.html">SFPointFiniteFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/SFPolygon.html">SFPolygon</a>
               </li>
               <li class="nav-group-task">
@@ -176,6 +190,9 @@
                 <a href="Classes/SFTIN.html">SFTIN</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/SFTextReader.html">SFTextReader</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/SFTriangle.html">SFTriangle</a>
               </li>
             </ul>
@@ -183,6 +200,12 @@
           <li class="nav-group-name">
             <a href="Constants.html">Constants</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:SFByteReader.h@DEFAULT_READ_BYTE_ORDER">DEFAULT_READ_BYTE_ORDER</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:SFByteWriter.h@DEFAULT_WRITE_BYTE_ORDER">DEFAULT_WRITE_BYTE_ORDER</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Constants.html#/c:@PROJ_AUTHORITY_EPSG">PROJ_AUTHORITY_EPSG</a>
               </li>
@@ -309,6 +332,9 @@
                 <a href="Enums/SFEventType.html">SFEventType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/SFFiniteFilterType.html">SFFiniteFilterType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/SFGeometryType.html">SFGeometryType</a>
               </li>
               <li class="nav-group-task">
@@ -317,25 +343,33 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Type Definitions.html">Type Definitions</a>
+            <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
+                <a href="Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
+                <a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions/projFileAPI.html">projFileAPI</a>
+                <a href="Type%20Definitions/projFileAPI.html">projFileAPI</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
+                <a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions/projUV.html">projUV</a>
+                <a href="Type%20Definitions/projUV.html">projUV</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions/projUVW.html">projUVW</a>
+                <a href="Type%20Definitions/projUVW.html">projUVW</a>
               </li>
             </ul>
           </li>
@@ -561,17 +595,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">projXY</span> <span class="n">pj_fwd</span><span class="p">(</span><span class="n">projLP</span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">projXY</span> <span class="n">pj_fwd</span><span class="p">(</span><span class="n">projLP</span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_fwd</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions/projUV.html">projUV</a></span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type Definitions/projUV.html">projUV</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_fwd</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions/projUV.html">projUV</a></span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type%20Definitions/projUV.html">projUV</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -596,17 +630,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">projLP</span> <span class="n">pj_inv</span><span class="p">(</span><span class="n">projXY</span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">projLP</span> <span class="n">pj_inv</span><span class="p">(</span><span class="n">projXY</span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_inv</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions/projUV.html">projUV</a></span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type Definitions/projUV.html">projUV</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_inv</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions/projUV.html">projUV</a></span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type%20Definitions/projUV.html">projUV</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -631,17 +665,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">projXYZ</span> <span class="n">pj_fwd3d</span><span class="p">(</span><span class="n">projLPZ</span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">projXYZ</span> <span class="n">pj_fwd3d</span><span class="p">(</span><span class="n">projLPZ</span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_fwd3d</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions/projUVW.html">projUVW</a></span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type Definitions/projUVW.html">projUVW</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_fwd3d</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions/projUVW.html">projUVW</a></span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type%20Definitions/projUVW.html">projUVW</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -666,17 +700,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">projLPZ</span> <span class="n">pj_inv3d</span><span class="p">(</span><span class="n">projXYZ</span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">projLPZ</span> <span class="n">pj_inv3d</span><span class="p">(</span><span class="n">projXYZ</span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_inv3d</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions/projUVW.html">projUVW</a></span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type Definitions/projUVW.html">projUVW</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_inv3d</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions/projUVW.html">projUVW</a></span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type%20Definitions/projUVW.html">projUVW</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -701,18 +735,18 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_transform</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">src</span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">dst</span><span class="p">,</span> <span class="kt">long</span> <span class="n">point_count</span><span class="p">,</span> <span class="kt">int</span> <span class="n">point_offset</span><span class="p">,</span>
+                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_transform</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">src</span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">dst</span><span class="p">,</span> <span class="kt">long</span> <span class="n">point_count</span><span class="p">,</span> <span class="kt">int</span> <span class="n">point_offset</span><span class="p">,</span>
                   <span class="kt">double</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">z</span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_transform</span><span class="p">(</span><span class="n">_</span> <span class="nv">src</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">dst</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">point_count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">point_offset</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="n">_</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">z</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_transform</span><span class="p">(</span><span class="n">_</span> <span class="nv">src</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">dst</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">point_count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">point_offset</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="n">_</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">z</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L102-L103">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L102-L103">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -737,18 +771,18 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_datum_transform</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">src</span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">dst</span><span class="p">,</span> <span class="kt">long</span> <span class="n">point_count</span><span class="p">,</span> <span class="kt">int</span> <span class="n">point_offset</span><span class="p">,</span>
+                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_datum_transform</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">src</span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">dst</span><span class="p">,</span> <span class="kt">long</span> <span class="n">point_count</span><span class="p">,</span> <span class="kt">int</span> <span class="n">point_offset</span><span class="p">,</span>
                         <span class="kt">double</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">z</span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_datum_transform</span><span class="p">(</span><span class="n">_</span> <span class="nv">src</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">dst</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">point_count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">point_offset</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="n">_</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">z</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_datum_transform</span><span class="p">(</span><span class="n">_</span> <span class="nv">src</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">dst</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">point_count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">point_offset</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="n">_</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">z</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L104-L105">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L104-L105">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -785,7 +819,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L106-L108">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L106-L108">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -822,7 +856,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L109-L111">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L109-L111">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -847,17 +881,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_compare_datums</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">srcdefn</span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">dstdefn</span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_compare_datums</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">srcdefn</span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">dstdefn</span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_compare_datums</span><span class="p">(</span><span class="n">_</span> <span class="nv">srcdefn</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">dstdefn</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_compare_datums</span><span class="p">(</span><span class="n">_</span> <span class="nv">srcdefn</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">dstdefn</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -882,19 +916,19 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_apply_gridshift</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span>
+                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_apply_gridshift</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span>
                         <span class="kt">long</span> <span class="n">point_count</span><span class="p">,</span> <span class="kt">int</span> <span class="n">point_offset</span><span class="p">,</span>
                         <span class="kt">double</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">z</span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_apply_gridshift</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="n">_</span> <span class="nv">point_count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">point_offset</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="n">_</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">z</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_apply_gridshift</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="n">_</span> <span class="nv">point_count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">point_offset</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="n">_</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">z</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L113-L115">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L113-L115">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -929,7 +963,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -964,7 +998,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -989,17 +1023,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_is_latlong</span><span class="p">(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_is_latlong</span><span class="p">(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_is_latlong</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_is_latlong</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1024,17 +1058,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_is_geocent</span><span class="p">(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_is_geocent</span><span class="p">(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_is_geocent</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_is_geocent</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1059,17 +1093,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_get_spheroid_defn</span><span class="p">(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">defn</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">major_axis</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">eccentricity_squared</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_get_spheroid_defn</span><span class="p">(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">defn</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">major_axis</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">eccentricity_squared</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_get_spheroid_defn</span><span class="p">(</span><span class="n">_</span> <span class="nv">defn</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">major_axis</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">eccentricity_squared</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_get_spheroid_defn</span><span class="p">(</span><span class="n">_</span> <span class="nv">defn</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">major_axis</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">eccentricity_squared</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Double</span><span class="o">&gt;!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1094,17 +1128,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_pr_list</span><span class="p">(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_pr_list</span><span class="p">(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_pr_list</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_pr_list</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1129,17 +1163,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_free</span><span class="p">(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_free</span><span class="p">(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_free</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_free</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1174,7 +1208,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1209,7 +1243,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1234,17 +1268,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">pj_init</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">pj_init</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_init</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_init</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1269,17 +1303,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">pj_init_plus</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">pj_init_plus</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_init_plus</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_init_plus</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1304,17 +1338,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">pj_init_ctx</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">pj_init_ctx</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_init_ctx</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_init_ctx</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1339,17 +1373,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">pj_init_plus_ctx</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">pj_init_plus_ctx</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_init_plus_ctx</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_init_plus_ctx</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1374,17 +1408,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">char</span> <span class="o">*</span><span class="n">pj_get_def</span><span class="p">(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">char</span> <span class="o">*</span><span class="n">pj_get_def</span><span class="p">(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_get_def</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_get_def</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1409,17 +1443,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">pj_latlong_from_proj</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="n">pj_latlong_from_proj</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_latlong_from_proj</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_latlong_from_proj</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1454,7 +1488,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1489,7 +1523,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1524,7 +1558,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1559,7 +1593,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1594,7 +1628,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1629,7 +1663,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1664,7 +1698,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1699,7 +1733,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1734,7 +1768,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1769,7 +1803,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1794,17 +1828,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">pj_get_default_ctx</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">pj_get_default_ctx</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_get_default_ctx</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_get_default_ctx</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1829,17 +1863,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">pj_get_ctx</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">pj_get_ctx</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_get_ctx</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_get_ctx</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1864,17 +1898,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_set_ctx</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_set_ctx</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_set_ctx</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_set_ctx</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1899,17 +1933,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">pj_ctx_alloc</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">pj_ctx_alloc</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_alloc</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_alloc</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1934,17 +1968,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">void</span>    <span class="n">pj_ctx_free</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">void</span>    <span class="n">pj_ctx_free</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_free</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_free</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1969,17 +2003,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_ctx_get_errno</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">int</span> <span class="n">pj_ctx_get_errno</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_get_errno</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_get_errno</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2004,17 +2038,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_ctx_set_errno</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="kt">int</span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_ctx_set_errno</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="kt">int</span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_set_errno</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_set_errno</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2039,17 +2073,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_ctx_set_debug</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="kt">int</span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_ctx_set_debug</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="kt">int</span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_set_debug</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_set_debug</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2074,17 +2108,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_ctx_set_logger</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_ctx_set_logger</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_set_logger</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutableRawPointer</span><span class="p">?,</span> <span class="kt">Int32</span><span class="p">,</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_set_logger</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutableRawPointer</span><span class="p">?,</span> <span class="kt">Int32</span><span class="p">,</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2109,17 +2143,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_ctx_set_app_data</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_ctx_set_app_data</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_set_app_data</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_set_app_data</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2144,17 +2178,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="o">*</span><span class="n">pj_ctx_get_app_data</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="o">*</span><span class="n">pj_ctx_get_app_data</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_get_app_data</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutableRawPointer</span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_get_app_data</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutableRawPointer</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2179,17 +2213,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_ctx_set_fileapi</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="n"><a href="Type Definitions/projFileAPI.html">projFileAPI</a></span> <span class="o">*</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_ctx_set_fileapi</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="n"><a href="Type%20Definitions/projFileAPI.html">projFileAPI</a></span> <span class="o">*</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_set_fileapi</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n"><a href="Type Definitions/projFileAPI.html">projFileAPI</a></span><span class="o">&gt;!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_set_fileapi</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n"><a href="Type%20Definitions/projFileAPI.html">projFileAPI</a></span><span class="o">&gt;!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2214,17 +2248,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n"><a href="Type Definitions/projFileAPI.html">projFileAPI</a></span> <span class="o">*</span><span class="n">pj_ctx_get_fileapi</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="Type%20Definitions/projFileAPI.html">projFileAPI</a></span> <span class="o">*</span><span class="n">pj_ctx_get_fileapi</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_get_fileapi</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n"><a href="Type Definitions/projFileAPI.html">projFileAPI</a></span><span class="o">&gt;!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_get_fileapi</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n"><a href="Type%20Definitions/projFileAPI.html">projFileAPI</a></span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2249,12 +2283,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_log</span><span class="p">(</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fmt</span><span class="p">,</span> <span class="p">...</span> <span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">void</span> <span class="n">pj_log</span><span class="p">(</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fmt</span><span class="p">,</span> <span class="p">...</span> <span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2289,7 +2323,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2314,17 +2348,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n"><a href="Type Definitions/projFileAPI.html">projFileAPI</a></span> <span class="o">*</span><span class="n">pj_get_default_fileapi</span><span class="p">()</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="Type%20Definitions/projFileAPI.html">projFileAPI</a></span> <span class="o">*</span><span class="n">pj_get_default_fileapi</span><span class="p">()</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_get_default_fileapi</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n"><a href="Type Definitions/projFileAPI.html">projFileAPI</a></span><span class="o">&gt;!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_get_default_fileapi</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n"><a href="Type%20Definitions/projFileAPI.html">projFileAPI</a></span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2349,17 +2383,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">pj_ctx_fopen</span><span class="p">(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">access</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">pj_ctx_fopen</span><span class="p">(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">access</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_fopen</span><span class="p">(</span><span class="n">_</span> <span class="nv">ctx</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">filename</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">access</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_fopen</span><span class="p">(</span><span class="n">_</span> <span class="nv">ctx</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">filename</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">access</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2384,17 +2418,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">size_t</span> <span class="n">pj_ctx_fread</span><span class="p">(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">nmemb</span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">size_t</span> <span class="n">pj_ctx_fread</span><span class="p">(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">nmemb</span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_fread</span><span class="p">(</span><span class="n">_</span> <span class="nv">ctx</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">buffer</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">nmemb</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_fread</span><span class="p">(</span><span class="n">_</span> <span class="nv">ctx</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">buffer</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">nmemb</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2419,17 +2453,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">int</span>    <span class="n">pj_ctx_fseek</span><span class="p">(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">,</span> <span class="kt">long</span> <span class="n">offset</span><span class="p">,</span> <span class="kt">int</span> <span class="n">whence</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">int</span>    <span class="n">pj_ctx_fseek</span><span class="p">(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">,</span> <span class="kt">long</span> <span class="n">offset</span><span class="p">,</span> <span class="kt">int</span> <span class="n">whence</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_fseek</span><span class="p">(</span><span class="n">_</span> <span class="nv">ctx</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">offset</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">whence</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_fseek</span><span class="p">(</span><span class="n">_</span> <span class="nv">ctx</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">offset</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">whence</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2454,17 +2488,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">long</span>   <span class="n">pj_ctx_ftell</span><span class="p">(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">long</span>   <span class="n">pj_ctx_ftell</span><span class="p">(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_ftell</span><span class="p">(</span><span class="n">_</span> <span class="nv">ctx</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_ftell</span><span class="p">(</span><span class="n">_</span> <span class="nv">ctx</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2489,17 +2523,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">void</span>   <span class="n">pj_ctx_fclose</span><span class="p">(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">void</span>   <span class="n">pj_ctx_fclose</span><span class="p">(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_fclose</span><span class="p">(</span><span class="n">_</span> <span class="nv">ctx</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_fclose</span><span class="p">(</span><span class="n">_</span> <span class="nv">ctx</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2524,17 +2558,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="kt">char</span>  <span class="o">*</span><span class="n">pj_ctx_fgets</span><span class="p">(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">line</span><span class="p">,</span> <span class="kt">int</span> <span class="n">size</span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="kt">char</span>  <span class="o">*</span><span class="n">pj_ctx_fgets</span><span class="p">(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">line</span><span class="p">,</span> <span class="kt">int</span> <span class="n">size</span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_fgets</span><span class="p">(</span><span class="n">_</span> <span class="nv">ctx</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">line</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="n">_</span> <span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_ctx_fgets</span><span class="p">(</span><span class="n">_</span> <span class="nv">ctx</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">line</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">_</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="n">_</span> <span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2559,17 +2593,17 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">pj_open_lib</span><span class="p">(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">pj_open_lib</span><span class="p">(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_open_lib</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pj_open_lib</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">Int8</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2604,7 +2638,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2614,8 +2648,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -8,14 +8,22 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Section/Type Definitions" class="dashAnchor"></a>
     <a title="Type Definitions  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">sf-proj-ios Docs</a> (73% documented)</p>
+        <p><a href="index.html">sf-proj-ios 3.0.0 Docs</a> (74% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-proj-ios"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -69,6 +77,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SFExtendedGeometryCollection.html">SFExtendedGeometryCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/c:objc(cs)SFFiniteFilterTypes">SFFiniteFilterTypes</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SFGeometry.html">SFGeometry</a>
@@ -155,6 +166,9 @@
                 <a href="Classes/SFPoint.html">SFPoint</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/SFPointFiniteFilter.html">SFPointFiniteFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/SFPolygon.html">SFPolygon</a>
               </li>
               <li class="nav-group-task">
@@ -176,6 +190,9 @@
                 <a href="Classes/SFTIN.html">SFTIN</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/SFTextReader.html">SFTextReader</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/SFTriangle.html">SFTriangle</a>
               </li>
             </ul>
@@ -183,6 +200,12 @@
           <li class="nav-group-name">
             <a href="Constants.html">Constants</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:SFByteReader.h@DEFAULT_READ_BYTE_ORDER">DEFAULT_READ_BYTE_ORDER</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:SFByteWriter.h@DEFAULT_WRITE_BYTE_ORDER">DEFAULT_WRITE_BYTE_ORDER</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Constants.html#/c:@PROJ_AUTHORITY_EPSG">PROJ_AUTHORITY_EPSG</a>
               </li>
@@ -309,6 +332,9 @@
                 <a href="Enums/SFEventType.html">SFEventType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/SFFiniteFilterType.html">SFFiniteFilterType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/SFGeometryType.html">SFGeometryType</a>
               </li>
               <li class="nav-group-task">
@@ -317,25 +343,33 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Type Definitions.html">Type Definitions</a>
+            <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
+                <a href="Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
+                <a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions/projFileAPI.html">projFileAPI</a>
+                <a href="Type%20Definitions/projFileAPI.html">projFileAPI</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
+                <a href="Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions/projUV.html">projUV</a>
+                <a href="Type%20Definitions/projUV.html">projUV</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type Definitions/projUVW.html">projUVW</a>
+                <a href="Type%20Definitions/projUVW.html">projUVW</a>
               </li>
             </ul>
           </li>
@@ -556,7 +590,7 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
-                        <a href="Type Definitions/projUV.html" class="slightly-smaller">See more</a>
+                        <a href="Type%20Definitions/projUV.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -567,7 +601,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -587,7 +621,7 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
-                        <a href="Type Definitions/projUVW.html" class="slightly-smaller">See more</a>
+                        <a href="Type%20Definitions/projUVW.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -598,7 +632,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -633,7 +667,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -668,7 +702,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -703,7 +737,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -723,18 +757,18 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
-                        <a href="Type Definitions/projFileAPI.html" class="slightly-smaller">See more</a>
+                        <a href="Type%20Definitions/projFileAPI.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="k">struct</span> <span class="n"><a href="Structs/projFileAPI_t.html">projFileAPI_t</a></span> <span class="p">{</span>
-    <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span>  <span class="p">(</span><span class="o">*</span><span class="n">FOpen</span><span class="p">)(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">access</span><span class="p">);</span>
-    <span class="kt">size_t</span>  <span class="p">(</span><span class="o">*</span><span class="n">FRead</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">nmemb</span><span class="p">,</span> <span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">);</span>
-    <span class="kt">int</span>     <span class="p">(</span><span class="o">*</span><span class="n">FSeek</span><span class="p">)(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">,</span> <span class="kt">long</span> <span class="n">offset</span><span class="p">,</span> <span class="kt">int</span> <span class="n">whence</span><span class="p">);</span>
-    <span class="kt">long</span>    <span class="p">(</span><span class="o">*</span><span class="n">FTell</span><span class="p">)(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">);</span>
-    <span class="kt">void</span>    <span class="p">(</span><span class="o">*</span><span class="n">FClose</span><span class="p">)(</span><span class="n"><a href="Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="p">);</span>
+    <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span>  <span class="p">(</span><span class="o">*</span><span class="n">FOpen</span><span class="p">)(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a></span> <span class="n">ctx</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">access</span><span class="p">);</span>
+    <span class="kt">size_t</span>  <span class="p">(</span><span class="o">*</span><span class="n">FRead</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">nmemb</span><span class="p">,</span> <span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">);</span>
+    <span class="kt">int</span>     <span class="p">(</span><span class="o">*</span><span class="n">FSeek</span><span class="p">)(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">,</span> <span class="kt">long</span> <span class="n">offset</span><span class="p">,</span> <span class="kt">int</span> <span class="n">whence</span><span class="p">);</span>
+    <span class="kt">long</span>    <span class="p">(</span><span class="o">*</span><span class="n">FTell</span><span class="p">)(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span> <span class="n">file</span><span class="p">);</span>
+    <span class="kt">void</span>    <span class="p">(</span><span class="o">*</span><span class="n">FClose</span><span class="p">)(</span><span class="n"><a href="Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a></span><span class="p">);</span>
 <span class="p">}</span> <span class="n">projFileAPI</span></code></pre>
 
                         </div>
@@ -745,7 +779,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/Pods/proj4-ios/src/proj_api.h#L86-L92">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/Pods/proj4-ios/src/proj_api.h#L86-L92">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -755,8 +789,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

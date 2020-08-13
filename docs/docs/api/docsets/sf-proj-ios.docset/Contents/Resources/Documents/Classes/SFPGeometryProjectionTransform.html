@@ -8,14 +8,22 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Class/SFPGeometryProjectionTransform" class="dashAnchor"></a>
     <a title="SFPGeometryProjectionTransform Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">sf-proj-ios Docs</a> (73% documented)</p>
+        <p><a href="../index.html">sf-proj-ios 3.0.0 Docs</a> (74% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-proj-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -69,6 +77,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SFExtendedGeometryCollection.html">SFExtendedGeometryCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SFFiniteFilterTypes">SFFiniteFilterTypes</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SFGeometry.html">SFGeometry</a>
@@ -155,6 +166,9 @@
                 <a href="../Classes/SFPoint.html">SFPoint</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SFPointFiniteFilter.html">SFPointFiniteFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/SFPolygon.html">SFPolygon</a>
               </li>
               <li class="nav-group-task">
@@ -176,6 +190,9 @@
                 <a href="../Classes/SFTIN.html">SFTIN</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SFTextReader.html">SFTextReader</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/SFTriangle.html">SFTriangle</a>
               </li>
             </ul>
@@ -183,6 +200,12 @@
           <li class="nav-group-name">
             <a href="../Constants.html">Constants</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SFByteReader.h@DEFAULT_READ_BYTE_ORDER">DEFAULT_READ_BYTE_ORDER</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SFByteWriter.h@DEFAULT_WRITE_BYTE_ORDER">DEFAULT_WRITE_BYTE_ORDER</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Constants.html#/c:@PROJ_AUTHORITY_EPSG">PROJ_AUTHORITY_EPSG</a>
               </li>
@@ -309,6 +332,9 @@
                 <a href="../Enums/SFEventType.html">SFEventType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/SFFiniteFilterType.html">SFFiniteFilterType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/SFGeometryType.html">SFGeometryType</a>
               </li>
               <li class="nav-group-task">
@@ -317,25 +343,33 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Type Definitions.html">Type Definitions</a>
+            <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
+                <a href="../Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:proj_api.h@T@PAFile">PAFile</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
+                <a href="../Type%20Definitions.html#/c:proj_api.h@T@projCtx">projCtx</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions/projFileAPI.html">projFileAPI</a>
+                <a href="../Type%20Definitions/projFileAPI.html">projFileAPI</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
+                <a href="../Type%20Definitions.html#/c:proj_api.h@T@projPJ">projPJ</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions/projUV.html">projUV</a>
+                <a href="../Type%20Definitions/projUV.html">projUV</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Type Definitions/projUVW.html">projUVW</a>
+                <a href="../Type%20Definitions/projUVW.html">projUVW</a>
               </li>
             </ul>
           </li>
@@ -537,6 +571,7 @@
             <h1>SFPGeometryProjectionTransform</h1>
               <div class="declaration">
                 <div class="language">
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFPGeometryProjectionTransform</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
 <span class="cm">/**
@@ -677,9 +712,17 @@
 <span class="k">@end</span></code></pre>
 
                 </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFPGeometryProjectionTransform</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
               </div>
             <p>Undocumented</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L24-L161">Show on GitHub</a>
+              </div>
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -689,7 +732,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)initWithProjectionTransform:"></a>
                     <a name="//apple_ref/objc/Method/-initWithProjectionTransform:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)initWithProjectionTransform:">-initWithProjectionTransform:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)initWithProjectionTransform:">-initWithProjectionTransform:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -737,7 +780,7 @@
                         <p>new instance</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L33">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L33">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -747,7 +790,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformGeometry:"></a>
                     <a name="//apple_ref/objc/Method/-transformGeometry:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformGeometry:">-transformGeometry:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformGeometry:">-transformGeometry:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -795,7 +838,7 @@
                         <p>projected geometry</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L42">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L42">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -805,7 +848,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformPoint:"></a>
                     <a name="//apple_ref/objc/Method/-transformPoint:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformPoint:">-transformPoint:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformPoint:">-transformPoint:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -853,7 +896,7 @@
                         <p>projected point</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L51">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L51">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -863,7 +906,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformLineString:"></a>
                     <a name="//apple_ref/objc/Method/-transformLineString:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformLineString:">-transformLineString:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformLineString:">-transformLineString:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -911,7 +954,7 @@
                         <p>projected line string</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L60">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L60">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -921,7 +964,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformPolygon:"></a>
                     <a name="//apple_ref/objc/Method/-transformPolygon:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformPolygon:">-transformPolygon:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformPolygon:">-transformPolygon:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -969,7 +1012,7 @@
                         <p>projected polygon</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L69">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L69">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -979,7 +1022,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformMultiPoint:"></a>
                     <a name="//apple_ref/objc/Method/-transformMultiPoint:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformMultiPoint:">-transformMultiPoint:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformMultiPoint:">-transformMultiPoint:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1027,7 +1070,7 @@
                         <p>projected multi point</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L78">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L78">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1037,7 +1080,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformMultiLineString:"></a>
                     <a name="//apple_ref/objc/Method/-transformMultiLineString:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformMultiLineString:">-transformMultiLineString:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformMultiLineString:">-transformMultiLineString:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1086,7 +1129,7 @@
                         <p>projected multi line string</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L87">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L87">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1096,7 +1139,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformMultiPolygon:"></a>
                     <a name="//apple_ref/objc/Method/-transformMultiPolygon:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformMultiPolygon:">-transformMultiPolygon:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformMultiPolygon:">-transformMultiPolygon:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1144,7 +1187,7 @@
                         <p>projected multi polygon</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L96">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L96">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1154,7 +1197,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformCircularString:"></a>
                     <a name="//apple_ref/objc/Method/-transformCircularString:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformCircularString:">-transformCircularString:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformCircularString:">-transformCircularString:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1203,7 +1246,7 @@
                         <p>projected circular string</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L105">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L105">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1213,7 +1256,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformCompoundCurve:"></a>
                     <a name="//apple_ref/objc/Method/-transformCompoundCurve:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformCompoundCurve:">-transformCompoundCurve:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformCompoundCurve:">-transformCompoundCurve:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1261,7 +1304,7 @@
                         <p>projected compound curve</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L114">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L114">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1271,7 +1314,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformCurvePolygon:"></a>
                     <a name="//apple_ref/objc/Method/-transformCurvePolygon:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformCurvePolygon:">-transformCurvePolygon:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformCurvePolygon:">-transformCurvePolygon:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1319,7 +1362,7 @@
                         <p>projected curve polygon</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L123">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L123">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1329,7 +1372,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformPolyhedralSurface:"></a>
                     <a name="//apple_ref/objc/Method/-transformPolyhedralSurface:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformPolyhedralSurface:">-transformPolyhedralSurface:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformPolyhedralSurface:">-transformPolyhedralSurface:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1378,7 +1421,7 @@
                         <p>projected polyhedrals surface</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L132">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L132">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1388,7 +1431,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformTIN:"></a>
                     <a name="//apple_ref/objc/Method/-transformTIN:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformTIN:">-transformTIN:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformTIN:">-transformTIN:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1436,7 +1479,7 @@
                         <p>projected tin</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L141">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L141">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1446,7 +1489,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformTriangle:"></a>
                     <a name="//apple_ref/objc/Method/-transformTriangle:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformTriangle:">-transformTriangle:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformTriangle:">-transformTriangle:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1494,7 +1537,7 @@
                         <p>projected triangle</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L150">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L150">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1504,7 +1547,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPGeometryProjectionTransform(im)transformGeometryCollection:"></a>
                     <a name="//apple_ref/objc/Method/-transformGeometryCollection:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformGeometryCollection:">-transformGeometryCollection:</a>
+                    <a class="token" href="#/c:objc(cs)SFPGeometryProjectionTransform(im)transformGeometryCollection:">-transformGeometryCollection:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1553,7 +1596,7 @@
                         <p>projected geometry collection</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/2.0.3/sf-proj-ios/SFPGeometryProjectionTransform.h#L159">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-proj-ios/tree/3.0.0/sf-proj-ios/SFPGeometryProjectionTransform.h#L159">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1563,8 +1606,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
