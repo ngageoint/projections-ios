@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/ngageoint/simple-features-proj-ios.git', :tag => s.version }
   s.requires_arc     = true
 
-  s.platform         = :ios, '8.0'
-  s.ios.deployment_target = '8.0'
+  s.platform         = :ios, '12.0'
+  s.ios.deployment_target = '12.0'
 
   s.source_files = 'sf-proj-ios/**/*.{h,m}'
 
@@ -18,6 +18,6 @@ Pod::Spec.new do |s|
   s.resource_bundle = { 'sf-proj-ios' => ['sf-proj-ios/**/*.plist'] }
   s.frameworks = 'Foundation'
 
-  s.dependency 'sf-ios', '~> 3.0.0'
+  s.dependency 'sf-ios', '~> 3.0.1'
   s.dependency 'proj4-ios', '~> 4.9.3'
 end
