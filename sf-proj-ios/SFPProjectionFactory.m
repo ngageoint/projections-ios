@@ -34,6 +34,29 @@ static SFPProjections *projections;
     return [self projectionWithEpsg:[NSNumber numberWithInt:epsg]];
 }
 
++(SFPProjection *) projectionWithName: (NSString *) name{
+    
+    NSString *authority = nil;
+    NSString *code = nil;
+    
+    NSArray<NSString *> *projectionParts = [name componentsSeparatedByString:@":"];
+    
+    switch(projectionParts.count){
+        case 1:
+            authority = PROJ_AUTHORITY_EPSG;
+            code = [projectionParts firstObject];
+            break;
+        case 2:
+            authority = [projectionParts firstObject];
+            code = [projectionParts objectAtIndex:1];
+            break;
+        default:
+            [NSException raise:@"Invalid Projection" format:@"Invalid projection name '%@', expected 'authority:code' or 'epsg_code'", name];
+    }
+    
+    return [self projectionWithAuthority:authority andCode:code];
+}
+
 +(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code{
     return [self projectionWithAuthority:authority andCode:[code stringValue]];
 }

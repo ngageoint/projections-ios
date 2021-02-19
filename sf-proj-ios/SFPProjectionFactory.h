@@ -35,6 +35,15 @@
 +(SFPProjection *) projectionWithEpsgInt: (int) epsg;
 
 /**
+ *  Get the projection for the projection name, expected as 'authority:code' or 'epsg_code'
+ *
+ *  @param name projection name
+ *
+ *  @return projection
+ */
++(SFPProjection *) projectionWithName: (NSString *) name;
+
+/**
  * Get the projection for authority and code
  *
  * @param authority

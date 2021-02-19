@@ -8,6 +8,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 * sf-ios 3.0.1
 * iOS platform and deployment target 12.0
+* Projection Factory projection by name method
 
 ## [3.0.0](https://github.com/ngageoint/simple-features-proj-ios/releases/tag/3.0.0) (08-14-2020)
 
