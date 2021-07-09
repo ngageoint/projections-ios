@@ -11,8 +11,8 @@ Please fill out as much known and relevant information as possible.
 
 #### Version Information:
 
-  * SF Proj iOS Version:
-  * SF Proj iOS Source: (e.g. CocoaPods, Source Code Build)
+  * Projections iOS Version:
+  * Projections iOS Source: (e.g. CocoaPods, Source Code Build)
   * CocoaPods Version:
   * Xcode Version:
   * Device or Emulator:

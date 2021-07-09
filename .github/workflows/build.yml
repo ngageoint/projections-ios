@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  
+
   build:
 
     runs-on: macOS-latest
@@ -21,4 +21,4 @@ jobs:
     - name: Install
       run: pod install
     - name: Build
-      run: xcodebuild build-for-testing -workspace sf-proj-ios.xcworkspace -scheme sf-proj-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 11'
+      run: xcodebuild build-for-testing -workspace proj-ios.xcworkspace -scheme proj-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 11'
