@@ -1,5 +1,5 @@
 //
-//  SFPReadmeTest.h
+//  PROJReadmeTest.h
 //  proj-iosTests
 //
 //  Created by Brian Osborn on 7/24/20.
@@ -11,6 +11,6 @@
 /**
  * README example tests
  */
-@interface SFPReadmeTest : XCTestCase
+@interface PROJReadmeTest : XCTestCase
 
 @end

@@ -1,14 +1,14 @@
 //
-//  SFPAuthorityProjections.m
+//  PROJAuthorityProjections.m
 //  proj-ios
 //
 //  Created by Brian Osborn on 7/19/17.
 //  Copyright © 2017 NGA. All rights reserved.
 //
 
-#import "SFPAuthorityProjections.h"
+#import "PROJAuthorityProjections.h"
 
-@interface SFPAuthorityProjections()
+@interface PROJAuthorityProjections()
 
 /**
  *  Coordinate authority
@@ -18,11 +18,11 @@
 /**
  * Projections by code
  */
-@property (nonatomic, strong) NSMutableDictionary<NSString *, SFPProjection *> *projections;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, PROJProjection *> *projections;
 
 @end
 
-@implementation SFPAuthorityProjections
+@implementation PROJAuthorityProjections
 
 -(instancetype) initWithAuthority: (NSString *) authority{
     self = [super init];
@@ -37,15 +37,15 @@
     return _authority;
 }
 
--(SFPProjection *)  projectionForNumberCode: (NSNumber *) code{
+-(PROJProjection *)  projectionForNumberCode: (NSNumber *) code{
     return [self projectionForCode:[code stringValue]];
 }
 
--(SFPProjection *) projectionForCode: (NSString *) code{
+-(PROJProjection *) projectionForCode: (NSString *) code{
     return [_projections objectForKey:[code uppercaseString]];
 }
 
--(BOOL) hasProjection: (SFPProjection *) projection{
+-(BOOL) hasProjection: (PROJProjection *) projection{
     return [self hasProjectionCode:[projection code]];
 }
 
@@ -57,7 +57,7 @@
     return [self projectionForCode:code] != nil;
 }
 
--(void) addProjection: (SFPProjection *) projection{
+-(void) addProjection: (PROJProjection *) projection{
     [_projections setObject:projection forKey:[projection.code uppercaseString]];
 }
 
@@ -73,7 +73,7 @@
     [_projections removeObjectForKey:[code uppercaseString]];
 }
 
--(void) removeProjection: (SFPProjection *) projection{
+-(void) removeProjection: (PROJProjection *) projection{
     [self removeCode:[projection code]];
 }
 
@@ -89,7 +89,7 @@
     return [self.projections allKeys];
 }
 
--(NSArray<SFPProjection *> *) getProjections{
+-(NSArray<PROJProjection *> *) getProjections{
     return [self.projections allValues];
 }
 

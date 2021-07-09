@@ -1,14 +1,14 @@
 //
-//  SFPProjection.m
+//  PROJProjection.m
 //  proj-ios
 //
 //  Created by Brian Osborn on 5/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "SFPProjection.h"
+#import "PROJProjection.h"
 
-@interface SFPProjection()
+@interface PROJProjection()
 
 /**
  *  Projection authority
@@ -37,7 +37,7 @@
 
 @end
 
-@implementation SFPProjection
+@implementation PROJProjection
 
 -(instancetype) initWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andCrs: (projPJ) crs andToMeters: (NSDecimalNumber *) toMeters{
     return [self initWithAuthority:authority andCode:(code != nil ? [code stringValue] : nil) andCrs:crs andToMeters:toMeters];
@@ -87,20 +87,20 @@
     return value;
 }
 
--(enum SFPUnit) getUnit{
+-(enum PROJUnit) getUnit{
     
-    enum SFPUnit unit = SFP_UNIT_NONE;
+    enum PROJUnit unit = PROJ_UNIT_NONE;
     
     if(self.isLatLong){
-        unit = SFP_UNIT_DEGREES;
+        unit = PROJ_UNIT_DEGREES;
     }else{
-        unit = SFP_UNIT_METERS;
+        unit = PROJ_UNIT_METERS;
     }
     
     return unit;
 }
 
--(BOOL) isUnit: (enum SFPUnit) unit{
+-(BOOL) isUnit: (enum PROJUnit) unit{
     return [self getUnit] == unit;
 }
 
@@ -112,7 +112,7 @@
     return [_authority isEqualToString:authority] && [_code isEqualToString:code];
 }
 
--(BOOL) isEqualToProjection: (SFPProjection *) projection{
+-(BOOL) isEqualToProjection: (PROJProjection *) projection{
     return [self isEqualToAuthority:projection.authority andCode:projection.code];
 }
 
@@ -121,11 +121,11 @@
         return YES;
     }
     
-    if(![object isKindOfClass:[SFPProjection class]]){
+    if(![object isKindOfClass:[PROJProjection class]]){
         return NO;
     }
     
-    return [self isEqualToProjection: (SFPProjection *)object];
+    return [self isEqualToProjection: (PROJProjection *)object];
 }
 
 -(NSUInteger) hash{

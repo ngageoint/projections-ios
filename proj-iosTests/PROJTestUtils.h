@@ -1,5 +1,5 @@
 //
-//  SFPTestUtils.h
+//  PROJTestUtils.h
 //  proj-ios
 //
 //  Created by Brian Osborn on 6/12/15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SFPTestUtils : NSObject
+@interface PROJTestUtils : NSObject
 
 +(void)assertNil:(id) value;
 

@@ -1,5 +1,5 @@
 //
-//  SFPProjectionRetriever.h
+//  PROJProjectionRetriever.h
 //  proj-ios
 //
 //  Created by Brian Osborn on 7/21/15.
@@ -11,7 +11,7 @@
 /**
  *  Retrieves the proj4 projection parameter string for an authority and coordinate code
  */
-@interface SFPProjectionRetriever : NSObject
+@interface PROJProjectionRetriever : NSObject
 
 /**
  *  Get the proj4 projection string for the EPSG code

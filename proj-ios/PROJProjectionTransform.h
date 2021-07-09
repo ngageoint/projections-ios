@@ -1,5 +1,5 @@
 //
-//  SFPProjectionTransform.h
+//  PROJProjectionTransform.h
 //  proj-ios
 //
 //  Created by Brian Osborn on 5/21/15.
@@ -7,23 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SFPProjection.h"
-#import "SFPLocationCoordinate3D.h"
+#import "PROJProjection.h"
+#import "PROJLocationCoordinate3D.h"
 
 /**
  *  Projection transformation between a from and to projection
  */
-@interface SFPProjectionTransform : NSObject
+@interface PROJProjectionTransform : NSObject
 
 /**
  *  From projection
  */
-@property (nonatomic, strong) SFPProjection *fromProjection;
+@property (nonatomic, strong) PROJProjection *fromProjection;
 
 /**
  *  To projection
  */
-@property (nonatomic, strong) SFPProjection *toProjection;
+@property (nonatomic, strong) PROJProjection *toProjection;
 
 /**
  *  Initialize
@@ -33,7 +33,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToProjection: (SFPProjection *) toProjection;
+-(instancetype) initWithFromProjection: (PROJProjection *) fromProjection andToProjection: (PROJProjection *) toProjection;
 
 /**
  *  Initialize
@@ -77,7 +77,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToEpsg: (int) toEpsg;
+-(instancetype) initWithFromProjection: (PROJProjection *) fromProjection andToEpsg: (int) toEpsg;
 
 /**
  *  Initialize
@@ -88,7 +88,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode;
+-(instancetype) initWithFromProjection: (PROJProjection *) fromProjection andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode;
 
 /**
  *  Initialize
@@ -98,7 +98,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromEpsg: (int) fromEpsg andToProjection: (SFPProjection *) toProjection;
+-(instancetype) initWithFromEpsg: (int) fromEpsg andToProjection: (PROJProjection *) toProjection;
 
 /**
  *  Initialize
@@ -109,7 +109,7 @@
  *
  *  @return new projection transform
  */
--(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (SFPProjection *) toProjection;
+-(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (PROJProjection *) toProjection;
 
 /**
  *  Transform a location coordinate
@@ -127,7 +127,7 @@
  *
  *  @return transformed 3d location coordinate
  */
--(SFPLocationCoordinate3D *) transform3d: (SFPLocationCoordinate3D *) from;
+-(PROJLocationCoordinate3D *) transform3d: (PROJLocationCoordinate3D *) from;
 
 /**
  *  Transform a x and y coordinate
@@ -163,6 +163,6 @@
  *
  * @return inverse transformation
  */
--(SFPProjectionTransform *) inverseTransformation;
+-(PROJProjectionTransform *) inverseTransformation;
 
 @end

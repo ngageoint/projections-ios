@@ -1,13 +1,13 @@
 //
-//  SFPUnits.m
+//  PROJUnits.m
 //  Pods
 //
 //  Created by Brian Osborn on 6/3/16.
 //
 //
 
-#import "SFPUnits.h"
+#import "PROJUnits.h"
 
-@implementation SFPUnits
+@implementation PROJUnits
 
 @end

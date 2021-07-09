@@ -1,5 +1,5 @@
 //
-//  SFPAuthorityProjections.h
+//  PROJAuthorityProjections.h
 //  proj-ios
 //
 //  Created by Brian Osborn on 7/19/17.
@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SFPProjection.h"
+#import "PROJProjection.h"
 
 /**
  *  Collection of projections for a single coordinate authority
  */
-@interface SFPAuthorityProjections : NSObject
+@interface PROJAuthorityProjections : NSObject
 
 /**
  * Initialize
@@ -38,7 +38,7 @@
  *            coordinate code
  * @return projection
  */
--(SFPProjection *)  projectionForNumberCode: (NSNumber *) code;
+-(PROJProjection *)  projectionForNumberCode: (NSNumber *) code;
 
 /**
  * Get the projection for the code
@@ -47,7 +47,7 @@
  *            coordinate code
  * @return projection
  */
--(SFPProjection *) projectionForCode: (NSString *) code;
+-(PROJProjection *) projectionForCode: (NSString *) code;
 
 /**
  * Check if the collection contains the projection
@@ -56,7 +56,7 @@
  *            projection
  * @return true if has the projection
  */
--(BOOL) hasProjection: (SFPProjection *) projection;
+-(BOOL) hasProjection: (PROJProjection *) projection;
 
 /**
  * Check if the collection contains a projection for the code
@@ -82,7 +82,7 @@
  * @param projection
  *            projection
  */
--(void) addProjection: (SFPProjection *) projection;
+-(void) addProjection: (PROJProjection *) projection;
 
 /**
  * Clear all projections for the authority
@@ -111,7 +111,7 @@
  * @param projection
  *            projection
  */
--(void) removeProjection: (SFPProjection *) projection;
+-(void) removeProjection: (PROJProjection *) projection;
 
 /**
  * Get the count of authority projections
@@ -139,6 +139,6 @@
  *
  * @return projections
  */
--(NSArray<SFPProjection *> *) getProjections;
+-(NSArray<PROJProjection *> *) getProjections;
 
 @end

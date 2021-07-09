@@ -1,5 +1,5 @@
 //
-//  SFPUnits.h
+//  PROJUnits.h
 //  Pods
 //
 //  Created by Brian Osborn on 6/3/16.
@@ -11,12 +11,12 @@
 /**
  * Enumeration of projection units
  */
-enum SFPUnit{
-    SFP_UNIT_DEGREES,
-    SFP_UNIT_METERS,
-    SFP_UNIT_NONE
+enum PROJUnit{
+    PROJ_UNIT_DEGREES,
+    PROJ_UNIT_METERS,
+    PROJ_UNIT_NONE
 };
 
-@interface SFPUnits : NSObject
+@interface PROJUnits : NSObject
 
 @end

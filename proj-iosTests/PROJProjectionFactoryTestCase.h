@@ -1,5 +1,5 @@
 //
-//  SFPProjectionFactoryTestCase.h
+//  PROJProjectionFactoryTestCase.h
 //  proj-ios
 //
 //  Created by Brian Osborn on 7/21/17.
@@ -7,6 +7,6 @@
 //
 
 #import <XCTest/XCTest.h>
-@interface SFPProjectionFactoryTestCase : XCTestCase
+@interface PROJProjectionFactoryTestCase : XCTestCase
 
 @end

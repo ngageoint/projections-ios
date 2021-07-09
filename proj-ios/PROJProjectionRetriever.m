@@ -1,18 +1,18 @@
 //
-//  SFPProjectionRetriever.m
+//  PROJProjectionRetriever.m
 //  proj-ios
 //
 //  Created by Brian Osborn on 7/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "SFPProjectionRetriever.h"
-#import "SFPProjectionConstants.h"
-#import "SFPIOUtils.h"
+#import "PROJProjectionRetriever.h"
+#import "PROJProjectionConstants.h"
+#import "PROJIOUtils.h"
 
 static NSMutableDictionary<NSString *, NSMutableDictionary *> *properties;
 
-@implementation SFPProjectionRetriever
+@implementation PROJProjectionRetriever
 
 +(NSString *) projectionWithEpsg: (NSNumber *) epsg{
     return [self projectionWithAuthority:PROJ_AUTHORITY_EPSG andNumberCode:epsg];
@@ -79,7 +79,7 @@ static NSMutableDictionary<NSString *, NSMutableDictionary *> *properties;
 
 +(NSString *) propertiesPathForAuthority: (NSString *) authority{
     NSString *name = [NSString stringWithFormat:@"%@.%@", PROJ_PROPERTIES, [authority lowercaseString]];
-    return [SFPIOUtils getPropertyListPathWithName:name];
+    return [PROJIOUtils getPropertyListPathWithName:name];
 }
 
 +(void) setProjections: (NSMutableDictionary *) projections forAuthority: (NSString *) authority{

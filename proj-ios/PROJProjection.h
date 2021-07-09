@@ -1,5 +1,5 @@
 //
-//  SFPProjection.h
+//  PROJProjection.h
 //  proj-ios
 //
 //  Created by Brian Osborn on 5/21/15.
@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "proj_api.h"
-#import "SFPUnits.h"
+#import "PROJUnits.h"
 
 /**
  *  Single Projection for an authority and code
  */
-@interface SFPProjection : NSObject
+@interface PROJProjection : NSObject
 
 /**
  *  Initialize
@@ -88,7 +88,7 @@
  *
  *  @return unit
  */
--(enum SFPUnit) getUnit;
+-(enum PROJUnit) getUnit;
 
 /**
  * Determine if the projection is in the provided unit
@@ -97,7 +97,7 @@
  *            unit
  * @return true if in the provided unit
  */
--(BOOL) isUnit: (enum SFPUnit) unit;
+-(BOOL) isUnit: (enum PROJUnit) unit;
 
 /**
  * Check if this projection is equal to the authority and code
@@ -128,6 +128,6 @@
  *            projection
  * @return true if equal
  */
--(BOOL) isEqualToProjection: (SFPProjection *) projection;
+-(BOOL) isEqualToProjection: (PROJProjection *) projection;
 
 @end

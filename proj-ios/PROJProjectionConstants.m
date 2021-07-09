@@ -1,12 +1,12 @@
 //
-//  SFPProjectionConstants.m
+//  PROJProjectionConstants.m
 //  proj-ios
 //
 //  Created by Brian Osborn on 5/15/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "SFPProjectionConstants.h"
+#import "PROJProjectionConstants.h"
 
 NSString * const PROJ_PROPERTIES = @"projections";
 NSString * const PROJ_AUTHORITY_EPSG = @"EPSG";
@@ -25,6 +25,6 @@ double const PROJ_MERCATOR_RADIUS = 85445659.44705395;
 double const PROJ_WGS84_HALF_WORLD_LON_WIDTH = 180.0;
 double const PROJ_WGS84_HALF_WORLD_LAT_HEIGHT = 90.0;
 
-@implementation SFPProjectionConstants
+@implementation PROJProjectionConstants
 
 @end

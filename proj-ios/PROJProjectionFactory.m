@@ -1,40 +1,40 @@
 //
-//  SFPProjectionFactory.m
+//  PROJProjectionFactory.m
 //  proj-ios
 //
 //  Created by Brian Osborn on 5/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "SFPProjectionFactory.h"
+#import "PROJProjectionFactory.h"
 #import "proj_api.h"
-#import "SFPProjectionRetriever.h"
-#import "SFPProjectionConstants.h"
+#import "PROJProjectionRetriever.h"
+#import "PROJProjectionConstants.h"
 
-NSString * const SFP_PROJ_TO_METER_PATTERN = @"\\+to_meter=(\\S+)";
+NSString * const PROJ_PROJ_TO_METER_PATTERN = @"\\+to_meter=(\\S+)";
 
 /**
  * Projections
  */
-static SFPProjections *projections;
+static PROJProjections *projections;
 
-@implementation SFPProjectionFactory
+@implementation PROJProjectionFactory
 
 +(void) initialize{
-    if(self == [SFPProjectionFactory self]){
-        projections = [[SFPProjections alloc] init];
+    if(self == [PROJProjectionFactory self]){
+        projections = [[PROJProjections alloc] init];
     }
 }
 
-+(SFPProjection *) projectionWithEpsg: (NSNumber *) epsg{
++(PROJProjection *) projectionWithEpsg: (NSNumber *) epsg{
     return [self projectionWithAuthority:PROJ_AUTHORITY_EPSG andNumberCode:epsg];
 }
 
-+(SFPProjection *) projectionWithEpsgInt: (int) epsg{
++(PROJProjection *) projectionWithEpsgInt: (int) epsg{
     return [self projectionWithEpsg:[NSNumber numberWithInt:epsg]];
 }
 
-+(SFPProjection *) projectionWithName: (NSString *) name{
++(PROJProjection *) projectionWithName: (NSString *) name{
     
     NSString *authority = nil;
     NSString *code = nil;
@@ -57,44 +57,44 @@ static SFPProjections *projections;
     return [self projectionWithAuthority:authority andCode:code];
 }
 
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code{
     return [self projectionWithAuthority:authority andCode:[code stringValue]];
 }
 
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code{
     return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code]];
 }
 
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code{
     return [self projectionWithAuthority:authority andCode:code andParams:nil andDefinition:nil];
 }
 
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params{
     return [self projectionWithAuthority:authority andCode:[code stringValue] andParams:params];
 }
 
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params{
     return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params];
 }
 
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params{
     return [self projectionWithAuthority:authority andCode:code andParams:params andDefinition:nil];
 }
 
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params andDefinition: (NSString *) definition{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params andDefinition: (NSString *) definition{
     return [self projectionWithAuthority:authority andCode:[code stringValue] andParams:params andDefinition:definition];
 }
 
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params andDefinition: (NSString *) definition{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params andDefinition: (NSString *) definition{
     return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params andDefinition:definition];
 }
 
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params andDefinition: (NSString *) definition{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params andDefinition: (NSString *) definition{
     
     authority = [authority uppercaseString];
     
     // Check if the projection already exists
-    SFPProjection *projection = [projections projectionForAuthority:authority andCode:code];
+    PROJProjection *projection = [projections projectionForAuthority:authority andCode:code];
     
     if(projection == nil){
         
@@ -121,11 +121,11 @@ static SFPProjections *projections;
     return projection;
 }
 
-+(SFPProjections *) projections{
++(PROJProjections *) projections{
     return projections;
 }
 
-+(SFPAuthorityProjections *) projectionsWithAuthority: (NSString *) authority{
++(PROJAuthorityProjections *) projectionsWithAuthority: (NSString *) authority{
     return [projections projectionsForAuthority:authority];
 }
 
@@ -160,9 +160,9 @@ static SFPProjections *projections;
  *            coordinate code
  * @return projection
  */
-+(SFPProjection *) fromDefinition: (NSString *) definition withAuthority: (NSString *) authority andCode: (NSString *) code{
++(PROJProjection *) fromDefinition: (NSString *) definition withAuthority: (NSString *) authority andCode: (NSString *) code{
 
-    SFPProjection *projection = nil;
+    PROJProjection *projection = nil;
     
     if(definition != nil && definition.length > 0){
         
@@ -175,7 +175,7 @@ static SFPProjections *projections;
             projPJ crs = pj_init_plus([parametersString UTF8String]);
             if(crs != nil){
                 NSDecimalNumber * toMeters = [self toMetersFromParameters:parametersString];
-                projection = [[SFPProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andToMeters:toMeters];
+                projection = [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andToMeters:toMeters];
                 [projections addProjection:projection];
             }else{
                 NSLog(@"Failed to create projection for authority: %@, code: %@, definition, %@, parameters: %@", authority, code, definition, parametersString);
@@ -197,15 +197,15 @@ static SFPProjections *projections;
  *            coordinate code
  * @return projection
  */
-+(SFPProjection *) fromParams: (NSString *) params withAuthority: (NSString *) authority andCode: (NSString *) code{
++(PROJProjection *) fromParams: (NSString *) params withAuthority: (NSString *) authority andCode: (NSString *) code{
     
-    SFPProjection *projection = nil;
+    PROJProjection *projection = nil;
     
     if (params != nil && params.length > 0) {
         projPJ crs = pj_init_plus([params UTF8String]);
         if(crs != nil){
             NSDecimalNumber * toMeters = [self toMetersFromParameters:params];
-            projection = [[SFPProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andToMeters:toMeters];
+            projection = [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andToMeters:toMeters];
             [projections addProjection:projection];
         }else{
             NSLog(@"Failed to create projection for authority: %@, code: %@, parameters: %@", authority, code, params);
@@ -224,17 +224,17 @@ static SFPProjections *projections;
  *            coordinate code
  * @return projection
  */
-+(SFPProjection *) fromPropertiesWithAuthority: (NSString *) authority andCode: (NSString *) code{
++(PROJProjection *) fromPropertiesWithAuthority: (NSString *) authority andCode: (NSString *) code{
     
-    SFPProjection *projection = nil;
+    PROJProjection *projection = nil;
     
-    NSString *parameters = [SFPProjectionRetriever projectionWithAuthority:authority andCode:code];
+    NSString *parameters = [PROJProjectionRetriever projectionWithAuthority:authority andCode:code];
     
     if(parameters != nil && parameters.length > 0){
         projPJ crs = pj_init_plus([parameters UTF8String]);
         if(crs != nil){
             NSDecimalNumber * toMeters = [self toMetersFromParameters:parameters];
-            projection = [[SFPProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andToMeters:toMeters];
+            projection = [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andToMeters:toMeters];
             [projections addProjection:projection];
         }else{
             NSLog(@"Failed to create projection for authority: %@, code: %@, parameters: %@", authority, code, parameters);
@@ -249,7 +249,7 @@ static SFPProjections *projections;
     NSDecimalNumber * toMeters = nil;
     
     NSError  *error = nil;
-    NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:SFP_PROJ_TO_METER_PATTERN options:NSRegularExpressionCaseInsensitive error:&error];
+    NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:PROJ_PROJ_TO_METER_PATTERN options:NSRegularExpressionCaseInsensitive error:&error];
     if(error){
         [NSException raise:@"To Meter Regular Expression" format:@"Failed to create projection to meter regular epxression with error: %@", error];
     }

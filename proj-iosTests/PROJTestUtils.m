@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "SFPTestUtils.h"
+#import "PROJTestUtils.h"
 
 #define ARC4RANDOM_MAX      0x100000000
 
-@implementation SFPTestUtils
+@implementation PROJTestUtils
 
 +(void)assertNil:(id) value{
     if(value != nil){

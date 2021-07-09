@@ -7,40 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		041F18E124CB2291001311E4 /* SFPReadmeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F18E024CB2291001311E4 /* SFPReadmeTest.m */; };
-		041F18E424CB3762001311E4 /* SFPSwiftReadmeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F18E324CB3762001311E4 /* SFPSwiftReadmeTest.swift */; };
+		041F18E124CB2291001311E4 /* PROJReadmeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F18E024CB2291001311E4 /* PROJReadmeTest.m */; };
+		041F18E424CB3762001311E4 /* PROJSwiftReadmeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F18E324CB3762001311E4 /* PROJSwiftReadmeTest.swift */; };
 		042FC6571B963FE500549A4B /* proj_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FC64B1B963FE500549A4B /* proj_ios.framework */; };
 		042FC6AF1B96421E00549A4B /* (null) in Headers */ = {isa = PBXBuildFile; };
 		042FC6D31B96421E00549A4B /* proj-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* proj-ios-Prefix.pch */; };
 		042FC6D51B96453E00549A4B /* proj_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* proj_ios.h */; };
 		0472B51B1C03590500496B87 /* proj-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* proj-ios-Bridging-Header.h */; };
 		04C393C422DD200F0049F6C0 /* projections.ogc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C393C322DD200E0049F6C0 /* projections.ogc.plist */; };
-		04C393C722DE26A20049F6C0 /* SFPProjections.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C393C522DE26A10049F6C0 /* SFPProjections.h */; };
-		04C393C822DE26A20049F6C0 /* SFPProjections.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C393C622DE26A20049F6C0 /* SFPProjections.m */; };
-		04F4560F209A47C800FC299E /* SFPAuthorityProjections.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F455FB209A47C700FC299E /* SFPAuthorityProjections.m */; };
-		04F45610209A47C800FC299E /* SFPProjectionTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F455FC209A47C700FC299E /* SFPProjectionTransform.m */; };
-		04F45611209A47C800FC299E /* SFPUnits.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F455FD209A47C700FC299E /* SFPUnits.h */; };
-		04F45612209A47C800FC299E /* SFPProjectionRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F455FE209A47C700FC299E /* SFPProjectionRetriever.m */; };
-		04F45613209A47C800FC299E /* SFPUnits.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F455FF209A47C700FC299E /* SFPUnits.m */; };
+		04C393C722DE26A20049F6C0 /* PROJProjections.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C393C522DE26A10049F6C0 /* PROJProjections.h */; };
+		04C393C822DE26A20049F6C0 /* PROJProjections.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C393C622DE26A20049F6C0 /* PROJProjections.m */; };
+		04F4560F209A47C800FC299E /* PROJAuthorityProjections.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F455FB209A47C700FC299E /* PROJAuthorityProjections.m */; };
+		04F45610209A47C800FC299E /* PROJProjectionTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F455FC209A47C700FC299E /* PROJProjectionTransform.m */; };
+		04F45611209A47C800FC299E /* PROJUnits.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F455FD209A47C700FC299E /* PROJUnits.h */; };
+		04F45612209A47C800FC299E /* PROJProjectionRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F455FE209A47C700FC299E /* PROJProjectionRetriever.m */; };
+		04F45613209A47C800FC299E /* PROJUnits.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F455FF209A47C700FC299E /* PROJUnits.m */; };
 		04F45614209A47C800FC299E /* projections.epsg.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F45600209A47C700FC299E /* projections.epsg.plist */; };
-		04F45615209A47C800FC299E /* SFPProjectionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45601209A47C700FC299E /* SFPProjectionFactory.h */; };
-		04F45616209A47C800FC299E /* SFPProjectionTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45602209A47C700FC299E /* SFPProjectionTransform.h */; };
-		04F45617209A47C800FC299E /* SFPProjection.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45603209A47C700FC299E /* SFPProjection.h */; };
-		04F45618209A47C800FC299E /* SFPProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45604209A47C700FC299E /* SFPProjection.m */; };
-		04F45619209A47C800FC299E /* SFPProjectionConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45605209A47C700FC299E /* SFPProjectionConstants.m */; };
-		04F4561B209A47C800FC299E /* SFPLocationCoordinate3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45607209A47C700FC299E /* SFPLocationCoordinate3D.m */; };
-		04F4561C209A47C800FC299E /* SFPProjectionRetriever.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45608209A47C700FC299E /* SFPProjectionRetriever.h */; };
-		04F4561D209A47C800FC299E /* SFPProjectionConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45609209A47C700FC299E /* SFPProjectionConstants.h */; };
-		04F4561E209A47C800FC299E /* SFPProjectionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4560A209A47C700FC299E /* SFPProjectionFactory.m */; };
-		04F4561F209A47C800FC299E /* SFPAuthorityProjections.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F4560B209A47C700FC299E /* SFPAuthorityProjections.h */; };
-		04F45620209A47C800FC299E /* SFPLocationCoordinate3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F4560C209A47C700FC299E /* SFPLocationCoordinate3D.h */; };
+		04F45615209A47C800FC299E /* PROJProjectionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45601209A47C700FC299E /* PROJProjectionFactory.h */; };
+		04F45616209A47C800FC299E /* PROJProjectionTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45602209A47C700FC299E /* PROJProjectionTransform.h */; };
+		04F45617209A47C800FC299E /* PROJProjection.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45603209A47C700FC299E /* PROJProjection.h */; };
+		04F45618209A47C800FC299E /* PROJProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45604209A47C700FC299E /* PROJProjection.m */; };
+		04F45619209A47C800FC299E /* PROJProjectionConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45605209A47C700FC299E /* PROJProjectionConstants.m */; };
+		04F4561B209A47C800FC299E /* PROJLocationCoordinate3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45607209A47C700FC299E /* PROJLocationCoordinate3D.m */; };
+		04F4561C209A47C800FC299E /* PROJProjectionRetriever.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45608209A47C700FC299E /* PROJProjectionRetriever.h */; };
+		04F4561D209A47C800FC299E /* PROJProjectionConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45609209A47C700FC299E /* PROJProjectionConstants.h */; };
+		04F4561E209A47C800FC299E /* PROJProjectionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4560A209A47C700FC299E /* PROJProjectionFactory.m */; };
+		04F4561F209A47C800FC299E /* PROJAuthorityProjections.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F4560B209A47C700FC299E /* PROJAuthorityProjections.h */; };
+		04F45620209A47C800FC299E /* PROJLocationCoordinate3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F4560C209A47C700FC299E /* PROJLocationCoordinate3D.h */; };
 		04F45621209A47C800FC299E /* projections.none.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F4560D209A47C700FC299E /* projections.none.plist */; };
-		04F45624209B3FD000FC299E /* SFPIOUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45622209B3FD000FC299E /* SFPIOUtils.h */; };
-		04F45625209B3FD000FC299E /* SFPIOUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45623209B3FD000FC299E /* SFPIOUtils.m */; };
-		04F45628209B40F800FC299E /* SFPConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45626209B40F800FC299E /* SFPConstants.h */; };
-		04F45629209B40F800FC299E /* SFPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45627209B40F800FC299E /* SFPConstants.m */; };
-		04F4562C209B6C0B00FC299E /* SFPProjectionFactoryTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4562A209B6C0B00FC299E /* SFPProjectionFactoryTestCase.m */; };
-		04F4562F209B6D1000FC299E /* SFPTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4562D209B6D1000FC299E /* SFPTestUtils.m */; };
+		04F45624209B3FD000FC299E /* PROJIOUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45622209B3FD000FC299E /* PROJIOUtils.h */; };
+		04F45625209B3FD000FC299E /* PROJIOUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45623209B3FD000FC299E /* PROJIOUtils.m */; };
+		04F45628209B40F800FC299E /* PROJConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45626209B40F800FC299E /* PROJConstants.h */; };
+		04F45629209B40F800FC299E /* PROJConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45627209B40F800FC299E /* PROJConstants.m */; };
+		04F4562C209B6C0B00FC299E /* PROJProjectionFactoryTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4562A209B6C0B00FC299E /* PROJProjectionFactoryTestCase.m */; };
+		04F4562F209B6D1000FC299E /* PROJTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4562D209B6D1000FC299E /* PROJTestUtils.m */; };
 		455990E02D380E531EE4ACDC /* libPods-proj-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2802BAC0915BABF2D048D9 /* libPods-proj-ios.a */; };
 		B5D94958E350F092F31540ED /* libPods-proj-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 499642A447440D35F38311C9 /* libPods-proj-iosTests.a */; };
 /* End PBXBuildFile section */
@@ -56,10 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		041F18DF24CB2291001311E4 /* SFPReadmeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPReadmeTest.h; sourceTree = "<group>"; };
-		041F18E024CB2291001311E4 /* SFPReadmeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPReadmeTest.m; sourceTree = "<group>"; };
+		041F18DF24CB2291001311E4 /* PROJReadmeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJReadmeTest.h; sourceTree = "<group>"; };
+		041F18E024CB2291001311E4 /* PROJReadmeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJReadmeTest.m; sourceTree = "<group>"; };
 		041F18E224CB3762001311E4 /* proj-iosTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "proj-iosTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		041F18E324CB3762001311E4 /* SFPSwiftReadmeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFPSwiftReadmeTest.swift; sourceTree = "<group>"; };
+		041F18E324CB3762001311E4 /* PROJSwiftReadmeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PROJSwiftReadmeTest.swift; sourceTree = "<group>"; };
 		042FC64B1B963FE500549A4B /* proj_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = proj_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		042FC64F1B963FE500549A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		042FC6561B963FE500549A4B /* proj_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = proj_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,34 +68,34 @@
 		042FC6D41B96453E00549A4B /* proj_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = proj_ios.h; sourceTree = "<group>"; };
 		0472B51A1C03590500496B87 /* proj-ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "proj-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		04C393C322DD200E0049F6C0 /* projections.ogc.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = projections.ogc.plist; sourceTree = "<group>"; };
-		04C393C522DE26A10049F6C0 /* SFPProjections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPProjections.h; sourceTree = "<group>"; };
-		04C393C622DE26A20049F6C0 /* SFPProjections.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPProjections.m; sourceTree = "<group>"; };
-		04F455FB209A47C700FC299E /* SFPAuthorityProjections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPAuthorityProjections.m; sourceTree = "<group>"; };
-		04F455FC209A47C700FC299E /* SFPProjectionTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPProjectionTransform.m; sourceTree = "<group>"; };
-		04F455FD209A47C700FC299E /* SFPUnits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPUnits.h; sourceTree = "<group>"; };
-		04F455FE209A47C700FC299E /* SFPProjectionRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPProjectionRetriever.m; sourceTree = "<group>"; };
-		04F455FF209A47C700FC299E /* SFPUnits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPUnits.m; sourceTree = "<group>"; };
+		04C393C522DE26A10049F6C0 /* PROJProjections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJProjections.h; sourceTree = "<group>"; };
+		04C393C622DE26A20049F6C0 /* PROJProjections.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJProjections.m; sourceTree = "<group>"; };
+		04F455FB209A47C700FC299E /* PROJAuthorityProjections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROJAuthorityProjections.m; sourceTree = "<group>"; };
+		04F455FC209A47C700FC299E /* PROJProjectionTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROJProjectionTransform.m; sourceTree = "<group>"; };
+		04F455FD209A47C700FC299E /* PROJUnits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROJUnits.h; sourceTree = "<group>"; };
+		04F455FE209A47C700FC299E /* PROJProjectionRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROJProjectionRetriever.m; sourceTree = "<group>"; };
+		04F455FF209A47C700FC299E /* PROJUnits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROJUnits.m; sourceTree = "<group>"; };
 		04F45600209A47C700FC299E /* projections.epsg.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = projections.epsg.plist; sourceTree = "<group>"; };
-		04F45601209A47C700FC299E /* SFPProjectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPProjectionFactory.h; sourceTree = "<group>"; };
-		04F45602209A47C700FC299E /* SFPProjectionTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPProjectionTransform.h; sourceTree = "<group>"; };
-		04F45603209A47C700FC299E /* SFPProjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPProjection.h; sourceTree = "<group>"; };
-		04F45604209A47C700FC299E /* SFPProjection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPProjection.m; sourceTree = "<group>"; };
-		04F45605209A47C700FC299E /* SFPProjectionConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPProjectionConstants.m; sourceTree = "<group>"; };
-		04F45607209A47C700FC299E /* SFPLocationCoordinate3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPLocationCoordinate3D.m; sourceTree = "<group>"; };
-		04F45608209A47C700FC299E /* SFPProjectionRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPProjectionRetriever.h; sourceTree = "<group>"; };
-		04F45609209A47C700FC299E /* SFPProjectionConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPProjectionConstants.h; sourceTree = "<group>"; };
-		04F4560A209A47C700FC299E /* SFPProjectionFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPProjectionFactory.m; sourceTree = "<group>"; };
-		04F4560B209A47C700FC299E /* SFPAuthorityProjections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPAuthorityProjections.h; sourceTree = "<group>"; };
-		04F4560C209A47C700FC299E /* SFPLocationCoordinate3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPLocationCoordinate3D.h; sourceTree = "<group>"; };
+		04F45601209A47C700FC299E /* PROJProjectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROJProjectionFactory.h; sourceTree = "<group>"; };
+		04F45602209A47C700FC299E /* PROJProjectionTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROJProjectionTransform.h; sourceTree = "<group>"; };
+		04F45603209A47C700FC299E /* PROJProjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROJProjection.h; sourceTree = "<group>"; };
+		04F45604209A47C700FC299E /* PROJProjection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROJProjection.m; sourceTree = "<group>"; };
+		04F45605209A47C700FC299E /* PROJProjectionConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROJProjectionConstants.m; sourceTree = "<group>"; };
+		04F45607209A47C700FC299E /* PROJLocationCoordinate3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROJLocationCoordinate3D.m; sourceTree = "<group>"; };
+		04F45608209A47C700FC299E /* PROJProjectionRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROJProjectionRetriever.h; sourceTree = "<group>"; };
+		04F45609209A47C700FC299E /* PROJProjectionConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROJProjectionConstants.h; sourceTree = "<group>"; };
+		04F4560A209A47C700FC299E /* PROJProjectionFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROJProjectionFactory.m; sourceTree = "<group>"; };
+		04F4560B209A47C700FC299E /* PROJAuthorityProjections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROJAuthorityProjections.h; sourceTree = "<group>"; };
+		04F4560C209A47C700FC299E /* PROJLocationCoordinate3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROJLocationCoordinate3D.h; sourceTree = "<group>"; };
 		04F4560D209A47C700FC299E /* projections.none.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = projections.none.plist; sourceTree = "<group>"; };
-		04F45622209B3FD000FC299E /* SFPIOUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPIOUtils.h; sourceTree = "<group>"; };
-		04F45623209B3FD000FC299E /* SFPIOUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPIOUtils.m; sourceTree = "<group>"; };
-		04F45626209B40F800FC299E /* SFPConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPConstants.h; sourceTree = "<group>"; };
-		04F45627209B40F800FC299E /* SFPConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPConstants.m; sourceTree = "<group>"; };
-		04F4562A209B6C0B00FC299E /* SFPProjectionFactoryTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPProjectionFactoryTestCase.m; sourceTree = "<group>"; };
-		04F4562B209B6C0B00FC299E /* SFPProjectionFactoryTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPProjectionFactoryTestCase.h; sourceTree = "<group>"; };
-		04F4562D209B6D1000FC299E /* SFPTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPTestUtils.m; sourceTree = "<group>"; };
-		04F4562E209B6D1000FC299E /* SFPTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPTestUtils.h; sourceTree = "<group>"; };
+		04F45622209B3FD000FC299E /* PROJIOUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJIOUtils.h; sourceTree = "<group>"; };
+		04F45623209B3FD000FC299E /* PROJIOUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJIOUtils.m; sourceTree = "<group>"; };
+		04F45626209B40F800FC299E /* PROJConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJConstants.h; sourceTree = "<group>"; };
+		04F45627209B40F800FC299E /* PROJConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJConstants.m; sourceTree = "<group>"; };
+		04F4562A209B6C0B00FC299E /* PROJProjectionFactoryTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROJProjectionFactoryTestCase.m; sourceTree = "<group>"; };
+		04F4562B209B6C0B00FC299E /* PROJProjectionFactoryTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROJProjectionFactoryTestCase.h; sourceTree = "<group>"; };
+		04F4562D209B6D1000FC299E /* PROJTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROJTestUtils.m; sourceTree = "<group>"; };
+		04F4562E209B6D1000FC299E /* PROJTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROJTestUtils.h; sourceTree = "<group>"; };
 		499642A447440D35F38311C9 /* libPods-proj-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-proj-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD24597D37A9C5402B3279A /* Pods-proj-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proj-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proj-ios/Pods-proj-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		6179C77188B4A0E8D4DEDBEB /* Pods-proj-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proj-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proj-iosTests/Pods-proj-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,28 +149,28 @@
 			isa = PBXGroup;
 			children = (
 				042FC6D41B96453E00549A4B /* proj_ios.h */,
-				04F4560B209A47C700FC299E /* SFPAuthorityProjections.h */,
-				04F455FB209A47C700FC299E /* SFPAuthorityProjections.m */,
-				04F45603209A47C700FC299E /* SFPProjection.h */,
-				04F45604209A47C700FC299E /* SFPProjection.m */,
-				04F45609209A47C700FC299E /* SFPProjectionConstants.h */,
-				04F45605209A47C700FC299E /* SFPProjectionConstants.m */,
-				04F45601209A47C700FC299E /* SFPProjectionFactory.h */,
-				04F4560A209A47C700FC299E /* SFPProjectionFactory.m */,
-				04F45608209A47C700FC299E /* SFPProjectionRetriever.h */,
-				04F455FE209A47C700FC299E /* SFPProjectionRetriever.m */,
-				04C393C522DE26A10049F6C0 /* SFPProjections.h */,
-				04C393C622DE26A20049F6C0 /* SFPProjections.m */,
-				04F45602209A47C700FC299E /* SFPProjectionTransform.h */,
-				04F455FC209A47C700FC299E /* SFPProjectionTransform.m */,
-				04F4560C209A47C700FC299E /* SFPLocationCoordinate3D.h */,
-				04F45607209A47C700FC299E /* SFPLocationCoordinate3D.m */,
-				04F455FD209A47C700FC299E /* SFPUnits.h */,
-				04F455FF209A47C700FC299E /* SFPUnits.m */,
-				04F45622209B3FD000FC299E /* SFPIOUtils.h */,
-				04F45623209B3FD000FC299E /* SFPIOUtils.m */,
-				04F45626209B40F800FC299E /* SFPConstants.h */,
-				04F45627209B40F800FC299E /* SFPConstants.m */,
+				04F4560B209A47C700FC299E /* PROJAuthorityProjections.h */,
+				04F455FB209A47C700FC299E /* PROJAuthorityProjections.m */,
+				04F45603209A47C700FC299E /* PROJProjection.h */,
+				04F45604209A47C700FC299E /* PROJProjection.m */,
+				04F45609209A47C700FC299E /* PROJProjectionConstants.h */,
+				04F45605209A47C700FC299E /* PROJProjectionConstants.m */,
+				04F45601209A47C700FC299E /* PROJProjectionFactory.h */,
+				04F4560A209A47C700FC299E /* PROJProjectionFactory.m */,
+				04F45608209A47C700FC299E /* PROJProjectionRetriever.h */,
+				04F455FE209A47C700FC299E /* PROJProjectionRetriever.m */,
+				04C393C522DE26A10049F6C0 /* PROJProjections.h */,
+				04C393C622DE26A20049F6C0 /* PROJProjections.m */,
+				04F45602209A47C700FC299E /* PROJProjectionTransform.h */,
+				04F455FC209A47C700FC299E /* PROJProjectionTransform.m */,
+				04F4560C209A47C700FC299E /* PROJLocationCoordinate3D.h */,
+				04F45607209A47C700FC299E /* PROJLocationCoordinate3D.m */,
+				04F455FD209A47C700FC299E /* PROJUnits.h */,
+				04F455FF209A47C700FC299E /* PROJUnits.m */,
+				04F45622209B3FD000FC299E /* PROJIOUtils.h */,
+				04F45623209B3FD000FC299E /* PROJIOUtils.m */,
+				04F45626209B40F800FC299E /* PROJConstants.h */,
+				04F45627209B40F800FC299E /* PROJConstants.m */,
 				04F45600209A47C700FC299E /* projections.epsg.plist */,
 				04F4560D209A47C700FC299E /* projections.none.plist */,
 				04C393C322DD200E0049F6C0 /* projections.ogc.plist */,
@@ -192,14 +192,14 @@
 		042FC65A1B963FE500549A4B /* proj-iosTests */ = {
 			isa = PBXGroup;
 			children = (
-				041F18DF24CB2291001311E4 /* SFPReadmeTest.h */,
-				041F18E024CB2291001311E4 /* SFPReadmeTest.m */,
-				041F18E324CB3762001311E4 /* SFPSwiftReadmeTest.swift */,
+				041F18DF24CB2291001311E4 /* PROJReadmeTest.h */,
+				041F18E024CB2291001311E4 /* PROJReadmeTest.m */,
+				041F18E324CB3762001311E4 /* PROJSwiftReadmeTest.swift */,
 				041F18E224CB3762001311E4 /* proj-iosTests-Bridging-Header.h */,
-				04F4562B209B6C0B00FC299E /* SFPProjectionFactoryTestCase.h */,
-				04F4562A209B6C0B00FC299E /* SFPProjectionFactoryTestCase.m */,
-				04F4562E209B6D1000FC299E /* SFPTestUtils.h */,
-				04F4562D209B6D1000FC299E /* SFPTestUtils.m */,
+				04F4562B209B6C0B00FC299E /* PROJProjectionFactoryTestCase.h */,
+				04F4562A209B6C0B00FC299E /* PROJProjectionFactoryTestCase.m */,
+				04F4562E209B6D1000FC299E /* PROJTestUtils.h */,
+				04F4562D209B6D1000FC299E /* PROJTestUtils.m */,
 				042FC65B1B963FE500549A4B /* Supporting Files */,
 			);
 			path = "proj-iosTests";
@@ -240,21 +240,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04F45624209B3FD000FC299E /* SFPIOUtils.h in Headers */,
-				04F45620209A47C800FC299E /* SFPLocationCoordinate3D.h in Headers */,
+				04F45624209B3FD000FC299E /* PROJIOUtils.h in Headers */,
+				04F45620209A47C800FC299E /* PROJLocationCoordinate3D.h in Headers */,
 				0472B51B1C03590500496B87 /* proj-ios-Bridging-Header.h in Headers */,
-				04F45628209B40F800FC299E /* SFPConstants.h in Headers */,
-				04F45616209A47C800FC299E /* SFPProjectionTransform.h in Headers */,
-				04F4561F209A47C800FC299E /* SFPAuthorityProjections.h in Headers */,
-				04F4561D209A47C800FC299E /* SFPProjectionConstants.h in Headers */,
-				04F45615209A47C800FC299E /* SFPProjectionFactory.h in Headers */,
+				04F45628209B40F800FC299E /* PROJConstants.h in Headers */,
+				04F45616209A47C800FC299E /* PROJProjectionTransform.h in Headers */,
+				04F4561F209A47C800FC299E /* PROJAuthorityProjections.h in Headers */,
+				04F4561D209A47C800FC299E /* PROJProjectionConstants.h in Headers */,
+				04F45615209A47C800FC299E /* PROJProjectionFactory.h in Headers */,
 				042FC6AF1B96421E00549A4B /* (null) in Headers */,
-				04F4561C209A47C800FC299E /* SFPProjectionRetriever.h in Headers */,
-				04F45617209A47C800FC299E /* SFPProjection.h in Headers */,
+				04F4561C209A47C800FC299E /* PROJProjectionRetriever.h in Headers */,
+				04F45617209A47C800FC299E /* PROJProjection.h in Headers */,
 				042FC6D51B96453E00549A4B /* proj_ios.h in Headers */,
 				042FC6D31B96421E00549A4B /* proj-ios-Prefix.pch in Headers */,
-				04F45611209A47C800FC299E /* SFPUnits.h in Headers */,
-				04C393C722DE26A20049F6C0 /* SFPProjections.h in Headers */,
+				04F45611209A47C800FC299E /* PROJUnits.h in Headers */,
+				04C393C722DE26A20049F6C0 /* PROJProjections.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,17 +400,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04F4561E209A47C800FC299E /* SFPProjectionFactory.m in Sources */,
-				04F45610209A47C800FC299E /* SFPProjectionTransform.m in Sources */,
-				04F4560F209A47C800FC299E /* SFPAuthorityProjections.m in Sources */,
-				04F45629209B40F800FC299E /* SFPConstants.m in Sources */,
-				04F45625209B3FD000FC299E /* SFPIOUtils.m in Sources */,
-				04F4561B209A47C800FC299E /* SFPLocationCoordinate3D.m in Sources */,
-				04F45618209A47C800FC299E /* SFPProjection.m in Sources */,
-				04F45619209A47C800FC299E /* SFPProjectionConstants.m in Sources */,
-				04C393C822DE26A20049F6C0 /* SFPProjections.m in Sources */,
-				04F45613209A47C800FC299E /* SFPUnits.m in Sources */,
-				04F45612209A47C800FC299E /* SFPProjectionRetriever.m in Sources */,
+				04F4561E209A47C800FC299E /* PROJProjectionFactory.m in Sources */,
+				04F45610209A47C800FC299E /* PROJProjectionTransform.m in Sources */,
+				04F4560F209A47C800FC299E /* PROJAuthorityProjections.m in Sources */,
+				04F45629209B40F800FC299E /* PROJConstants.m in Sources */,
+				04F45625209B3FD000FC299E /* PROJIOUtils.m in Sources */,
+				04F4561B209A47C800FC299E /* PROJLocationCoordinate3D.m in Sources */,
+				04F45618209A47C800FC299E /* PROJProjection.m in Sources */,
+				04F45619209A47C800FC299E /* PROJProjectionConstants.m in Sources */,
+				04C393C822DE26A20049F6C0 /* PROJProjections.m in Sources */,
+				04F45613209A47C800FC299E /* PROJUnits.m in Sources */,
+				04F45612209A47C800FC299E /* PROJProjectionRetriever.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,10 +418,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04F4562F209B6D1000FC299E /* SFPTestUtils.m in Sources */,
-				041F18E124CB2291001311E4 /* SFPReadmeTest.m in Sources */,
-				041F18E424CB3762001311E4 /* SFPSwiftReadmeTest.swift in Sources */,
-				04F4562C209B6C0B00FC299E /* SFPProjectionFactoryTestCase.m in Sources */,
+				04F4562F209B6D1000FC299E /* PROJTestUtils.m in Sources */,
+				041F18E124CB2291001311E4 /* PROJReadmeTest.m in Sources */,
+				041F18E424CB3762001311E4 /* PROJSwiftReadmeTest.swift in Sources */,
+				04F4562C209B6C0B00FC299E /* PROJProjectionFactoryTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

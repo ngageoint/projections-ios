@@ -1,18 +1,18 @@
 //
-//  SFPProjectionTransform.m
+//  PROJProjectionTransform.m
 //  proj-ios
 //
 //  Created by Brian Osborn on 5/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "SFPProjectionTransform.h"
-#import "SFPProjectionFactory.h"
-#import "SFPProjectionConstants.h"
+#import "PROJProjectionTransform.h"
+#import "PROJProjectionFactory.h"
+#import "PROJProjectionConstants.h"
 
-@implementation SFPProjectionTransform
+@implementation PROJProjectionTransform
 
--(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToProjection: (SFPProjection *) toProjection{
+-(instancetype) initWithFromProjection: (PROJProjection *) fromProjection andToProjection: (PROJProjection *) toProjection{
     self = [super init];
     if(self != nil){
         self.fromProjection = fromProjection;
@@ -36,46 +36,46 @@
 
 -(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode{
     
-    SFPProjection * fromProjection = [SFPProjectionFactory projectionWithAuthority:fromAuthority andCode:fromCode];
-    SFPProjection * toProjection = [SFPProjectionFactory projectionWithAuthority:toAuthority andCode:toCode];
+    PROJProjection * fromProjection = [PROJProjectionFactory projectionWithAuthority:fromAuthority andCode:fromCode];
+    PROJProjection * toProjection = [PROJProjectionFactory projectionWithAuthority:toAuthority andCode:toCode];
     
     return [self initWithFromProjection:fromProjection andToProjection:toProjection];
 }
 
--(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToEpsg: (int) toEpsg{
+-(instancetype) initWithFromProjection: (PROJProjection *) fromProjection andToEpsg: (int) toEpsg{
     
     NSString *toCode = [NSString stringWithFormat:@"%d", toEpsg];
     
     return [self initWithFromProjection:fromProjection andToAuthority:PROJ_AUTHORITY_EPSG andToCode:toCode];
 }
 
--(instancetype) initWithFromProjection: (SFPProjection *) fromProjection andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode{
+-(instancetype) initWithFromProjection: (PROJProjection *) fromProjection andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode{
     
-    SFPProjection * toProjection = [SFPProjectionFactory projectionWithAuthority:toAuthority andCode:toCode];
+    PROJProjection * toProjection = [PROJProjectionFactory projectionWithAuthority:toAuthority andCode:toCode];
     
     return [self initWithFromProjection:fromProjection andToProjection:toProjection];
 }
 
--(instancetype) initWithFromEpsg: (int) fromEpsg andToProjection: (SFPProjection *) toProjection{
+-(instancetype) initWithFromEpsg: (int) fromEpsg andToProjection: (PROJProjection *) toProjection{
     
     NSString *fromCode = [NSString stringWithFormat:@"%d", fromEpsg];
     
     return [self initWithFromAuthority:PROJ_AUTHORITY_EPSG andFromCode:fromCode andToProjection:toProjection];
 }
 
--(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (SFPProjection *) toProjection{
+-(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (PROJProjection *) toProjection{
     
-    SFPProjection * fromProjection = [SFPProjectionFactory projectionWithAuthority:fromAuthority andCode:fromCode];
+    PROJProjection * fromProjection = [PROJProjectionFactory projectionWithAuthority:fromAuthority andCode:fromCode];
     
     return [self initWithFromProjection:fromProjection andToProjection:toProjection];
 }
 
 -(CLLocationCoordinate2D) transform: (CLLocationCoordinate2D) from{
-    SFPLocationCoordinate3D * result = [self transform3d:[[SFPLocationCoordinate3D alloc] initWithCoordinate:from]];
+    PROJLocationCoordinate3D * result = [self transform3d:[[PROJLocationCoordinate3D alloc] initWithCoordinate:from]];
     return result.coordinate;
 }
 
--(SFPLocationCoordinate3D *) transform3d: (SFPLocationCoordinate3D *) from{
+-(PROJLocationCoordinate3D *) transform3d: (PROJLocationCoordinate3D *) from{
     
     CLLocationCoordinate2D to = CLLocationCoordinate2DMake(from.coordinate.latitude, from.coordinate.longitude);
     
@@ -106,7 +106,7 @@
         toZ = [[NSDecimalNumber alloc] initWithDouble:zValue];
     }
     
-    return [[SFPLocationCoordinate3D alloc] initWithCoordinate:to andZ:toZ];
+    return [[PROJLocationCoordinate3D alloc] initWithCoordinate:to andZ:toZ];
 }
 
 -(NSArray *) transformWithX: (double) x andY: (double) y{
@@ -143,8 +143,8 @@
     return [self.fromProjection isEqualToProjection:self.toProjection];
 }
 
--(SFPProjectionTransform *) inverseTransformation{
-    return [[SFPProjectionTransform alloc] initWithFromProjection:self.toProjection andToProjection:self.fromProjection];
+-(PROJProjectionTransform *) inverseTransformation{
+    return [[PROJProjectionTransform alloc] initWithFromProjection:self.toProjection andToProjection:self.fromProjection];
 }
 
 @end

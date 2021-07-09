@@ -1,5 +1,5 @@
 //
-//  SFPIOUtils.h
+//  PROJIOUtils.h
 //  proj-ios
 //
 //  Created by Brian Osborn on 5/3/18.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SFPIOUtils : NSObject
+@interface PROJIOUtils : NSObject
 
 /**
  *  Get the path of the property list file with name

@@ -1,14 +1,14 @@
 //
-//  SFPLocationCoordinate3D.m
+//  PROJLocationCoordinate3D.m
 //  proj-ios
 //
 //  Created by Brian Osborn on 7/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "SFPLocationCoordinate3D.h"
+#import "PROJLocationCoordinate3D.h"
 
-@implementation SFPLocationCoordinate3D
+@implementation PROJLocationCoordinate3D
 
 -(instancetype) initWithCoordinate: (CLLocationCoordinate2D) coordinate{
     return [self initWithCoordinate:coordinate andZ:nil];

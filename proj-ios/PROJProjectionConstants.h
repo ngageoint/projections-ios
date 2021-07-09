@@ -1,5 +1,5 @@
 //
-//  SFPProjectionConstants.h
+//  PROJProjectionConstants.h
 //  proj-ios
 //
 //  Created by Brian Osborn on 5/15/15.
@@ -28,6 +28,6 @@ extern double const PROJ_MERCATOR_RADIUS;
 extern double const PROJ_WGS84_HALF_WORLD_LON_WIDTH;
 extern double const PROJ_WGS84_HALF_WORLD_LAT_HEIGHT;
 
-@interface SFPProjectionConstants : NSObject
+@interface PROJProjectionConstants : NSObject
 
 @end

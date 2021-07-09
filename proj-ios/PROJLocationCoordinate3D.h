@@ -1,5 +1,5 @@
 //
-//  SFPLocationCoordinate3D.h
+//  PROJLocationCoordinate3D.h
 //  proj-ios
 //
 //  Created by Brian Osborn on 7/21/15.
@@ -12,7 +12,7 @@
 /**
  *  3D Location Coordinate
  */
-@interface SFPLocationCoordinate3D : NSObject
+@interface PROJLocationCoordinate3D : NSObject
 
 /**
  *  Location Coordinate

@@ -10,16 +10,16 @@
 #define proj_ios_Bridging_Header_h
 
 #import "proj_ios.h"
-#import "SFPAuthorityProjections.h"
-#import "SFPProjection.h"
-#import "SFPProjectionConstants.h"
-#import "SFPProjectionFactory.h"
-#import "SFPProjectionRetriever.h"
-#import "SFPProjections.h"
-#import "SFPProjectionTransform.h"
-#import "SFPLocationCoordinate3D.h"
-#import "SFPUnits.h"
-#import "SFPIOUtils.h"
-#import "SFPConstants.h"
+#import "PROJAuthorityProjections.h"
+#import "PROJProjection.h"
+#import "PROJProjectionConstants.h"
+#import "PROJProjectionFactory.h"
+#import "PROJProjectionRetriever.h"
+#import "PROJProjections.h"
+#import "PROJProjectionTransform.h"
+#import "PROJLocationCoordinate3D.h"
+#import "PROJUnits.h"
+#import "PROJIOUtils.h"
+#import "PROJConstants.h"
 
 #endif /* proj_ios_Bridging_Header_h */

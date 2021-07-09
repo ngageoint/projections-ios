@@ -1,5 +1,5 @@
 //
-//  SFPSwiftReadmeTest.swift
+//  PROJSwiftReadmeTest.swift
 //  proj-iosTests
 //
 //  Created by Brian Osborn on 7/9/21.
@@ -11,7 +11,7 @@ import XCTest
 /**
 * README example tests
 */
-class SFPSwiftReadmeTest: XCTestCase{
+class PROJSwiftReadmeTest: XCTestCase{
     
     /**
      * Test transform

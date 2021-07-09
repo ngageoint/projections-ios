@@ -1,5 +1,5 @@
 //
-//  SFPProjectionFactory.h
+//  PROJProjectionFactory.h
 //  proj-ios
 //
 //  Created by Brian Osborn on 5/21/15.
@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SFPProjection.h"
-#import "SFPAuthorityProjections.h"
-#import "SFPProjections.h"
+#import "PROJProjection.h"
+#import "PROJAuthorityProjections.h"
+#import "PROJProjections.h"
 
 /**
  *  Projection factory for coordinate projections and transformations
  */
-@interface SFPProjectionFactory : NSObject
+@interface PROJProjectionFactory : NSObject
 
 /**
  *  Get the projection with the epsg number
@@ -23,7 +23,7 @@
  *
  *  @return projection
  */
-+(SFPProjection *) projectionWithEpsg: (NSNumber *) epsg;
++(PROJProjection *) projectionWithEpsg: (NSNumber *) epsg;
 
 /**
  *  Get the projection with the epsg int
@@ -32,7 +32,7 @@
  *
  *  @return projection
  */
-+(SFPProjection *) projectionWithEpsgInt: (int) epsg;
++(PROJProjection *) projectionWithEpsgInt: (int) epsg;
 
 /**
  *  Get the projection for the projection name, expected as 'authority:code' or 'epsg_code'
@@ -41,7 +41,7 @@
  *
  *  @return projection
  */
-+(SFPProjection *) projectionWithName: (NSString *) name;
++(PROJProjection *) projectionWithName: (NSString *) name;
 
 /**
  * Get the projection for authority and code
@@ -52,7 +52,7 @@
  *            authority coordinate code
  * @return projection
  */
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code;
 
 /**
  * Get the projection for authority and code
@@ -63,7 +63,7 @@
  *            authority coordinate code
  * @return projection
  */
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code;
 
 /**
  * Get the projection for authority and code
@@ -74,7 +74,7 @@
  *            authority coordinate code
  * @return projection
  */
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code;
 
 /**
  * Get the projection for authority, code, and parameter string
@@ -87,7 +87,7 @@
  *            proj4 string
  * @return projection
  */
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params;
 
 /**
  * Get the projection for authority, code, and parameter string
@@ -100,7 +100,7 @@
  *            proj4 string
  * @return projection
  */
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params;
 
 /**
  * Get the projection for authority, code, and parameter string
@@ -113,7 +113,7 @@
  *            proj4 string
  * @return projection
  */
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params;
 
 /**
  * Get the projection for the authority, code, definition, and custom
@@ -129,7 +129,7 @@
  *            definition
  * @return projection
  */
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params andDefinition: (NSString *) definition;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the authority, code, definition, and custom
@@ -145,7 +145,7 @@
  *            definition
  * @return projection
  */
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params andDefinition: (NSString *) definition;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the authority, code, definition, and custom
@@ -161,14 +161,14 @@
  *            definition
  * @return projection
  */
-+(SFPProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params andDefinition: (NSString *) definition;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params andDefinition: (NSString *) definition;
 
 /**
  * Get the projections
  *
  * @return projections
  */
-+(SFPProjections *) projections;
++(PROJProjections *) projections;
 
 /**
  * Get or create projections for the authority
@@ -177,7 +177,7 @@
  *            coordinate authority
  * @return authority projections
  */
-+(SFPAuthorityProjections *) projectionsWithAuthority: (NSString *) authority;
++(PROJAuthorityProjections *) projectionsWithAuthority: (NSString *) authority;
 
 /**
  * Clear all authority projections

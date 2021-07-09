@@ -1,23 +1,23 @@
 //
-//  SFPProjections.m
+//  PROJProjections.m
 //  proj-ios
 //
 //  Created by Brian Osborn on 7/16/19.
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFPProjections.h"
+#import "PROJProjections.h"
 
-@interface SFPProjections()
+@interface PROJProjections()
 
 /**
  * Mapping of authorities to authority projections
  */
-@property (nonatomic, strong) NSMutableDictionary<NSString *, SFPAuthorityProjections *> *authorities;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, PROJAuthorityProjections *> *authorities;
 
 @end
 
-@implementation SFPProjections
+@implementation PROJProjections
 
 -(instancetype) init{
     self = [super init];
@@ -27,20 +27,20 @@
     return self;
 }
 
--(SFPAuthorityProjections *) projectionsForAuthority: (NSString *) authority{
+-(PROJAuthorityProjections *) projectionsForAuthority: (NSString *) authority{
     return [self.authorities objectForKey:[authority uppercaseString]];
 }
 
--(SFPProjection *) projectionForAuthority: (NSString *) authority andCode: (NSString *) code{
-    SFPProjection *projection = nil;
-    SFPAuthorityProjections *authorityProjections = [self projectionsForAuthority:authority];
+-(PROJProjection *) projectionForAuthority: (NSString *) authority andCode: (NSString *) code{
+    PROJProjection *projection = nil;
+    PROJAuthorityProjections *authorityProjections = [self projectionsForAuthority:authority];
     if(authorityProjections != nil){
         projection = [authorityProjections projectionForCode:code];
     }
     return projection;
 }
 
--(BOOL) hasProjection: (SFPProjection *) projection{
+-(BOOL) hasProjection: (PROJProjection *) projection{
     return [self hasProjectionWithAuthority:[projection authority] andCode:[projection code]];
 }
 
@@ -48,11 +48,11 @@
     return [self projectionForAuthority:authority andCode:code] != nil;
 }
 
--(void) addProjection: (SFPProjection *) projection{
+-(void) addProjection: (PROJProjection *) projection{
     NSString *authority = [projection authority];
-    SFPAuthorityProjections *authorityProjections = [self projectionsForAuthority:authority];
+    PROJAuthorityProjections *authorityProjections = [self projectionsForAuthority:authority];
     if(authorityProjections == nil){
-        authorityProjections = [[SFPAuthorityProjections alloc] initWithAuthority:[authority uppercaseString]];
+        authorityProjections = [[PROJAuthorityProjections alloc] initWithAuthority:[authority uppercaseString]];
         [self.authorities setObject:authorityProjections forKey:[authorityProjections authority]];
     }
     [authorityProjections addProjection:projection];
@@ -71,7 +71,7 @@
 }
 
 -(void) removeAuthority: (NSString *) authority andCode: (NSString *) code{
-    SFPAuthorityProjections *authorityProjections = [self projectionsForAuthority:authority];
+    PROJAuthorityProjections *authorityProjections = [self projectionsForAuthority:authority];
     if(authorityProjections != nil){
         [authorityProjections removeCode:code];
         if([authorityProjections isEmpty]){
@@ -80,7 +80,7 @@
     }
 }
 
--(void) removeProjection: (SFPProjection *) projection{
+-(void) removeProjection: (PROJProjection *) projection{
     [self removeAuthority:[projection authority] andCode:[projection code]];
 }
 
@@ -90,7 +90,7 @@
 
 -(int) projectionCount{
     int count = 0;
-    for(SFPAuthorityProjections *authorityProjections in [self.authorities allValues]){
+    for(PROJAuthorityProjections *authorityProjections in [self.authorities allValues]){
         count += [authorityProjections count];
     }
     return count;
