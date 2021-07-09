@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "042FC64A1B963FE500549A4B"
-               BuildableName = "sf_proj_ios.framework"
-               BlueprintName = "sf-proj-ios"
-               ReferencedContainer = "container:sf-proj-ios.xcodeproj">
+               BuildableName = "proj_ios.framework"
+               BlueprintName = "proj-ios"
+               ReferencedContainer = "container:proj-ios.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "042FC6551B963FE500549A4B"
-               BuildableName = "sf_proj_iosTests.xctest"
-               BlueprintName = "sf-proj-iosTests"
-               ReferencedContainer = "container:sf-proj-ios.xcodeproj">
+               BuildableName = "proj_iosTests.xctest"
+               BlueprintName = "proj-iosTests"
+               ReferencedContainer = "container:proj-ios.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "042FC64A1B963FE500549A4B"
-            BuildableName = "sf_proj_ios.framework"
-            BlueprintName = "sf-proj-ios"
-            ReferencedContainer = "container:sf-proj-ios.xcodeproj">
+            BuildableName = "proj_ios.framework"
+            BlueprintName = "proj-ios"
+            ReferencedContainer = "container:proj-ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -56,9 +56,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "042FC6551B963FE500549A4B"
-               BuildableName = "sf_proj_iosTests.xctest"
-               BlueprintName = "sf-proj-iosTests"
-               ReferencedContainer = "container:sf-proj-ios.xcodeproj">
+               BuildableName = "proj_iosTests.xctest"
+               BlueprintName = "proj-iosTests"
+               ReferencedContainer = "container:proj-ios.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "042FC64A1B963FE500549A4B"
-            BuildableName = "sf_proj_ios.framework"
-            BlueprintName = "sf-proj-ios"
-            ReferencedContainer = "container:sf-proj-ios.xcodeproj">
+            BuildableName = "proj_ios.framework"
+            BlueprintName = "proj-ios"
+            ReferencedContainer = "container:proj-ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </LaunchAction>
@@ -93,9 +93,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "042FC64A1B963FE500549A4B"
-            BuildableName = "sf_proj_ios.framework"
-            BlueprintName = "sf-proj-ios"
-            ReferencedContainer = "container:sf-proj-ios.xcodeproj">
+            BuildableName = "proj_ios.framework"
+            BlueprintName = "proj-ios"
+            ReferencedContainer = "container:proj-ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

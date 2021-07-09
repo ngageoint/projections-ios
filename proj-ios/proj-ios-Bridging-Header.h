@@ -1,16 +1,15 @@
 //
-//  sf-proj-ios-Bridging-Header.h
-//  sf-proj-ios
+//  proj-ios-Bridging-Header.h
+//  proj-ios
 //
-//  Created by Brian Osborn on 11/23/15.
-//  Copyright © 2015 NGA. All rights reserved.
+//  Created by Brian Osborn on 07/09/21.
+//  Copyright © 2021 NGA. All rights reserved.
 //
 
-#ifndef sf_proj_ios_Bridging_Header_h
-#define sf_proj_ios_Bridging_Header_h
+#ifndef proj_ios_Bridging_Header_h
+#define proj_ios_Bridging_Header_h
 
-#import "sf-ios-Bridging-Header.h"
-#import "sf_proj_ios.h"
+#import "proj_ios.h"
 #import "SFPAuthorityProjections.h"
 #import "SFPGeometryProjectionTransform.h"
 #import "SFPProjection.h"
@@ -24,4 +23,4 @@
 #import "SFPIOUtils.h"
 #import "SFPConstants.h"
 
-#endif /* sf_proj_ios_Bridging_Header_h */
+#endif /* proj_ios_Bridging_Header_h */

@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		041F18E124CB2291001311E4 /* SFPReadmeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F18E024CB2291001311E4 /* SFPReadmeTest.m */; };
 		041F18E424CB3762001311E4 /* SFPSwiftReadmeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F18E324CB3762001311E4 /* SFPSwiftReadmeTest.swift */; };
-		042FC6571B963FE500549A4B /* sf_proj_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FC64B1B963FE500549A4B /* sf_proj_ios.framework */; };
+		042FC6571B963FE500549A4B /* proj_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FC64B1B963FE500549A4B /* proj_ios.framework */; };
 		042FC6AF1B96421E00549A4B /* (null) in Headers */ = {isa = PBXBuildFile; };
-		042FC6D31B96421E00549A4B /* sf-proj-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* sf-proj-ios-Prefix.pch */; };
-		042FC6D51B96453E00549A4B /* sf_proj_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* sf_proj_ios.h */; };
-		0472B51B1C03590500496B87 /* sf-proj-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* sf-proj-ios-Bridging-Header.h */; };
+		042FC6D31B96421E00549A4B /* proj-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* proj-ios-Prefix.pch */; };
+		042FC6D51B96453E00549A4B /* proj_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* proj_ios.h */; };
+		0472B51B1C03590500496B87 /* proj-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* proj-ios-Bridging-Header.h */; };
 		04C393C422DD200F0049F6C0 /* projections.ogc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C393C322DD200E0049F6C0 /* projections.ogc.plist */; };
 		04C393C722DE26A20049F6C0 /* SFPProjections.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C393C522DE26A10049F6C0 /* SFPProjections.h */; };
 		04C393C822DE26A20049F6C0 /* SFPProjections.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C393C622DE26A20049F6C0 /* SFPProjections.m */; };
@@ -44,8 +44,8 @@
 		04F4562C209B6C0B00FC299E /* SFPProjectionFactoryTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4562A209B6C0B00FC299E /* SFPProjectionFactoryTestCase.m */; };
 		04F4562F209B6D1000FC299E /* SFPTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4562D209B6D1000FC299E /* SFPTestUtils.m */; };
 		04F45632209B795F00FC299E /* SFPProjectionTransformTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45631209B795F00FC299E /* SFPProjectionTransformTestCase.m */; };
-		455990E02D380E531EE4ACDC /* libPods-sf-proj-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2802BAC0915BABF2D048D9 /* libPods-sf-proj-ios.a */; };
-		B5D94958E350F092F31540ED /* libPods-sf-proj-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 499642A447440D35F38311C9 /* libPods-sf-proj-iosTests.a */; };
+		455990E02D380E531EE4ACDC /* libPods-proj-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2802BAC0915BABF2D048D9 /* libPods-proj-ios.a */; };
+		B5D94958E350F092F31540ED /* libPods-proj-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 499642A447440D35F38311C9 /* libPods-proj-iosTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,22 +54,22 @@
 			containerPortal = 042FC6421B963FE500549A4B /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 042FC64A1B963FE500549A4B;
-			remoteInfo = "sf-proj-ios";
+			remoteInfo = "proj-ios";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		041F18DF24CB2291001311E4 /* SFPReadmeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPReadmeTest.h; sourceTree = "<group>"; };
 		041F18E024CB2291001311E4 /* SFPReadmeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPReadmeTest.m; sourceTree = "<group>"; };
-		041F18E224CB3762001311E4 /* sf-proj-iosTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sf-proj-iosTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		041F18E224CB3762001311E4 /* proj-iosTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "proj-iosTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		041F18E324CB3762001311E4 /* SFPSwiftReadmeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFPSwiftReadmeTest.swift; sourceTree = "<group>"; };
-		042FC64B1B963FE500549A4B /* sf_proj_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sf_proj_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		042FC64B1B963FE500549A4B /* proj_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = proj_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		042FC64F1B963FE500549A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		042FC6561B963FE500549A4B /* sf_proj_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sf_proj_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		042FC6561B963FE500549A4B /* proj_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = proj_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		042FC65C1B963FE500549A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		042FC69E1B96421E00549A4B /* sf-proj-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sf-proj-ios-Prefix.pch"; sourceTree = "<group>"; };
-		042FC6D41B96453E00549A4B /* sf_proj_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sf_proj_ios.h; sourceTree = "<group>"; };
-		0472B51A1C03590500496B87 /* sf-proj-ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sf-proj-ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		042FC69E1B96421E00549A4B /* proj-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "proj-ios-Prefix.pch"; sourceTree = "<group>"; };
+		042FC6D41B96453E00549A4B /* proj_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = proj_ios.h; sourceTree = "<group>"; };
+		0472B51A1C03590500496B87 /* proj-ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "proj-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		04C393C322DD200E0049F6C0 /* projections.ogc.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = projections.ogc.plist; sourceTree = "<group>"; };
 		04C393C522DE26A10049F6C0 /* SFPProjections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPProjections.h; sourceTree = "<group>"; };
 		04C393C622DE26A20049F6C0 /* SFPProjections.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPProjections.m; sourceTree = "<group>"; };
@@ -103,12 +103,12 @@
 		04F4562E209B6D1000FC299E /* SFPTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPTestUtils.h; sourceTree = "<group>"; };
 		04F45630209B795F00FC299E /* SFPProjectionTransformTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPProjectionTransformTestCase.h; sourceTree = "<group>"; };
 		04F45631209B795F00FC299E /* SFPProjectionTransformTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPProjectionTransformTestCase.m; sourceTree = "<group>"; };
-		499642A447440D35F38311C9 /* libPods-sf-proj-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sf-proj-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FD24597D37A9C5402B3279A /* Pods-sf-proj-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-proj-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sf-proj-ios/Pods-sf-proj-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		6179C77188B4A0E8D4DEDBEB /* Pods-sf-proj-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-proj-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sf-proj-iosTests/Pods-sf-proj-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B17E59AE80997CC09DD740D6 /* Pods-sf-proj-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-proj-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-sf-proj-iosTests/Pods-sf-proj-iosTests.release.xcconfig"; sourceTree = "<group>"; };
-		CF2802BAC0915BABF2D048D9 /* libPods-sf-proj-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sf-proj-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDE9611B54A8A4AC3941F59D /* Pods-sf-proj-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-proj-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-sf-proj-ios/Pods-sf-proj-ios.release.xcconfig"; sourceTree = "<group>"; };
+		499642A447440D35F38311C9 /* libPods-proj-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-proj-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FD24597D37A9C5402B3279A /* Pods-proj-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proj-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proj-ios/Pods-proj-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		6179C77188B4A0E8D4DEDBEB /* Pods-proj-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proj-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proj-iosTests/Pods-proj-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B17E59AE80997CC09DD740D6 /* Pods-proj-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proj-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-proj-iosTests/Pods-proj-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		CF2802BAC0915BABF2D048D9 /* libPods-proj-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-proj-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDE9611B54A8A4AC3941F59D /* Pods-proj-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proj-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-proj-ios/Pods-proj-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				455990E02D380E531EE4ACDC /* libPods-sf-proj-ios.a in Frameworks */,
+				455990E02D380E531EE4ACDC /* libPods-proj-ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,8 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				042FC6571B963FE500549A4B /* sf_proj_ios.framework in Frameworks */,
-				B5D94958E350F092F31540ED /* libPods-sf-proj-iosTests.a in Frameworks */,
+				042FC6571B963FE500549A4B /* proj_ios.framework in Frameworks */,
+				B5D94958E350F092F31540ED /* libPods-proj-iosTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +135,8 @@
 		042FC6411B963FE500549A4B = {
 			isa = PBXGroup;
 			children = (
-				042FC64D1B963FE500549A4B /* sf-proj-ios */,
-				042FC65A1B963FE500549A4B /* sf-proj-iosTests */,
+				042FC64D1B963FE500549A4B /* proj-ios */,
+				042FC65A1B963FE500549A4B /* proj-iosTests */,
 				042FC64C1B963FE500549A4B /* Products */,
 				987AE7974D8B4ECED7B3FB6B /* Pods */,
 				63206AE083C9F99B2058A9EE /* Frameworks */,
@@ -146,16 +146,16 @@
 		042FC64C1B963FE500549A4B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				042FC64B1B963FE500549A4B /* sf_proj_ios.framework */,
-				042FC6561B963FE500549A4B /* sf_proj_iosTests.xctest */,
+				042FC64B1B963FE500549A4B /* proj_ios.framework */,
+				042FC6561B963FE500549A4B /* proj_iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		042FC64D1B963FE500549A4B /* sf-proj-ios */ = {
+		042FC64D1B963FE500549A4B /* proj-ios */ = {
 			isa = PBXGroup;
 			children = (
-				042FC6D41B96453E00549A4B /* sf_proj_ios.h */,
+				042FC6D41B96453E00549A4B /* proj_ios.h */,
 				04F4560B209A47C700FC299E /* SFPAuthorityProjections.h */,
 				04F455FB209A47C700FC299E /* SFPAuthorityProjections.m */,
 				04F455FA209A47C600FC299E /* SFPGeometryProjectionTransform.h */,
@@ -183,11 +183,11 @@
 				04F45600209A47C700FC299E /* projections.epsg.plist */,
 				04F4560D209A47C700FC299E /* projections.none.plist */,
 				04C393C322DD200E0049F6C0 /* projections.ogc.plist */,
-				042FC69E1B96421E00549A4B /* sf-proj-ios-Prefix.pch */,
+				042FC69E1B96421E00549A4B /* proj-ios-Prefix.pch */,
 				042FC64E1B963FE500549A4B /* Supporting Files */,
-				0472B51A1C03590500496B87 /* sf-proj-ios-Bridging-Header.h */,
+				0472B51A1C03590500496B87 /* proj-ios-Bridging-Header.h */,
 			);
-			path = "sf-proj-ios";
+			path = "proj-ios";
 			sourceTree = "<group>";
 		};
 		042FC64E1B963FE500549A4B /* Supporting Files */ = {
@@ -198,13 +198,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		042FC65A1B963FE500549A4B /* sf-proj-iosTests */ = {
+		042FC65A1B963FE500549A4B /* proj-iosTests */ = {
 			isa = PBXGroup;
 			children = (
 				041F18DF24CB2291001311E4 /* SFPReadmeTest.h */,
 				041F18E024CB2291001311E4 /* SFPReadmeTest.m */,
 				041F18E324CB3762001311E4 /* SFPSwiftReadmeTest.swift */,
-				041F18E224CB3762001311E4 /* sf-proj-iosTests-Bridging-Header.h */,
+				041F18E224CB3762001311E4 /* proj-iosTests-Bridging-Header.h */,
 				04F4562B209B6C0B00FC299E /* SFPProjectionFactoryTestCase.h */,
 				04F4562A209B6C0B00FC299E /* SFPProjectionFactoryTestCase.m */,
 				04F45630209B795F00FC299E /* SFPProjectionTransformTestCase.h */,
@@ -213,7 +213,7 @@
 				04F4562D209B6D1000FC299E /* SFPTestUtils.m */,
 				042FC65B1B963FE500549A4B /* Supporting Files */,
 			);
-			path = "sf-proj-iosTests";
+			path = "proj-iosTests";
 			sourceTree = "<group>";
 		};
 		042FC65B1B963FE500549A4B /* Supporting Files */ = {
@@ -227,8 +227,8 @@
 		63206AE083C9F99B2058A9EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				499642A447440D35F38311C9 /* libPods-sf-proj-iosTests.a */,
-				CF2802BAC0915BABF2D048D9 /* libPods-sf-proj-ios.a */,
+				499642A447440D35F38311C9 /* libPods-proj-iosTests.a */,
+				CF2802BAC0915BABF2D048D9 /* libPods-proj-ios.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -236,10 +236,10 @@
 		987AE7974D8B4ECED7B3FB6B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6179C77188B4A0E8D4DEDBEB /* Pods-sf-proj-iosTests.debug.xcconfig */,
-				B17E59AE80997CC09DD740D6 /* Pods-sf-proj-iosTests.release.xcconfig */,
-				4FD24597D37A9C5402B3279A /* Pods-sf-proj-ios.debug.xcconfig */,
-				DDE9611B54A8A4AC3941F59D /* Pods-sf-proj-ios.release.xcconfig */,
+				6179C77188B4A0E8D4DEDBEB /* Pods-proj-iosTests.debug.xcconfig */,
+				B17E59AE80997CC09DD740D6 /* Pods-proj-iosTests.release.xcconfig */,
+				4FD24597D37A9C5402B3279A /* Pods-proj-ios.debug.xcconfig */,
+				DDE9611B54A8A4AC3941F59D /* Pods-proj-ios.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -253,7 +253,7 @@
 			files = (
 				04F45624209B3FD000FC299E /* SFPIOUtils.h in Headers */,
 				04F45620209A47C800FC299E /* SFPLocationCoordinate3D.h in Headers */,
-				0472B51B1C03590500496B87 /* sf-proj-ios-Bridging-Header.h in Headers */,
+				0472B51B1C03590500496B87 /* proj-ios-Bridging-Header.h in Headers */,
 				04F45628209B40F800FC299E /* SFPConstants.h in Headers */,
 				04F45616209A47C800FC299E /* SFPProjectionTransform.h in Headers */,
 				04F4561F209A47C800FC299E /* SFPAuthorityProjections.h in Headers */,
@@ -263,8 +263,8 @@
 				04F4560E209A47C800FC299E /* SFPGeometryProjectionTransform.h in Headers */,
 				04F4561C209A47C800FC299E /* SFPProjectionRetriever.h in Headers */,
 				04F45617209A47C800FC299E /* SFPProjection.h in Headers */,
-				042FC6D51B96453E00549A4B /* sf_proj_ios.h in Headers */,
-				042FC6D31B96421E00549A4B /* sf-proj-ios-Prefix.pch in Headers */,
+				042FC6D51B96453E00549A4B /* proj_ios.h in Headers */,
+				042FC6D31B96421E00549A4B /* proj-ios-Prefix.pch in Headers */,
 				04F45611209A47C800FC299E /* SFPUnits.h in Headers */,
 				04C393C722DE26A20049F6C0 /* SFPProjections.h in Headers */,
 			);
@@ -273,9 +273,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		042FC64A1B963FE500549A4B /* sf-proj-ios */ = {
+		042FC64A1B963FE500549A4B /* proj-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 042FC6611B963FE500549A4B /* Build configuration list for PBXNativeTarget "sf-proj-ios" */;
+			buildConfigurationList = 042FC6611B963FE500549A4B /* Build configuration list for PBXNativeTarget "proj-ios" */;
 			buildPhases = (
 				EEA6042CA950F54D06F509F1 /* [CP] Check Pods Manifest.lock */,
 				042FC6461B963FE500549A4B /* Sources */,
@@ -287,14 +287,14 @@
 			);
 			dependencies = (
 			);
-			name = "sf-proj-ios";
-			productName = "sf-proj-ios";
-			productReference = 042FC64B1B963FE500549A4B /* sf_proj_ios.framework */;
+			name = "proj-ios";
+			productName = "proj-ios";
+			productReference = 042FC64B1B963FE500549A4B /* proj_ios.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		042FC6551B963FE500549A4B /* sf-proj-iosTests */ = {
+		042FC6551B963FE500549A4B /* proj-iosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 042FC6641B963FE500549A4B /* Build configuration list for PBXNativeTarget "sf-proj-iosTests" */;
+			buildConfigurationList = 042FC6641B963FE500549A4B /* Build configuration list for PBXNativeTarget "proj-iosTests" */;
 			buildPhases = (
 				A047BB626AE642B283582B82 /* [CP] Check Pods Manifest.lock */,
 				042FC6521B963FE500549A4B /* Sources */,
@@ -306,9 +306,9 @@
 			dependencies = (
 				042FC6591B963FE500549A4B /* PBXTargetDependency */,
 			);
-			name = "sf-proj-iosTests";
-			productName = "sf-proj-iosTests";
-			productReference = 042FC6561B963FE500549A4B /* sf_proj_iosTests.xctest */;
+			name = "proj-iosTests";
+			productName = "proj-iosTests";
+			productReference = 042FC6561B963FE500549A4B /* proj_iosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -329,7 +329,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 042FC6451B963FE500549A4B /* Build configuration list for PBXProject "sf-proj-ios" */;
+			buildConfigurationList = 042FC6451B963FE500549A4B /* Build configuration list for PBXProject "proj-ios" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -342,8 +342,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				042FC64A1B963FE500549A4B /* sf-proj-ios */,
-				042FC6551B963FE500549A4B /* sf-proj-iosTests */,
+				042FC64A1B963FE500549A4B /* proj-ios */,
+				042FC6551B963FE500549A4B /* proj-iosTests */,
 			);
 		};
 /* End PBXProject section */
@@ -380,7 +380,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-sf-proj-iosTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-proj-iosTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -398,7 +398,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-sf-proj-ios-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-proj-ios-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -444,7 +444,7 @@
 /* Begin PBXTargetDependency section */
 		042FC6591B963FE500549A4B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 042FC64A1B963FE500549A4B /* sf-proj-ios */;
+			target = 042FC64A1B963FE500549A4B /* proj-ios */;
 			targetProxy = 042FC6581B963FE500549A4B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -568,43 +568,43 @@
 		};
 		042FC6621B963FE500549A4B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FD24597D37A9C5402B3279A /* Pods-sf-proj-ios.debug.xcconfig */;
+			baseConfigurationReference = 4FD24597D37A9C5402B3279A /* Pods-proj-ios.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "sf-proj-ios/Info.plist";
+				INFOPLIST_FILE = "proj-ios/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mil.nga.sf.proj;
-				PRODUCT_NAME = sf_proj_ios;
+				PRODUCT_BUNDLE_IDENTIFIER = mil.nga.proj;
+				PRODUCT_NAME = proj_ios;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
 		042FC6631B963FE500549A4B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDE9611B54A8A4AC3941F59D /* Pods-sf-proj-ios.release.xcconfig */;
+			baseConfigurationReference = DDE9611B54A8A4AC3941F59D /* Pods-proj-ios.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "sf-proj-ios/Info.plist";
+				INFOPLIST_FILE = "proj-ios/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mil.nga.sf.proj;
-				PRODUCT_NAME = sf_proj_ios;
+				PRODUCT_BUNDLE_IDENTIFIER = mil.nga.proj;
+				PRODUCT_NAME = proj_ios;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 		042FC6651B963FE500549A4B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6179C77188B4A0E8D4DEDBEB /* Pods-sf-proj-iosTests.debug.xcconfig */;
+			baseConfigurationReference = 6179C77188B4A0E8D4DEDBEB /* Pods-proj-iosTests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -615,10 +615,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "sf-proj-iosTests/Info.plist";
+				INFOPLIST_FILE = "proj-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = sf_proj_iosTests;
-				SWIFT_OBJC_BRIDGING_HEADER = "sf-proj-iosTests/sf-proj-iosTests-Bridging-Header.h";
+				PRODUCT_NAME = proj_iosTests;
+				SWIFT_OBJC_BRIDGING_HEADER = "proj-iosTests/proj-iosTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -626,17 +626,17 @@
 		};
 		042FC6661B963FE500549A4B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B17E59AE80997CC09DD740D6 /* Pods-sf-proj-iosTests.release.xcconfig */;
+			baseConfigurationReference = B17E59AE80997CC09DD740D6 /* Pods-proj-iosTests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "sf-proj-iosTests/Info.plist";
+				INFOPLIST_FILE = "proj-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = sf_proj_iosTests;
-				SWIFT_OBJC_BRIDGING_HEADER = "sf-proj-iosTests/sf-proj-iosTests-Bridging-Header.h";
+				PRODUCT_NAME = proj_iosTests;
+				SWIFT_OBJC_BRIDGING_HEADER = "proj-iosTests/proj-iosTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -644,7 +644,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		042FC6451B963FE500549A4B /* Build configuration list for PBXProject "sf-proj-ios" */ = {
+		042FC6451B963FE500549A4B /* Build configuration list for PBXProject "proj-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				042FC65F1B963FE500549A4B /* Debug */,
@@ -653,7 +653,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		042FC6611B963FE500549A4B /* Build configuration list for PBXNativeTarget "sf-proj-ios" */ = {
+		042FC6611B963FE500549A4B /* Build configuration list for PBXNativeTarget "proj-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				042FC6621B963FE500549A4B /* Debug */,
@@ -662,7 +662,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		042FC6641B963FE500549A4B /* Build configuration list for PBXNativeTarget "sf-proj-iosTests" */ = {
+		042FC6641B963FE500549A4B /* Build configuration list for PBXNativeTarget "proj-iosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				042FC6651B963FE500549A4B /* Debug */,
