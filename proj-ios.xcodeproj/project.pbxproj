@@ -14,6 +14,8 @@
 		042FC6D31B96421E00549A4B /* proj-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* proj-ios-Prefix.pch */; };
 		042FC6D51B96453E00549A4B /* proj_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* proj_ios.h */; };
 		0472B51B1C03590500496B87 /* proj-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* proj-ios-Bridging-Header.h */; };
+		04BCA97F2698D69D0015DEC0 /* PROJCRSParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BCA97D2698D69D0015DEC0 /* PROJCRSParser.h */; };
+		04BCA9802698D69D0015DEC0 /* PROJCRSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BCA97E2698D69D0015DEC0 /* PROJCRSParser.m */; };
 		04C393C422DD200F0049F6C0 /* projections.ogc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C393C322DD200E0049F6C0 /* projections.ogc.plist */; };
 		04C393C722DE26A20049F6C0 /* PROJProjections.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C393C522DE26A10049F6C0 /* PROJProjections.h */; };
 		04C393C822DE26A20049F6C0 /* PROJProjections.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C393C622DE26A20049F6C0 /* PROJProjections.m */; };
@@ -67,6 +69,8 @@
 		042FC69E1B96421E00549A4B /* proj-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "proj-ios-Prefix.pch"; sourceTree = "<group>"; };
 		042FC6D41B96453E00549A4B /* proj_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = proj_ios.h; sourceTree = "<group>"; };
 		0472B51A1C03590500496B87 /* proj-ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "proj-ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		04BCA97D2698D69D0015DEC0 /* PROJCRSParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJCRSParser.h; sourceTree = "<group>"; };
+		04BCA97E2698D69D0015DEC0 /* PROJCRSParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJCRSParser.m; sourceTree = "<group>"; };
 		04C393C322DD200E0049F6C0 /* projections.ogc.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = projections.ogc.plist; sourceTree = "<group>"; };
 		04C393C522DE26A10049F6C0 /* PROJProjections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJProjections.h; sourceTree = "<group>"; };
 		04C393C622DE26A20049F6C0 /* PROJProjections.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJProjections.m; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				042FC6D41B96453E00549A4B /* proj_ios.h */,
 				04F4560B209A47C700FC299E /* PROJAuthorityProjections.h */,
 				04F455FB209A47C700FC299E /* PROJAuthorityProjections.m */,
+				04BCA97D2698D69D0015DEC0 /* PROJCRSParser.h */,
+				04BCA97E2698D69D0015DEC0 /* PROJCRSParser.m */,
 				04F45603209A47C700FC299E /* PROJProjection.h */,
 				04F45604209A47C700FC299E /* PROJProjection.m */,
 				04F45609209A47C700FC299E /* PROJProjectionConstants.h */,
@@ -245,6 +251,7 @@
 				0472B51B1C03590500496B87 /* proj-ios-Bridging-Header.h in Headers */,
 				04F45628209B40F800FC299E /* PROJConstants.h in Headers */,
 				04F45616209A47C800FC299E /* PROJProjectionTransform.h in Headers */,
+				04BCA97F2698D69D0015DEC0 /* PROJCRSParser.h in Headers */,
 				04F4561F209A47C800FC299E /* PROJAuthorityProjections.h in Headers */,
 				04F4561D209A47C800FC299E /* PROJProjectionConstants.h in Headers */,
 				04F45615209A47C800FC299E /* PROJProjectionFactory.h in Headers */,
@@ -410,6 +417,7 @@
 				04F45619209A47C800FC299E /* PROJProjectionConstants.m in Sources */,
 				04C393C822DE26A20049F6C0 /* PROJProjections.m in Sources */,
 				04F45613209A47C800FC299E /* PROJUnits.m in Sources */,
+				04BCA9802698D69D0015DEC0 /* PROJCRSParser.m in Sources */,
 				04F45612209A47C800FC299E /* PROJProjectionRetriever.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

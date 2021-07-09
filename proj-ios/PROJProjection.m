@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSString *code;
 
 /**
- *  Coordinate Reference System
+ *  Projection Coordinate Reference System
  */
 @property (nonatomic) projPJ crs;
 
@@ -35,15 +35,44 @@
  */
 @property (nonatomic) BOOL isLatLong;
 
+/**
+ *  Well-Known Text Coordinate Definition
+ */
+@property (nonatomic, strong) NSString *definition;
+
+/**
+ * Definition parsed Coordinate Reference System
+ */
+// TODO @property (nonatomic, strong) CRSObject *definitionCRS;
+
 @end
 
 @implementation PROJProjection
 
 -(instancetype) initWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andCrs: (projPJ) crs andToMeters: (NSDecimalNumber *) toMeters{
-    return [self initWithAuthority:authority andCode:(code != nil ? [code stringValue] : nil) andCrs:crs andToMeters:toMeters];
+    return [self initWithAuthority:authority andNumberCode:code andCrs:crs andToMeters:toMeters andDefinition:nil];
 }
 
--(instancetype) initWithAuthority: (NSString *) authority andCode: (NSString *) code andCrs: (projPJ) crs andToMeters: (NSDecimalNumber *) toMeters{
+-(instancetype) initWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (projPJ) crs
+                      andToMeters: (NSDecimalNumber *) toMeters{
+    return [self initWithAuthority:authority andCode:code andCrs:crs andToMeters:toMeters andDefinition:nil];
+}
+
+-(instancetype) initWithAuthority: (NSString *) authority
+                    andNumberCode: (NSNumber *) code
+                           andCrs: (projPJ) crs
+                      andToMeters: (NSDecimalNumber *) toMeters
+                    andDefinition: (NSString *) definition{
+    return [self initWithAuthority:authority andCode:(code != nil ? [code stringValue] : nil) andCrs:crs andToMeters:toMeters andDefinition:definition];
+}
+
+-(instancetype) initWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (projPJ) crs
+                      andToMeters: (NSDecimalNumber *) toMeters
+                    andDefinition: (NSString *) definition{
     self = [super init];
     if(self != nil){
         if(authority == nil || code == nil || crs == nil){
@@ -54,6 +83,8 @@
         self.crs = crs;
         self.toMeters = toMeters;
         self.isLatLong = pj_is_latlong(crs);
+        self.definition = definition;
+        // TODO CRSObject
     }
     return self;
 }
@@ -77,6 +108,15 @@
 -(BOOL) isLatLong{
     return _isLatLong;
 }
+
+-(NSString *) definition{
+    return _definition;
+}
+
+// TODO
+//-(CRSObject *) definitionCRS{
+//    return _definitionCRS;
+//}
 
 -(double) toMeters: (double) value{
     if(self.toMeters != nil){

@@ -25,7 +25,10 @@
  *
  *  @return new projection
  */
--(instancetype) initWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andCrs: (projPJ) crs andToMeters: (NSDecimalNumber *) toMeters;
+-(instancetype) initWithAuthority: (NSString *) authority
+                    andNumberCode: (NSNumber *) code
+                           andCrs: (projPJ) crs
+                      andToMeters: (NSDecimalNumber *) toMeters;
 
 /**
  *  Initialize
@@ -37,7 +40,46 @@
  *
  *  @return new projection
  */
--(instancetype) initWithAuthority: (NSString *) authority andCode: (NSString *) code andCrs: (projPJ) crs andToMeters: (NSDecimalNumber *) toMeters;
+-(instancetype) initWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (projPJ) crs
+                      andToMeters: (NSDecimalNumber *) toMeters;
+
+/**
+ *  Initialize
+ *
+ *  @param authority coordinate authority
+ *  @param code      coordinate code
+ *  @param crs       coordinate reference system
+ *  @param toMeters  to meters conversion
+ *  @param definition  well-known text coordinate definition
+ *
+ *  @return new projection
+ */
+-(instancetype) initWithAuthority: (NSString *) authority
+                    andNumberCode: (NSNumber *) code
+                           andCrs: (projPJ) crs
+                      andToMeters: (NSDecimalNumber *) toMeters
+                    andDefinition: (NSString *) definition;
+
+/**
+ *  Initialize
+ *
+ *  @param authority coordinate authority
+ *  @param code      coordinate code
+ *  @param crs       coordinate reference system
+ *  @param toMeters  to meters conversion
+ *  @param definition  well-known text coordinate definition
+ *
+ *  @return new projection
+ */
+-(instancetype) initWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (projPJ) crs
+                      andToMeters: (NSDecimalNumber *) toMeters
+                    andDefinition: (NSString *) definition;
+
+// CRSObject initializers
 
 /**
  * Get the coordinate authority
@@ -56,7 +98,7 @@
 /**
  * Get the Coordinate Reference System
  *
- * @return Coordinate Reference System
+ * @return coordinate reference system
  */
 -(projPJ) crs;
 
@@ -73,6 +115,21 @@
  * @return true if a lat lon crs
  */
 -(BOOL) isLatLong;
+
+/**
+ * Get the well-known text coordinate definition
+ *
+ * @return definition
+ */
+-(NSString *) definition;
+
+/**
+ * Get the definition parsed Coordinate Reference System
+ *
+ * @return coordinate reference system
+ */
+// TODO
+//-(CRSObject *) definitionCRS;
 
 /**
  *  Convert the value to meters
