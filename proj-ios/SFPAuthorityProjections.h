@@ -1,6 +1,6 @@
 //
 //  SFPAuthorityProjections.h
-//  sf-proj-ios
+//  proj-ios
 //
 //  Created by Brian Osborn on 7/19/17.
 //  Copyright © 2017 NGA. All rights reserved.

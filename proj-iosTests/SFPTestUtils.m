@@ -1,6 +1,6 @@
 //
 //  SFTestUtils.m
-//  sf-proj-ios
+//  proj-ios
 //
 //  Created by Brian Osborn on 6/12/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
@@ -102,61 +102,6 @@
 
 +(void)fail:(NSString *) message{
     [NSException raise:@"Test Failure" format:@"%@", message];
-}
-
-+(SFPoint *) createPointWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    
-    double x = [self randomDoubleLessThan:180.0] * ([self randomDouble] < .5 ? 1 : -1);
-    double y = [self randomDoubleLessThan:90.0] * ([self randomDouble] < .5 ? 1 : -1);
-    
-    NSDecimalNumber * xNumber = [self roundDouble:x];
-    NSDecimalNumber * yNumber = [self roundDouble:y];
-    
-    SFPoint * point = [[SFPoint alloc] initWithHasZ:hasZ andHasM:hasM andX:xNumber andY:yNumber];
-    
-    if(hasZ){
-        double z = [self randomDoubleLessThan:1000.0];
-        NSDecimalNumber * zNumber = [self roundDouble:z];
-        [point setZ:zNumber];
-    }
-    
-    if(hasM){
-        double m = [self randomDoubleLessThan:1000.0];
-        NSDecimalNumber * mNumber = [self roundDouble:m];
-        [point setM:mNumber];
-    }
-       
-       return point;
-}
-
-+(SFLineString *) createLineStringWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM andRing: (BOOL) ring{
-    
-    SFLineString * lineString = [[SFLineString alloc] initWithHasZ:hasZ andHasM:hasM];
-    
-    int numPoints = 2 + [self randomIntLessThan:9];
-    
-    for(int i = 0; i < numPoints; i++){
-        [lineString addPoint:[self createPointWithHasZ:hasZ andHasM:hasM]];
-    }
-    
-    if(ring){
-        [lineString addPoint:[lineString.points objectAtIndex:0]];
-    }
-    
-    return lineString;
-}
-
-+(SFPolygon *) createPolygonWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    
-    SFPolygon * polygon = [[SFPolygon alloc] initWithHasZ:hasZ andHasM:hasM];
-    
-    int numLineStrings = 1 + [self randomIntLessThan:5];
-    
-    for(int i = 0; i < numLineStrings; i++){
-        [polygon addRing:[self createLineStringWithHasZ:hasZ andHasM:hasM andRing:true]];
-    }
-    
-    return polygon;
 }
 
 +(NSDecimalNumber *) roundDouble: (double) value{

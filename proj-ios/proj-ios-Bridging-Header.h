@@ -11,7 +11,6 @@
 
 #import "proj_ios.h"
 #import "SFPAuthorityProjections.h"
-#import "SFPGeometryProjectionTransform.h"
 #import "SFPProjection.h"
 #import "SFPProjectionConstants.h"
 #import "SFPProjectionFactory.h"

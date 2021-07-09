@@ -1,6 +1,6 @@
 //
 //  SFPProjectionTransform.m
-//  sf-proj-ios
+//  proj-ios
 //
 //  Created by Brian Osborn on 5/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
@@ -8,7 +8,6 @@
 
 #import "SFPProjectionTransform.h"
 #import "SFPProjectionFactory.h"
-#import "SFPGeometryProjectionTransform.h"
 #import "SFPProjectionConstants.h"
 
 @implementation SFPProjectionTransform
@@ -110,61 +109,34 @@
     return [[SFPLocationCoordinate3D alloc] initWithCoordinate:to andZ:toZ];
 }
 
--(SFPoint *) transformWithPoint: (SFPoint *) from{
-    
-    SFPGeometryProjectionTransform * geometryTransform = [[SFPGeometryProjectionTransform alloc] initWithProjectionTransform:self];
-    SFPoint * to = [geometryTransform transformPoint:from];
-    
-    return to;
+-(NSArray *) transformWithX: (double) x andY: (double) y{
+    CLLocationCoordinate2D fromCoord = CLLocationCoordinate2DMake(y, x);
+    CLLocationCoordinate2D toCoord = [self transform:fromCoord];
+    return [[NSArray alloc] initWithObjects:[NSDecimalNumber numberWithDouble:toCoord.longitude], [NSDecimalNumber numberWithDouble:toCoord.latitude], nil];
 }
 
--(NSArray<SFPoint *> *) transformWithPoints: (NSArray<SFPoint *> *) from{
+-(NSArray *) transformWithMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY{
     
-    NSMutableArray<SFPoint *> *to = [[NSMutableArray alloc] init];
-    
-    SFPGeometryProjectionTransform * geometryTransform = [[SFPGeometryProjectionTransform alloc] initWithProjectionTransform:self];
-    for(SFPoint *fromPoint in from){
-        SFPoint * toPoint = [geometryTransform transformPoint:fromPoint];
-        [to addObject:toPoint];
-    }
-    
-    return to;
-}
-
--(SFGeometry *) transformWithGeometry: (SFGeometry *) from{
-    
-    SFPGeometryProjectionTransform * geometryTransform = [[SFPGeometryProjectionTransform alloc] initWithProjectionTransform:self];
-    SFGeometry * to = [geometryTransform transformGeometry:from];
-    
-    return to;
-}
-
--(SFGeometryEnvelope *) transformWithGeometryEnvelope: (SFGeometryEnvelope *) envelope{
-    
-    CLLocationCoordinate2D lowerLeft = CLLocationCoordinate2DMake([envelope.minY doubleValue], [envelope.minX doubleValue]);
-    CLLocationCoordinate2D lowerRight = CLLocationCoordinate2DMake([envelope.minY doubleValue], [envelope.maxX doubleValue]);
-    CLLocationCoordinate2D upperRight = CLLocationCoordinate2DMake([envelope.maxY doubleValue], [envelope.maxX doubleValue]);
-    CLLocationCoordinate2D upperLeft = CLLocationCoordinate2DMake([envelope.maxY doubleValue], [envelope.minX doubleValue]);
+    CLLocationCoordinate2D lowerLeft = CLLocationCoordinate2DMake(minY, minX);
+    CLLocationCoordinate2D lowerRight = CLLocationCoordinate2DMake(minY, maxX);
+    CLLocationCoordinate2D upperRight = CLLocationCoordinate2DMake(maxY, maxX);
+    CLLocationCoordinate2D upperLeft = CLLocationCoordinate2DMake(maxY, minX);
 
     CLLocationCoordinate2D projectedLowerLeft = [self transform:lowerLeft];
     CLLocationCoordinate2D projectedLowerRight = [self transform:lowerRight];
     CLLocationCoordinate2D projectedUpperRight = [self transform:upperRight];
     CLLocationCoordinate2D projectedUpperLeft = [self transform:upperLeft];
     
-    double minX = MIN(projectedLowerLeft.longitude, projectedUpperLeft.longitude);
-    double maxX = MAX(projectedLowerRight.longitude, projectedUpperRight.longitude);
-    double minY = MIN(projectedLowerLeft.latitude, projectedLowerRight.latitude);
-    double maxY = MAX(projectedUpperLeft.latitude, projectedUpperRight.latitude);
+    double toMinX = MIN(projectedLowerLeft.longitude, projectedUpperLeft.longitude);
+    double toMaxX = MAX(projectedLowerRight.longitude, projectedUpperRight.longitude);
+    double toMinY = MIN(projectedLowerLeft.latitude, projectedLowerRight.latitude);
+    double toMaxY = MAX(projectedUpperLeft.latitude, projectedUpperRight.latitude);
     
-    SFGeometryEnvelope * projectedGeometryEnvelope = [[SFGeometryEnvelope alloc] initWithMinXDouble:minX andMinYDouble:minY andMaxXDouble:maxX andMaxYDouble:maxY];
-    
-    return projectedGeometryEnvelope;
-}
-
--(NSArray *) transformWithX: (double) x andY: (double) y{
-    CLLocationCoordinate2D fromCoord = CLLocationCoordinate2DMake(y, x);
-    CLLocationCoordinate2D toCoord = [self transform:fromCoord];
-    return [[NSArray alloc] initWithObjects:[NSDecimalNumber numberWithDouble:toCoord.longitude], [NSDecimalNumber numberWithDouble:toCoord.latitude], nil];
+    return [[NSArray alloc] initWithObjects:
+            [NSDecimalNumber numberWithDouble:toMinX],
+            [NSDecimalNumber numberWithDouble:toMinY],
+            [NSDecimalNumber numberWithDouble:toMaxX],
+            [NSDecimalNumber numberWithDouble:toMaxY], nil];
 }
 
 -(BOOL) isSameProjection{

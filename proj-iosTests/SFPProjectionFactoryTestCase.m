@@ -1,6 +1,6 @@
 //
 //  SFPProjectionFactoryTestCase.m
-//  sf-proj-ios
+//  proj-ios
 //
 //  Created by Brian Osborn on 7/21/17.
 //  Copyright © 2017 NGA. All rights reserved.

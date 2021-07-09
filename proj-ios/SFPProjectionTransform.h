@@ -1,6 +1,6 @@
 //
 //  SFPProjectionTransform.h
-//  sf-proj-ios
+//  proj-ios
 //
 //  Created by Brian Osborn on 5/21/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "SFPProjection.h"
-#import "SFPoint.h"
 #import "SFPLocationCoordinate3D.h"
 
 /**
@@ -131,50 +130,26 @@
 -(SFPLocationCoordinate3D *) transform3d: (SFPLocationCoordinate3D *) from;
 
 /**
- *  Transform a point
- *
- *  @param from point to transform
- *
- *  @return transformed point
- */
--(SFPoint *) transformWithPoint: (SFPoint *) from;
-
-/**
- *  Transform an array of points
- *
- *  @param from points to transform
- *
- *  @return transformed points
- */
--(NSArray<SFPoint *> *) transformWithPoints: (NSArray<SFPoint *> *) from;
-
-/**
- *  Transform a geometry
- *
- *  @param from geometry
- *
- *  @return projected geometry
- */
--(SFGeometry *) transformWithGeometry: (SFGeometry *) from;
-
-/**
- *  Transform the geometry envelope
- *
- *  @param envelope geometry envelope
- *
- *  @return geometry envelope
- */
--(SFGeometryEnvelope *) transformWithGeometryEnvelope: (SFGeometryEnvelope *) envelope;
-
-/**
  *  Transform a x and y coordinate
  *
  *  @param x x coordinate
  *  @param y y coordinate
  *
- *  @return array containing x and y coordinate
+ *  @return transformed coordinates as [x, y]
  */
 -(NSArray *) transformWithX: (double) x andY: (double) y;
+
+/**
+ * Transform the coordinate bounds
+ *
+ * @param minX min x
+ * @param minY min y
+ * @param maxX max x
+ * @param maxY max y
+ *
+ * @return transformed coordinate bounds as [minX, minY, maxX, maxY]
+ */
+-(NSArray *) transformWithMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY;
 
 /**
  * Is the from and to projection the same?

@@ -1,6 +1,6 @@
 //
 //  SFPProjections.h
-//  sf-proj-ios
+//  proj-ios
 //
 //  Created by Brian Osborn on 7/16/19.
 //  Copyright © 2019 NGA. All rights reserved.
