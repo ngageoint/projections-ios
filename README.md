@@ -65,8 +65,6 @@ To use from Swift, import the proj-ios bridging header from the Swift project's 
 
     #import "proj-ios-Bridging-Header.h"
 
-#### Transform ####
-
 ```swift
 
 // TODO
