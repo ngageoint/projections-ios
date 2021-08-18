@@ -79,7 +79,7 @@ static NSMutableDictionary<NSString *, NSMutableDictionary *> *properties;
 
 +(NSString *) propertiesPathForAuthority: (NSString *) authority{
     NSString *name = [NSString stringWithFormat:@"%@.%@", PROJ_PROPERTIES, [authority lowercaseString]];
-    return [PROJIOUtils getPropertyListPathWithName:name];
+    return [PROJIOUtils propertyListPathWithName:name];
 }
 
 +(void) setProjections: (NSMutableDictionary *) projections forAuthority: (NSString *) authority{

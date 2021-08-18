@@ -10,8 +10,8 @@
 #import "proj_api.h"
 #import "PROJProjectionRetriever.h"
 #import "PROJProjectionConstants.h"
-
-NSString * const PROJ_PROJ_TO_METER_PATTERN = @"\\+to_meter=(\\S+)";
+#import "CRSReader.h"
+#import "PROJCRSParser.h"
 
 /**
  * Projections
@@ -166,21 +166,20 @@ static PROJProjections *projections;
     
     if(definition != nil && definition.length > 0){
         
-        NSString *parametersString = nil;
-        // TODO parse WKT definition into proj4 parameters
-        
-        // Try to create the projection from the parameters
-        if(parametersString != nil && parametersString.length > 0){
-            
-            projPJ crs = pj_init_plus([parametersString UTF8String]);
-            if(crs != nil){
-                NSDecimalNumber * toMeters = [self toMetersFromParameters:parametersString];
-                projection = [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andToMeters:toMeters];
-                [projections addProjection:projection];
-            }else{
-                NSLog(@"Failed to create projection for authority: %@, code: %@, definition, %@, parameters: %@", authority, code, definition, parametersString);
+        @try {
+            projPJ crs = nil;
+            CRSObject *definitionCRS = [CRSReader read:definition];
+            if(definitionCRS != nil){
+                crs = [PROJCRSParser convertCRS:definitionCRS];
             }
+            if(crs != nil){
+                projection = [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
+                [projections addProjection:projection];
+            }
+        } @catch (NSException *exception) {
+            NSLog(@"Failed to create projection for authority: %@, code: %@, definition: %@", authority, code, definition);
         }
+        
     }
     
     return projection;
@@ -204,8 +203,7 @@ static PROJProjections *projections;
     if (params != nil && params.length > 0) {
         projPJ crs = pj_init_plus([params UTF8String]);
         if(crs != nil){
-            NSDecimalNumber * toMeters = [self toMetersFromParameters:params];
-            projection = [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andToMeters:toMeters];
+            projection = [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs];
             [projections addProjection:projection];
         }else{
             NSLog(@"Failed to create projection for authority: %@, code: %@, parameters: %@", authority, code, params);
@@ -233,8 +231,7 @@ static PROJProjections *projections;
     if(parameters != nil && parameters.length > 0){
         projPJ crs = pj_init_plus([parameters UTF8String]);
         if(crs != nil){
-            NSDecimalNumber * toMeters = [self toMetersFromParameters:parameters];
-            projection = [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andToMeters:toMeters];
+            projection = [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs];
             [projections addProjection:projection];
         }else{
             NSLog(@"Failed to create projection for authority: %@, code: %@, parameters: %@", authority, code, parameters);
@@ -242,28 +239,6 @@ static PROJProjections *projections;
     }
     
     return projection;
-}
-
-+(NSDecimalNumber *) toMetersFromParameters: (NSString *) parameters{
-    
-    NSDecimalNumber * toMeters = nil;
-    
-    NSError  *error = nil;
-    NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:PROJ_PROJ_TO_METER_PATTERN options:NSRegularExpressionCaseInsensitive error:&error];
-    if(error){
-        [NSException raise:@"To Meter Regular Expression" format:@"Failed to create projection to meter regular epxression with error: %@", error];
-    }
-    NSArray * matches = [regExp matchesInString:parameters options:0 range:NSMakeRange(0, [parameters length])];
-    if([matches count] > 0){
-        NSTextCheckingResult* match = (NSTextCheckingResult*) [matches objectAtIndex:0];
-        if([match numberOfRanges] > 0){
-            NSRange toMeterGroup = [match rangeAtIndex:1];
-            NSString * toMeterGroupString = [parameters substringWithRange:toMeterGroup];
-            toMeters = [[NSDecimalNumber alloc] initWithString:toMeterGroupString];
-        }
-    }
-    
-    return toMeters;
 }
 
 @end

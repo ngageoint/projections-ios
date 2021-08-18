@@ -7,9 +7,61 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "proj_api.h"
+#import "CRSObject.h"
+#import "CRSGeoCoordinateReferenceSystem.h"
+#import "CRSProjectedCoordinateReferenceSystem.h"
+#import "CRSCompoundCoordinateReferenceSystem.h"
 
+/**
+ * Coordinate Reference System Well-known text parser
+ */
 @interface PROJCRSParser : NSObject
 
-// TODO
+/**
+ * Parse crs well-known text into a proj4 coordinate reference system
+ *
+ * @param wkt
+ *            crs well-known text
+ * @return coordinate reference system
+ */
++(projPJ) parseText: (NSString *) wkt;
+
+/**
+ * Convert a CRS object into a proj4 coordinate reference system
+ *
+ * @param crsObject
+ *            CRS object
+ * @return coordinate reference system
+ */
++(projPJ) convertCRS: (CRSObject *) crsObject;
+
+/**
+ * Convert a geodetic or geographic crs into a proj4 coordinate reference
+ * system
+ *
+ * @param geo
+ *            geodetic or geographic crs
+ * @return coordinate reference system
+ */
++(projPJ) convertGeo: (CRSGeoCoordinateReferenceSystem *) geo;
+
+/**
+ * Convert a projected crs into a proj4 coordinate reference system
+ *
+ * @param projected
+ *            projected crs
+ * @return coordinate reference system
+ */
++(projPJ) convertProjected: (CRSProjectedCoordinateReferenceSystem *) projected;
+
+/**
+ * Convert a compound crs into a proj4 coordinate reference system
+ *
+ * @param compound
+ *            compound crs
+ * @return coordinate reference system
+ */
++(projPJ) convertCompound: (CRSCompoundCoordinateReferenceSystem *) compound;
 
 @end

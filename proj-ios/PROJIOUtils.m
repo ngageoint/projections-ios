@@ -11,11 +11,11 @@
 
 @implementation PROJIOUtils
 
-+(NSString *) getPropertyListPathWithName: (NSString *) name{
-    return [self getResourcePathWithName:name andType:PROJ_PROPERTY_LIST_TYPE];
++(NSString *) propertyListPathWithName: (NSString *) name{
+    return [self resourcePathWithName:name andType:PROJ_PROPERTY_LIST_TYPE];
 }
 
-+(NSString *) getResourcePathWithName: (NSString *) name andType: (NSString *) type{
++(NSString *) resourcePathWithName: (NSString *) name andType: (NSString *) type{
     
     NSString * resource = [NSString stringWithFormat:@"%@/%@", PROJ_BUNDLE_NAME, name];
     NSString * resourcePath = [[NSBundle mainBundle] pathForResource:resource ofType:type];

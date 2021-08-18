@@ -26,11 +26,6 @@
 @property (nonatomic) projPJ crs;
 
 /**
- *  To meters conversion value
- */
-@property (nonatomic, strong) NSDecimalNumber *toMeters;
-
-/**
  *  True if a lat lon crs
  */
 @property (nonatomic) BOOL isLatLong;
@@ -43,36 +38,49 @@
 /**
  * Definition parsed Coordinate Reference System
  */
-// TODO @property (nonatomic, strong) CRSObject *definitionCRS;
+@property (nonatomic, strong) CRSObject *definitionCRS;
 
 @end
 
 @implementation PROJProjection
 
--(instancetype) initWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andCrs: (projPJ) crs andToMeters: (NSDecimalNumber *) toMeters{
-    return [self initWithAuthority:authority andNumberCode:code andCrs:crs andToMeters:toMeters andDefinition:nil];
+-(instancetype) initWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andCrs: (projPJ) crs{
+    return [self initWithAuthority:authority andNumberCode:code andCrs:crs andDefinition:nil];
 }
 
 -(instancetype) initWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                           andCrs: (projPJ) crs
-                      andToMeters: (NSDecimalNumber *) toMeters{
-    return [self initWithAuthority:authority andCode:code andCrs:crs andToMeters:toMeters andDefinition:nil];
+                           andCrs: (projPJ) crs{
+    return [self initWithAuthority:authority andCode:code andCrs:crs andDefinition:nil];
 }
 
 -(instancetype) initWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
                            andCrs: (projPJ) crs
-                      andToMeters: (NSDecimalNumber *) toMeters
                     andDefinition: (NSString *) definition{
-    return [self initWithAuthority:authority andCode:(code != nil ? [code stringValue] : nil) andCrs:crs andToMeters:toMeters andDefinition:definition];
+    return [self initWithAuthority:authority andNumberCode:code andCrs:crs andDefinition:definition andDefinitionCrs:nil];
 }
 
 -(instancetype) initWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
                            andCrs: (projPJ) crs
-                      andToMeters: (NSDecimalNumber *) toMeters
                     andDefinition: (NSString *) definition{
+    return [self initWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:nil];
+}
+
+-(instancetype) initWithAuthority: (NSString *) authority
+                    andNumberCode: (NSNumber *) code
+                           andCrs: (projPJ) crs
+                    andDefinition: (NSString *) definition
+                 andDefinitionCrs: (CRSObject *) definitionCRS{
+    return [self initWithAuthority:authority andCode:(code != nil ? [code stringValue] : nil) andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
+}
+
+-(instancetype) initWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (projPJ) crs
+                    andDefinition: (NSString *) definition
+                 andDefinitionCrs: (CRSObject *) definitionCRS{
     self = [super init];
     if(self != nil){
         if(authority == nil || code == nil || crs == nil){
@@ -81,10 +89,9 @@
         self.authority = authority;
         self.code = code;
         self.crs = crs;
-        self.toMeters = toMeters;
         self.isLatLong = pj_is_latlong(crs);
         self.definition = definition;
-        // TODO CRSObject
+        self.definitionCRS = definitionCRS;
     }
     return self;
 }
@@ -101,10 +108,6 @@
     return _crs;
 }
 
--(NSDecimalNumber *) toMeters{
-    return _toMeters;
-}
-
 -(BOOL) isLatLong{
     return _isLatLong;
 }
@@ -113,21 +116,15 @@
     return _definition;
 }
 
-// TODO
-//-(CRSObject *) definitionCRS{
-//    return _definitionCRS;
-//}
-
--(double) toMeters: (double) value{
-    if(self.toMeters != nil){
-        NSDecimalNumber * valueDecimalNumber = [[NSDecimalNumber alloc] initWithDouble:value];
-        NSDecimalNumber * metersValue = [self.toMeters decimalNumberByMultiplyingBy:valueDecimalNumber];
-        value = [metersValue doubleValue];
-    }
-    return value;
+-(CRSObject *) definitionCRS{
+    return _definitionCRS;
 }
 
--(enum PROJUnit) getUnit{
+-(double) toMeters: (double) value{
+    return value / ((PJ *) _crs)->vfr_meter;
+}
+
+-(enum PROJUnit) unit{
     
     enum PROJUnit unit = PROJ_UNIT_NONE;
     
@@ -141,7 +138,7 @@
 }
 
 -(BOOL) isUnit: (enum PROJUnit) unit{
-    return [self getUnit] == unit;
+    return [self unit] == unit;
 }
 
 -(BOOL) isEqualToAuthority: (NSString *) authority andNumberCode: (NSNumber *) code{

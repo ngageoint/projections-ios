@@ -132,13 +132,13 @@
  *
  * @return projection codes
  */
--(NSArray<NSString *> *) getCodes;
+-(NSArray<NSString *> *) codes;
 
 /**
  * Get the projections
  *
  * @return projections
  */
--(NSArray<PROJProjection *> *) getProjections;
+-(NSArray<PROJProjection *> *) projections;
 
 @end

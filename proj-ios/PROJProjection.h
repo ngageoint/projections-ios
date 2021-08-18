@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "proj_api.h"
+#import "projects.h"
 #import "PROJUnits.h"
+#import "CRSObject.h"
 
 /**
  *  Single Projection for an authority and code
@@ -21,14 +22,12 @@
  *  @param authority coordinate authority
  *  @param code      coordinate code
  *  @param crs       coordinate reference system
- *  @param toMeters  to meters conversion
  *
  *  @return new projection
  */
 -(instancetype) initWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
-                           andCrs: (projPJ) crs
-                      andToMeters: (NSDecimalNumber *) toMeters;
+                           andCrs: (projPJ) crs;
 
 /**
  *  Initialize
@@ -36,14 +35,12 @@
  *  @param authority coordinate authority
  *  @param code      coordinate code
  *  @param crs       coordinate reference system
- *  @param toMeters  to meters conversion
  *
  *  @return new projection
  */
 -(instancetype) initWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                           andCrs: (projPJ) crs
-                      andToMeters: (NSDecimalNumber *) toMeters;
+                           andCrs: (projPJ) crs;
 
 /**
  *  Initialize
@@ -51,7 +48,6 @@
  *  @param authority coordinate authority
  *  @param code      coordinate code
  *  @param crs       coordinate reference system
- *  @param toMeters  to meters conversion
  *  @param definition  well-known text coordinate definition
  *
  *  @return new projection
@@ -59,7 +55,6 @@
 -(instancetype) initWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
                            andCrs: (projPJ) crs
-                      andToMeters: (NSDecimalNumber *) toMeters
                     andDefinition: (NSString *) definition;
 
 /**
@@ -68,7 +63,6 @@
  *  @param authority coordinate authority
  *  @param code      coordinate code
  *  @param crs       coordinate reference system
- *  @param toMeters  to meters conversion
  *  @param definition  well-known text coordinate definition
  *
  *  @return new projection
@@ -76,10 +70,41 @@
 -(instancetype) initWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
                            andCrs: (projPJ) crs
-                      andToMeters: (NSDecimalNumber *) toMeters
                     andDefinition: (NSString *) definition;
 
-// CRSObject initializers
+/**
+ *  Initialize
+ *
+ *  @param authority coordinate authority
+ *  @param code      coordinate code
+ *  @param crs       coordinate reference system
+ *  @param definition  well-known text coordinate definition
+ *  @param definitionCRS definition parsed coordinate reference system
+ *
+ *  @return new projection
+ */
+-(instancetype) initWithAuthority: (NSString *) authority
+                    andNumberCode: (NSNumber *) code
+                           andCrs: (projPJ) crs
+                    andDefinition: (NSString *) definition
+                 andDefinitionCrs: (CRSObject *) definitionCRS;
+
+/**
+ *  Initialize
+ *
+ *  @param authority coordinate authority
+ *  @param code      coordinate code
+ *  @param crs       coordinate reference system
+ *  @param definition  well-known text coordinate definition
+ *  @param definitionCRS definition parsed coordinate reference system
+ *
+ *  @return new projection
+ */
+-(instancetype) initWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (projPJ) crs
+                    andDefinition: (NSString *) definition
+                 andDefinitionCrs: (CRSObject *) definitionCRS;
 
 /**
  * Get the coordinate authority
@@ -103,13 +128,6 @@
 -(projPJ) crs;
 
 /**
- * Get the to meters conversion value
- *
- * @return to meters
- */
--(NSDecimalNumber *) toMeters;
-
-/**
  * Check if a lat lon crs
  *
  * @return true if a lat lon crs
@@ -128,8 +146,7 @@
  *
  * @return coordinate reference system
  */
-// TODO
-//-(CRSObject *) definitionCRS;
+-(CRSObject *) definitionCRS;
 
 /**
  *  Convert the value to meters
@@ -145,7 +162,7 @@
  *
  *  @return unit
  */
--(enum PROJUnit) getUnit;
+-(enum PROJUnit) unit;
 
 /**
  * Determine if the projection is in the provided unit

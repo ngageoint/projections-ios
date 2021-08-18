@@ -18,7 +18,7 @@
 /**
  * Projections by code
  */
-@property (nonatomic, strong) NSMutableDictionary<NSString *, PROJProjection *> *projections;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, PROJProjection *> *codeProjections;
 
 @end
 
@@ -27,8 +27,8 @@
 -(instancetype) initWithAuthority: (NSString *) authority{
     self = [super init];
     if(self != nil){
-        self.projections = [[NSMutableDictionary alloc] init];
-        self.authority = authority;
+        _codeProjections = [[NSMutableDictionary alloc] init];
+        _authority = authority;
     }
     return self;
 }
@@ -42,7 +42,7 @@
 }
 
 -(PROJProjection *) projectionForCode: (NSString *) code{
-    return [_projections objectForKey:[code uppercaseString]];
+    return [_codeProjections objectForKey:[code uppercaseString]];
 }
 
 -(BOOL) hasProjection: (PROJProjection *) projection{
@@ -58,11 +58,11 @@
 }
 
 -(void) addProjection: (PROJProjection *) projection{
-    [_projections setObject:projection forKey:[projection.code uppercaseString]];
+    [_codeProjections setObject:projection forKey:[projection.code uppercaseString]];
 }
 
 -(void) clear{
-    [_projections removeAllObjects];
+    [_codeProjections removeAllObjects];
 }
 
 -(void) removeNumberCode: (NSNumber *) code{
@@ -70,7 +70,7 @@
 }
 
 -(void) removeCode: (NSString *) code{
-    [_projections removeObjectForKey:[code uppercaseString]];
+    [_codeProjections removeObjectForKey:[code uppercaseString]];
 }
 
 -(void) removeProjection: (PROJProjection *) projection{
@@ -78,19 +78,19 @@
 }
 
 -(int) count{
-    return (int) self.projections.count;
+    return (int) _codeProjections.count;
 }
 
 -(int) isEmpty{
     return [self count] == 0;
 }
 
--(NSArray<NSString *> *) getCodes{
-    return [self.projections allKeys];
+-(NSArray<NSString *> *) codes{
+    return [_codeProjections allKeys];
 }
 
--(NSArray<PROJProjection *> *) getProjections{
-    return [self.projections allValues];
+-(NSArray<PROJProjection *> *) projections{
+    return [_codeProjections allValues];
 }
 
 @end
