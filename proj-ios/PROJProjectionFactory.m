@@ -57,39 +57,39 @@ static PROJProjections *projections;
     return [self projectionWithAuthority:authority andCode:code];
 }
 
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code{
     return [self projectionWithAuthority:authority andCode:[code stringValue]];
 }
 
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code{
     return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code]];
 }
 
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code{
     return [self projectionWithAuthority:authority andCode:code andParams:nil andDefinition:nil];
 }
 
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params{
     return [self projectionWithAuthority:authority andCode:[code stringValue] andParams:params];
 }
 
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params{
     return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params];
 }
 
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params{
     return [self projectionWithAuthority:authority andCode:code andParams:params andDefinition:nil];
 }
 
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params andDefinition: (NSString *) definition{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
     return [self projectionWithAuthority:authority andCode:[code stringValue] andParams:params andDefinition:definition];
 }
 
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params andDefinition: (NSString *) definition{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition{
     return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params andDefinition:definition];
 }
 
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params andDefinition: (NSString *) definition{
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
     
     authority = [authority uppercaseString];
     
@@ -119,6 +119,10 @@ static PROJProjections *projections;
     }
     
     return projection;
+}
+
++(PROJProjection *) projectionByDefinition: (NSString *) definition{
+    return nil; // TODO
 }
 
 +(PROJProjections *) projections{
@@ -173,7 +177,7 @@ static PROJProjections *projections;
                 crs = [PROJCRSParser convertCRS:definitionCRS];
             }
             if(crs != nil){
-                projection = [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
+                projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
                 [projections addProjection:projection];
             }
         } @catch (NSException *exception) {
@@ -203,7 +207,7 @@ static PROJProjections *projections;
     if (params != nil && params.length > 0) {
         projPJ crs = pj_init_plus([params UTF8String]);
         if(crs != nil){
-            projection = [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs];
+            projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs];
             [projections addProjection:projection];
         }else{
             NSLog(@"Failed to create projection for authority: %@, code: %@, parameters: %@", authority, code, params);
@@ -231,7 +235,7 @@ static PROJProjections *projections;
     if(parameters != nil && parameters.length > 0){
         projPJ crs = pj_init_plus([parameters UTF8String]);
         if(crs != nil){
-            projection = [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs];
+            projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs];
             [projections addProjection:projection];
         }else{
             NSLog(@"Failed to create projection for authority: %@, code: %@, parameters: %@", authority, code, parameters);

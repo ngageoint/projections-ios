@@ -52,7 +52,7 @@
  *            authority coordinate code
  * @return projection
  */
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code;
 
 /**
  * Get the projection for authority and code
@@ -63,7 +63,7 @@
  *            authority coordinate code
  * @return projection
  */
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code;
 
 /**
  * Get the projection for authority and code
@@ -74,7 +74,7 @@
  *            authority coordinate code
  * @return projection
  */
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code;
 
 /**
  * Get the projection for authority, code, and parameter string
@@ -87,7 +87,7 @@
  *            proj4 string
  * @return projection
  */
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params;
 
 /**
  * Get the projection for authority, code, and parameter string
@@ -100,7 +100,7 @@
  *            proj4 string
  * @return projection
  */
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params;
 
 /**
  * Get the projection for authority, code, and parameter string
@@ -113,7 +113,7 @@
  *            proj4 string
  * @return projection
  */
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params;
 
 /**
  * Get the projection for the authority, code, definition, and custom
@@ -129,7 +129,7 @@
  *            definition
  * @return projection
  */
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode:(NSNumber *)code andParams: (NSString *) params andDefinition: (NSString *) definition;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the authority, code, definition, and custom
@@ -145,7 +145,7 @@
  *            definition
  * @return projection
  */
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode:(int)code andParams: (NSString *) params andDefinition: (NSString *) definition;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the authority, code, definition, and custom
@@ -161,7 +161,16 @@
  *            definition
  * @return projection
  */
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode:(NSString *)code andParams: (NSString *) params andDefinition: (NSString *) definition;
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the definition
+ *
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionByDefinition: (NSString *) definition;
 
 /**
  * Get the projections

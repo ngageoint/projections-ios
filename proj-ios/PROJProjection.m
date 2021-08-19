@@ -7,6 +7,8 @@
 //
 
 #import "PROJProjection.h"
+#import "PROJProjectionConstants.h"
+#import "PROJProjectionFactory.h"
 
 @interface PROJProjection()
 
@@ -44,8 +46,77 @@
 
 @implementation PROJProjection
 
++(PROJProjection *) projectionWithAuthority: (NSString *) authority
+                    andNumberCode: (NSNumber *) code
+                                 andCrs: (projPJ) crs{
+    return [[PROJProjection alloc] initWithAuthority:authority andNumberCode:code andCrs:crs];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority
+                    andIntCode: (int) code
+                                     andCrs: (projPJ) crs{
+    return [[PROJProjection alloc] initWithAuthority:authority andIntCode:code andCrs:crs];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                                 andCrs: (projPJ) crs{
+    return [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority
+                    andNumberCode: (NSNumber *) code
+                           andCrs: (projPJ) crs
+                          andDefinition: (NSString *) definition{
+    return [[PROJProjection alloc] initWithAuthority:authority andNumberCode:code andCrs:crs andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority
+                    andIntCode: (int) code
+                           andCrs: (projPJ) crs
+                              andDefinition: (NSString *) definition{
+    return [[PROJProjection alloc] initWithAuthority:authority andIntCode:code andCrs:crs andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (projPJ) crs
+                          andDefinition: (NSString *) definition{
+    return [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority
+                    andNumberCode: (NSNumber *) code
+                           andCrs: (projPJ) crs
+                    andDefinition: (NSString *) definition
+                       andDefinitionCrs: (CRSObject *) definitionCRS{
+    return [[PROJProjection alloc] initWithAuthority:authority andNumberCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority
+                    andIntCode: (int) code
+                           andCrs: (projPJ) crs
+                    andDefinition: (NSString *) definition
+                           andDefinitionCrs: (CRSObject *) definitionCRS{
+    return [[PROJProjection alloc] initWithAuthority:authority andIntCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (projPJ) crs
+                    andDefinition: (NSString *) definition
+                       andDefinitionCrs: (CRSObject *) definitionCRS{
+    return [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
+}
+
 -(instancetype) initWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andCrs: (projPJ) crs{
     return [self initWithAuthority:authority andNumberCode:code andCrs:crs andDefinition:nil];
+}
+
+-(instancetype) initWithAuthority: (NSString *) authority
+                    andIntCode: (int) code
+                           andCrs: (projPJ) crs{
+    return [self initWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andCrs:crs];
 }
 
 -(instancetype) initWithAuthority: (NSString *) authority
@@ -62,6 +133,13 @@
 }
 
 -(instancetype) initWithAuthority: (NSString *) authority
+                    andIntCode: (int) code
+                           andCrs: (projPJ) crs
+                    andDefinition: (NSString *) definition{
+    return [self initWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andCrs:crs andDefinition:definition];
+}
+
+-(instancetype) initWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
                            andCrs: (projPJ) crs
                     andDefinition: (NSString *) definition{
@@ -74,6 +152,14 @@
                     andDefinition: (NSString *) definition
                  andDefinitionCrs: (CRSObject *) definitionCRS{
     return [self initWithAuthority:authority andCode:(code != nil ? [code stringValue] : nil) andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
+}
+
+-(instancetype) initWithAuthority: (NSString *) authority
+                    andIntCode: (int) code
+                           andCrs: (projPJ) crs
+                    andDefinition: (NSString *) definition
+                 andDefinitionCrs: (CRSObject *) definitionCRS{
+    return [self initWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
 }
 
 -(instancetype) initWithAuthority: (NSString *) authority
@@ -118,6 +204,24 @@
 
 -(CRSObject *) definitionCRS{
     return _definitionCRS;
+}
+
+-(PROJProjectionTransform *) transformationWithEpsg: (int) epsg{
+    return [self transformationWithAuthority:PROJ_AUTHORITY_EPSG andIntCode:epsg];
+}
+
+-(PROJProjectionTransform *) transformationWithAuthority: (NSString *) authority andIntCode: (int) code{
+    PROJProjection *projectionTo = [PROJProjectionFactory projectionWithAuthority:authority andIntCode:code];
+    return [self transformationWithProjection:projectionTo];
+}
+
+-(PROJProjectionTransform *) transformationWithAuthority: (NSString *) authority andCode: (NSString *) code{
+    PROJProjection *projectionTo = [PROJProjectionFactory projectionWithAuthority:authority andCode:code];
+    return [self transformationWithProjection:projectionTo];
+}
+
+-(PROJProjectionTransform *) transformationWithProjection: (PROJProjection *) projection{
+    return [PROJProjectionTransform transformFromProjection:self andToProjection:projection];
 }
 
 -(double) toMeters: (double) value{

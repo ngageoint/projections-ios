@@ -27,7 +27,7 @@
 -(instancetype) initWithAuthority: (NSString *) authority{
     self = [super init];
     if(self != nil){
-        _codeProjections = [[NSMutableDictionary alloc] init];
+        _codeProjections = [NSMutableDictionary dictionary];
         _authority = authority;
     }
     return self;

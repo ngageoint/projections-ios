@@ -87,7 +87,7 @@ static int code = 100001;
     }
     
     // Add 3 custom projections to the new authority
-    NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *properties = [NSMutableDictionary dictionary];
     [properties setObject:@"+proj=tmerc +lat_0=0 +lon_0=121 +k=1 +x_0=500000 +y_0=0 +ellps=krass +units=m +no_defs"
                    forKey:[[NSNumber numberWithInt:code] stringValue]];
     [properties setObject:@"+proj=longlat +datum=WGS84 +no_defs"

@@ -12,6 +12,38 @@
 
 @implementation PROJProjectionTransform
 
++(PROJProjectionTransform *) transformFromProjection: (PROJProjection *) fromProjection andToProjection: (PROJProjection *) toProjection{
+    return [[PROJProjectionTransform alloc] initWithFromProjection:fromProjection andToProjection:toProjection];
+}
+
++(PROJProjectionTransform *) transformFromEpsg: (int) fromEpsg andToEpsg: (int) toEpsg{
+    return [[PROJProjectionTransform alloc] initWithFromEpsg:fromEpsg andToEpsg:toEpsg];
+}
+
++(PROJProjectionTransform *) transformFromAuthority: (NSString *) fromAuthority andFromIntCode: (int) fromCode andToAuthority: (NSString *) toAuthority andToIntCode: (int) toCode{
+    return [[PROJProjectionTransform alloc] initWithFromAuthority:fromAuthority andFromIntCode:fromCode andToAuthority:toAuthority andToIntCode:toCode];
+}
+
++(PROJProjectionTransform *) transformFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode{
+    return [[PROJProjectionTransform alloc] initWithFromAuthority:fromAuthority andFromCode:fromCode andToAuthority:toAuthority andToCode:toCode];
+}
+
++(PROJProjectionTransform *) transformFromProjection: (PROJProjection *) fromProjection andToEpsg: (int) toEpsg{
+    return [[PROJProjectionTransform alloc] initWithFromProjection:fromProjection andToEpsg:toEpsg];
+}
+
++(PROJProjectionTransform *) transformFromProjection: (PROJProjection *) fromProjection andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode{
+    return [[PROJProjectionTransform alloc] initWithFromProjection:fromProjection andToAuthority:toAuthority andToCode:toCode];
+}
+
++(PROJProjectionTransform *) transformFromEpsg: (int) fromEpsg andToProjection: (PROJProjection *) toProjection{
+    return [[PROJProjectionTransform alloc] initWithFromEpsg:fromEpsg andToProjection:toProjection];
+}
+
++(PROJProjectionTransform *) transformFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (PROJProjection *) toProjection{
+    return [[PROJProjectionTransform alloc] initWithFromAuthority:fromAuthority andFromCode:fromCode andToProjection:toProjection];
+}
+
 -(instancetype) initWithFromProjection: (PROJProjection *) fromProjection andToProjection: (PROJProjection *) toProjection{
     self = [super init];
     if(self != nil){
@@ -71,7 +103,7 @@
 }
 
 -(CLLocationCoordinate2D) transform: (CLLocationCoordinate2D) from{
-    PROJLocationCoordinate3D * result = [self transform3d:[[PROJLocationCoordinate3D alloc] initWithCoordinate:from]];
+    PROJLocationCoordinate3D * result = [self transform3d:[PROJLocationCoordinate3D coordinateWithCoordinate:from]];
     return result.coordinate;
 }
 
@@ -106,13 +138,13 @@
         toZ = [[NSDecimalNumber alloc] initWithDouble:zValue];
     }
     
-    return [[PROJLocationCoordinate3D alloc] initWithCoordinate:to andZ:toZ];
+    return [PROJLocationCoordinate3D coordinateWithCoordinate:to andZ:toZ];
 }
 
 -(NSArray *) transformWithX: (double) x andY: (double) y{
     CLLocationCoordinate2D fromCoord = CLLocationCoordinate2DMake(y, x);
     CLLocationCoordinate2D toCoord = [self transform:fromCoord];
-    return [[NSArray alloc] initWithObjects:[NSDecimalNumber numberWithDouble:toCoord.longitude], [NSDecimalNumber numberWithDouble:toCoord.latitude], nil];
+    return [NSArray arrayWithObjects:[NSDecimalNumber numberWithDouble:toCoord.longitude], [NSDecimalNumber numberWithDouble:toCoord.latitude], nil];
 }
 
 -(NSArray *) transformWithMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY{
@@ -132,7 +164,7 @@
     double toMinY = MIN(projectedLowerLeft.latitude, projectedLowerRight.latitude);
     double toMaxY = MAX(projectedUpperLeft.latitude, projectedUpperRight.latitude);
     
-    return [[NSArray alloc] initWithObjects:
+    return [NSArray arrayWithObjects:
             [NSDecimalNumber numberWithDouble:toMinX],
             [NSDecimalNumber numberWithDouble:toMinY],
             [NSDecimalNumber numberWithDouble:toMaxX],
@@ -144,7 +176,7 @@
 }
 
 -(PROJProjectionTransform *) inverseTransformation{
-    return [[PROJProjectionTransform alloc] initWithFromProjection:self.toProjection andToProjection:self.fromProjection];
+    return [PROJProjectionTransform transformFromProjection:self.toProjection andToProjection:self.fromProjection];
 }
 
 @end

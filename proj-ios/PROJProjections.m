@@ -22,7 +22,7 @@
 -(instancetype) init{
     self = [super init];
     if(self != nil){
-        self.authorities = [[NSMutableDictionary alloc] init];
+        self.authorities = [NSMutableDictionary dictionary];
     }
     return self;
 }

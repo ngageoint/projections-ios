@@ -10,6 +10,8 @@
 #import "PROJProjection.h"
 #import "PROJLocationCoordinate3D.h"
 
+@class PROJProjection;
+
 /**
  *  Projection transformation between a from and to projection
  */
@@ -24,6 +26,92 @@
  *  To projection
  */
 @property (nonatomic, strong) PROJProjection *toProjection;
+
+/**
+ *  Create
+ *
+ *  @param fromProjection from projection
+ *  @param toProjection   to projection
+ *
+ *  @return new projection transform
+ */
++(PROJProjectionTransform *) transformFromProjection: (PROJProjection *) fromProjection andToProjection: (PROJProjection *) toProjection;
+
+/**
+ *  Create
+ *
+ *  @param fromEpsg from epsg
+ *  @param toEpsg   to epsg
+ *
+ *  @return new projection transform
+ */
++(PROJProjectionTransform *) transformFromEpsg: (int) fromEpsg andToEpsg: (int) toEpsg;
+
+/**
+ *  Create
+ *
+ *  @param fromAuthority from authority
+ *  @param fromCode      from code
+ *  @param toAuthority   to authority
+ *  @param toCode        to code
+ *
+ *  @return new projection transform
+ */
++(PROJProjectionTransform *) transformFromAuthority: (NSString *) fromAuthority andFromIntCode: (int) fromCode andToAuthority: (NSString *) toAuthority andToIntCode: (int) toCode;
+
+/**
+ *  Create
+ *
+ *  @param fromAuthority from authority
+ *  @param fromCode      from code
+ *  @param toAuthority   to authority
+ *  @param toCode        to code
+ *
+ *  @return new projection transform
+ */
++(PROJProjectionTransform *) transformFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode;
+
+/**
+ *  Create
+ *
+ *  @param fromProjection from projection
+ *  @param toEpsg         to epsg
+ *
+ *  @return new projection transform
+ */
++(PROJProjectionTransform *) transformFromProjection: (PROJProjection *) fromProjection andToEpsg: (int) toEpsg;
+
+/**
+ *  Create
+ *
+ *  @param fromProjection from projection
+ *  @param toAuthority   to authority
+ *  @param toCode        to code
+ *
+ *  @return new projection transform
+ */
++(PROJProjectionTransform *) transformFromProjection: (PROJProjection *) fromProjection andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode;
+
+/**
+ *  Create
+ *
+ *  @param fromEpsg     from epsg
+ *  @param toProjection to projection
+ *
+ *  @return new projection transform
+ */
++(PROJProjectionTransform *) transformFromEpsg: (int) fromEpsg andToProjection: (PROJProjection *) toProjection;
+
+/**
+ *  Create
+ *
+ *  @param fromAuthority from authority
+ *  @param fromCode      from code
+ *  @param toProjection to projection
+ *
+ *  @return new projection transform
+ */
++(PROJProjectionTransform *) transformFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (PROJProjection *) toProjection;
 
 /**
  *  Initialize

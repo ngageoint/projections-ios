@@ -10,6 +10,14 @@
 
 @implementation PROJLocationCoordinate3D
 
++(PROJLocationCoordinate3D *) coordinateWithCoordinate: (CLLocationCoordinate2D) coordinate{
+    return [[PROJLocationCoordinate3D alloc] initWithCoordinate:coordinate];
+}
+
++(PROJLocationCoordinate3D *) coordinateWithCoordinate: (CLLocationCoordinate2D) coordinate andZ: (NSDecimalNumber *) z{
+    return [[PROJLocationCoordinate3D alloc] initWithCoordinate:coordinate andZ:z];
+}
+
 -(instancetype) initWithCoordinate: (CLLocationCoordinate2D) coordinate{
     return [self initWithCoordinate:coordinate andZ:nil];
 }

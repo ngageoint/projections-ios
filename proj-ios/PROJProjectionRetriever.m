@@ -34,7 +34,7 @@ static NSMutableDictionary<NSString *, NSMutableDictionary *> *properties;
 +(NSMutableDictionary *) getOrCreateProjectionsForAuthority: (NSString *) authority{
     
     if(properties == nil){
-        properties = [[NSMutableDictionary alloc] init];
+        properties = [NSMutableDictionary dictionary];
     }
     
     NSString *authorityKey = [authority lowercaseString];
