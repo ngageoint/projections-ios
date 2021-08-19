@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		041F18E124CB2291001311E4 /* PROJReadmeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F18E024CB2291001311E4 /* PROJReadmeTest.m */; };
 		041F18E424CB3762001311E4 /* PROJSwiftReadmeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F18E324CB3762001311E4 /* PROJSwiftReadmeTest.swift */; };
+		04236CD826CEAF4D00F6190E /* PROJProjectionFactoryTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 04236CD626CEAF4D00F6190E /* PROJProjectionFactoryTypes.h */; };
+		04236CD926CEAF4D00F6190E /* PROJProjectionFactoryTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04236CD726CEAF4D00F6190E /* PROJProjectionFactoryTypes.m */; };
+		04236CDC26CEC37B00F6190E /* PROJProjectionFactoryCodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04236CDB26CEC37B00F6190E /* PROJProjectionFactoryCodeTest.m */; };
 		042FC6571B963FE500549A4B /* proj_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FC64B1B963FE500549A4B /* proj_ios.framework */; };
-		042FC6AF1B96421E00549A4B /* BuildFile in Headers */ = {isa = PBXBuildFile; };
+		042FC6AF1B96421E00549A4B /* (null) in Headers */ = {isa = PBXBuildFile; };
 		042FC6D31B96421E00549A4B /* proj-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* proj-ios-Prefix.pch */; };
 		042FC6D51B96453E00549A4B /* proj_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* proj_ios.h */; };
 		0472B51B1C03590500496B87 /* proj-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* proj-ios-Bridging-Header.h */; };
@@ -62,6 +65,10 @@
 		041F18E024CB2291001311E4 /* PROJReadmeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJReadmeTest.m; sourceTree = "<group>"; };
 		041F18E224CB3762001311E4 /* proj-iosTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "proj-iosTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		041F18E324CB3762001311E4 /* PROJSwiftReadmeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PROJSwiftReadmeTest.swift; sourceTree = "<group>"; };
+		04236CD626CEAF4D00F6190E /* PROJProjectionFactoryTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJProjectionFactoryTypes.h; sourceTree = "<group>"; };
+		04236CD726CEAF4D00F6190E /* PROJProjectionFactoryTypes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJProjectionFactoryTypes.m; sourceTree = "<group>"; };
+		04236CDA26CEC37B00F6190E /* PROJProjectionFactoryCodeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJProjectionFactoryCodeTest.h; sourceTree = "<group>"; };
+		04236CDB26CEC37B00F6190E /* PROJProjectionFactoryCodeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJProjectionFactoryCodeTest.m; sourceTree = "<group>"; };
 		042FC64B1B963FE500549A4B /* proj_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = proj_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		042FC64F1B963FE500549A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		042FC6561B963FE500549A4B /* proj_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = proj_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +170,8 @@
 				04F45605209A47C700FC299E /* PROJProjectionConstants.m */,
 				04F45601209A47C700FC299E /* PROJProjectionFactory.h */,
 				04F4560A209A47C700FC299E /* PROJProjectionFactory.m */,
+				04236CD626CEAF4D00F6190E /* PROJProjectionFactoryTypes.h */,
+				04236CD726CEAF4D00F6190E /* PROJProjectionFactoryTypes.m */,
 				04F45608209A47C700FC299E /* PROJProjectionRetriever.h */,
 				04F455FE209A47C700FC299E /* PROJProjectionRetriever.m */,
 				04C393C522DE26A10049F6C0 /* PROJProjections.h */,
@@ -202,6 +211,8 @@
 				041F18E024CB2291001311E4 /* PROJReadmeTest.m */,
 				041F18E324CB3762001311E4 /* PROJSwiftReadmeTest.swift */,
 				041F18E224CB3762001311E4 /* proj-iosTests-Bridging-Header.h */,
+				04236CDA26CEC37B00F6190E /* PROJProjectionFactoryCodeTest.h */,
+				04236CDB26CEC37B00F6190E /* PROJProjectionFactoryCodeTest.m */,
 				04F4562B209B6C0B00FC299E /* PROJProjectionFactoryTestCase.h */,
 				04F4562A209B6C0B00FC299E /* PROJProjectionFactoryTestCase.m */,
 				04F4562E209B6D1000FC299E /* PROJTestUtils.h */,
@@ -255,8 +266,9 @@
 				04F4561F209A47C800FC299E /* PROJAuthorityProjections.h in Headers */,
 				04F4561D209A47C800FC299E /* PROJProjectionConstants.h in Headers */,
 				04F45615209A47C800FC299E /* PROJProjectionFactory.h in Headers */,
-				042FC6AF1B96421E00549A4B /* BuildFile in Headers */,
+				042FC6AF1B96421E00549A4B /* (null) in Headers */,
 				04F4561C209A47C800FC299E /* PROJProjectionRetriever.h in Headers */,
+				04236CD826CEAF4D00F6190E /* PROJProjectionFactoryTypes.h in Headers */,
 				04F45617209A47C800FC299E /* PROJProjection.h in Headers */,
 				042FC6D51B96453E00549A4B /* proj_ios.h in Headers */,
 				042FC6D31B96421E00549A4B /* proj-ios-Prefix.pch in Headers */,
@@ -427,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F4561E209A47C800FC299E /* PROJProjectionFactory.m in Sources */,
+				04236CD926CEAF4D00F6190E /* PROJProjectionFactoryTypes.m in Sources */,
 				04F45610209A47C800FC299E /* PROJProjectionTransform.m in Sources */,
 				04F4560F209A47C800FC299E /* PROJAuthorityProjections.m in Sources */,
 				04F45629209B40F800FC299E /* PROJConstants.m in Sources */,
@@ -445,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04236CDC26CEC37B00F6190E /* PROJProjectionFactoryCodeTest.m in Sources */,
 				04F4562F209B6D1000FC299E /* PROJTestUtils.m in Sources */,
 				041F18E124CB2291001311E4 /* PROJReadmeTest.m in Sources */,
 				041F18E424CB3762001311E4 /* PROJSwiftReadmeTest.swift in Sources */,

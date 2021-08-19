@@ -14,27 +14,303 @@
 #import "PROJCRSParser.h"
 
 /**
+ * Default projection factory retrieval order
+ */
+static NSOrderedSet<NSNumber *> *defaultOrder;
+
+/**
  * Projections
  */
 static PROJProjections *projections;
 
+/**
+ * Projection factory retrieval order
+ */
+static NSMutableOrderedSet<NSNumber *> *order;
+
 @implementation PROJProjectionFactory
 
 +(void) initialize{
-    if(self == [PROJProjectionFactory self]){
+    if(defaultOrder == nil){
+        defaultOrder = [NSOrderedSet orderedSetWithObjects:
+                        [NSNumber numberWithInt:PROJ_FACTORY_CACHE],
+                        [NSNumber numberWithInt:PROJ_FACTORY_DEFINITION],
+                        [NSNumber numberWithInt:PROJ_FACTORY_PARAMETERS],
+                        [NSNumber numberWithInt:PROJ_FACTORY_PROPERTIES],
+                        nil];
+    }
+    if(projections == nil){
         projections = [[PROJProjections alloc] init];
     }
+    if(order == nil){
+        order = [NSMutableOrderedSet orderedSet];
+    }
+    [self resetOrder];
+}
+
++(void) resetOrder{
+    [self setOrder:defaultOrder];
+}
+
++(NSOrderedSet<NSNumber *> *) order{
+    return [NSOrderedSet orderedSetWithOrderedSet:order];
+}
+
++(NSOrderedSet<NSNumber *> *) cachelessOrder{
+    NSMutableOrderedSet<NSNumber *> *orderCopy = [NSMutableOrderedSet orderedSetWithOrderedSet:[self order]];
+    [orderCopy removeObject:[NSNumber numberWithInt:PROJ_FACTORY_CACHE]];
+    return orderCopy;
+}
+
++(void) removeOrderType: (enum PROJProjectionFactoryType) type{
+    [order removeObject:[NSNumber numberWithInt:type]];
+    if(order.count == 0){
+        [self resetOrder];
+    }
+}
+
++(void) setOrder: (NSOrderedSet<NSNumber *> *) types{
+    [order removeAllObjects];
+    if(types == nil || types.count == 0){
+        [self resetOrder];
+    }else{
+        for(NSNumber *type in types){
+            [order addObject:type];
+        }
+    }
+}
+
++(NSOrderedSet *) buildDefaultOrder{
+    return [self buildOrder:defaultOrder];
+}
+
++(NSOrderedSet *) buildOrder: (NSOrderedSet<NSNumber *> *) types{
+    NSMutableOrderedSet<NSNumber *> *tempOrder = [NSMutableOrderedSet orderedSet];
+    for(NSNumber *type in types){
+        [tempOrder addObject:type];
+    }
+    return tempOrder;
 }
 
 +(PROJProjection *) projectionWithEpsg: (NSNumber *) epsg{
     return [self projectionWithAuthority:PROJ_AUTHORITY_EPSG andNumberCode:epsg];
 }
 
++(PROJProjection *) cachelessProjectionWithEpsg: (NSNumber *) epsg{
+    return [self cachelessProjectionWithAuthority:PROJ_AUTHORITY_EPSG andNumberCode:epsg];
+}
+
 +(PROJProjection *) projectionWithEpsgInt: (int) epsg{
     return [self projectionWithEpsg:[NSNumber numberWithInt:epsg]];
 }
 
++(PROJProjection *) cachelessProjectionWithEpsgInt: (int) epsg{
+    return [self cachelessProjectionWithEpsg:[NSNumber numberWithInt:epsg]];
+}
+
 +(PROJProjection *) projectionWithName: (NSString *) name{
+    NSArray<NSString *> *authorityAndCode = [self parseAuthorityAndCode:name];
+    return [self projectionWithAuthority:[authorityAndCode objectAtIndex:0] andCode:[authorityAndCode objectAtIndex:1]];
+}
+
++(PROJProjection *) cachelessProjectionWithName: (NSString *) name{
+    NSArray<NSString *> *authorityAndCode = [self parseAuthorityAndCode:name];
+    return [self cachelessProjectionWithAuthority:[authorityAndCode objectAtIndex:0] andCode:[authorityAndCode objectAtIndex:1]];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code{
+    return [self projectionWithAuthority:authority andCode:[code stringValue]];
+}
+
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code{
+    return [self cachelessProjectionWithAuthority:authority andCode:[code stringValue]];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code{
+    return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code]];
+}
+
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andIntCode: (int) code{
+    return [self cachelessProjectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code]];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code{
+    return [self projectionWithAuthority:authority andCode:code andParams:nil andDefinition:nil];
+}
+
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andCode: (NSString *) code{
+    return [self cachelessProjectionWithAuthority:authority andCode:code andParams:nil andDefinition:nil];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params{
+    return [self projectionWithAuthority:authority andCode:[code stringValue] andParams:params];
+}
+
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params{
+    return [self cachelessProjectionWithAuthority:authority andCode:[code stringValue] andParams:params];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params{
+    return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params];
+}
+
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params{
+    return [self cachelessProjectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params{
+    return [self projectionWithAuthority:authority andCode:code andParams:params andDefinition:nil];
+}
+
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params{
+    return [self cachelessProjectionWithAuthority:authority andCode:code andParams:params andDefinition:nil];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
+    return [self projectionWithAuthority:authority andCode:[code stringValue] andParams:params andDefinition:definition];
+}
+
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
+    return [self cachelessProjectionWithAuthority:authority andCode:[code stringValue] andParams:params andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition{
+    return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params andDefinition:definition];
+}
+
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition{
+    return [self cachelessProjectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
+    return [self projectionWithTypes:order andAuthority:authority andCode:code andParams:params andDefinition:definition];
+}
+
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
+    return [self projectionWithTypes:[self cachelessOrder] andAuthority:authority andCode:code andParams:params andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
+    
+    PROJProjection *projection = nil;
+    
+    for(NSNumber *typeNumber in types){
+        
+        enum PROJProjectionFactoryType type = [typeNumber intValue];
+        projection = [self projectionWithType:type andAuthority:authority andCode:code andParams:params andDefinition:definition];
+        
+        if(projection != nil){
+            
+            switch(type){
+                    
+                case PROJ_FACTORY_CACHE:
+                {
+                    // Check if the definition does not match the cached
+                    // projection
+                    if(definition != nil && definition.length > 0 && ![definition isEqualToString:[projection definition]]){
+                        projection = nil;
+                    }
+                    break;
+                }
+                    
+                default:
+                    break;
+            }
+            
+        }
+        
+        if(projection != nil){
+            break;
+        }
+        
+    }
+
+    if(projection == nil){
+        [NSException raise:@"Projection Creatoin" format:@"Failed to create projection for authority: %@, code: %@, definition: %@, params: %@", authority, code, definition, params];
+    }
+
+    return projection;
+}
+    
+/**
+ * Get the projection for the authority, code, definition, and custom
+ * parameter array
+ *
+ * @param type
+ *            projection factory retrieval type
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param params
+ *            proj4 params array
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
+    
+    PROJProjection *projection = nil;
+
+    authority = [authority uppercaseString];
+
+    switch (type) {
+
+        case PROJ_FACTORY_CACHE:
+            //projection = [self fromCacheWithAuthority:authority andCode:code]; TODO
+            break;
+
+        case PROJ_FACTORY_DEFINITION:
+            projection = [self fromDefinition:definition withAuthority:authority andCode:code];
+            break;
+
+        case PROJ_FACTORY_PARAMETERS:
+            projection = [self fromParams:params withAuthority:authority andCode:code]; // TODO andDefinition:definition
+            break;
+
+        case PROJ_FACTORY_PROPERTIES:
+            projection = [self fromPropertiesWithAuthority:authority andCode:code]; // TODO andDefinition:definition
+            break;
+
+        default:
+            [NSException raise:@"Unsupported Type" format:@"Unsupported projection factory type: %u", type];
+            break;
+            
+    }
+
+    return projection;
+}
+
++(PROJProjection *) projectionByDefinition: (NSString *) definition{
+    return [self projectionByDefinition:definition withCacheless:NO];
+}
+
++(PROJProjection *) cachelessProjectionByDefinition: (NSString *) definition{
+    return [self projectionByDefinition:definition withCacheless:YES];
+}
+
+/**
+ * Get the projection for the definition
+ *
+ * @param cacheless
+ *            cacheless retrieval
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionByDefinition: (NSString *) definition withCacheless: (BOOL) cacheless{
+    return nil; // TODO
+}
+
++(PROJProjections *) projections{
+    return projections;
+}
+
++(PROJAuthorityProjections *) projectionsWithAuthority: (NSString *) authority{
+    return [projections projectionsForAuthority:authority];
+}
+
++(NSArray<NSString *> *) parseAuthorityAndCode: (NSString *) name{
     
     NSString *authority = nil;
     NSString *code = nil;
@@ -54,83 +330,7 @@ static PROJProjections *projections;
             [NSException raise:@"Invalid Projection" format:@"Invalid projection name '%@', expected 'authority:code' or 'epsg_code'", name];
     }
     
-    return [self projectionWithAuthority:authority andCode:code];
-}
-
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code{
-    return [self projectionWithAuthority:authority andCode:[code stringValue]];
-}
-
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code{
-    return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code]];
-}
-
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code{
-    return [self projectionWithAuthority:authority andCode:code andParams:nil andDefinition:nil];
-}
-
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params{
-    return [self projectionWithAuthority:authority andCode:[code stringValue] andParams:params];
-}
-
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params{
-    return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params];
-}
-
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params{
-    return [self projectionWithAuthority:authority andCode:code andParams:params andDefinition:nil];
-}
-
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
-    return [self projectionWithAuthority:authority andCode:[code stringValue] andParams:params andDefinition:definition];
-}
-
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition{
-    return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params andDefinition:definition];
-}
-
-+(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
-    
-    authority = [authority uppercaseString];
-    
-    // Check if the projection already exists
-    PROJProjection *projection = [projections projectionForAuthority:authority andCode:code];
-    
-    if(projection == nil){
-        
-        // Try to get or create the projection from a definition
-        projection = [self fromDefinition:definition withAuthority:authority andCode:code];
-        
-        if(projection == nil){
-            
-            // Try to create the projection from the provided params
-            projection = [self fromParams:params withAuthority:authority andCode:code];
-            
-            if(projection == nil){
-                
-                // Try to create the projection from properties
-                projection = [self fromPropertiesWithAuthority:authority andCode:code];
-                
-                if(projection == nil){
-                    [NSException raise:@"" format:@"Failed to create projection for authority: %@, code: %@, definition: %@, params: %@", authority, code, definition, params];
-                }
-            }
-        }
-    }
-    
-    return projection;
-}
-
-+(PROJProjection *) projectionByDefinition: (NSString *) definition{
-    return nil; // TODO
-}
-
-+(PROJProjections *) projections{
-    return projections;
-}
-
-+(PROJAuthorityProjections *) projectionsWithAuthority: (NSString *) authority{
-    return [projections projectionsForAuthority:authority];
+    return [NSArray arrayWithObjects:authority, code, nil];
 }
 
 +(void) clear{

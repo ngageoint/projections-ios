@@ -15,6 +15,7 @@
 #import "PROJProjection.h"
 #import "PROJProjectionConstants.h"
 #import "PROJProjectionFactory.h"
+#import "PROJProjectionFactoryTypes.h"
 #import "PROJProjectionRetriever.h"
 #import "PROJProjections.h"
 #import "PROJProjectionTransform.h"
