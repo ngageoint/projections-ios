@@ -166,6 +166,30 @@ static NSMutableOrderedSet<NSNumber *> *order;
     return [self cachelessProjectionWithAuthority:authority andCode:code andParams:params andDefinition:nil];
 }
 
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andDefinition: (NSString *) definition{
+    return [self projectionWithAuthority:authority andCode:[code stringValue] andDefinition:definition];
+}
+
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andDefinition: (NSString *) definition{
+    return [self cachelessProjectionWithAuthority:authority andCode:[code stringValue] andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code andDefinition: (NSString *) definition{
+    return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andDefinition:definition];
+}
+
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andIntCode: (int) code andDefinition: (NSString *) definition{
+    return [self cachelessProjectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition{
+    return [self projectionWithAuthority:authority andCode:code andParams:nil andDefinition:definition];
+}
+
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition{
+    return [self cachelessProjectionWithAuthority:authority andCode:code andParams:nil andDefinition:definition];
+}
+
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
     return [self projectionWithAuthority:authority andCode:[code stringValue] andParams:params andDefinition:definition];
 }

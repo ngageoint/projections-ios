@@ -269,6 +269,84 @@
 +(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params;
 
 /**
+ * Get the projection for the authority, code, and definition
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andDefinition: (NSString *) definition;
+
+/**
+ * Get the cacheless projection for the authority, code, and definition
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the authority, code, and definition
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code andDefinition: (NSString *) definition;
+
+/**
+ * Get the cacheless projection for the authority, code, and definition
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andIntCode: (int) code andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the authority, code, and definition
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition;
+
+/**
+ * Get the cacheless projection for the authority, code, and definition
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition;
+
+/**
  * Get the projection for the authority, code, definition, and custom
  * parameter array
  *
