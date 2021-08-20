@@ -204,14 +204,12 @@ static NSMutableOrderedSet<NSNumber *> *order;
             switch(type){
                     
                 case PROJ_FACTORY_CACHE:
-                {
                     // Check if the definition does not match the cached
                     // projection
                     if(definition != nil && definition.length > 0 && ![definition isEqualToString:[projection definition]]){
                         projection = nil;
                     }
                     break;
-                }
                     
                 default:
                     break;
@@ -226,7 +224,7 @@ static NSMutableOrderedSet<NSNumber *> *order;
     }
 
     if(projection == nil){
-        [NSException raise:@"Projection Creatoin" format:@"Failed to create projection for authority: %@, code: %@, definition: %@, params: %@", authority, code, definition, params];
+        [NSException raise:@"Projection Creation" format:@"Failed to create projection for authority: %@, code: %@, definition: %@, params: %@", authority, code, definition, params];
     }
 
     return projection;
@@ -257,7 +255,7 @@ static NSMutableOrderedSet<NSNumber *> *order;
     switch (type) {
 
         case PROJ_FACTORY_CACHE:
-            //projection = [self fromCacheWithAuthority:authority andCode:code]; TODO
+            projection = [self fromCacheWithAuthority:authority andCode:code];
             break;
 
         case PROJ_FACTORY_DEFINITION:
@@ -265,11 +263,11 @@ static NSMutableOrderedSet<NSNumber *> *order;
             break;
 
         case PROJ_FACTORY_PARAMETERS:
-            projection = [self fromParams:params withAuthority:authority andCode:code]; // TODO andDefinition:definition
+            projection = [self fromParams:params withAuthority:authority andCode:code andDefinition:definition];
             break;
 
         case PROJ_FACTORY_PROPERTIES:
-            projection = [self fromPropertiesWithAuthority:authority andCode:code]; // TODO andDefinition:definition
+            projection = [self fromPropertiesWithAuthority:authority andCode:code andDefinition:definition];
             break;
 
         default:
@@ -299,7 +297,75 @@ static NSMutableOrderedSet<NSNumber *> *order;
  * @return projection
  */
 +(PROJProjection *) projectionByDefinition: (NSString *) definition withCacheless: (BOOL) cacheless{
-    return nil; // TODO
+
+    PROJProjection *projection = nil;
+
+    if(definition != nil && definition.length > 0){
+
+        CRSObject *definitionCRS = [CRSReader read:definition];
+
+        if(definitionCRS != nil){
+
+            NSString *authority = nil;
+            NSString *code = nil;
+
+            if([definitionCRS hasIdentifiers]){
+                CRSIdentifier *identifier = [definitionCRS identifierAtIndex:0];
+                authority = identifier.name;
+                code = identifier.uniqueIdentifier;
+            }
+
+            BOOL cacheProjection = YES;
+
+            if(authority != nil && code != nil){
+
+                if(!cacheless){
+
+                    // Check if the projection already exists
+                    projection = [self fromCacheWithAuthority:authority andCode:code];
+
+                    // Check if the definition does not match the cached
+                    // projection
+                    if(projection != nil && ![definition isEqualToString:[projection definition]]){
+                        projection = nil;
+                    }
+
+                }
+
+            }else{
+
+                cacheProjection = NO;
+
+                if(authority == nil){
+                    authority = @"";
+                }
+                if(code == nil){
+                    code = @"";
+                }
+
+            }
+
+            if(projection == nil){
+
+                projPJ crs = [PROJCRSParser convertCRS:definitionCRS];
+                if(crs != nil){
+                    projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
+                    if(cacheProjection){
+                        [projections addProjection:projection];
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+    if(projection == nil){
+        [NSException raise:@"Projection Creation" format:@"Failed to create projection for definition: %@", definition];
+    }
+
+    return projection;
 }
 
 +(PROJProjections *) projections{
@@ -354,6 +420,19 @@ static NSMutableOrderedSet<NSNumber *> *order;
 }
 
 /**
+ * Retrieve a projection from the cache
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            coordinate code
+ * @return projection
+ */
++(PROJProjection *) fromCacheWithAuthority: (NSString *) authority andCode: (NSString *) code{
+    return [projections projectionForAuthority:authority andCode:code];
+}
+
+/**
  * Create a projection from the WKT definition
  *
  * @param definition
@@ -370,7 +449,7 @@ static NSMutableOrderedSet<NSNumber *> *order;
     
     if(definition != nil && definition.length > 0){
         
-        @try {
+        @try{
             projPJ crs = nil;
             CRSObject *definitionCRS = [CRSReader read:definition];
             if(definitionCRS != nil){
@@ -380,8 +459,8 @@ static NSMutableOrderedSet<NSNumber *> *order;
                 projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
                 [projections addProjection:projection];
             }
-        } @catch (NSException *exception) {
-            NSLog(@"Failed to create projection for authority: %@, code: %@, definition: %@", authority, code, definition);
+        }@catch (NSException *exception) {
+            NSLog(@"Failed to create projection for authority: %@, code: %@, definition: %@, error: %@", authority, code, definition, exception);
         }
         
     }
@@ -398,16 +477,18 @@ static NSMutableOrderedSet<NSNumber *> *order;
  *            authority
  * @param code
  *            coordinate code
+ * @param definition
+ *            WKT coordinate definition
  * @return projection
  */
-+(PROJProjection *) fromParams: (NSString *) params withAuthority: (NSString *) authority andCode: (NSString *) code{
++(PROJProjection *) fromParams: (NSString *) params withAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition{
     
     PROJProjection *projection = nil;
     
     if (params != nil && params.length > 0) {
         projPJ crs = pj_init_plus([params UTF8String]);
         if(crs != nil){
-            projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs];
+            projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition];
             [projections addProjection:projection];
         }else{
             NSLog(@"Failed to create projection for authority: %@, code: %@, parameters: %@", authority, code, params);
@@ -424,9 +505,11 @@ static NSMutableOrderedSet<NSNumber *> *order;
  *            authority
  * @param code
  *            coordinate code
+ * @param definition
+ *            WKT coordinate definition
  * @return projection
  */
-+(PROJProjection *) fromPropertiesWithAuthority: (NSString *) authority andCode: (NSString *) code{
++(PROJProjection *) fromPropertiesWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition{
     
     PROJProjection *projection = nil;
     
@@ -435,7 +518,7 @@ static NSMutableOrderedSet<NSNumber *> *order;
     if(parameters != nil && parameters.length > 0){
         projPJ crs = pj_init_plus([parameters UTF8String]);
         if(crs != nil){
-            projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs];
+            projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition];
             [projections addProjection:projection];
         }else{
             NSLog(@"Failed to create projection for authority: %@, code: %@, parameters: %@", authority, code, parameters);
