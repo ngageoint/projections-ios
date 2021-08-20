@@ -141,13 +141,13 @@
     return [PROJLocationCoordinate3D coordinateWithCoordinate:to andZ:toZ];
 }
 
--(NSArray *) transformWithX: (double) x andY: (double) y{
+-(NSArray<NSDecimalNumber *> *) transformWithX: (double) x andY: (double) y{
     CLLocationCoordinate2D fromCoord = CLLocationCoordinate2DMake(y, x);
     CLLocationCoordinate2D toCoord = [self transform:fromCoord];
     return [NSArray arrayWithObjects:[NSDecimalNumber numberWithDouble:toCoord.longitude], [NSDecimalNumber numberWithDouble:toCoord.latitude], nil];
 }
 
--(NSArray *) transformWithMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY{
+-(NSArray<NSDecimalNumber *> *) transformWithMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY{
     
     CLLocationCoordinate2D lowerLeft = CLLocationCoordinate2DMake(minY, minX);
     CLLocationCoordinate2D lowerRight = CLLocationCoordinate2DMake(minY, maxX);

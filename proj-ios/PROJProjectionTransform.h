@@ -225,7 +225,7 @@
  *
  *  @return transformed coordinates as [x, y]
  */
--(NSArray *) transformWithX: (double) x andY: (double) y;
+-(NSArray<NSDecimalNumber *> *) transformWithX: (double) x andY: (double) y;
 
 /**
  * Transform the coordinate bounds
@@ -237,7 +237,7 @@
  *
  * @return transformed coordinate bounds as [minX, minY, maxX, maxY]
  */
--(NSArray *) transformWithMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY;
+-(NSArray<NSDecimalNumber *> *) transformWithMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY;
 
 /**
  * Is the from and to projection the same?
