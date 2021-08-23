@@ -225,7 +225,7 @@
 }
 
 -(double) toMeters: (double) value{
-    return value / ((PJ *) _crs)->vfr_meter;
+    return value / _crs->vfr_meter;
 }
 
 -(enum PROJUnit) unit{
