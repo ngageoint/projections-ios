@@ -68,19 +68,19 @@
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
 
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(5.0, -53.0);
-    CLLocationCoordinate2D expectedCoordinate = CLLocationCoordinate2DMake(1.8282612229838397E7, 1.1608322257560592E7);
+    CLLocationCoordinate2D expectedCoordinate = CLLocationCoordinate2DMake(1.8282612229838397E7, -1.1608322257560592E7);
 
     PROJProjection *projection = [PROJProjectionFactory projectionByDefinition:definition];
     PROJProjectionTransform *transform = [PROJProjectionTransform transformFromEpsg:4326 andToProjection:projection];
     CLLocationCoordinate2D projectedCoordinate = [transform transform:coordinate];
     [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.longitude andValue2:projectedCoordinate.longitude];
-    [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.latitude andValue2:projectedCoordinate.latitude];
+    [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.latitude andValue2:projectedCoordinate.latitude andDelta:.00000001];
     
     PROJProjection *projection2 = [PROJProjectionFactory cachelessProjectionWithName:code];
     PROJProjectionTransform *transform2 = [PROJProjectionTransform transformFromEpsg:4326 andToProjection:projection2];
     CLLocationCoordinate2D projectedCoordinate2 = [transform2 transform:coordinate];
     [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.longitude andValue2:projectedCoordinate2.longitude];
-    [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.latitude andValue2:projectedCoordinate2.latitude];
+    [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.latitude andValue2:projectedCoordinate2.latitude andDelta:.00000001];
     
 }
 
@@ -470,100 +470,53 @@
     }
 
     [PROJTestUtils assertEqualWithValue:projection andValue2:projection2];
-
-    /* TODO
     
-    CoordinateReferenceSystem crs = projection.getCrs();
-    CoordinateReferenceSystem crs2 = projection2.getCrs();
-    Datum datum = crs.getDatum();
-    Datum datum2 = crs2.getDatum();
-    Ellipsoid ellipsoid = datum.getEllipsoid();
-    Ellipsoid ellipsoid2 = datum2.getEllipsoid();
-    double[] transform = datum.getTransformToWGS84();
-    double[] transform2 = datum2.getTransformToWGS84();
-    org.locationtech.proj4j.proj.Projection proj = crs.getProjection();
-    org.locationtech.proj4j.proj.Projection proj2 = crs2.getProjection();
-
-    assertEquals(ellipsoid.getEccentricitySquared(),
-            ellipsoid2.getEccentricitySquared(), 0);
-    assertEquals(ellipsoid.getEquatorRadius(),
-            ellipsoid2.getEquatorRadius(), 0);
-    assertEquals(ellipsoid.getA(), ellipsoid2.getA(), 0);
-    assertEquals(ellipsoid.getB(), ellipsoid2.getB(), 0);
-
-    assertEquals(proj.getEllipsoid().getEccentricitySquared(),
-            proj2.getEllipsoid().getEccentricitySquared(), 0);
-    assertEquals(proj.getEllipsoid().getEquatorRadius(),
-            proj2.getEllipsoid().getEquatorRadius(), 0);
-    assertEquals(proj.getEllipsoid().getA(), proj2.getEllipsoid().getA(),
-            0);
-    assertEquals(proj.getEllipsoid().getB(), proj2.getEllipsoid().getB(),
-            0);
-
-    if (transform != null || transform2 != null) {
-        if (transform != null && transform2 != null) {
-            assertEquals(transform.length, transform2.length);
-            for (int i = 0; i < transform.length; i++) {
-                assertEquals(transform[i], transform2[i], 0);
-            }
-        } else {
-            double[] transformTest = transform != null ? transform
-                    : transform2;
-            for (int i = 0; i < transformTest.length; i++) {
-                assertEquals(0, transformTest[i], 0);
-            }
-        }
+    projPJ crs = [projection crs];
+    projPJ crs2 = [projection2 crs];
+    [PROJTestUtils assertEqualWithValue:[NSString stringWithUTF8String:crs->descr] andValue2:[NSString stringWithUTF8String:crs2->descr]];
+    paralist *curr;
+    paralist *curr2;
+    for(curr = crs->params, curr2 = crs2->params; curr || curr2; curr = curr->next, curr2 = curr2->next){
+        [PROJTestUtils assertEqualIntWithValue:curr->used andValue2:curr2->used];
+        [PROJTestUtils assertEqualWithValue:[NSString stringWithUTF8String:curr->param] andValue2:[NSString stringWithUTF8String:curr2->param]];
     }
-
-    assertEquals(proj.getAlpha(), proj2.getAlpha(), delta);
-    assertEquals(proj.getAxisOrder(), proj2.getAxisOrder());
-    assertEquals(proj.getEPSGCode(), proj2.getEPSGCode(), 0);
-    assertEquals(proj.getEquatorRadius(), proj2.getEquatorRadius(), 0);
-    assertEquals(proj.getFalseEasting(), proj2.getFalseEasting(), 0);
-    assertEquals(proj.getFalseNorthing(), proj2.getFalseNorthing(), 0);
-    assertEquals(proj.getFromMetres(), proj2.getFromMetres(), 0);
-    assertEquals(proj.getLonC(), proj2.getLonC(), delta);
-    assertEquals(proj.getMaxLatitude(), proj2.getMaxLatitude(), 0);
-    assertEquals(proj.getMaxLatitudeDegrees(),
-            proj2.getMaxLatitudeDegrees(), 0);
-    assertEquals(proj.getMaxLongitude(), proj2.getMaxLongitude(), 0);
-    assertEquals(proj.getMaxLongitudeDegrees(),
-            proj2.getMaxLongitudeDegrees(), 0);
-    assertEquals(proj.getMinLatitude(), proj2.getMinLatitude(), 0);
-    assertEquals(proj.getMinLatitudeDegrees(),
-            proj2.getMinLatitudeDegrees(), 0);
-    assertEquals(proj.getMinLongitude(), proj2.getMinLongitude(), 0);
-    assertEquals(proj.getMinLongitudeDegrees(),
-            proj2.getMinLongitudeDegrees(), 0);
-    assertEquals(proj.getPrimeMeridian(), proj2.getPrimeMeridian());
-    if (delta == 0.0) {
-        assertEquals(proj.getPROJ4Description().toLowerCase(),
-                proj2.getPROJ4Description().toLowerCase());
-    }
-    assertEquals(proj.getProjectionLatitude(),
-            proj2.getProjectionLatitude(), delta);
-    assertEquals(proj.getProjectionLatitude1(),
-            proj2.getProjectionLatitude1(), delta);
-    assertEquals(proj.getProjectionLatitude1Degrees(),
-            proj2.getProjectionLatitude1Degrees(), delta);
-    assertEquals(proj.getProjectionLatitude2(),
-            proj2.getProjectionLatitude2(), delta);
-    assertEquals(proj.getProjectionLatitude2Degrees(),
-            proj2.getProjectionLatitude2Degrees(), delta);
-    assertEquals(proj.getProjectionLatitudeDegrees(),
-            proj2.getProjectionLatitudeDegrees(), delta);
-    assertEquals(proj.getProjectionLongitude(),
-            proj2.getProjectionLongitude(), delta);
-    assertEquals(proj.getProjectionLongitudeDegrees(),
-            proj2.getProjectionLongitudeDegrees(), delta);
-    assertEquals(proj.getScaleFactor(), proj2.getScaleFactor(), 0);
-    assertEquals(proj.getTrueScaleLatitude(), proj2.getTrueScaleLatitude(),
-            delta);
-    assertEquals(proj.getTrueScaleLatitudeDegrees(),
-            proj2.getTrueScaleLatitudeDegrees(), delta);
-    assertEquals(proj.getUnits(), proj2.getUnits());
-
-     */
+    [PROJTestUtils assertEqualIntWithValue:crs->over andValue2:crs2->over];
+    [PROJTestUtils assertEqualIntWithValue:crs->geoc andValue2:crs2->geoc];
+    [PROJTestUtils assertEqualIntWithValue:crs->is_latlong andValue2:crs2->is_latlong];
+    [PROJTestUtils assertEqualIntWithValue:crs->is_geocent andValue2:crs2->is_geocent];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->a andValue2:crs2->a];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->a_orig andValue2:crs2->a_orig];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->es andValue2:crs2->es];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->es_orig andValue2:crs2->es_orig];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->e andValue2:crs2->e];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->ra andValue2:crs2->ra];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->one_es andValue2:crs2->one_es];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->rone_es andValue2:crs2->rone_es];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->lam0 andValue2:crs2->lam0];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->phi0 andValue2:crs2->phi0];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->x0 andValue2:crs2->x0];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->y0 andValue2:crs2->y0];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->k0 andValue2:crs2->k0];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->to_meter andValue2:crs2->to_meter];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->fr_meter andValue2:crs2->fr_meter];
+    [PROJTestUtils assertEqualIntWithValue:crs->datum_type andValue2:crs2->datum_type];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[0] andValue2:crs2->datum_params[0]];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[1] andValue2:crs2->datum_params[1]];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[2] andValue2:crs2->datum_params[2]];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[3] andValue2:crs2->datum_params[3]];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[4] andValue2:crs2->datum_params[4]];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[5] andValue2:crs2->datum_params[5]];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[6] andValue2:crs2->datum_params[6]];
+    [PROJTestUtils assertEqualIntWithValue:crs->gridlist_count andValue2:crs2->gridlist_count];
+    [PROJTestUtils assertEqualIntWithValue:crs->has_geoid_vgrids andValue2:crs2->has_geoid_vgrids];
+    [PROJTestUtils assertEqualIntWithValue:crs->vgridlist_geoid_count andValue2:crs2->vgridlist_geoid_count];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->vto_meter andValue2:crs2->vto_meter];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->vfr_meter andValue2:crs2->vfr_meter];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->from_greenwich andValue2:crs2->from_greenwich];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->long_wrap_center andValue2:crs2->long_wrap_center];
+    [PROJTestUtils assertEqualIntWithValue:crs->is_long_wrap_set andValue2:crs2->is_long_wrap_set];
+    [PROJTestUtils assertEqualWithValue:[NSString stringWithUTF8String:crs->axis] andValue2:[NSString stringWithUTF8String:crs2->axis]];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_date andValue2:crs2->datum_date];
      
 }
 
