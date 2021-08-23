@@ -62,7 +62,10 @@
 }
 
 -(void) clear{
-    [_codeProjections removeAllObjects];
+    NSArray<NSString *> *codes = [NSArray arrayWithArray:[self codes]];
+    for(NSString *code in codes){
+        [self removeCode:code];
+    }
 }
 
 -(void) removeNumberCode: (NSNumber *) code{
@@ -70,7 +73,12 @@
 }
 
 -(void) removeCode: (NSString *) code{
-    [_codeProjections removeObjectForKey:[code uppercaseString]];
+    NSString *key = [code uppercaseString];
+    PROJProjection *projection = [_codeProjections objectForKey:key];
+    if(projection != nil){
+        [_codeProjections removeObjectForKey:key];
+        [projection free];
+    }
 }
 
 -(void) removeProjection: (PROJProjection *) projection{

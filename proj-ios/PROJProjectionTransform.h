@@ -200,6 +200,11 @@
 -(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (PROJProjection *) toProjection;
 
 /**
+ * Free the projection memory
+ */
+-(void) free;
+
+/**
  *  Transform a location coordinate
  *
  *  @param from location coordinate

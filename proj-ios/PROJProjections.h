@@ -118,6 +118,13 @@
 -(int) authorityCount;
 
 /**
+ * Get the authorities
+ *
+ * @return authorities
+ */
+-(NSArray<NSString *> *) authorities;
+
+/**
  * Get the count of projections
  *
  * @return count

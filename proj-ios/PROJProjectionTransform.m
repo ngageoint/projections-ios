@@ -102,6 +102,11 @@
     return [self initWithFromProjection:fromProjection andToProjection:toProjection];
 }
 
+-(void) free{
+    [_fromProjection free];
+    [_toProjection free];
+}
+
 -(CLLocationCoordinate2D) transform: (CLLocationCoordinate2D) from{
     PROJLocationCoordinate3D * result = [self transform3d:[PROJLocationCoordinate3D coordinateWithCoordinate:from]];
     return result.coordinate;

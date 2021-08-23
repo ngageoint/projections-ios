@@ -290,6 +290,11 @@
                  andDefinitionCrs: (CRSObject *) definitionCRS;
 
 /**
+ * Free the projection memory
+ */
+-(void) free;
+
+/**
  * Get the coordinate authority
  *
  * @return authority

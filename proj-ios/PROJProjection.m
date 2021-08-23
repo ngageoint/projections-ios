@@ -172,14 +172,21 @@
         if(authority == nil || code == nil || crs == nil){
             [NSException raise:@"Illegal Arguments" format:@"All projection arguments are required. authority: %@, code: %@, crs: %@", authority, code, crs];
         }
-        self.authority = authority;
-        self.code = code;
-        self.crs = crs;
-        self.isLatLong = pj_is_latlong(crs);
-        self.definition = definition;
-        self.definitionCRS = definitionCRS;
+        _authority = authority;
+        _code = code;
+        _crs = crs;
+        _isLatLong = pj_is_latlong(crs);
+        _definition = definition;
+        _definitionCRS = definitionCRS;
     }
     return self;
+}
+
+-(void) free{
+    if(_crs != NULL){
+        pj_free(_crs);
+        _crs = NULL;
+    }
 }
 
 -(NSString *) authority{
@@ -232,7 +239,7 @@
     
     enum PROJUnit unit = PROJ_UNIT_NONE;
     
-    if(self.isLatLong){
+    if(_isLatLong){
         unit = PROJ_UNIT_DEGREES;
     }else{
         unit = PROJ_UNIT_METERS;

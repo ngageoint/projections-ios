@@ -13,7 +13,7 @@
 /**
  * Mapping of authorities to authority projections
  */
-@property (nonatomic, strong) NSMutableDictionary<NSString *, PROJAuthorityProjections *> *authorities;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, PROJAuthorityProjections *> *authorityProjections;
 
 @end
 
@@ -22,13 +22,13 @@
 -(instancetype) init{
     self = [super init];
     if(self != nil){
-        self.authorities = [NSMutableDictionary dictionary];
+        _authorityProjections = [NSMutableDictionary dictionary];
     }
     return self;
 }
 
 -(PROJAuthorityProjections *) projectionsForAuthority: (NSString *) authority{
-    return [self.authorities objectForKey:[authority uppercaseString]];
+    return [_authorityProjections objectForKey:[authority uppercaseString]];
 }
 
 -(PROJProjection *) projectionForAuthority: (NSString *) authority andCode: (NSString *) code{
@@ -53,17 +53,24 @@
     PROJAuthorityProjections *authorityProjections = [self projectionsForAuthority:authority];
     if(authorityProjections == nil){
         authorityProjections = [[PROJAuthorityProjections alloc] initWithAuthority:[authority uppercaseString]];
-        [self.authorities setObject:authorityProjections forKey:[authorityProjections authority]];
+        [_authorityProjections setObject:authorityProjections forKey:[authorityProjections authority]];
     }
     [authorityProjections addProjection:projection];
 }
 
 -(void) clear{
-    [self.authorities removeAllObjects];
+    NSArray<NSString *> *authorities = [NSArray arrayWithArray:[self authorities]];
+    for(NSString *authority in authorities){
+        [self clearAuthority:authority];
+    }
 }
 
 -(void) clearAuthority: (NSString *) authority{
-    [self.authorities removeObjectForKey:[authority uppercaseString]];
+    PROJAuthorityProjections *authorityProjections = [self projectionsForAuthority:authority];
+    if(authorityProjections != nil){
+        [authorityProjections clear];
+        [_authorityProjections removeObjectForKey:[authority uppercaseString]];
+    }
 }
 
 -(void) removeAuthority: (NSString *) authority andNumberCode: (NSNumber *) code{
@@ -85,19 +92,23 @@
 }
 
 -(int) authorityCount{
-    return (int) self.authorities.count;
+    return (int) _authorityProjections.count;
+}
+
+-(NSArray<NSString *> *) authorities{
+    return [_authorityProjections allKeys];
 }
 
 -(int) projectionCount{
     int count = 0;
-    for(PROJAuthorityProjections *authorityProjections in [self.authorities allValues]){
+    for(PROJAuthorityProjections *authorityProjections in [_authorityProjections allValues]){
         count += [authorityProjections count];
     }
     return count;
 }
 
 -(BOOL) isEmpty{
-    return self.authorities.count == 0;
+    return _authorityProjections.count == 0;
 }
 
 @end
