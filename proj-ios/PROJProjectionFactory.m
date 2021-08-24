@@ -454,6 +454,15 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     [projections removeAuthority:authority andCode:code];
 }
 
++(void) clearProjection: (PROJProjection *) projection{
+    [projections removeProjection:projection];
+}
+
++(void) clearTransform: (PROJProjectionTransform *) transform{
+    [self clearProjection:transform.fromProjection];
+    [self clearProjection:transform.toProjection];
+}
+
 /**
  * Retrieve a projection from the cache
  *

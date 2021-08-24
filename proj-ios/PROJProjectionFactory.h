@@ -565,4 +565,20 @@
  */
 +(void) clearAuthority: (NSString *) authority andCode: (NSString *) code;
 
+/**
+ * Clear the projection, authority and code
+ *
+ * @param projection
+ *            projection
+ */
++(void) clearProjection: (PROJProjection *) projection;
+
+/**
+ * Clear the transform projections
+ *
+ * @param transform
+ *            projection transform
+ */
++(void) clearTransform: (PROJProjectionTransform *) transform;
+
 @end

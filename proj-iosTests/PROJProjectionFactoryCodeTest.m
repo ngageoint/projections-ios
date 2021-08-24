@@ -82,6 +82,9 @@
     [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.longitude andValue2:projectedCoordinate2.longitude];
     [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.latitude andValue2:projectedCoordinate2.latitude andDelta:.00000001];
     
+    [PROJProjectionFactory clearTransform:transform];
+    [PROJProjectionFactory clearTransform:transform2];
+        
 }
 
 /**
@@ -359,7 +362,7 @@
         maxY = [[projectedBounds objectAtIndex:3] doubleValue];
     }
 
-    PROJProjection *transformProjection = [PROJProjectionFactory cachelessProjectionWithEpsgInt:transformCode];
+    PROJProjection *transformProjection = [PROJProjectionFactory projectionWithEpsgInt:transformCode];
 
     PROJProjectionTransform *transformTo = [transformProjection transformationWithProjection:projection];
     PROJProjectionTransform *transformTo2 = [transformProjection transformationWithProjection:projection2];
@@ -389,6 +392,9 @@
         [self coordinateTestWithX:x andY:y andDelta:delta andTransformTo:transformTo andTransformTo2:transformTo2 andTransformFrom:transformFrom andTransformFrom2:transformFrom2];
     }
 
+    [PROJProjectionFactory clearTransform:transformTo];
+    [PROJProjectionFactory clearTransform:transformTo2];
+    
 }
 
 /**
