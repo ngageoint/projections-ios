@@ -12,6 +12,7 @@
 #import "CRSGeoCoordinateReferenceSystem.h"
 #import "CRSProjectedCoordinateReferenceSystem.h"
 #import "CRSCompoundCoordinateReferenceSystem.h"
+#import "PROJParams.h"
 
 /**
  * Coordinate Reference System Well-known text parser
