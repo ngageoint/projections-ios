@@ -28,6 +28,11 @@ static PROJProjections *projections;
  */
 static NSMutableOrderedSet<NSNumber *> *order;
 
+/**
+ * Projection factory cacheless retrieval order
+ */
+static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
+
 @implementation PROJProjectionFactory
 
 +(void) initialize{
@@ -45,6 +50,9 @@ static NSMutableOrderedSet<NSNumber *> *order;
     if(order == nil){
         order = [NSMutableOrderedSet orderedSet];
     }
+    if(cachelessOrder == nil){
+        cachelessOrder = [NSMutableOrderedSet orderedSet];
+    }
     [self resetOrder];
 }
 
@@ -57,9 +65,7 @@ static NSMutableOrderedSet<NSNumber *> *order;
 }
 
 +(NSOrderedSet<NSNumber *> *) cachelessOrder{
-    NSMutableOrderedSet<NSNumber *> *orderCopy = [NSMutableOrderedSet orderedSetWithOrderedSet:[self order]];
-    [orderCopy removeObject:[NSNumber numberWithInt:PROJ_FACTORY_CACHE]];
-    return orderCopy;
+    return [NSOrderedSet orderedSetWithOrderedSet:cachelessOrder];
 }
 
 +(void) removeOrderType: (enum PROJProjectionFactoryType) type{
@@ -71,20 +77,24 @@ static NSMutableOrderedSet<NSNumber *> *order;
 
 +(void) setOrder: (NSOrderedSet<NSNumber *> *) types{
     [order removeAllObjects];
+    [cachelessOrder removeAllObjects];
     if(types == nil || types.count == 0){
         [self resetOrder];
     }else{
         for(NSNumber *type in types){
             [order addObject:type];
+            if([type intValue] != PROJ_FACTORY_CACHE){
+                [cachelessOrder addObject:type];
+            }
         }
     }
 }
 
-+(NSOrderedSet *) buildDefaultOrder{
++(NSOrderedSet<NSNumber *> *) buildDefaultOrder{
     return [self buildOrder:defaultOrder];
 }
 
-+(NSOrderedSet *) buildOrder: (NSOrderedSet<NSNumber *> *) types{
++(NSOrderedSet<NSNumber *> *) buildOrder: (NSOrderedSet<NSNumber *> *) types{
     NSMutableOrderedSet<NSNumber *> *tempOrder = [NSMutableOrderedSet orderedSet];
     for(NSNumber *type in types){
         [tempOrder addObject:type];
@@ -211,14 +221,15 @@ static NSMutableOrderedSet<NSNumber *> *order;
 }
 
 +(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
-    return [self projectionWithTypes:[self cachelessOrder] andAuthority:authority andCode:code andParams:params andDefinition:definition];
+    return [self projectionWithTypes:cachelessOrder andAuthority:authority andCode:code andParams:params andDefinition:definition];
 }
 
 +(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
     
     PROJProjection *projection = nil;
     
-    for(NSNumber *typeNumber in types){
+    for(int i = 0; i < types.count; i++){ // <- a for each loop here causes a memory leak, keep as for loop
+        NSNumber *typeNumber = [types objectAtIndex:i];
         
         enum PROJProjectionFactoryType type = [typeNumber intValue];
         projection = [self projectionWithType:type andAuthority:authority andCode:code andParams:params andDefinition:definition];

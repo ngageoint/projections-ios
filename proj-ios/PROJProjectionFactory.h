@@ -58,7 +58,7 @@
  *
  * @return projection factory retrieval order
  */
-+(NSOrderedSet *) buildDefaultOrder;
++(NSOrderedSet<NSNumber *> *) buildDefaultOrder;
 
 /**
  * Build an order set for specified ordered projection retrievals without
@@ -68,7 +68,7 @@
  *            factory retrieval types
  * @return projection factory retrieval order
  */
-+(NSOrderedSet *) buildOrder: (NSOrderedSet<NSNumber *> *) types;
++(NSOrderedSet<NSNumber *> *) buildOrder: (NSOrderedSet<NSNumber *> *) types;
 
 /**
  * Get the projection for the EPSG code
