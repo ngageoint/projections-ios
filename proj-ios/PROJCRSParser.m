@@ -8,6 +8,11 @@
 
 #import "PROJCRSParser.h"
 #import "CRSReader.h"
+#import "PROJEllipsoid.h"
+#import "CRSTriaxialEllipsoid.h"
+#import "CRSUnits.h"
+#import "CRSTextUtils.h"
+#import "PROJPrimeMeridian.h"
 
 @implementation PROJCRSParser
 
@@ -78,26 +83,12 @@
     NSObject<CRSGeoDatum> *geoDatum = [projected geoDatum];
 
     [self updateEllipsoidWithParams:params andEllipsoid:[geoDatum ellipsoid]];
-    //DatumParameters datumParameters = new DatumParameters();
 
-    //OperationMethod method = mapProjection.getMethod();
-    //if (projected.hasIdentifiers()
-    //        && projected.getIdentifier(0).getNameAndUniqueIdentifier()
-    //                .equalsIgnoreCase(ProjectionConstants.AUTHORITY_EPSG
-    //                        + ":"
-    //                        + ProjectionConstants.EPSG_WEB_MERCATOR)) {
-    //    datumParameters.setA(ellipsoid.getA());
-    //    datumParameters.setES(0);
-    //} else {
-    //    datumParameters.setEllipsoid(ellipsoid);
-    //}
-
-    //datumParameters.setDatumTransform(convertDatumTransform(method));
-
-    //Datum datum = datumParameters.getDatum();
+    CRSOperationMethod *method = mapProjection.method;
+    [self updateDatumTransformWithParams:params andOperationMethod:method];
 
     [self updateProjWithParams:params andCoordinateSystem:projected.coordinateSystem andMapProjection:projected.mapProjection];
-    //updateProjection(projection, datum.getEllipsoid(), geoDatum);
+    [self updatePrimeMeridianWithParams:params andGeoDatum:geoDatum];
     //updateProjection(projection, method);
     
     
@@ -127,42 +118,92 @@
 +(void) updateEllipsoidWithParams: (PROJParams *) params andEllipsoid: (CRSEllipsoid *) ellipsoid{
 
     NSString *name = ellipsoid.name;
-
-    /*
-    Ellipsoid converted = getEllipsoid(name);
-
-    if (converted == null) {
-
-        String shortName = name;
-        if (ellipsoid.hasIdentifiers()) {
-            shortName = ellipsoid.getIdentifier(0)
-                    .getNameAndUniqueIdentifier();
-        }
-        double equatorRadius = ellipsoid.getSemiMajorAxis();
-        double poleRadius = 0;
-        double reciprocalFlattening = 0;
-
-        switch (ellipsoid.getType()) {
-        case OBLATE:
-            reciprocalFlattening = ellipsoid.getInverseFlattening();
-            if (reciprocalFlattening == 0) {
-                reciprocalFlattening = Double.POSITIVE_INFINITY;
+    
+    PROJEllipsoid *converted = [PROJEllipsoid fromName:name];
+    
+    if(converted != nil){
+        [params setEllps:[converted shortName]];
+    }else{
+        
+        [params setA:ellipsoid.semiMajorAxisText];
+        
+        switch(ellipsoid.type){
+            case CRS_ELLIPSOID_OBLATE:
+                [params setB:ellipsoid.inverseFlatteningText];
+                break;
+            case CRS_ELLIPSOID_TRIAXIAL:
+            {
+                CRSTriaxialEllipsoid *triaxial = (CRSTriaxialEllipsoid *) ellipsoid;
+                [params setB:triaxial.semiMinorAxisText];
+                break;
             }
-            break;
-        case TRIAXIAL:
-            TriaxialEllipsoid triaxial = (TriaxialEllipsoid) ellipsoid;
-            poleRadius = triaxial.getSemiMinorAxis();
-            break;
-        default:
-            throw new CRSException(
-                    "Unsupported Ellipsoid Type: " + ellipsoid.getType());
+            default:
+                [NSException raise:@"Unsupported Type" format:@"Unsupported Ellipsoid Type: %@", [CRSEllipsoidTypes name:ellipsoid.type]];
         }
-
-        converted = new Ellipsoid(shortName, equatorRadius, poleRadius,
-                reciprocalFlattening, name);
+        
     }
 
-     */
+}
+
++(void) updateDatumTransformWithParams: (PROJParams *) params andOperationMethod: (CRSOperationMethod *) method{
+    
+    for(CRSOperationParameter *parameter in method.parameters){
+        
+        if([parameter hasParameter]){
+        
+            switch(parameter.parameter.type){
+                    
+                case CRS_PARAMETER_X_AXIS_TRANSLATION:
+                    [params setParam1:[self valueOfParameter:parameter inUnit:[CRSUnits metre]]];
+                    break;
+                    
+                case CRS_PARAMETER_Y_AXIS_TRANSLATION:
+                    [params setParam2:[self valueOfParameter:parameter inUnit:[CRSUnits metre]]];
+                    break;
+                    
+                case CRS_PARAMETER_Z_AXIS_TRANSLATION:
+                    [params setParam3:[self valueOfParameter:parameter inUnit:[CRSUnits metre]]];
+                    break;
+                    
+                case CRS_PARAMETER_X_AXIS_ROTATION:
+                    [params setParam4:[self valueOfParameter:parameter inUnit:[CRSUnits arcSecond]]];
+                    break;
+                    
+                case CRS_PARAMETER_Y_AXIS_ROTATION:
+                    [params setParam5:[self valueOfParameter:parameter inUnit:[CRSUnits arcSecond]]];
+                    break;
+                    
+                case CRS_PARAMETER_Z_AXIS_ROTATION:
+                    [params setParam6:[self valueOfParameter:parameter inUnit:[CRSUnits arcSecond]]];
+                    break;
+                    
+                case CRS_PARAMETER_SCALE_DIFFERENCE:
+                    [params setParam7:[self valueOfParameter:parameter inUnit:[CRSUnits partsPerMillion]]];
+                    break;
+                    
+                default:
+                    break;
+                    
+                    
+            }
+        }
+    }
+    
+}
+
++(void) updatePrimeMeridianWithParams: (PROJParams *) params andGeoDatum: (NSObject<CRSGeoDatum> *) geoDatum{
+    
+    if([geoDatum hasPrimeMeridian]){
+        CRSPrimeMeridian *primeMeridian = [geoDatum primeMeridian];
+        PROJPrimeMeridian *converted = [PROJPrimeMeridian fromName:primeMeridian.name];
+        if(converted != nil){
+            [params setPm:[converted name]];
+        }else{
+            [params setPm:[self convertValue:primeMeridian.longitude andTextValue:primeMeridian.longitudeText
+                                    fromUnit:primeMeridian.longitudeUnit toUnit:[CRSUnits degree]]];
+        }
+    }
+    
 }
 
 +(void) updateProjWithParams: (PROJParams *) params andCoordinateSystem: (CRSCoordinateSystem *) coordinateSystem{
@@ -170,9 +211,9 @@
     CRSUnit *unit = [coordinateSystem axisUnit];
 
     if(unit != nil && (unit.type == CRS_UNIT_ANGLE || (unit.type == CRS_UNIT && [[unit.name lowercaseString] hasPrefix:@"deg"]))){
-        params.proj = @"longlat";
+        [params setProj:@"longlat"];
     }else{
-        params.proj = @"merc";
+        [params setProj:@"merc"];
     }
 }
 
@@ -185,77 +226,77 @@
         switch(method.method.type){
                 
             case CRS_METHOD_ALBERS_EQUAL_AREA:
-                params.proj = @"aea";
+                [params setProj:@"aea"];
                 break;
                 
             case CRS_METHOD_AMERICAN_POLYCONIC:
-                params.proj = @"poly";
+                [params setProj:@"poly"];
                 break;
                 
             case CRS_METHOD_CASSINI_SOLDNER:
-                params.proj = @"cass";
+                [params setProj:@"cass"];
                 break;
                 
             case CRS_METHOD_EQUIDISTANT_CYLINDRICAL:
-                params.proj = @"eqc";
+                [params setProj:@"eqc"];
                 break;
                 
             case CRS_METHOD_HOTINE_OBLIQUE_MERCATOR_A:
-                params.no_uoff = YES;
+                [params setNo_uoff:YES];
             case CRS_METHOD_HOTINE_OBLIQUE_MERCATOR_B:
                 if([[mapProjection.name lowercaseString] containsString:@"swiss oblique mercator"]){
-                    params.proj = @"somerc";
+                    [params setProj:@"somerc"];
                 }else{
-                    params.proj = @"omerc";
+                    [params setProj:@"omerc"];
                 }
                 break;
                 
             case CRS_METHOD_KROVAK:
-                params.proj = @"krovak";
+                [params setProj:@"krovak"];
                 break;
                 
             case CRS_METHOD_LAMBERT_AZIMUTHAL_EQUAL_AREA:
-                params.proj = @"laea";
+                [params setProj:@"laea"];
                 break;
                 
             case CRS_METHOD_LAMBERT_CONIC_CONFORMAL_1SP:
             case CRS_METHOD_LAMBERT_CONIC_CONFORMAL_2SP:
-                params.proj = @"lcc";
+                [params setProj:@"lcc"];
                 break;
                 
             case CRS_METHOD_LAMBERT_CYLINDRICAL_EQUAL_AREA:
-                params.proj = @"cea";
+                [params setProj:@"cea"];
                 break;
                 
             case CRS_METHOD_MERCATOR_A:
             case CRS_METHOD_MERCATOR_B:
-                params.proj = @"merc";
+                [params setProj:@"merc"];
                 break;
                 
             case CRS_METHOD_NEW_ZEALAND_MAP_GRID:
-                params.proj = @"nzmg";
+                [params setProj:@"nzmg"];
                 break;
                 
             case CRS_METHOD_OBLIQUE_STEREOGRAPHIC:
-                params.proj = @"sterea";
+                [params setProj:@"sterea"];
                 break;
                 
             case CRS_METHOD_POLAR_STEREOGRAPHIC_A:
             case CRS_METHOD_POLAR_STEREOGRAPHIC_B:
             case CRS_METHOD_POLAR_STEREOGRAPHIC_C:
-                params.proj = @"stere";
+                [params setProj:@"stere"];
                 break;
                 
             case CRS_METHOD_POPULAR_VISUALISATION_PSEUDO_MERCATOR:
-                params.proj = @"merc";
+                [params setProj:@"merc"];
                 break;
                 
             case CRS_METHOD_TRANSVERSE_MERCATOR:
             case CRS_METHOD_TRANSVERSE_MERCATOR_SOUTH_ORIENTATED:
                 if([[mapProjection.name lowercaseString] containsString:@"utm zone"]){
-                    params.proj = @"utm";
+                    [params setProj:@"utm"];
                 }else{
-                    params.proj = @"tmerc";
+                    [params setProj:@"tmerc"];
                 }
                 break;
                 
@@ -281,7 +322,7 @@
     NSString *axisOrder = [self convertAxes:coordinateSystem.axes];
     // Only known proj4 axis specification is wsu
     if([axisOrder isEqualToString:@"wsu"]) {
-        params.axis = axisOrder;
+        [params setAxis:axisOrder];
     }
 
 }
@@ -345,6 +386,24 @@
     }
 
     return axisValue;
+}
+
++(NSString *) valueOfParameter: (CRSOperationParameter *) parameter inUnit: (CRSUnit *) unit{
+    return [self convertValue:parameter.value andTextValue:parameter.valueText fromUnit:parameter.unit toUnit:unit];
+}
+
++(NSString *) convertValue: (double) value andTextValue: (NSString *) textValue fromUnit: (CRSUnit *) fromUnit toUnit: (CRSUnit *) toUnit{
+    
+    if(fromUnit == nil){
+        fromUnit = [CRSUnits defaultUnit:toUnit.type];
+    }
+    
+    if([CRSUnits canConvertBetweenUnit:fromUnit andUnit:toUnit]){
+        value = [CRSUnits convertValue:value fromUnit:fromUnit toUnit:toUnit];
+        textValue = [CRSTextUtils textFromDouble:value];
+    }
+    
+    return textValue;
 }
 
 @end

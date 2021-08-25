@@ -14,11 +14,13 @@
 @interface PROJParams : NSObject
 
 @property (nonatomic, strong) NSString *proj;
+@property (nonatomic, strong) NSString *lat_1;
+@property (nonatomic, strong) NSString *lat_2;
 @property (nonatomic, strong) NSString *lat_0;
 @property (nonatomic, strong) NSString *lon_0;
 @property (nonatomic, strong) NSString *lonc;
 @property (nonatomic, strong) NSString *alpha;
-@property (nonatomic, strong) NSString *k;
+@property (nonatomic, strong) NSString *k_0;
 @property (nonatomic, strong) NSString *x_0;
 @property (nonatomic, strong) NSString *y_0;
 @property (nonatomic, strong) NSString *axis;
@@ -31,6 +33,14 @@
 @property (nonatomic) BOOL south;
 @property (nonatomic, strong) NSString *ellps;
 @property (nonatomic, strong) NSString *towgs84;
+@property (nonatomic, strong) NSString *param1;
+@property (nonatomic, strong) NSString *param2;
+@property (nonatomic, strong) NSString *param3;
+@property (nonatomic, strong) NSString *param4;
+@property (nonatomic, strong) NSString *param5;
+@property (nonatomic, strong) NSString *param6;
+@property (nonatomic, strong) NSString *param7;
+@property (nonatomic, strong) NSString *pm;
 @property (nonatomic, strong) NSString *units;
 @property (nonatomic) BOOL no_defs;
 

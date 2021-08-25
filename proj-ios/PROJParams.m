@@ -25,6 +25,12 @@
     if(_proj != nil){
         [description appendFormat:@"+proj=%@", _proj];
     }
+    if(_lat_1 != nil){
+        [description appendFormat:@" +lat_1=%@", _lat_1];
+    }
+    if(_lat_2 != nil){
+        [description appendFormat:@" +lat_2=%@", _lat_2];
+    }
     if(_lat_0 != nil){
         [description appendFormat:@" +lat_0=%@", _lat_0];
     }
@@ -37,8 +43,8 @@
     if(_alpha != nil){
         [description appendFormat:@" +alpha=%@", _alpha];
     }
-    if(_k != nil){
-        [description appendFormat:@" +k=%@", _k];
+    if(_k_0 != nil){
+        [description appendFormat:@" +k_0=%@", _k_0];
     }
     if(_x_0 != nil){
         [description appendFormat:@" +x_0=%@", _x_0];
@@ -75,6 +81,18 @@
     }
     if(_towgs84 != nil){
         [description appendFormat:@" +towgs84=%@", _towgs84];
+    }else if(_param1 != nil || _param2 != nil || _param3 != nil || _param4 != nil || _param5 != nil || _param6 != nil || _param7 != nil){
+        [description appendFormat:@" +towgs84=%@,%@,%@,%@,%@,%@,%@",
+         _param1 != nil ? _param1 : @"0",
+         _param2 != nil ? _param2 : @"0",
+         _param3 != nil ? _param3 : @"0",
+         _param4 != nil ? _param4 : @"0",
+         _param5 != nil ? _param5 : @"0",
+         _param6 != nil ? _param6 : @"0",
+         _param7 != nil ? _param7 : @"0"];
+    }
+    if(_pm != nil){
+        [description appendFormat:@" +pm=%@", _pm];
     }
     if(_units != nil){
         [description appendFormat:@" +units=%@", _units];

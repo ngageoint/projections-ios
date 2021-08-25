@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		04021F4626D575A200ECE9AF /* PROJParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 04021F4426D575A200ECE9AF /* PROJParams.h */; };
 		04021F4726D575A200ECE9AF /* PROJParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 04021F4526D575A200ECE9AF /* PROJParams.m */; };
+		04021F4A26D65B0A00ECE9AF /* PROJEllipsoid.h in Headers */ = {isa = PBXBuildFile; fileRef = 04021F4826D65B0A00ECE9AF /* PROJEllipsoid.h */; };
+		04021F4B26D65B0A00ECE9AF /* PROJEllipsoid.m in Sources */ = {isa = PBXBuildFile; fileRef = 04021F4926D65B0A00ECE9AF /* PROJEllipsoid.m */; };
+		04021F4E26D6DAB500ECE9AF /* PROJPrimeMeridian.h in Headers */ = {isa = PBXBuildFile; fileRef = 04021F4C26D6DAB500ECE9AF /* PROJPrimeMeridian.h */; };
+		04021F4F26D6DAB500ECE9AF /* PROJPrimeMeridian.m in Sources */ = {isa = PBXBuildFile; fileRef = 04021F4D26D6DAB500ECE9AF /* PROJPrimeMeridian.m */; };
 		041F18E124CB2291001311E4 /* PROJReadmeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F18E024CB2291001311E4 /* PROJReadmeTest.m */; };
 		041F18E424CB3762001311E4 /* PROJSwiftReadmeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F18E324CB3762001311E4 /* PROJSwiftReadmeTest.swift */; };
 		04236CD826CEAF4D00F6190E /* PROJProjectionFactoryTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 04236CD626CEAF4D00F6190E /* PROJProjectionFactoryTypes.h */; };
@@ -65,6 +69,10 @@
 /* Begin PBXFileReference section */
 		04021F4426D575A200ECE9AF /* PROJParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJParams.h; sourceTree = "<group>"; };
 		04021F4526D575A200ECE9AF /* PROJParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJParams.m; sourceTree = "<group>"; };
+		04021F4826D65B0A00ECE9AF /* PROJEllipsoid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJEllipsoid.h; sourceTree = "<group>"; };
+		04021F4926D65B0A00ECE9AF /* PROJEllipsoid.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJEllipsoid.m; sourceTree = "<group>"; };
+		04021F4C26D6DAB500ECE9AF /* PROJPrimeMeridian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJPrimeMeridian.h; sourceTree = "<group>"; };
+		04021F4D26D6DAB500ECE9AF /* PROJPrimeMeridian.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJPrimeMeridian.m; sourceTree = "<group>"; };
 		041F18DF24CB2291001311E4 /* PROJReadmeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJReadmeTest.h; sourceTree = "<group>"; };
 		041F18E024CB2291001311E4 /* PROJReadmeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJReadmeTest.m; sourceTree = "<group>"; };
 		041F18E224CB3762001311E4 /* proj-iosTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "proj-iosTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -168,8 +176,12 @@
 				04F455FB209A47C700FC299E /* PROJAuthorityProjections.m */,
 				04BCA97D2698D69D0015DEC0 /* PROJCRSParser.h */,
 				04BCA97E2698D69D0015DEC0 /* PROJCRSParser.m */,
+				04021F4826D65B0A00ECE9AF /* PROJEllipsoid.h */,
+				04021F4926D65B0A00ECE9AF /* PROJEllipsoid.m */,
 				04021F4426D575A200ECE9AF /* PROJParams.h */,
 				04021F4526D575A200ECE9AF /* PROJParams.m */,
+				04021F4C26D6DAB500ECE9AF /* PROJPrimeMeridian.h */,
+				04021F4D26D6DAB500ECE9AF /* PROJPrimeMeridian.m */,
 				04F45603209A47C700FC299E /* PROJProjection.h */,
 				04F45604209A47C700FC299E /* PROJProjection.m */,
 				04F45609209A47C700FC299E /* PROJProjectionConstants.h */,
@@ -269,6 +281,7 @@
 				04F45628209B40F800FC299E /* PROJConstants.h in Headers */,
 				04F45616209A47C800FC299E /* PROJProjectionTransform.h in Headers */,
 				04BCA97F2698D69D0015DEC0 /* PROJCRSParser.h in Headers */,
+				04021F4A26D65B0A00ECE9AF /* PROJEllipsoid.h in Headers */,
 				04F4561F209A47C800FC299E /* PROJAuthorityProjections.h in Headers */,
 				04F4561D209A47C800FC299E /* PROJProjectionConstants.h in Headers */,
 				04F45615209A47C800FC299E /* PROJProjectionFactory.h in Headers */,
@@ -276,6 +289,7 @@
 				04F4561C209A47C800FC299E /* PROJProjectionRetriever.h in Headers */,
 				04236CD826CEAF4D00F6190E /* PROJProjectionFactoryTypes.h in Headers */,
 				04F45617209A47C800FC299E /* PROJProjection.h in Headers */,
+				04021F4E26D6DAB500ECE9AF /* PROJPrimeMeridian.h in Headers */,
 				042FC6D51B96453E00549A4B /* proj_ios.h in Headers */,
 				042FC6D31B96421E00549A4B /* proj-ios-Prefix.pch in Headers */,
 				04F45611209A47C800FC299E /* PROJUnits.h in Headers */,
@@ -454,11 +468,13 @@
 				04F4561B209A47C800FC299E /* PROJLocationCoordinate3D.m in Sources */,
 				04F45618209A47C800FC299E /* PROJProjection.m in Sources */,
 				04F45619209A47C800FC299E /* PROJProjectionConstants.m in Sources */,
+				04021F4B26D65B0A00ECE9AF /* PROJEllipsoid.m in Sources */,
 				04C393C822DE26A20049F6C0 /* PROJProjections.m in Sources */,
 				04F45613209A47C800FC299E /* PROJUnits.m in Sources */,
 				04BCA9802698D69D0015DEC0 /* PROJCRSParser.m in Sources */,
 				04021F4726D575A200ECE9AF /* PROJParams.m in Sources */,
 				04F45612209A47C800FC299E /* PROJProjectionRetriever.m in Sources */,
+				04021F4F26D6DAB500ECE9AF /* PROJPrimeMeridian.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

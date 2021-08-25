@@ -24,7 +24,7 @@
  * Test EPSG 2057
  */
 -(void) test2057{
-    
+
     NSString *code = @"2057";
     double delta = 0.001;
 
@@ -75,16 +75,16 @@
     CLLocationCoordinate2D projectedCoordinate = [transform transform:coordinate];
     [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.longitude andValue2:projectedCoordinate.longitude];
     [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.latitude andValue2:projectedCoordinate.latitude andDelta:.00000001];
-    
+
     PROJProjection *projection2 = [PROJProjectionFactory cachelessProjectionWithName:code];
     PROJProjectionTransform *transform2 = [PROJProjectionTransform transformFromEpsg:4326 andToProjection:projection2];
     CLLocationCoordinate2D projectedCoordinate2 = [transform2 transform:coordinate];
     [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.longitude andValue2:projectedCoordinate2.longitude];
     [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.latitude andValue2:projectedCoordinate2.latitude andDelta:.00000001];
-    
+
     [PROJProjectionFactory clearTransform:transform];
     [PROJProjectionFactory clearTransform:transform2];
-        
+
 }
 
 /**
