@@ -61,12 +61,8 @@
 
 +(projPJ) convertProjected: (CRSProjectedCoordinateReferenceSystem *) projected{
     PROJParams *params = [self paramsFromProjected:projected];
-    
-    // TODO
-    NSMutableString *temp = [NSMutableString stringWithString:[params description]];
-    [temp appendString:@" +lat_0=27.51882880555555 +lonc=52.60353916666667 +alpha=0.5716611944444444 +k=0.999895934 +x_0=658377.437 +y_0=3044969.194 +gamma=0.5716611944444444 +ellps=intl +towgs84=-133.63,-157.5,-158.62,0,0,0,0 +units=m +no_defs"];
-    
-    projPJ crs = pj_init_plus([temp UTF8String]);
+    NSString *paramsText = [params description];
+    projPJ crs = pj_init_plus([paramsText UTF8String]);
     return crs;
 }
 
@@ -78,6 +74,7 @@
     
     PROJParams *params = [PROJParams params];
     
+    CRSCoordinateSystem *coordinateSystem = projected.coordinateSystem;
     CRSMapProjection *mapProjection = projected.mapProjection;
 
     NSObject<CRSGeoDatum> *geoDatum = [projected geoDatum];
@@ -87,30 +84,12 @@
     CRSOperationMethod *method = mapProjection.method;
     [self updateDatumTransformWithParams:params andOperationMethod:method];
 
-    [self updateProjWithParams:params andCoordinateSystem:projected.coordinateSystem andMapProjection:projected.mapProjection];
+    [self updateProjWithParams:params andCoordinateSystem:coordinateSystem andMapProjection:mapProjection];
+    [self updateUnitsWithParams:params andCoordinateSystem:coordinateSystem];
     [self updatePrimeMeridianWithParams:params andGeoDatum:geoDatum];
-    //updateProjection(projection, method);
+    [self updateParams:params withOperationMethod:method];
     
-    
-    // +lat_0=
-    // +lon_0=
-    // +lonc=
-    // +alpha=
-    // +k=
-    // +x_0=
-    // +y_0=
-    // +axis=wsu
-    // +datum=
-    // +no_uoff
-    // +gamma=
-    // +zone=
-    // +a=
-    // +b=
-    // +south=
-    // +ellps=
-    // +towgs84=
-    // +units=
-    // +no_defs
+    [params setNo_defs:YES];
     
     return params;
 }
@@ -197,7 +176,9 @@
         CRSPrimeMeridian *primeMeridian = [geoDatum primeMeridian];
         PROJPrimeMeridian *converted = [PROJPrimeMeridian fromName:primeMeridian.name];
         if(converted != nil){
-            [params setPm:[converted name]];
+            if(converted.type != PROJ_PM_GREENWICH){
+                [params setPm:[converted name]];
+            }
         }else{
             [params setPm:[self convertValue:primeMeridian.longitude andTextValue:primeMeridian.longitudeText
                                     fromUnit:primeMeridian.longitudeUnit toUnit:[CRSUnits degree]]];
@@ -317,6 +298,34 @@
     
 }
 
++(void) updateUnitsWithParams: (PROJParams *) params andCoordinateSystem: (CRSCoordinateSystem *) coordinateSystem{
+    
+    if([coordinateSystem hasUnit]){
+        
+        enum CRSUnitsType type = [CRSUnits typeFromUnit:coordinateSystem.unit];
+        if((int) type != -1){
+            
+            switch(type){
+                case CRS_UNITS_MICROMETRE:
+                case CRS_UNITS_MILLIMETRE:
+                case CRS_UNITS_METRE:
+                case CRS_UNITS_KILOMETRE:
+                case CRS_UNITS_GERMAN_LEGAL_METRE:
+                    [params setUnits:@"m"];
+                    break;
+                case CRS_UNITS_US_SURVEY_FOOT:
+                    [params setUnits:@"us-ft"];
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+        
+    }
+    
+}
+
 +(void) updateAxisWithParams: (PROJParams *) params andCoordinateSystem: (CRSCoordinateSystem *) coordinateSystem{
 
     NSString *axisOrder = [self convertAxes:coordinateSystem.axes];
@@ -325,6 +334,98 @@
         [params setAxis:axisOrder];
     }
 
+}
+
++(void) updateParams: (PROJParams *) params withOperationMethod: (CRSOperationMethod *) method{
+    if([method hasParameters]){
+        for(CRSOperationParameter *parameter in method.parameters){
+            [self updateParams:params withOperationMethod:method andOperationParameter:parameter];
+        }
+    }
+}
+
++(void) updateParams: (PROJParams *) params withOperationMethod: (CRSOperationMethod *) method andOperationParameter: (CRSOperationParameter *) parameter{
+    
+    if([parameter hasParameter]){
+        
+        switch(parameter.parameter.type){
+                
+            case CRS_PARAMETER_FALSE_EASTING:
+            case CRS_PARAMETER_EASTING_AT_PROJECTION_CENTRE:
+            case CRS_PARAMETER_EASTING_AT_FALSE_ORIGIN:
+                [params setX_0:[self valueOfParameter:parameter inUnit:[CRSUnits metre]]];
+                break;
+                
+            case CRS_PARAMETER_FALSE_NORTHING:
+            case CRS_PARAMETER_NORTHING_AT_PROJECTION_CENTRE:
+            case CRS_PARAMETER_NORTHING_AT_FALSE_ORIGIN:
+                [params setY_0:[self valueOfParameter:parameter inUnit:[CRSUnits metre]]];
+                break;
+                
+            case CRS_PARAMETER_SCALE_FACTOR_AT_NATURAL_ORIGIN:
+            case CRS_PARAMETER_SCALE_FACTOR_ON_INITIAL_LINE:
+                [params setK_0:[self valueOfParameter:parameter inUnit:[CRSUnits unity]]];
+                break;
+                
+            case CRS_PARAMETER_LATITUDE_OF_1ST_STANDARD_PARALLEL:
+                [params setLat_1:[self valueOfParameter:parameter inUnit:[CRSUnits degree]]];
+                break;
+                
+            case CRS_PARAMETER_LATITUDE_OF_2ND_STANDARD_PARALLEL:
+                [params setLat_2:[self valueOfParameter:parameter inUnit:[CRSUnits degree]]];
+                break;
+                
+            case CRS_PARAMETER_LATITUDE_OF_PROJECTION_CENTRE:
+            case CRS_PARAMETER_LATITUDE_OF_NATURAL_ORIGIN:
+            case CRS_PARAMETER_LATITUDE_OF_FALSE_ORIGIN:
+                [params setLat_0:[self valueOfParameter:parameter inUnit:[CRSUnits degree]]];
+                if([method hasMethod]){
+                    switch(method.method.type){
+                        case CRS_METHOD_POLAR_STEREOGRAPHIC_A:
+                        case CRS_METHOD_POLAR_STEREOGRAPHIC_B:
+                        case CRS_METHOD_POLAR_STEREOGRAPHIC_C:
+                            [params setLat_ts:[self valueOfParameter:parameter inUnit:[CRSUnits degree]]];
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                break;
+                
+            case CRS_PARAMETER_LONGITUDE_OF_PROJECTION_CENTRE:
+            case CRS_PARAMETER_LONGITUDE_OF_NATURAL_ORIGIN:
+            case CRS_PARAMETER_LONGITUDE_OF_FALSE_ORIGIN:
+            case CRS_PARAMETER_LONGITUDE_OF_ORIGIN:
+                if([method hasMethod]){
+                    switch(method.method.type){
+                        case CRS_METHOD_HOTINE_OBLIQUE_MERCATOR_A:
+                        case CRS_METHOD_HOTINE_OBLIQUE_MERCATOR_B:
+                            [params setLonc:[self valueOfParameter:parameter inUnit:[CRSUnits degree]]];
+                            break;
+                        default:
+                            [params setLon_0:[self valueOfParameter:parameter inUnit:[CRSUnits degree]]];
+                            break;
+                    }
+                }else{
+                    [params setLon_0:[self valueOfParameter:parameter inUnit:[CRSUnits degree]]];
+                }
+                break;
+                
+            case CRS_PARAMETER_AZIMUTH_OF_INITIAL_LINE:
+                [params setAlpha:[self valueOfParameter:parameter inUnit:[CRSUnits degree]]];
+                break;
+                
+            case CRS_PARAMETER_ANGLE_FROM_RECTIFIED_TO_SKEW_GRID:
+                [params setGamma:[self valueOfParameter:parameter inUnit:[CRSUnits degree]]];
+                break;
+                
+            default:
+                break;
+                
+        }
+        
+    }
+    
 }
 
 +(NSString *) convertAxes: (NSArray<CRSAxis *> *) axes{

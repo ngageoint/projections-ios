@@ -71,4 +71,13 @@ enum PROJPrimeMeridianType{
  */
 -(double) offsetFromGreenwich;
 
+/**
+ * Prime Meridian offset from greenwich comparison
+ *
+ * @param primeMeridian
+ *            prime meridian
+ * @return true if equal
+ */
+-(BOOL) isEqualToPrimeMeridian: (PROJPrimeMeridian *) primeMeridian;
+
 @end

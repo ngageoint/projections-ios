@@ -36,51 +36,51 @@ static NSMutableDictionary<NSString *, PROJEllipsoid *> *nameEllipsoids = nil;
     typeEllipsoids = [NSMutableDictionary dictionary];
     nameEllipsoids = [NSMutableDictionary dictionary];
  
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_INTERNATIONAL andShortName:@"intl" andEquatorRadius:6378388.0 andPoleRadius:0.0 andReciprocalFlattening:297.0 andNames:[NSArray arrayWithObjects:@"International 1909 (Hayford)", @"International 1924 (Hayford)", nil]]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_BESSEL andShortName:@"bessel" andEquatorRadius:6377397.155 andPoleRadius:0.0 andReciprocalFlattening:299.1528128 andName:@"Bessel 1841"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_CLARKE_1866 andShortName:@"clrk66" andEquatorRadius:6378206.4 andPoleRadius:6356583.8 andReciprocalFlattening:0.0 andName:@"Clarke 1866"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_CLARKE_1880 andShortName:@"clrk80" andEquatorRadius:6378249.145 andPoleRadius:0.0 andReciprocalFlattening:293.4663 andName:@"Clarke 1880 mod."]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_AIRY andShortName:@"airy" andEquatorRadius:6377563.396 andPoleRadius:6356256.910 andReciprocalFlattening:0.0 andName:@"Airy 1830"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_WGS60 andShortName:@"WGS60" andEquatorRadius:6378165.0 andPoleRadius:0.0 andReciprocalFlattening:298.3 andName:@"WGS 60"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_WGS66 andShortName:@"WGS66" andEquatorRadius:6378145.0 andPoleRadius:0.0 andReciprocalFlattening:298.25 andName:@"WGS 66"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_WGS72 andShortName:@"WGS72" andEquatorRadius:6378135.0 andPoleRadius:0.0 andReciprocalFlattening:298.26 andName:@"WGS 72"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_WGS84 andShortName:@"WGS84" andEquatorRadius:6378137.0 andPoleRadius:0.0 andReciprocalFlattening:298.257223563 andName:@"WGS 84"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_KRASSOVSKY andShortName:@"krass" andEquatorRadius:6378245.0 andPoleRadius:0.0 andReciprocalFlattening:298.3 andName:@"Krassovsky, 1942"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_EVEREST andShortName:@"evrst30" andEquatorRadius:6377276.345 andPoleRadius:0.0 andReciprocalFlattening:300.8017 andName:@"Everest 1830"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_INTERNATIONAL_1967 andShortName:@"new_intl" andEquatorRadius:6378157.5 andPoleRadius:6356772.2 andReciprocalFlattening:0.0 andName:@"New International 1967"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_GRS80 andShortName:@"GRS80" andEquatorRadius:6378137.0 andPoleRadius:0.0 andReciprocalFlattening:298.257222101 andName:@"GRS 1980 (IUGG, 1980)"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_AUSTRALIAN andShortName:@"australian" andEquatorRadius:6378160.0 andPoleRadius:6356774.7 andReciprocalFlattening:298.25 andName:@"Australian"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_MERIT andShortName:@"MERIT" andEquatorRadius:6378137.0 andPoleRadius:0.0 andReciprocalFlattening:298.257 andName:@"MERIT 1983"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_SGS85 andShortName:@"SGS85" andEquatorRadius:6378136.0 andPoleRadius:0.0 andReciprocalFlattening:298.257 andName:@"Soviet Geodetic System 85"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_IAU76 andShortName:@"IAU76" andEquatorRadius:6378140.0 andPoleRadius:0.0 andReciprocalFlattening:298.257 andName:@"IAU 1976"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_APL4_9 andShortName:@"APL4.9" andEquatorRadius:6378137.0 andPoleRadius:0.0 andReciprocalFlattening:298.25 andName:@"Appl. Physics. 1965"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_NWL9D andShortName:@"NWL9D" andEquatorRadius:6378145.0 andPoleRadius:0.0 andReciprocalFlattening:298.25 andName:@"Naval Weapons Lab., 1965"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_MOD_AIRY andShortName:@"mod_airy" andEquatorRadius:6377340.189 andPoleRadius:6356034.446 andReciprocalFlattening:0.0 andName:@"Modified Airy"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_ANDRAE andShortName:@"andrae" andEquatorRadius:6377104.43 andPoleRadius:0.0 andReciprocalFlattening:300.0 andName:@"Andrae 1876 (Den., Iclnd.)"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_AUST_SA andShortName:@"aust_SA" andEquatorRadius:6378160.0 andPoleRadius:0.0 andReciprocalFlattening:298.25 andName:@"Australian Natl & S. Amer. 1969"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_GRS67 andShortName:@"GRS67" andEquatorRadius:6378160.0 andPoleRadius:0.0 andReciprocalFlattening:298.2471674270 andName:@"GRS 67 (IUGG 1967)"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_BESS_NAM andShortName:@"bess_nam" andEquatorRadius:6377483.865 andPoleRadius:0.0 andReciprocalFlattening:299.1528128 andName:@"Bessel 1841 (Namibia)"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_CPM andShortName:@"CPM" andEquatorRadius:6375738.7 andPoleRadius:0.0 andReciprocalFlattening:334.29 andName:@"Comm. des Poids et Mesures 1799"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_DELMBR andShortName:@"delmbr" andEquatorRadius:6376428.0 andPoleRadius:0.0 andReciprocalFlattening:311.5 andName:@"Delambre 1810 (Belgium)"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_ENGELIS andShortName:@"engelis" andEquatorRadius:6378136.05 andPoleRadius:0.0 andReciprocalFlattening:298.2566 andName:@"Engelis 1985"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_EVRST48 andShortName:@"evrst48" andEquatorRadius:6377304.063 andPoleRadius:0.0 andReciprocalFlattening:300.8017 andName:@"Everest 1948"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_EVRST56 andShortName:@"evrst56" andEquatorRadius:6377301.243 andPoleRadius:0.0 andReciprocalFlattening:300.8017 andName:@"Everest 1956"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_EVRTS69 andShortName:@"evrst69" andEquatorRadius:6377295.664 andPoleRadius:0.0 andReciprocalFlattening:300.8017 andName:@"Everest 1969"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_EVRTSTSS andShortName:@"evrstSS" andEquatorRadius:6377298.556 andPoleRadius:0.0 andReciprocalFlattening:300.8017 andName:@"Everest (Sabah & Sarawak)"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_FRSCH60 andShortName:@"fschr60" andEquatorRadius:6378166.0 andPoleRadius:0.0 andReciprocalFlattening:298.3 andName:@"Fischer (Mercury Datum) 1960"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_FSRCH60M andShortName:@"fschr60m" andEquatorRadius:6378155.0 andPoleRadius:0.0 andReciprocalFlattening:298.3 andName:@"Modified Fischer 1960"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_FSCHR68 andShortName:@"fschr68" andEquatorRadius:6378150.0 andPoleRadius:0.0 andReciprocalFlattening:298.3 andName:@"Fischer 1968"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_HELMERT andShortName:@"helmert" andEquatorRadius:6378200.0 andPoleRadius:0.0 andReciprocalFlattening:298.3 andName:@"Helmert 1906"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_HOUGH andShortName:@"hough" andEquatorRadius:6378270.0 andPoleRadius:0.0 andReciprocalFlattening:297.0 andName:@"Hough"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_KAULA andShortName:@"kaula" andEquatorRadius:6378163.0 andPoleRadius:0.0 andReciprocalFlattening:298.24 andName:@"Kaula 1961"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_LERCH andShortName:@"lerch" andEquatorRadius:6378139.0 andPoleRadius:0.0 andReciprocalFlattening:298.257 andName:@"Lerch 1979"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_MPRTS andShortName:@"mprts" andEquatorRadius:6397300.0 andPoleRadius:0.0 andReciprocalFlattening:191.0 andName:@"Maupertius 1738"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_PLESSIS andShortName:@"plessis" andEquatorRadius:6376523.0 andPoleRadius:6355863.0 andReciprocalFlattening:0.0 andName:@"Plessis 1817 (France)"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_SEASIA andShortName:@"SEasia" andEquatorRadius:6378155.0 andPoleRadius:6356773.3205 andReciprocalFlattening:0.0 andName:@"Southeast Asia"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_WALBECK andShortName:@"walbeck" andEquatorRadius:6376896.0 andPoleRadius:6355834.8467 andReciprocalFlattening:0.0 andName:@"Walbeck"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_NAD27 andShortName:@"NAD27" andEquatorRadius:6378249.145 andPoleRadius:0.0 andReciprocalFlattening:293.4663 andName:@"NAD27: Clarke 1880 mod."]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_NAD83 andShortName:@"NAD83" andEquatorRadius:6378137.0 andPoleRadius:0.0 andReciprocalFlattening:298.257222101 andName:@"NAD83: GRS 1980 (IUGG, 1980)"]];
-    [self initializeEllipsoid:[PROJEllipsoid createWithType:PROJ_ELLIPSOID_SPHERE andShortName:@"sphere" andEquatorRadius:6371008.7714 andPoleRadius:6371008.7714 andReciprocalFlattening:0.0 andName:@"Sphere"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_INTERNATIONAL andShortName:@"intl" andEquatorRadius:6378388.0 andPoleRadius:0.0 andReciprocalFlattening:297.0 andNames:[NSArray arrayWithObjects:@"International 1909 (Hayford)", @"International 1924 (Hayford)", nil]]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_BESSEL andShortName:@"bessel" andEquatorRadius:6377397.155 andPoleRadius:0.0 andReciprocalFlattening:299.1528128 andName:@"Bessel 1841"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_CLARKE_1866 andShortName:@"clrk66" andEquatorRadius:6378206.4 andPoleRadius:6356583.8 andReciprocalFlattening:0.0 andName:@"Clarke 1866"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_CLARKE_1880 andShortName:@"clrk80" andEquatorRadius:6378249.145 andPoleRadius:0.0 andReciprocalFlattening:293.4663 andName:@"Clarke 1880 mod."]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_AIRY andShortName:@"airy" andEquatorRadius:6377563.396 andPoleRadius:6356256.910 andReciprocalFlattening:0.0 andName:@"Airy 1830"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_WGS60 andShortName:@"WGS60" andEquatorRadius:6378165.0 andPoleRadius:0.0 andReciprocalFlattening:298.3 andName:@"WGS 60"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_WGS66 andShortName:@"WGS66" andEquatorRadius:6378145.0 andPoleRadius:0.0 andReciprocalFlattening:298.25 andName:@"WGS 66"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_WGS72 andShortName:@"WGS72" andEquatorRadius:6378135.0 andPoleRadius:0.0 andReciprocalFlattening:298.26 andName:@"WGS 72"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_WGS84 andShortName:@"WGS84" andEquatorRadius:6378137.0 andPoleRadius:0.0 andReciprocalFlattening:298.257223563 andName:@"WGS 84"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_KRASSOVSKY andShortName:@"krass" andEquatorRadius:6378245.0 andPoleRadius:0.0 andReciprocalFlattening:298.3 andName:@"Krassovsky, 1942"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_EVEREST andShortName:@"evrst30" andEquatorRadius:6377276.345 andPoleRadius:0.0 andReciprocalFlattening:300.8017 andName:@"Everest 1830"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_INTERNATIONAL_1967 andShortName:@"new_intl" andEquatorRadius:6378157.5 andPoleRadius:6356772.2 andReciprocalFlattening:0.0 andName:@"New International 1967"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_GRS80 andShortName:@"GRS80" andEquatorRadius:6378137.0 andPoleRadius:0.0 andReciprocalFlattening:298.257222101 andName:@"GRS 1980 (IUGG, 1980)"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_AUSTRALIAN andShortName:@"australian" andEquatorRadius:6378160.0 andPoleRadius:6356774.7 andReciprocalFlattening:298.25 andName:@"Australian"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_MERIT andShortName:@"MERIT" andEquatorRadius:6378137.0 andPoleRadius:0.0 andReciprocalFlattening:298.257 andName:@"MERIT 1983"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_SGS85 andShortName:@"SGS85" andEquatorRadius:6378136.0 andPoleRadius:0.0 andReciprocalFlattening:298.257 andName:@"Soviet Geodetic System 85"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_IAU76 andShortName:@"IAU76" andEquatorRadius:6378140.0 andPoleRadius:0.0 andReciprocalFlattening:298.257 andName:@"IAU 1976"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_APL4_9 andShortName:@"APL4.9" andEquatorRadius:6378137.0 andPoleRadius:0.0 andReciprocalFlattening:298.25 andName:@"Appl. Physics. 1965"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_NWL9D andShortName:@"NWL9D" andEquatorRadius:6378145.0 andPoleRadius:0.0 andReciprocalFlattening:298.25 andName:@"Naval Weapons Lab., 1965"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_MOD_AIRY andShortName:@"mod_airy" andEquatorRadius:6377340.189 andPoleRadius:6356034.446 andReciprocalFlattening:0.0 andName:@"Modified Airy"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_ANDRAE andShortName:@"andrae" andEquatorRadius:6377104.43 andPoleRadius:0.0 andReciprocalFlattening:300.0 andName:@"Andrae 1876 (Den., Iclnd.)"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_AUST_SA andShortName:@"aust_SA" andEquatorRadius:6378160.0 andPoleRadius:0.0 andReciprocalFlattening:298.25 andName:@"Australian Natl & S. Amer. 1969"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_GRS67 andShortName:@"GRS67" andEquatorRadius:6378160.0 andPoleRadius:0.0 andReciprocalFlattening:298.2471674270 andName:@"GRS 67 (IUGG 1967)"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_BESS_NAM andShortName:@"bess_nam" andEquatorRadius:6377483.865 andPoleRadius:0.0 andReciprocalFlattening:299.1528128 andName:@"Bessel 1841 (Namibia)"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_CPM andShortName:@"CPM" andEquatorRadius:6375738.7 andPoleRadius:0.0 andReciprocalFlattening:334.29 andName:@"Comm. des Poids et Mesures 1799"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_DELMBR andShortName:@"delmbr" andEquatorRadius:6376428.0 andPoleRadius:0.0 andReciprocalFlattening:311.5 andName:@"Delambre 1810 (Belgium)"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_ENGELIS andShortName:@"engelis" andEquatorRadius:6378136.05 andPoleRadius:0.0 andReciprocalFlattening:298.2566 andName:@"Engelis 1985"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_EVRST48 andShortName:@"evrst48" andEquatorRadius:6377304.063 andPoleRadius:0.0 andReciprocalFlattening:300.8017 andName:@"Everest 1948"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_EVRST56 andShortName:@"evrst56" andEquatorRadius:6377301.243 andPoleRadius:0.0 andReciprocalFlattening:300.8017 andName:@"Everest 1956"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_EVRTS69 andShortName:@"evrst69" andEquatorRadius:6377295.664 andPoleRadius:0.0 andReciprocalFlattening:300.8017 andName:@"Everest 1969"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_EVRTSTSS andShortName:@"evrstSS" andEquatorRadius:6377298.556 andPoleRadius:0.0 andReciprocalFlattening:300.8017 andName:@"Everest (Sabah & Sarawak)"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_FRSCH60 andShortName:@"fschr60" andEquatorRadius:6378166.0 andPoleRadius:0.0 andReciprocalFlattening:298.3 andName:@"Fischer (Mercury Datum) 1960"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_FSRCH60M andShortName:@"fschr60m" andEquatorRadius:6378155.0 andPoleRadius:0.0 andReciprocalFlattening:298.3 andName:@"Modified Fischer 1960"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_FSCHR68 andShortName:@"fschr68" andEquatorRadius:6378150.0 andPoleRadius:0.0 andReciprocalFlattening:298.3 andName:@"Fischer 1968"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_HELMERT andShortName:@"helmert" andEquatorRadius:6378200.0 andPoleRadius:0.0 andReciprocalFlattening:298.3 andName:@"Helmert 1906"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_HOUGH andShortName:@"hough" andEquatorRadius:6378270.0 andPoleRadius:0.0 andReciprocalFlattening:297.0 andName:@"Hough"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_KAULA andShortName:@"kaula" andEquatorRadius:6378163.0 andPoleRadius:0.0 andReciprocalFlattening:298.24 andName:@"Kaula 1961"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_LERCH andShortName:@"lerch" andEquatorRadius:6378139.0 andPoleRadius:0.0 andReciprocalFlattening:298.257 andName:@"Lerch 1979"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_MPRTS andShortName:@"mprts" andEquatorRadius:6397300.0 andPoleRadius:0.0 andReciprocalFlattening:191.0 andName:@"Maupertius 1738"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_PLESSIS andShortName:@"plessis" andEquatorRadius:6376523.0 andPoleRadius:6355863.0 andReciprocalFlattening:0.0 andName:@"Plessis 1817 (France)"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_SEASIA andShortName:@"SEasia" andEquatorRadius:6378155.0 andPoleRadius:6356773.3205 andReciprocalFlattening:0.0 andName:@"Southeast Asia"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_WALBECK andShortName:@"walbeck" andEquatorRadius:6376896.0 andPoleRadius:6355834.8467 andReciprocalFlattening:0.0 andName:@"Walbeck"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_NAD27 andShortName:@"NAD27" andEquatorRadius:6378249.145 andPoleRadius:0.0 andReciprocalFlattening:293.4663 andName:@"NAD27: Clarke 1880 mod."]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_NAD83 andShortName:@"NAD83" andEquatorRadius:6378137.0 andPoleRadius:0.0 andReciprocalFlattening:298.257222101 andName:@"NAD83: GRS 1980 (IUGG, 1980)"]];
+    [self initializeEllipsoid:[self createWithType:PROJ_ELLIPSOID_SPHERE andShortName:@"sphere" andEquatorRadius:6371008.7714 andPoleRadius:6371008.7714 andReciprocalFlattening:0.0 andName:@"Sphere"]];
     
 }
 
@@ -234,28 +234,45 @@ static NSMutableDictionary<NSString *, PROJEllipsoid *> *nameEllipsoids = nil;
     }
     
     PROJEllipsoid *ellipsoid = (PROJEllipsoid *) object;
+    if(_type != ellipsoid.type){
+        return NO;
+    }
     if(_names == nil){
-        if(ellipsoid.names != nil)
+        if(ellipsoid.names != nil){
             return NO;
-    }else if(![_names isEqual:ellipsoid.names])
+        }
+    }else if(![_names isEqual:ellipsoid.names]){
         return NO;
+    }
     if(_shortName == nil){
-        if (ellipsoid.shortName != nil)
+        if (ellipsoid.shortName != nil){
             return NO;
-    }else if(![_shortName isEqualToString:ellipsoid.shortName])
+        }
+    }else if(![_shortName isEqualToString:ellipsoid.shortName]){
         return NO;
-    
-    return _equatorRadius == ellipsoid.equatorRadius
-        && _poleRadius == ellipsoid.poleRadius
-        && _eccentricity == ellipsoid.eccentricity;
+    }
+    if(![[NSNumber numberWithDouble:_equatorRadius] isEqual:[NSNumber numberWithDouble:ellipsoid.equatorRadius]]){
+        return NO;
+    }
+    if(![[NSNumber numberWithDouble:_poleRadius] isEqual:[NSNumber numberWithDouble:ellipsoid.poleRadius]]){
+        return NO;
+    }
+    if(![[NSNumber numberWithDouble:_eccentricity] isEqual:[NSNumber numberWithDouble:ellipsoid.eccentricity]]){
+        return NO;
+    }
+    return YES;
 }
 
 -(NSUInteger) hash{
-    return [_names hash]
-            | (7 * [_shortName hash])
-            | (17 * [[NSNumber numberWithDouble:_equatorRadius] hash])
-            | (29 * [[NSNumber numberWithDouble:_poleRadius] hash])
-            | (37 * [[NSNumber numberWithDouble:_eccentricity] hash]);
+    NSUInteger prime = 31;
+    NSUInteger result = 1;
+    result = prime * result + [[NSNumber numberWithInt:_type] hash];
+    result = prime * result + [_names hash];
+    result = prime * result + [_shortName hash];
+    result = prime * result + [[NSNumber numberWithDouble:_equatorRadius] hash];
+    result = prime * result + [[NSNumber numberWithDouble:_poleRadius] hash];
+    result = prime * result + [[NSNumber numberWithDouble:_eccentricity] hash];
+    return result;
 }
 
 

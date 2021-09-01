@@ -34,6 +34,9 @@
     if(_lat_0 != nil){
         [description appendFormat:@" +lat_0=%@", _lat_0];
     }
+    if(_lat_ts != nil){
+        [description appendFormat:@" +lat_ts=%@", _lat_ts];
+    }
     if(_lon_0 != nil){
         [description appendFormat:@" +lon_0=%@", _lon_0];
     }

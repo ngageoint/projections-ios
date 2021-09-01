@@ -483,8 +483,33 @@
     paralist *curr;
     paralist *curr2;
     for(curr = crs->params, curr2 = crs2->params; curr || curr2; curr = curr->next, curr2 = curr2->next){
+        [PROJTestUtils assertTrue:curr];
+        [PROJTestUtils assertTrue:curr2];
         [PROJTestUtils assertEqualIntWithValue:curr->used andValue2:curr2->used];
-        [PROJTestUtils assertEqualWithValue:[NSString stringWithUTF8String:curr->param] andValue2:[NSString stringWithUTF8String:curr2->param]];
+        NSString *param1 = [NSString stringWithUTF8String:curr->param];
+        NSString *param2 = [NSString stringWithUTF8String:curr2->param];
+        if([param2 hasPrefix:@"k="]){
+            param2 = [NSString stringWithFormat:@"k_0=%@", [param2 substringFromIndex:2]];
+        }
+        NSRange range1 = [param1 rangeOfString:@"="];
+        NSRange range2 = [param2 rangeOfString:@"="];
+        if(range1.length != 0 && range2.length != 0){
+            [PROJTestUtils assertEqualIntWithValue:(int)range1.location andValue2:(int)range2.location];
+            [PROJTestUtils assertEqualWithValue:[param1 substringToIndex:range1.location] andValue2:[param2 substringToIndex:range2.location]];
+            param1 = [param1 substringFromIndex:range1.location + 1];
+            param2 = [param2 substringFromIndex:range2.location + 1];
+            NSScanner *scanner1 = [NSScanner scannerWithString:param1];
+            NSScanner *scanner2 = [NSScanner scannerWithString:param2];
+            double value1;
+            double value2;
+            if([scanner1 scanDouble:&value1] && [scanner2 scanDouble:&value2]){
+                [PROJTestUtils assertEqualDoubleWithValue:value1 andValue2:value2 andDelta:delta];
+            }else{
+                [PROJTestUtils assertEqualWithValue:param1 andValue2:param2];
+            }
+        }else{
+            [PROJTestUtils assertEqualWithValue:param1 andValue2:param2];
+        }
     }
     [PROJTestUtils assertEqualIntWithValue:crs->over andValue2:crs2->over];
     [PROJTestUtils assertEqualIntWithValue:crs->geoc andValue2:crs2->geoc];
@@ -498,8 +523,8 @@
     [PROJTestUtils assertEqualDoubleWithValue:crs->ra andValue2:crs2->ra];
     [PROJTestUtils assertEqualDoubleWithValue:crs->one_es andValue2:crs2->one_es];
     [PROJTestUtils assertEqualDoubleWithValue:crs->rone_es andValue2:crs2->rone_es];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->lam0 andValue2:crs2->lam0];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->phi0 andValue2:crs2->phi0];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->lam0 andValue2:crs2->lam0 andDelta:delta];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->phi0 andValue2:crs2->phi0 andDelta:delta];
     [PROJTestUtils assertEqualDoubleWithValue:crs->x0 andValue2:crs2->x0];
     [PROJTestUtils assertEqualDoubleWithValue:crs->y0 andValue2:crs2->y0];
     [PROJTestUtils assertEqualDoubleWithValue:crs->k0 andValue2:crs2->k0];

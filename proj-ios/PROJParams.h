@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString *lat_1;
 @property (nonatomic, strong) NSString *lat_2;
 @property (nonatomic, strong) NSString *lat_0;
+@property (nonatomic, strong) NSString *lat_ts;
 @property (nonatomic, strong) NSString *lon_0;
 @property (nonatomic, strong) NSString *lonc;
 @property (nonatomic, strong) NSString *alpha;
