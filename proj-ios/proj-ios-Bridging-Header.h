@@ -24,7 +24,5 @@
 #import "PROJUnits.h"
 #import "PROJIOUtils.h"
 #import "PROJConstants.h"
-#import "PROJEllipsoid.h"
-#import "PROJPrimeMeridian.h"
 
 #endif /* proj_ios_Bridging_Header_h */
