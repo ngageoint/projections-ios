@@ -12,7 +12,6 @@
 #import "proj_ios.h"
 #import "PROJAuthorityProjections.h"
 #import "PROJCRSParser.h"
-#import "PROJParams.h"
 #import "PROJProjection.h"
 #import "PROJProjectionConstants.h"
 #import "PROJProjectionFactory.h"

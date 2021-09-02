@@ -12,7 +12,6 @@
 #import "CRSGeoCoordinateReferenceSystem.h"
 #import "CRSProjectedCoordinateReferenceSystem.h"
 #import "CRSCompoundCoordinateReferenceSystem.h"
-#import "PROJParams.h"
 
 /**
  * Coordinate Reference System Well-known text parser
@@ -31,11 +30,11 @@
 /**
  * Convert a CRS object into a proj4 coordinate reference system
  *
- * @param crsObject
+ * @param crs
  *            CRS object
  * @return coordinate reference system
  */
-+(projPJ) convertCRS: (CRSObject *) crsObject;
++(projPJ) convertCRS: (CRSObject *) crs;
 
 /**
  * Convert a geodetic or geographic crs into a proj4 coordinate reference
