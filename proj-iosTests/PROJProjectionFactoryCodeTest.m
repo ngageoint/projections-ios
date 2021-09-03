@@ -88,6 +88,83 @@
 }
 
 /**
+ * Test EPSG 3035
+ */
+-(void) test3035{
+
+    NSString *code = @"3035";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"ETRS89-extended / LAEA Europe\",BASEGEOGCRS[\"ETRS89\","];
+    [definition appendString:@"ENSEMBLE[\"European Terrestrial Reference System 1989 ensemble\","];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1989\",ID[\"EPSG\",1178]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1990\",ID[\"EPSG\",1179]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1991\",ID[\"EPSG\",1180]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1992\",ID[\"EPSG\",1181]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1993\",ID[\"EPSG\",1182]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1994\",ID[\"EPSG\",1183]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1996\",ID[\"EPSG\",1184]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1997\",ID[\"EPSG\",1185]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 2000\",ID[\"EPSG\",1186]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 2005\",ID[\"EPSG\",1204]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 2014\",ID[\"EPSG\",1206]],"];
+    [definition appendString:@"ELLIPSOID[\"GRS 1980\",6378137,298.257222101,ID[\"EPSG\",7019]],"];
+    [definition appendString:@"ENSEMBLEACCURACY[0.1],ID[\"EPSG\",6258]],ID[\"EPSG\",4258]],"];
+    [definition appendString:@"CONVERSION[\"Europe Equal Area 2001\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",52,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",10,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",4321000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",3210000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",19986]],CS[Cartesian,2,ID[\"EPSG\",4532]],"];
+    [definition appendString:@"AXIS[\"Northing (Y)\",north],AXIS[\"Easting (X)\",east],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",3035]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"ETRS89 / ETRS-LAEA\",GEOGCS[\"ETRS89\","];
+    [definition appendString:@"DATUM[\"European_Terrestrial_Reference_System_1989\","];
+    [definition appendString:@"SPHEROID[\"GRS 1980\",6378137,298.257222101,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7019\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6258\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.01745329251994328,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4258\"]],"];
+    [definition appendString:@"UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"PROJECTION[\"Lambert_Azimuthal_Equal_Area\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_center\",52],"];
+    [definition appendString:@"PARAMETER[\"longitude_of_center\",10],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",4321000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",3210000],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"3035\"],"];
+    [definition appendString:@"AXIS[\"X\",EAST],AXIS[\"Y\",NORTH]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"ETRS89 / LAEA Europe\",GEOGCRS[\"ETRS89\","];
+    [definition appendString:@"DATUM[\"European_Terrestrial_Reference_System_1989\","];
+    [definition appendString:@"SPHEROID[\"GRS 1980\",6378137,298.257222101,"];
+    [definition appendString:@"ID[\"EPSG\",\"7019\"]],"];
+    [definition appendString:@"ABRIDGEDTRANSFORMATION[0,0,0,0,0,0,0],"];
+    [definition appendString:@"ID[\"EPSG\",\"6258\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,ID[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"ID[\"EPSG\",\"9122\"]],ID[\"EPSG\",\"4258\"]],"];
+    [definition appendString:@"PROJECTION[\"Lambert_Azimuthal_Equal_Area\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_center\",52],"];
+    [definition appendString:@"PARAMETER[\"longitude_of_center\",10],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",4321000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",3210000],"];
+    [definition appendString:@"UNIT[\"metre\",1,ID[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"ID[\"EPSG\",\"3035\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+}
+
+/**
  * Test EPSG 4326
  */
 -(void) test4326{
@@ -534,6 +611,13 @@
         [PROJTestUtils assertEqualIntWithValue:curr->used andValue2:curr2->used];
         NSString *param1 = [NSString stringWithUTF8String:curr->param];
         NSString *param2 = [NSString stringWithUTF8String:curr2->param];
+        if([param2 hasPrefix:@"towgs84="] && ![param1 hasPrefix:@"towgs84"]){
+            [PROJTestUtils assertEqualWithValue:@"towgs84=0,0,0,0,0,0,0" andValue2:param2];
+            curr2 = curr2->next;
+            [PROJTestUtils assertTrue:curr2];
+            [PROJTestUtils assertEqualIntWithValue:curr->used andValue2:curr2->used];
+            param2 = [NSString stringWithUTF8String:curr2->param];
+        }
         if([param2 hasPrefix:@"k="]){
             param2 = [NSString stringWithFormat:@"k_0=%@", [param2 substringFromIndex:2]];
         }
@@ -576,7 +660,9 @@
     [PROJTestUtils assertEqualDoubleWithValue:crs->k0 andValue2:crs2->k0];
     [PROJTestUtils assertEqualDoubleWithValue:crs->to_meter andValue2:crs2->to_meter];
     [PROJTestUtils assertEqualDoubleWithValue:crs->fr_meter andValue2:crs2->fr_meter];
-    [PROJTestUtils assertEqualIntWithValue:crs->datum_type andValue2:crs2->datum_type];
+    if(crs->datum_type != crs2->datum_type){
+        [PROJTestUtils assertTrue:crs->datum_type == PJD_UNKNOWN || crs2->datum_type == PJD_UNKNOWN];
+    }
     [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[0] andValue2:crs2->datum_params[0]];
     [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[1] andValue2:crs2->datum_params[1]];
     [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[2] andValue2:crs2->datum_params[2]];
