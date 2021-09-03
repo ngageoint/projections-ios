@@ -41,7 +41,7 @@ class PROJSwiftReadmeTest: XCTestCase{
         let projection3 : PROJProjection = PROJProjectionFactory.projection(withAuthority: PROJ_AUTHORITY_EPSG, andIntCode: 3123,
                                                                             andParams: "+proj=tmerc +lat_0=0 +lon_0=121 +k=0.99995 +x_0=500000 +y_0=0 +ellps=clrk66 "
                                                                                 + "+towgs84=-127.62,-67.24,-47.04,-3.068,4.903,1.578,-1.06 +units=m +no_defs")
-        let projection4 : PROJProjection? /* TODO remove '?' suffix */ = PROJProjectionFactory.projection(byDefinition: "PROJCS[\"Lambert_Conformal_Conic (1SP)\","
+        let projection4 : PROJProjection = PROJProjectionFactory.projection(byDefinition: "PROJCS[\"Lambert_Conformal_Conic (1SP)\","
                                                                                 + "GEODCRS[\"GCS_North_American_1983\","
                                                                                 + "DATUM[\"North_American_Datum_1983\","
                                                                                 + "SPHEROID[\"GRS_1980\",6371000,0]],"
