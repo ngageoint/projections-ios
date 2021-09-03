@@ -88,6 +88,52 @@
 }
 
 /**
+ * Test EPSG 4326
+ */
+-(void) test4326{
+    
+    NSString *code = @"4326";
+    
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"GEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\","];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (Transit)\",ID[\"EPSG\",1166]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G730)\",ID[\"EPSG\",1152]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G873)\",ID[\"EPSG\",1153]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1150)\",ID[\"EPSG\",1154]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1674)\",ID[\"EPSG\",1155]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1762)\",ID[\"EPSG\",1156]],"];
+    [definition appendString:@"ELLIPSOID[\"WGS 84\",6378137,298.257223563,ID[\"EPSG\",7030]],"];
+    [definition appendString:@"ENSEMBLEACCURACY[2],ID[\"EPSG\",6326]],"];
+    [definition appendString:@"CS[ellipsoidal,2,ID[\"EPSG\",6422]],"];
+    [definition appendString:@"AXIS[\"Geodetic latitude (Lat)\",north],AXIS[\"Geodetic longitude (Lon)\",east],"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],"];
+    [definition appendString:@"ID[\"EPSG\",4326]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\","];
+    [definition appendString:@"SPHEROID[\"WGS 84\",6378137,298.257223563,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7030\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6326\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.01745329251994328,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4326\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\","];
+    [definition appendString:@"SPHEROID[\"WGS84\",6378137,298.257223563]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433]]"];
+    
+    [self projectionTestSpecifiedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
  * Test projection creation and transformations with derived authority and
  * epsg
  *
