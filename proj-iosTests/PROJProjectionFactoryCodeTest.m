@@ -11,6 +11,7 @@
 #import "PROJProjectionConstants.h"
 #import "PROJProjectionFactory.h"
 #import "PROJProjectionRetriever.h"
+#import "CRSGeoDatums.h"
 
 @implementation PROJProjectionFactoryCodeTest
 
@@ -372,7 +373,6 @@
 /**
  * Test EPSG 3857
  */
-/* TODO
 -(void) test3857{
 
     NSString *code = @"3857";
@@ -442,7 +442,6 @@
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
 
 }
- */
 
 /**
  * Test EPSG 3978
@@ -562,7 +561,465 @@
     
 }
 
-// TODO
+/**
+ * Test EPSG 4979
+ */
+-(void) test4979{
+    
+    NSString *code = @"4979";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"GEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\","];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (Transit)\",ID[\"EPSG\",1166]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G730)\",ID[\"EPSG\",1152]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G873)\",ID[\"EPSG\",1153]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1150)\",ID[\"EPSG\",1154]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1674)\",ID[\"EPSG\",1155]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1762)\",ID[\"EPSG\",1156]],"];
+    [definition appendString:@"ELLIPSOID[\"WGS 84\",6378137,298.257223563,ID[\"EPSG\",7030]],"];
+    [definition appendString:@"ENSEMBLEACCURACY[2],ID[\"EPSG\",6326]],"];
+    [definition appendString:@"CS[ellipsoidal,3,ID[\"EPSG\",6423]],"];
+    [definition appendString:@"AXIS[\"Geodetic latitude (Lat)\",north,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"AXIS[\"Geodetic longitude (Lon)\",east,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"AXIS[\"Ellipsoidal height (h)\",up,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],ID[\"EPSG\",4979]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"GEOGCS[\"WGS 84\","];
+    [definition appendString:@"DATUM[\"World Geodetic System 1984\","];
+    [definition appendString:@"SPHEROID[\"WGS 84\",6378137.0,298.257223563,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7030\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6326\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0.0,AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.017453292519943295],"];
+    [definition appendString:@"AXIS[\"Geodetic latitude\",NORTH],"];
+    [definition appendString:@"AXIS[\"Geodetic longitude\",EAST],"];
+    [definition appendString:@"AXIS[\"Ellipsoidal height\",UP],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4979\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"GEODCRS[\"WGS 84\",DATUM[\"World Geodetic System 1984\","];
+    [definition appendString:@"ELLIPSOID[\"WGS 84\",6378137,298.257223563,"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1.0]]],CS[ellipsoidal,3],"];
+    [definition appendString:@"AXIS[\"Geodetic latitude (Lat)\",north,"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433]],"];
+    [definition appendString:@"AXIS[\"Geodetic longitude (Long)\",east,"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433]],"];
+    [definition appendString:@"AXIS[\"Ellipsoidal height (h)\",up,"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",4979]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+}
+
+/**
+ * Test EPSG 5041
+ */
+-(void) test5041{
+
+    NSString *code = @"5041";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"WGS 84 / UPS North (E,N)\",BASEGEOGCRS[\"WGS 84\","];
+    [definition appendString:@"ENSEMBLE[\"World Geodetic System 1984 ensemble\","];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (Transit)\",ID[\"EPSG\",1166]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G730)\",ID[\"EPSG\",1152]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G873)\",ID[\"EPSG\",1153]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1150)\",ID[\"EPSG\",1154]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1674)\",ID[\"EPSG\",1155]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1762)\",ID[\"EPSG\",1156]],"];
+    [definition appendString:@"ELLIPSOID[\"WGS 84\",6378137,298.257223563,ID[\"EPSG\",7030]],"];
+    [definition appendString:@"ENSEMBLEACCURACY[2],ID[\"EPSG\",6326]],ID[\"EPSG\",4326]],"];
+    [definition appendString:@"CONVERSION[\"Universal Polar Stereographic North\","];
+    [definition appendString:@"METHOD[\"Polar Stereographic (variant A)\",ID[\"EPSG\",9810]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",90,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.994,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",2000000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",2000000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",16061]],CS[Cartesian,2,ID[\"EPSG\",1026]],"];
+    [definition appendString:@"AXIS[\"Easting (E)\",South,MERIDIAN[90.0,ANGLEUNIT[\"degree\",0.0174532925199433]]],"];
+    [definition appendString:@"AXIS[\"Northing (N)\",South,MERIDIAN[180.0,ANGLEUNIT[\"degree\",0.0174532925199433]]],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",5041]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"WGS 84 / UPS North (E,N)\","];
+    [definition appendString:@"GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\","];
+    [definition appendString:@"SPHEROID[\"WGS 84\",6378137,298.257223563,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7030\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6326\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4326\"]],"];
+    [definition appendString:@"PROJECTION[\"Polar_Stereographic\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",90],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",0],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",0.994],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",2000000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",2000000],"];
+    [definition appendString:@"UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"5041\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"WGS 84 / UPS North (E,N)\","];
+    [definition appendString:@"BASEGEODCRS[\"WGS 84\","];
+    [definition appendString:@"DATUM[\"World Geodetic System 1984\","];
+    [definition appendString:@"ELLIPSOID[\"WGS 84\",6378137,298.257223563,"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1.0]]]],"];
+    [definition appendString:@"CONVERSION[\"Universal Polar Stereographic North\","];
+    [definition appendString:@"METHOD[\"Polar Stereographic (variant A)\",ID[\"EPSG\",\"9810\"]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",90,"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",0,"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.994,"];
+    [definition appendString:@"SCALEUNIT[\"unity\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",2000000,"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",2000000,"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",\"16061\"]],"];
+    [definition appendString:@"CS[Cartesian,2],AXIS[\"Easting (E)\",south,"];
+    [definition appendString:@"MERIDIAN[90,ANGLEUNIT[\"degree\",0.0174532925199433]],"];
+    [definition appendString:@"ORDER[1]],AXIS[\"Northing (N)\",south,"];
+    [definition appendString:@"MERIDIAN[180,ANGLEUNIT[\"degree\",0.0174532925199433]],"];
+    [definition appendString:@"ORDER[2]],LENGTHUNIT[\"metre\",1.0],"];
+    [definition appendString:@"ID[\"EPSG\",\"5041\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+}
+
+/**
+ * Test EPSG 5042
+ */
+-(void) test5042{
+
+    NSString *code = @"5042";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"WGS 84 / UPS South (E,N)\",BASEGEOGCRS[\"WGS 84\","];
+    [definition appendString:@"ENSEMBLE[\"World Geodetic System 1984 ensemble\","];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (Transit)\",ID[\"EPSG\",1166]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G730)\",ID[\"EPSG\",1152]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G873)\",ID[\"EPSG\",1153]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1150)\",ID[\"EPSG\",1154]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1674)\",ID[\"EPSG\",1155]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1762)\",ID[\"EPSG\",1156]],"];
+    [definition appendString:@"ELLIPSOID[\"WGS 84\",6378137,298.257223563,ID[\"EPSG\",7030]],"];
+    [definition appendString:@"ENSEMBLEACCURACY[2],ID[\"EPSG\",6326]],ID[\"EPSG\",4326]],"];
+    [definition appendString:@"CONVERSION[\"Universal Polar Stereographic South\","];
+    [definition appendString:@"METHOD[\"Polar Stereographic (variant A)\",ID[\"EPSG\",9810]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",-90,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.994,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",2000000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",2000000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",16161]],CS[Cartesian,2,ID[\"EPSG\",1027]],"];
+    [definition appendString:@"AXIS[\"Easting (E)\",North,MERIDIAN[90.0,ANGLEUNIT[\"degree\",0.0174532925199433]]],"];
+    [definition appendString:@"AXIS[\"Northing (N)\",North,MERIDIAN[0.0,ANGLEUNIT[\"degree\",0.0174532925199433]]],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",5042]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"WGS 84 / UPS South (E,N)\","];
+    [definition appendString:@"GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\","];
+    [definition appendString:@"SPHEROID[\"WGS 84\",6378137,298.257223563,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7030\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6326\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4326\"]],"];
+    [definition appendString:@"PROJECTION[\"Polar_Stereographic\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",-90],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",0],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",0.994],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",2000000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",2000000],"];
+    [definition appendString:@"UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"5042\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"WGS 84 / UPS South (E,N)\","];
+    [definition appendString:@"BASEGEODCRS[\"WGS 84\","];
+    [definition appendString:@"DATUM[\"World Geodetic System 1984\","];
+    [definition appendString:@"ELLIPSOID[\"WGS 84\",6378137,298.257223563,"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1.0]]]],"];
+    [definition appendString:@"CONVERSION[\"Universal Polar Stereographic North\","];
+    [definition appendString:@"METHOD[\"Polar Stereographic (variant A)\",ID[\"EPSG\",\"9810\"]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",-90,"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",0,"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.994,"];
+    [definition appendString:@"SCALEUNIT[\"unity\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",2000000,"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",2000000,"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",\"16161\"]],"];
+    [definition appendString:@"CS[Cartesian,2],AXIS[\"Easting (E)\",north,"];
+    [definition appendString:@"MERIDIAN[90,ANGLEUNIT[\"degree\",0.0174532925199433]],"];
+    [definition appendString:@"ORDER[1]],AXIS[\"Northing (N)\",north,"];
+    [definition appendString:@"MERIDIAN[0,ANGLEUNIT[\"degree\",0.0174532925199433]],"];
+    [definition appendString:@"ORDER[2]],LENGTHUNIT[\"metre\",1.0],"];
+    [definition appendString:@"ID[\"EPSG\",\"5042\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+}
+
+/**
+ * Test EPSG 7405
+ */
+-(void) test7405{
+
+    NSString *code = @"7405";
+    double delta = 0.01;
+    double minX = -7.5600;
+    double minY = 49.9600;
+    double maxX = 1.7800;
+    double maxY = 60.8400;
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"COMPOUNDCRS[\"OSGB36 / British National Grid + ODN height\","];
+    [definition appendString:@"PROJCRS[\"OSGB36 / British National Grid\",BASEGEOGCRS[\"OSGB36\","];
+    [definition appendString:@"DATUM[\"Ordnance Survey of Great Britain 1936\","];
+    [definition appendString:@"ELLIPSOID[\"Airy 1830\",6377563.396,299.3249646,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],"];
+    [definition appendString:@"ID[\"EPSG\",7001]],ID[\"EPSG\",6277]],ID[\"EPSG\",4277]],"];
+    [definition appendString:@"CONVERSION[\"British National Grid\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",49,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",-2,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.9996012717,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",400000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",-100000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"X-axis translation\",446.448,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis translation\",-125.157,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis translation\",542.06,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"X-axis rotation\",0.15,ANGLEUNIT[\"arc-second\",4.84813681109535993589914102357E-06]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis rotation\",0.247,ANGLEUNIT[\"arc-second\",4.84813681109535993589914102357E-06]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis rotation\",0.842,ANGLEUNIT[\"arc-second\",4.84813681109535993589914102357E-06]],"];
+    [definition appendString:@"PARAMETER[\"Scale difference\",-20.489,SCALEUNIT[\"parts per million\",1E-06]],"];
+    [definition appendString:@"ID[\"EPSG\",19916]],CS[Cartesian,2,ID[\"EPSG\",4400]],"];
+    [definition appendString:@"AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",27700]],"];
+    [definition appendString:@"VERTCRS[\"ODN height\",VDATUM[\"Ordnance Datum Newlyn\",ID[\"EPSG\",5101]],"];
+    [definition appendString:@"CS[vertical,1,ID[\"EPSG\",6499]],"];
+    [definition appendString:@"AXIS[\"Gravity-related height (H)\",up],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",5701]],"];
+    [definition appendString:@"ID[\"EPSG\",7405]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andCompareAuthority:PROJ_AUTHORITY_EPSG andCompareCode:@"27700" andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"COMPD_CS[\"OSGB 1936 / British National Grid + ODN height\","];
+    [definition appendString:@"PROJCS[\"OSGB 1936 / British National Grid\",GEOGCS[\"OSGB 1936\","];
+    [definition appendString:@"DATUM[\"OSGB_1936\","];
+    [definition appendString:@"SPHEROID[\"Airy 1830\",6377563.396,299.3249646,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7001\"]],"];
+    [definition appendString:@"TOWGS84[446.448,-125.157,542.06,0.15,0.247,0.842,-20.489],AUTHORITY[\"EPSG\",\"6277\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4277\"]],"];
+    [definition appendString:@"PROJECTION[\"Transverse_Mercator\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",49],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",-2],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",0.9996012717],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",400000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",-100000],"];
+    [definition appendString:@"UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"27700\"]],"];
+    [definition appendString:@"VERT_CS[\"ODN height\",VERT_DATUM[\"Ordnance Datum Newlyn\",2005,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"5101\"]],"];
+    [definition appendString:@"UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"5701\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7405\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andCompareAuthority:PROJ_AUTHORITY_EPSG andCompareCode:@"27700" andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+
+}
+
+/**
+ * Test NGA 8101
+ */
+-(void) test8101{
+
+    NSString *code = @"8101";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"COMPOUNDCRS[“WGS84 Height (EGM08)”,"];
+    [definition appendString:@"GEODCRS[\"WGS 84\","];
+    [definition appendString:@"DATUM[\"World Geodetic System 1984\","];
+    [definition appendString:@"ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1.0]]],"];
+    [definition appendString:@"CS[ellipsoidal,2],"];
+    [definition appendString:@"AXIS[\"Geodetic latitude (Lat)\",north],"];
+    [definition appendString:@"AXIS[\"Geodetic longitude (Long)\",east],"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",4326]],"];
+    [definition appendString:@"VERTCRS[\"EGM2008 geoid height\","];
+    [definition appendString:@"VDATUM[\"EGM2008 geoid\",ANCHOR[\"WGS 84 ellipsoid\"]],"];
+    [definition appendString:@"CS[vertical,1],AXIS[\"Gravity-related height (H)\",up],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1.0]ID[\"EPSG\",\"3855\"]],"];
+    [definition appendString:@"ID[“NSG”,”8101”]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_NSG andCode:code andCompareAuthority:PROJ_AUTHORITY_EPSG andCompareCode:@"4326" andDefinition:definition];
+
+}
+
+/**
+ * Test EPSG 9801
+ */
+-(void) test9801{
+
+    int code = 9801;
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"Lambert_Conformal_Conic (1SP)\","];
+    [definition appendString:@"GEODCRS[\"GCS_North_American_1983\","];
+    [definition appendString:@"DATUM[\"North_American_Datum_1983\","];
+    [definition appendString:@"SPHEROID[\"GRS_1980\",6371000,0]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0],"];
+    [definition appendString:@"UNIT[\"Degree\",0.017453292519943295]],"];
+    [definition appendString:@"PROJECTION[\"Lambert_Conformal_Conic_1SP\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",25],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",-95],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",1],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",0],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"PARAMETER[\"standard_parallel_1\",25],"];
+    [definition appendString:@"UNIT[\"Meter\",1],AUTHORITY[\"EPSG\",\"9801\"]]"];
+
+    PROJProjection *projection = [PROJProjectionFactory projectionByDefinition:definition];
+
+    [PROJTestUtils assertNotNil:projection];
+    [PROJTestUtils assertEqualWithValue:PROJ_AUTHORITY_EPSG andValue2:projection.authority];
+    [PROJTestUtils assertEqualWithValue:[NSString stringWithFormat:@"%d", code] andValue2:projection.code];
+    [PROJTestUtils assertEqualWithValue:definition andValue2:projection.definition];
+    [PROJTestUtils assertTrue:[[NSString stringWithUTF8String:projection.crs->descr] hasPrefix:@"Lambert Conformal Conic"]];
+    [PROJTestUtils assertEqualDoubleWithValue:[[[CRSGeoDatums fromType:CRS_DATUM_NAD83] ellipsoid] equatorRadius] andValue2:projection.crs->a];
+
+}
+
+/**
+ * Test EPSG 9802
+ */
+-(void) test9802{
+
+    int code = 9802;
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"Lambert Conic Conformal (2SP)\","];
+    [definition appendString:@"GEODCRS[\"GCS_North_American_1983\","];
+    [definition appendString:@"DATUM[\"North_American_Datum_1983\","];
+    [definition appendString:@"SPHEROID[\"GRS_1980\",6378160,298.2539162964695]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433]],"];
+    [definition appendString:@"PROJECTION[\"Lambert_Conformal_Conic_2SP\"],"];
+    [definition appendString:@"PARAMETER[\"standard_parallel_1\",30],"];
+    [definition appendString:@"PARAMETER[\"standard_parallel_2\",60],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",30],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",126],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",0],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9802\"]]"];
+
+    PROJProjection *projection = [PROJProjectionFactory projectionByDefinition:definition];
+
+    [PROJTestUtils assertNotNil:projection];
+    [PROJTestUtils assertEqualWithValue:PROJ_AUTHORITY_EPSG andValue2:projection.authority];
+    [PROJTestUtils assertEqualWithValue:[NSString stringWithFormat:@"%d", code] andValue2:projection.code];
+    [PROJTestUtils assertEqualWithValue:definition andValue2:projection.definition];
+    [PROJTestUtils assertTrue:[[NSString stringWithUTF8String:projection.crs->descr] hasPrefix:@"Lambert Conformal Conic"]];
+    [PROJTestUtils assertEqualDoubleWithValue:[[[CRSGeoDatums fromType:CRS_DATUM_NAD83] ellipsoid] equatorRadius] andValue2:projection.crs->a];
+
+}
+
+/**
+ * Test EPSG 32660
+ */
+-(void) test32660{
+
+    NSString *code = @"32660";
+    double delta = 0.00001;
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"WGS 84 / UTM zone 60N\",BASEGEOGCRS[\"WGS 84\","];
+    [definition appendString:@"ENSEMBLE[\"World Geodetic System 1984 ensemble\","];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (Transit)\",ID[\"EPSG\",1166]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G730)\",ID[\"EPSG\",1152]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G873)\",ID[\"EPSG\",1153]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1150)\",ID[\"EPSG\",1154]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1674)\",ID[\"EPSG\",1155]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1762)\",ID[\"EPSG\",1156]],"];
+    [definition appendString:@"ELLIPSOID[\"WGS 84\",6378137,298.257223563,ID[\"EPSG\",7030]],"];
+    [definition appendString:@"ENSEMBLEACCURACY[2],ID[\"EPSG\",6326]],ID[\"EPSG\",4326]],"];
+    [definition appendString:@"CONVERSION[\"UTM zone 60N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",177,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],ID[\"EPSG\",16060]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",32660]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"WGS 84 / UTM zone 60N\",GEOGCS[\"WGS 84\","];
+    [definition appendString:@"DATUM[\"WGS_1984\","];
+    [definition appendString:@"SPHEROID[\"WGS 84\",6378137,298.257223563,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7030\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6326\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.01745329251994328,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4326\"]],"];
+    [definition appendString:@"UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"PROJECTION[\"Transverse_Mercator\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",0],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",177],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",0.9996],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",500000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"32660\"],"];
+    [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"WGS 84 / UTM zone 60N\",GEOGCRS[\"WGS 84\","];
+    [definition appendString:@"DATUM[\"WGS_1984\","];
+    [definition appendString:@"SPHEROID[\"WGS84\",6378137,298.257223563,"];
+    [definition appendString:@"ID[\"EPSG\",\"7030\"]],ID[\"EPSG\",\"6326\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,ID[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"ID[\"EPSG\",\"4326\"]],"];
+    [definition appendString:@"PROJECTION[\"Transverse_Mercator\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",0],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",177],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",0.9996],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",500000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"UNIT[\"metre\",1,ID[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],"];
+    [definition appendString:@"ID[\"EPSG\",\"32660\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+}
 
 /**
  * Test projection creation and transformations with derived authority and
@@ -982,13 +1439,13 @@
     if(crs->datum_type != crs2->datum_type){
         [PROJTestUtils assertTrue:crs->datum_type == PJD_UNKNOWN || crs2->datum_type == PJD_UNKNOWN];
     }
-    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[0] andValue2:crs2->datum_params[0]];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[1] andValue2:crs2->datum_params[1]];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[2] andValue2:crs2->datum_params[2]];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[3] andValue2:crs2->datum_params[3]];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[4] andValue2:crs2->datum_params[4]];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[5] andValue2:crs2->datum_params[5]];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[6] andValue2:crs2->datum_params[6]];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[0] andValue2:crs2->datum_params[0] andDelta:delta];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[1] andValue2:crs2->datum_params[1] andDelta:delta];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[2] andValue2:crs2->datum_params[2] andDelta:delta];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[3] andValue2:crs2->datum_params[3] andDelta:delta];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[4] andValue2:crs2->datum_params[4] andDelta:delta];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[5] andValue2:crs2->datum_params[5] andDelta:delta];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->datum_params[6] andValue2:crs2->datum_params[6] andDelta:delta];
     [PROJTestUtils assertEqualIntWithValue:crs->gridlist_count andValue2:crs2->gridlist_count];
     [PROJTestUtils assertEqualIntWithValue:crs->has_geoid_vgrids andValue2:crs2->has_geoid_vgrids];
     [PROJTestUtils assertEqualIntWithValue:crs->vgridlist_geoid_count andValue2:crs2->vgridlist_geoid_count];
