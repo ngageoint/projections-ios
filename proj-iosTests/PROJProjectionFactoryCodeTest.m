@@ -516,6 +516,62 @@
 }
 
 /**
+ * Test EPSG 4071
+ */
+-(void) test4071{
+
+    NSString *code = @"4071";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"Chua / UTM zone 23S\",BASEGEOGCRS[\"Chua\","];
+    [definition appendString:@"DATUM[\"Chua\","];
+    [definition appendString:@"ELLIPSOID[\"International 1924\",6378388,297,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7022]],"];
+    [definition appendString:@"ID[\"EPSG\",6224]],ID[\"EPSG\",4224]],"];
+    [definition appendString:@"CONVERSION[\"UTM zone 23S\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",-45,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",10000000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"X-axis translation\",-134,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis translation\",229,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis translation\",-29,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"ID[\"EPSG\",16123]],CS[Cartesian,2,ID[\"EPSG\",4400]],"];
+    [definition appendString:@"AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",4071]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"Chua / UTM zone 23S\","];
+    [definition appendString:@"GEOGCS[\"Chua\","];
+    [definition appendString:@"DATUM[\"Chua\","];
+    [definition appendString:@"SPHEROID[\"International 1924\",6378388,297,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7022\"]],"];
+    [definition appendString:@"TOWGS84[-134,229,-29,0,0,0,0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6224\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4224\"]],"];
+    [definition appendString:@"PROJECTION[\"Transverse_Mercator\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",0],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",-45],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",0.9996],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",500000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",10000000],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"Easting\",EAST],"];
+    [definition appendString:@"AXIS[\"Northing\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4071\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
  * Test EPSG 4326
  */
 -(void) test4326{
@@ -948,12 +1004,63 @@
 }
 
 /**
+ * Test EPSG 27258
+ */
+-(void) test27258{
+
+    NSString *code = @"27258";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"NZGD49 / UTM zone 58S\",BASEGEOGCRS[\"NZGD49\","];
+    [definition appendString:@"DATUM[\"New Zealand Geodetic Datum 1949\","];
+    [definition appendString:@"ELLIPSOID[\"International 1924\",6378388,297,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],"];
+    [definition appendString:@"ID[\"EPSG\",7022]],ID[\"EPSG\",6272]],ID[\"EPSG\",4272]],"];
+    [definition appendString:@"CONVERSION[\"UTM zone 58S\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",165,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",10000000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],ID[\"EPSG\",16158]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",27258]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"NZGD49 / UTM zone 58S\","];
+    [definition appendString:@"GEOGCS[\"NZGD49\","];
+    [definition appendString:@"DATUM[\"New_Zealand_Geodetic_Datum_1949\","];
+    [definition appendString:@"SPHEROID[\"International 1924\",6378388,297,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7022\"]],"];
+    [definition appendString:@"TOWGS84[59.47,-5.04,187.44,0.47,-0.1,1.024,-4.5993],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6272\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4272\"]],"];
+    [definition appendString:@"PROJECTION[\"Transverse_Mercator\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",0],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",165],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",0.9996],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",500000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",10000000],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"Easting\",EAST],"];
+    [definition appendString:@"AXIS[\"Northing\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"27258\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
  * Test EPSG 32660
  */
 -(void) test32660{
 
     NSString *code = @"32660";
-    double delta = 0.00001;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"WGS 84 / UTM zone 60N\",BASEGEOGCRS[\"WGS 84\","];
