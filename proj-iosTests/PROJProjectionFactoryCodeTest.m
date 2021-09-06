@@ -516,6 +516,68 @@
 }
 
 /**
+ * Test EPSG 3997
+ */
+-(void) test3997{
+
+    NSString *code = @"3997";
+    double delta = 0.0001;
+    double minX = 54.84;
+    double minY = 24.85;
+    double maxX = 55.55;
+    double maxY = 25.34;
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"WGS 84 / Dubai Local TM\",BASEGEOGCRS[\"WGS 84\","];
+    [definition appendString:@"ENSEMBLE[\"World Geodetic System 1984 ensemble\","];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (Transit)\", ID[\"EPSG\",1166]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G730)\", ID[\"EPSG\",1152]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G873)\", ID[\"EPSG\",1153]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1150)\", ID[\"EPSG\",1154]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1674)\", ID[\"EPSG\",1155]],"];
+    [definition appendString:@"MEMBER[\"World Geodetic System 1984 (G1762)\", ID[\"EPSG\",1156]],"];
+    [definition appendString:@"ELLIPSOID[\"WGS 84\",6378137,298.2572236,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7030]], ENSEMBLEACCURACY[2],"];
+    [definition appendString:@"ID[\"EPSG\",6326]],ID[\"EPSG\",4326]],"];
+    [definition appendString:@"CONVERSION[\"Dubai Local Transverse Mercator\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",55.333333333,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",1,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],ID[\"EPSG\",19839]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",3997]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"WGS 84 / Dubai Local TM\","];
+    [definition appendString:@"GEOGCS[\"WGS 84\","];
+    [definition appendString:@"DATUM[\"WGS_1984\","];
+    [definition appendString:@"SPHEROID[\"WGS 84\",6378137,298.257223563,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7030\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6326\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4326\"]],"];
+    [definition appendString:@"PROJECTION[\"Transverse_Mercator\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",0],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",55.33333333333334],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",1],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",500000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"Easting\",EAST],"];
+    [definition appendString:@"AXIS[\"Northing\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"3997\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+}
+
+/**
  * Test EPSG 4071
  */
 -(void) test4071{
@@ -1277,6 +1339,31 @@
 -(void) projectionTestDerivedWithAuthority: (NSString *) authority andCode: (NSString *) code andCompareAuthority: (NSString *) compareAuthority andCompareCode: (NSString *) compareCode andDefinition: (NSString *) definition andDelta: (double) delta{
     PROJProjection *projection = [PROJProjectionFactory projectionByDefinition:definition];
     [self projectionTestWithAuthority:authority andCode:code andCompareAuthority:compareAuthority andCompareCode:compareCode andDefinition:definition andProjection:projection andDelta:delta];
+}
+
+/**
+ * Test projection creation and transformations with derived authority and
+ * epsg
+ *
+ * @param authority
+ *            authority
+ * @param code
+ *            code
+ * @param definition
+ *            WKT definition
+ * @param delta
+ *            delta comparison
+ * @param minX
+ *            min x in degrees
+ * @param minY
+ *            min y in degrees
+ * @param maxX
+ *            max x in degrees
+ * @param maxY
+ *            max y in degrees
+ */
+-(void) projectionTestDerivedWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition andDelta: (double) delta andMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY{
+    [self projectionTestDerivedWithAuthority:authority andCode:code andCompareAuthority:authority andCompareCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 }
 
 /**
