@@ -578,6 +578,49 @@
 }
 
 /**
+ * Test EPSG 4055
+ */
+-(void) test4055{
+    
+    NSString *code = @"4055";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"Popular Visualisation CRS\",BASEGEOGCRS[\"Popular Visualisation CRS\","];
+    [definition appendString:@"DATUM[\"Popular Visualisation Datum\","];
+    [definition appendString:@"ELLIPSOID[\"Popular Visualisation Sphere\",6378137,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7059]],"];
+    [definition appendString:@"ID[\"EPSG\",6055]]],"];
+    [definition appendString:@"CONVERSION[\"Coordinate Frame rotation\",METHOD[\"Coordinate Frame rotation (geocentric domain)\",ID[\"EPSG\",1032]],"];
+    [definition appendString:@"PARAMETER[\"X-axis translation\",0,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis translation\",0,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis translation\",0,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"X-axis rotation\",0,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis rotation\",0,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis rotation\",0,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Scale difference\",0,SCALEUNIT[\"parts per million\",1E-06]],"];
+    [definition appendString:@"],CS[Cartesian,2,ID[\"EPSG\",6422]],"];
+    [definition appendString:@"AXIS[\"latitude (Lat)\",north],AXIS[\"longitude (Lon)\",east],"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],ID[\"EPSG\",4055]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"GEOGCS[\"Popular Visualisation CRS\","];
+    [definition appendString:@"DATUM[\"Popular_Visualisation_Datum\","];
+    [definition appendString:@"SPHEROID[\"Popular Visualisation Sphere\",6378137,0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7059\"]],"];
+    [definition appendString:@"TOWGS84[0,0,0,0,0,0,0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6055\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4055\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
  * Test EPSG 4071
  */
 -(void) test4071{
