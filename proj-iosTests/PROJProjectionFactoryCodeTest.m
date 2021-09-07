@@ -336,7 +336,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"4326\"]],"];
     [definition appendString:@"UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],"];
-    [definition appendString:@"PROJECTION[\"Mercator_1SP\"],"];
+    [definition appendString:@"PROJECTION[\"Mercator\"],"]; // TODO Mercator_1SP
     [definition appendString:@"PARAMETER[\"central_meridian\",0],"];
     [definition appendString:@"PARAMETER[\"scale_factor\",1],"];
     [definition appendString:@"PARAMETER[\"false_easting\",0],"];
@@ -578,6 +578,111 @@
 }
 
 /**
+ * Test EPSG 4005
+ */
+-(void) test4005{
+    
+    NSString *code = @"4005";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"GEOGCRS[\"Unknown datum based upon the Bessel Modified ellipsoid\","];
+    [definition appendString:@"DATUM[\"Not specified (based on Bessel Modified ellipsoid)\","];
+    [definition appendString:@"ELLIPSOID[\"Bessel Modified\",6377492.018,299.1528128,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],"];
+    [definition appendString:@"ID[\"EPSG\",7005]],ID[\"EPSG\",6005]],"];
+    [definition appendString:@"CS[ellipsoidal,2,ID[\"EPSG\",6422]],"];
+    [definition appendString:@"AXIS[\"latitude (Lat)\",north],AXIS[\"longitude (Lon)\",east],"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],ID[\"EPSG\",4005]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"GEOGCS[\"Unknown datum based upon the Bessel Modified ellipsoid\","];
+    [definition appendString:@"DATUM[\"Not_specified_based_on_Bessel_Modified_ellipsoid\","];
+    [definition appendString:@"SPHEROID[\"Bessel Modified\",6377492.018,299.1528128,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7005\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6005\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4005\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
+ * Test EPSG 4023
+ */
+-(void) test4023{
+    
+    NSString *code = @"4023";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"GEOGCRS[\"MOLDREF99\","];
+    [definition appendString:@"DATUM[\"MOLDREF99\","];
+    [definition appendString:@"ELLIPSOID[\"GRS 1980\",6378137,298.2572221,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],"];
+    [definition appendString:@"ID[\"EPSG\",7019]],"];
+    [definition appendString:@"TOWGS84[0,0,0,0,0,0,0],"];
+    [definition appendString:@"ID[\"EPSG\",1032]],"];
+    [definition appendString:@"CS[ellipsoidal,2,ID[\"EPSG\",6422]],"];
+    [definition appendString:@"AXIS[\"latitude (Lat)\",north],AXIS[\"longitude (Lon)\",east],"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],ID[\"EPSG\",4023]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"GEOGCS[\"MOLDREF99\","];
+    [definition appendString:@"DATUM[\"MOLDREF99\","];
+    [definition appendString:@"SPHEROID[\"GRS 1980\",6378137,298.257222101,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7019\"]],"];
+    [definition appendString:@"TOWGS84[0,0,0,0,0,0,0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"1032\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4023\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
+ * Test EPSG 4035
+ */
+-(void) test4035{
+    
+    NSString *code = @"4035";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"GEOGCRS[\"Unknown datum based upon the Authalic Sphere\","];
+    [definition appendString:@"DATUM[\"Not specified (based on Authalic Sphere)\","];
+    [definition appendString:@"ELLIPSOID[\"Sphere\",6371000,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],"];
+    [definition appendString:@"ID[\"EPSG\",7035]],ID[\"EPSG\",6035]],"];
+    [definition appendString:@"CS[ellipsoidal,2,ID[\"EPSG\",6402]],"];
+    [definition appendString:@"AXIS[\"latitude (Lat)\",north],AXIS[\"longitude (Long)\",east],"];
+    [definition appendString:@"ANGLEUNIT[\"degree minute second hemisphere\",1,ID[\"EPSG\",9108]],ID[\"EPSG\",4035]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"GEOGCS[\"Unknown datum based upon the Authalic Sphere\","];
+    [definition appendString:@"DATUM[\"Not_specified_based_on_Authalic_Sphere\","];
+    [definition appendString:@"SPHEROID[\"Sphere\",6371000,0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7035\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6035\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9108\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4035\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
  * Test EPSG 4055
  */
 -(void) test4055{
@@ -585,6 +690,19 @@
     NSString *code = @"4055";
 
     NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"GEOGCRS[\"Popular Visualisation CRS\","];
+    [definition appendString:@"DATUM[\"Popular Visualisation Datum\","];
+    [definition appendString:@"ELLIPSOID[\"Popular Visualisation Sphere\",6378137,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],"];
+    [definition appendString:@"ID[\"EPSG\",7059]],"];
+    [definition appendString:@"TOWGS84[0,0,0,0,0,0,0],"];
+    [definition appendString:@"ID[\"EPSG\",6055]],"];
+    [definition appendString:@"CS[ellipsoidal,2,ID[\"EPSG\",6422]],"];
+    [definition appendString:@"AXIS[\"latitude (Lat)\",north],AXIS[\"longitude (Lon)\",east],"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],ID[\"EPSG\",4055]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"Popular Visualisation CRS\",BASEGEOGCRS[\"Popular Visualisation CRS\","];
     [definition appendString:@"DATUM[\"Popular Visualisation Datum\","];
     [definition appendString:@"ELLIPSOID[\"Popular Visualisation Sphere\",6378137,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7059]],"];
