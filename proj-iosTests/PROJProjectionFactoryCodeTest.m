@@ -89,6 +89,61 @@
 }
 
 /**
+ * Test EPSG 2066
+ */
+-(void) test2066{
+    
+    NSString *code = @"2066";
+    double delta = 0.0001;
+    double minX = -60.9;
+    double minY = 11.08;
+    double maxX = -60.44;
+    double maxY = 11.41;
+    
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"Mount Dillon / Tobago Grid\",BASEGEOGCRS[\"Mount Dillon\","];
+    [definition appendString:@"DATUM[\"Mount Dillon\","];
+    [definition appendString:@"ELLIPSOID[\"Clarke 1858\",20926348,294.2606764,LENGTHUNIT[\"Clarke's foot\",0.3047972654,ID[\"EPSG\",9005]],ID[\"EPSG\",7007]],"];
+    [definition appendString:@"ID[\"EPSG\",6157]],ID[\"EPSG\",4157]],"];
+    [definition appendString:@"CONVERSION[\"Tobago Grid\",METHOD[\"Cassini-Soldner\",ID[\"EPSG\",9806]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",11.252178611,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",-60.686008889,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",187500,LENGTHUNIT[\"Clarke's link\",0.201166195164,ID[\"EPSG\",9039]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",180000,LENGTHUNIT[\"Clarke's link\",0.201166195164,ID[\"EPSG\",9039]]],"];
+    [definition appendString:@"ID[\"EPSG\",19924]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4407]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"Clarke's link\",0.201166195164,ID[\"EPSG\",9039]],ID[\"EPSG\",2066]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"Mount Dillon / Tobago Grid\","];
+    [definition appendString:@"GEOGCS[\"Mount Dillon\","];
+    [definition appendString:@"DATUM[\"Mount_Dillon\","];
+    [definition appendString:@"SPHEROID[\"Clarke 1858\",6378293.645208759,294.2606763692569,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7007\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6157\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4157\"]],"];
+    [definition appendString:@"PROJECTION[\"Cassini_Soldner\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",11.25217861111111],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",-60.68600888888889],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",187500],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",180000],"];
+    [definition appendString:@"UNIT[\"Clarke's link\",0.201166195164,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9039\"]],"];
+    [definition appendString:@"AXIS[\"Easting\",EAST],"];
+    [definition appendString:@"AXIS[\"Northing\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"2066\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+}
+
+/**
  * Test EPSG 2155
  */
 -(void) test2155{
@@ -2182,12 +2237,12 @@
     [PROJTestUtils assertEqualIntWithValue:crs->is_geocent andValue2:crs2->is_geocent];
     [PROJTestUtils assertEqualDoubleWithValue:crs->a andValue2:crs2->a];
     [PROJTestUtils assertEqualDoubleWithValue:crs->a_orig andValue2:crs2->a_orig];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->es andValue2:crs2->es];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->es_orig andValue2:crs2->es_orig];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->e andValue2:crs2->e];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->es andValue2:crs2->es andDelta:delta];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->es_orig andValue2:crs2->es_orig andDelta:delta];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->e andValue2:crs2->e andDelta:delta];
     [PROJTestUtils assertEqualDoubleWithValue:crs->ra andValue2:crs2->ra];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->one_es andValue2:crs2->one_es];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->rone_es andValue2:crs2->rone_es];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->one_es andValue2:crs2->one_es andDelta:delta];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->rone_es andValue2:crs2->rone_es andDelta:delta];
     [PROJTestUtils assertEqualDoubleWithValue:crs->lam0 andValue2:crs2->lam0 andDelta:delta];
     [PROJTestUtils assertEqualDoubleWithValue:crs->phi0 andValue2:crs2->phi0 andDelta:delta];
     [PROJTestUtils assertEqualDoubleWithValue:crs->x0 andValue2:crs2->x0 andDelta:delta];
