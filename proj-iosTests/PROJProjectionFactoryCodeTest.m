@@ -336,7 +336,28 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"4326\"]],"];
     [definition appendString:@"UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],"];
-    [definition appendString:@"PROJECTION[\"Mercator\"],"]; // TODO Mercator_1SP
+    [definition appendString:@"PROJECTION[\"Mercator_1SP\"],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",0],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",1],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",0],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"3395\"],"];
+    [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"WGS 84 / World Mercator\",GEOGCS[\"WGS 84\","];
+    [definition appendString:@"DATUM[\"WGS_1984\","];
+    [definition appendString:@"SPHEROID[\"WGS 84\",6378137,298.257223563,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7030\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6326\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.01745329251994328,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4326\"]],"];
+    [definition appendString:@"UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"PROJECTION[\"Mercator\"],"];
     [definition appendString:@"PARAMETER[\"central_meridian\",0],"];
     [definition appendString:@"PARAMETER[\"scale_factor\",1],"];
     [definition appendString:@"PARAMETER[\"false_easting\",0],"];
