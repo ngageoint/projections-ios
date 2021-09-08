@@ -89,6 +89,56 @@
 }
 
 /**
+ * Test EPSG 2163
+ */
+-(void) test2163{
+    
+    NSString *code = @"2163";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"US National Atlas Equal Area\",BASEGEOGCRS[\"Unspecified datum based upon the Clarke 1866 Authalic Sphere\","];
+    [definition appendString:@"DATUM[\"Not specified (based on Clarke 1866 Authalic Sphere)\","];
+    [definition appendString:@"ELLIPSOID[\"Clarke 1866 Authalic Sphere\",6370997,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7052]],"];
+    [definition appendString:@"ID[\"EPSG\",6052]],ID[\"EPSG\",4052]],"];
+    [definition appendString:@"CONVERSION[\"US National Atlas Equal Area\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",45,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",-100,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",3899]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4499]],AXIS[\"Easting (X)\",east],AXIS[\"Northing (Y)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2163]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"US National Atlas Equal Area\","];
+    [definition appendString:@"GEOGCS[\"Unspecified datum based upon the Clarke 1866 Authalic Sphere\","];
+    [definition appendString:@"DATUM[\"Not_specified_based_on_Clarke_1866_Authalic_Sphere\","];
+    [definition appendString:@"SPHEROID[\"Clarke 1866 Authalic Sphere\",6370997,0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7052\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6052\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4052\"]],"];
+    [definition appendString:@"PROJECTION[\"Lambert_Azimuthal_Equal_Area\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_center\",45],"];
+    [definition appendString:@"PARAMETER[\"longitude_of_center\",-100],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",0],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"X\",EAST],"];
+    [definition appendString:@"AXIS[\"Y\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"2163\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
  * Test EPSG 3035
  */
 -(void) test3035{
@@ -184,7 +234,8 @@
     [definition appendString:@"PARAMETER[\"Angle from Rectified to Skew Grid\",323.1301023611111,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
     [definition appendString:@"PARAMETER[\"Scale factor on initial line\",0.99984,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
     [definition appendString:@"PARAMETER[\"False easting\",804671,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
-    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],ID[\"EPSG\",19895]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",19895]],"];
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],"];
     [definition appendString:@"ID[\"EPSG\",3375]]"];
@@ -250,7 +301,8 @@
     [definition appendString:@"PARAMETER[\"Angle from Rectified to Skew Grid\",53.130102361,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
     [definition appendString:@"PARAMETER[\"Scale factor on initial line\",0.99984,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
     [definition appendString:@"PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
-    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],ID[\"EPSG\",19894]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",19894]],"];
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",3376]]"];
 
@@ -389,6 +441,106 @@
 
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
 
+}
+
+/**
+ * Test EPSG 3410
+ */
+-(void) test3410{
+    
+    NSString *code = @"3410";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"NSIDC EASE-Grid Global\",BASEGEOGCRS[\"Unspecified datum based upon the International 1924 Authalic Sphere\","];
+    [definition appendString:@"DATUM[\"Not specified (based on International 1924 Authalic Sphere)\","];
+    [definition appendString:@"ELLIPSOID[\"International 1924 Authalic Sphere\",6371228,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7057]],"];
+    [definition appendString:@"ID[\"EPSG\",6053]],ID[\"EPSG\",4053]],"];
+    [definition appendString:@"CONVERSION[\"US NSIDC Equal Area global projection\",METHOD[\"Lambert Cylindrical Equal Area (Spherical)\",ID[\"EPSG\",9834]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of 1st standard parallel\",30,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",19869]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4499]],AXIS[\"Easting (X)\",east],AXIS[\"Northing (Y)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",3410]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"NSIDC EASE-Grid Global\","];
+    [definition appendString:@"GEOGCS[\"Unspecified datum based upon the International 1924 Authalic Sphere\","];
+    [definition appendString:@"DATUM[\"Not_specified_based_on_International_1924_Authalic_Sphere\","];
+    [definition appendString:@"SPHEROID[\"International 1924 Authalic Sphere\",6371228,0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7057\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6053\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4053\"]],"];
+    [definition appendString:@"PROJECTION[\"Cylindrical_Equal_Area\"],"];
+    [definition appendString:@"PARAMETER[\"standard_parallel_1\",30],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",0],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",0],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"X\",EAST],"];
+    [definition appendString:@"AXIS[\"Y\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"3410\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
+ * Test EPSG 3786
+ */
+-(void) test3786{
+    
+    NSString *code = @"3786";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"World Equidistant Cylindrical (Sphere)\",BASEGEOGCRS[\"Unspecified datum based upon the GRS 1980 Authalic Sphere\","];
+    [definition appendString:@"DATUM[\"Not specified (based on GRS 1980 Authalic Sphere)\","];
+    [definition appendString:@"ELLIPSOID[\"GRS 1980 Authalic Sphere\",6371007,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7048]],"];
+    [definition appendString:@"ID[\"EPSG\",6047]],ID[\"EPSG\",4047]],"];
+    [definition appendString:@"CONVERSION[\"World Equidistant Cylindrical (Sphere)\",METHOD[\"Equidistant Cylindrical (Spherical)\",ID[\"EPSG\",9823]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",19968]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4499]],AXIS[\"Easting (X)\",east],AXIS[\"Northing (Y)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",3786]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"World Equidistant Cylindrical (Sphere) (deprecated)\","];
+    [definition appendString:@"GEOGCS[\"Unspecified datum based upon the GRS 1980 Authalic Sphere\","];
+    [definition appendString:@"DATUM[\"Not_specified_based_on_GRS_1980_Authalic_Sphere\","];
+    [definition appendString:@"SPHEROID[\"GRS 1980 Authalic Sphere\",6371007,0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7048\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6047\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4047\"]],"];
+    [definition appendString:@"PROJECTION[\"Equirectangular\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",0],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",0],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",0],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"X\",EAST],"];
+    [definition appendString:@"AXIS[\"Y\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"3786\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
 }
 
 /**
@@ -564,7 +716,8 @@
     [definition appendString:@"PARAMETER[\"Longitude of natural origin\",55.333333333,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
     [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",1,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
     [definition appendString:@"PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
-    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],ID[\"EPSG\",19839]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",19839]],"];
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",3997]]"];
     
@@ -698,6 +851,40 @@
     [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9108\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"4035\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
+ * Test EPSG 4047
+ */
+-(void) test4047{
+    
+    NSString *code = @"4047";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"GEOGCRS[\"Unspecified datum based upon the GRS 1980 Authalic Sphere\","];
+    [definition appendString:@"DATUM[\"Not specified (based on GRS 1980 Authalic Sphere)\","];
+    [definition appendString:@"ELLIPSOID[\"GRS 1980 Authalic Sphere\",6371007,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],"];
+    [definition appendString:@"ID[\"EPSG\",7048]],ID[\"EPSG\",6047]],"];
+    [definition appendString:@"CS[ellipsoidal,2,ID[\"EPSG\",6422]],"];
+    [definition appendString:@"AXIS[\"latitude (Lat)\",north],AXIS[\"longitude (Lon)\",east],"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],ID[\"EPSG\",4047]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"GEOGCS[\"Unspecified datum based upon the GRS 1980 Authalic Sphere\","];
+    [definition appendString:@"DATUM[\"Not_specified_based_on_GRS_1980_Authalic_Sphere\","];
+    [definition appendString:@"SPHEROID[\"GRS 1980 Authalic Sphere\",6371007,0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7048\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6047\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4047\"]]"];
     
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
     
@@ -1264,7 +1451,8 @@
     [definition appendString:@"PARAMETER[\"Longitude of natural origin\",165,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
     [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
     [definition appendString:@"PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
-    [definition appendString:@"PARAMETER[\"False northing\",10000000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],ID[\"EPSG\",16158]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",10000000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",16158]],"];
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",27258]]"];
 
@@ -1322,7 +1510,8 @@
     [definition appendString:@"PARAMETER[\"Longitude of natural origin\",177,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
     [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
     [definition appendString:@"PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
-    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],ID[\"EPSG\",16060]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",16060]],"];
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",32660]]"];
 
