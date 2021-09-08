@@ -89,6 +89,67 @@
 }
 
 /**
+ * Test EPSG 2155
+ */
+-(void) test2155{
+    
+    NSString *code = @"2155";
+    double delta = 0.001;
+    double minX = -170.88;
+    double minY = -14.43;
+    double maxX = -169.38;
+    double maxY = -14.11;
+    
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"American Samoa 1962 / American Samoa Lambert\",BASEGEOGCRS[\"American Samoa 1962\","];
+    [definition appendString:@"DATUM[\"American Samoa 1962\","];
+    [definition appendString:@"ELLIPSOID[\"Clarke 1866\",6378206.4,294.9786982,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7008]],"];
+    [definition appendString:@"ID[\"EPSG\",6169]],ID[\"EPSG\",4169]],"];
+    [definition appendString:@"CONVERSION[\"American Samoa Lambert\",METHOD[\"Lambert Conic Conformal (1SP)\",ID[\"EPSG\",9801]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",-14.266666667,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",170,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",1,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",500000,LENGTHUNIT[\"US survey foot\",0.304800609601219,ID[\"EPSG\",9003]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"US survey foot\",0.304800609601219,ID[\"EPSG\",9003]]],"];
+    [definition appendString:@"PARAMETER[\"X-axis translation\",-115,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis translation\",118,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis translation\",426,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"ID[\"EPSG\",15300]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4497]],AXIS[\"Easting (X)\",east],AXIS[\"Northing (Y)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"US survey foot\",0.304800609601219,ID[\"EPSG\",9003]],ID[\"EPSG\",2155]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"American Samoa 1962 / American Samoa Lambert (deprecated)\","];
+    [definition appendString:@"GEOGCS[\"American Samoa 1962\","];
+    [definition appendString:@"DATUM[\"American_Samoa_1962\","];
+    [definition appendString:@"SPHEROID[\"Clarke 1866\",6378206.4,294.9786982139006,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7008\"]],"];
+    [definition appendString:@"TOWGS84[-115,118,426,0,0,0,0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6169\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4169\"]],"];
+    [definition appendString:@"PROJECTION[\"Lambert_Conformal_Conic_1SP\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",-14.26666666666667],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",170],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",1],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",500000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"UNIT[\"US survey foot\",0.3048006096012192,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9003\"]],"];
+    [definition appendString:@"AXIS[\"X\",EAST],"];
+    [definition appendString:@"AXIS[\"Y\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"2155\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+}
+
+/**
  * Test EPSG 2163
  */
 -(void) test2163{
@@ -1765,6 +1826,29 @@
 -(void) projectionTestDerivedWithAuthority: (NSString *) authority andCode: (NSString *) code andCompareAuthority: (NSString *) compareAuthority andCompareCode: (NSString *) compareCode andDefinition: (NSString *) definition andDelta: (double) delta{
     PROJProjection *projection = [PROJProjectionFactory projectionByDefinition:definition];
     [self projectionTestWithAuthority:authority andCode:code andCompareAuthority:compareAuthority andCompareCode:compareCode andDefinition:definition andProjection:projection andDelta:delta];
+}
+
+/**
+ * Test projection creation and transformations with derived authority and
+ * epsg
+ *
+ * @param authority
+ *            authority
+ * @param code
+ *            code
+ * @param definition
+ *            WKT definition
+ * @param minX
+ *            min x in degrees
+ * @param minY
+ *            min y in degrees
+ * @param maxX
+ *            max x in degrees
+ * @param maxY
+ *            max y in degrees
+ */
+-(void) projectionTestDerivedWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition andMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY{
+    [self projectionTestDerivedWithAuthority:authority andCode:code andDefinition:definition andDelta:0 andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 }
 
 /**
