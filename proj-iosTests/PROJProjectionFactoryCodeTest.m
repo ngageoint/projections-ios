@@ -1269,6 +1269,61 @@
 }
 
 /**
+ * Test EPSG 5472
+ */
+-(void) test5472{
+    
+    NSString *code = @"5472";
+    double delta = 0.0001;
+    double minX = -83.04;
+    double minY = 7.15;
+    double maxX = -77.19;
+    double maxY = 9.68;
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"Panama-Colon 1911 / Panama Polyconic\",BASEGEOGCRS[\"Panama-Colon 1911\","];
+    [definition appendString:@"DATUM[\"Panama-Colon 1911\","];
+    [definition appendString:@"ELLIPSOID[\"Clarke 1866\",6378206.4,294.9786982,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7008]],"];
+    [definition appendString:@"ID[\"EPSG\",1072]],ID[\"EPSG\",5467]],"];
+    [definition appendString:@"CONVERSION[\"Panama Polyconic\",METHOD[\"American Polyconic\",ID[\"EPSG\",9818]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",8.25,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",-81,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",1000000,LENGTHUNIT[\"Clarke's yard\",0.9143917962,ID[\"EPSG\",9037]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",1092972.1,LENGTHUNIT[\"Clarke's yard\",0.9143917962,ID[\"EPSG\",9037]]],"];
+    [definition appendString:@"ID[\"EPSG\",5471]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",1028]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"Clarke's yard\",0.9143917962,ID[\"EPSG\",9037]],ID[\"EPSG\",5472]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"Panama-Colon 1911 / Panama Polyconic\","];
+    [definition appendString:@"GEOGCS[\"Panama-Colon 1911\","];
+    [definition appendString:@"DATUM[\"Panama_Colon_1911\","];
+    [definition appendString:@"SPHEROID[\"Clarke 1866\",6378206.4,294.9786982139006,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7008\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"1072\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"5467\"]],"];
+    [definition appendString:@"PROJECTION[\"Polyconic\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",8.25],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",-81],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",1000000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",1092972.1],"];
+    [definition appendString:@"UNIT[\"Clarke's yard\",0.9143917962,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9037\"]],"];
+    [definition appendString:@"AXIS[\"Easting\",EAST],"];
+    [definition appendString:@"AXIS[\"Northing\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"5472\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+}
+
+/**
  * Test EPSG 7405
  */
 -(void) test7405{
@@ -1996,8 +2051,8 @@
     [PROJTestUtils assertEqualDoubleWithValue:crs->rone_es andValue2:crs2->rone_es];
     [PROJTestUtils assertEqualDoubleWithValue:crs->lam0 andValue2:crs2->lam0 andDelta:delta];
     [PROJTestUtils assertEqualDoubleWithValue:crs->phi0 andValue2:crs2->phi0 andDelta:delta];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->x0 andValue2:crs2->x0];
-    [PROJTestUtils assertEqualDoubleWithValue:crs->y0 andValue2:crs2->y0];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->x0 andValue2:crs2->x0 andDelta:delta];
+    [PROJTestUtils assertEqualDoubleWithValue:crs->y0 andValue2:crs2->y0 andDelta:delta];
     [PROJTestUtils assertEqualDoubleWithValue:crs->k0 andValue2:crs2->k0];
     [PROJTestUtils assertEqualDoubleWithValue:crs->to_meter andValue2:crs2->to_meter];
     [PROJTestUtils assertEqualDoubleWithValue:crs->fr_meter andValue2:crs2->fr_meter];
