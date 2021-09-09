@@ -158,6 +158,7 @@
 -(void) test2065{
     
     NSString *code = @"2065";
+    double delta = 0.0000001;
     double minX = 12.09;
     double minY = 47.73;
     double maxX = 22.56;
@@ -183,7 +184,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",6501]],AXIS[\"Southing (X)\",south],AXIS[\"Westing (Y)\",west],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2065]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"S-JTSK (Ferro) / Krovak\","];
@@ -1850,6 +1851,57 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"21780\"]]"];
 
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+}
+
+/**
+ * Test EPSG 27200
+ */
+-(void) test27200{
+
+    NSString *code = @"27200";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"NZGD49 / New Zealand Map Grid\",BASEGEOGCRS[\"NZGD49\","];
+    [definition appendString:@"DATUM[\"New Zealand Geodetic Datum 1949\","];
+    [definition appendString:@"ELLIPSOID[\"International 1924\",6378388,297,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7022]],"];
+    [definition appendString:@"ID[\"EPSG\",6272]],ID[\"EPSG\",4272]],"];
+    [definition appendString:@"CONVERSION[\"New Zealand Map Grid\",METHOD[\"New Zealand Map Grid\",ID[\"EPSG\",9811]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",-41,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",173,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",2510000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",6023150,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",19917]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",27200]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"NZGD49 / New Zealand Map Grid\","];
+    [definition appendString:@"GEOGCS[\"NZGD49\","];
+    [definition appendString:@"DATUM[\"New_Zealand_Geodetic_Datum_1949\","];
+    [definition appendString:@"SPHEROID[\"International 1924\",6378388,297,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7022\"]],"];
+    [definition appendString:@"TOWGS84[59.47,-5.04,187.44,0.47,-0.1,1.024,-4.5993],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6272\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4272\"]],"];
+    [definition appendString:@"PROJECTION[\"New_Zealand_Map_Grid\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",-41],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",173],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",2510000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",6023150],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"Easting\",EAST],"];
+    [definition appendString:@"AXIS[\"Northing\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"27200\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
     
 }
 
