@@ -1725,6 +1725,71 @@
 }
 
 /**
+ * Test EPSG 21780
+ */
+-(void) test21780{
+
+    NSString *code = @"21780";
+    double delta = 0.0001;
+    double minX = 5.96;
+    double minY = 45.82;
+    double maxX = 10.49;
+    double maxY = 47.81;
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"Bern 1898 (Bern) / LV03C\",BASEGEOGCRS[\"Bern 1898 (Bern)\","];
+    [definition appendString:@"DATUM[\"CH1903 (Bern)\","];
+    [definition appendString:@"ELLIPSOID[\"Bessel 1841\",6377397.155,299.1528128,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7004]],ID[\"EPSG\",6801]],"];
+    [definition appendString:@"PRIMEM[\"Bern\",7.439583333,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],ID[\"EPSG\",8907]],ID[\"EPSG\",4801]],"];
+    [definition appendString:@"CONVERSION[\"Swiss Oblique Mercator 1903C\",METHOD[\"Hotine Oblique Mercator (variant B)\",ID[\"EPSG\",9815]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of projection centre\",46.952405556,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of projection centre\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Azimuth of initial line\",90,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Angle from Rectified to Skew Grid\",90,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor on initial line\",1,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"Easting at projection centre\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"Northing at projection centre\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"X-axis translation\",674.4,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis translation\",15.1,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis translation\",405.3,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"ID[\"EPSG\",19923]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4498]],AXIS[\"Easting (Y)\",east],AXIS[\"Northing (X)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",21780]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"Bern 1898 (Bern) / LV03C\","];
+    [definition appendString:@"GEOGCS[\"Bern 1898 (Bern)\","];
+    [definition appendString:@"DATUM[\"CH1903_Bern\","];
+    [definition appendString:@"SPHEROID[\"Bessel 1841\",6377397.155,299.1528128,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7004\"]],"];
+    [definition appendString:@"TOWGS84[674.4,15.1,405.3,0,0,0,0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6801\"]],"];
+    [definition appendString:@"PRIMEM[\"Bern\",7.439583333333333,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8907\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4801\"]],"];
+    [definition appendString:@"PROJECTION[\"Hotine_Oblique_Mercator_Azimuth_Center\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_center\",46.95240555555556],"];
+    [definition appendString:@"PARAMETER[\"longitude_of_center\",0],"];
+    [definition appendString:@"PARAMETER[\"azimuth\",90],"];
+    [definition appendString:@"PARAMETER[\"rectified_grid_angle\",90],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",1],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",0],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"Y\",EAST],"];
+    [definition appendString:@"AXIS[\"X\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"21780\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+}
+
+/**
  * Test EPSG 27258
  */
 -(void) test27258{
