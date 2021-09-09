@@ -2180,6 +2180,63 @@
 }
 
 /**
+ * Test EPSG 31600
+ */
+-(void) test31600{
+
+    NSString *code = @"31600";
+    double delta = 0.001;
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"Dealul Piscului 1930 / Stereo 33\",BASEGEOGCRS[\"Dealul Piscului 1930\","];
+    [definition appendString:@"DATUM[\"Dealul Piscului 1930\","];
+    [definition appendString:@"ELLIPSOID[\"International 1924\",6378388,297,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7022]],"];
+    [definition appendString:@"ID[\"EPSG\",6316]],ID[\"EPSG\",4316]],"];
+    [definition appendString:@"CONVERSION[\"Stereo 33\",METHOD[\"Oblique Stereographic\",ID[\"EPSG\",9809]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",45.9,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",25.392465889,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.9996667,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",500000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"X-axis translation\",103.25,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis translation\",-100.4,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis translation\",-307.19,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"ID[\"EPSG\",19927]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4499]],AXIS[\"Easting (X)\",east],AXIS[\"Northing (Y)\",north]"];
+    [definition appendString:@",LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",31600]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"Dealul Piscului 1930 / Stereo 33\","];
+    [definition appendString:@"GEOGCS[\"Dealul Piscului 1930\","];
+    [definition appendString:@"DATUM[\"Dealul_Piscului_1930\","];
+    [definition appendString:@"SPHEROID[\"International 1924\",6378388,297,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7022\"]],"];
+    [definition appendString:@"TOWGS84[103.25,-100.4,-307.19,0,0,0,0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6316\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4316\"]],"];
+    [definition appendString:@"PROJECTION[\"Oblique_Stereographic\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",45.9],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",25.39246588888889],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",0.9996667],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",500000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",500000],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"X\",EAST],"];
+    [definition appendString:@"AXIS[\"Y\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"31600\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+
+}
+
+/**
  * Test EPSG 32660
  */
 -(void) test32660{
