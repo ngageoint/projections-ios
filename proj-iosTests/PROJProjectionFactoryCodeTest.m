@@ -22,6 +22,57 @@
 }
 
 /**
+ * Test EPSG 2036
+ */
+-(void) test2036{
+    
+    NSString *code = @"2036";
+    
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"NAD83(CSRS98) / New Brunswick Stereo\",BASEGEOGCRS[\"NAD83(CSRS98)\","];
+    [definition appendString:@"DATUM[\"NAD83 Canadian Spatial Reference System\","];
+    [definition appendString:@"ELLIPSOID[\"GRS 1980\",6378137,298.2572221,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7019]],"];
+    [definition appendString:@"ID[\"EPSG\",6140]],ID[\"EPSG\",4140]],"];
+    [definition appendString:@"CONVERSION[\"New Brunswick Stereographic (NAD83)\",METHOD[\"Oblique Stereographic\",ID[\"EPSG\",9809]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",46.5,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",-66.5,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.999912,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",2500000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",7500000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",19946]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4500]],AXIS[\"Northing (N)\",north],AXIS[\"Easting (E)\",east],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2036]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"NAD83(CSRS98) / New Brunswick Stereo (deprecated)\","];
+    [definition appendString:@"GEOGCS[\"NAD83(CSRS98)\","];
+    [definition appendString:@"DATUM[\"NAD83_Canadian_Spatial_Reference_System\","];
+    [definition appendString:@"SPHEROID[\"GRS 1980\",6378137,298.257222101,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7019\"]],"];
+    [definition appendString:@"TOWGS84[0,0,0,0,0,0,0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6140\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9108\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4140\"]],"];
+    [definition appendString:@"PROJECTION[\"Oblique_Stereographic\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",46.5],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",-66.5],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",0.999912],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",2500000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",7500000],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"2036\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
  * Test EPSG 2056
  */
 -(void) test2056{
@@ -378,6 +429,65 @@
     [definition appendString:@"AXIS[\"X\",EAST],"];
     [definition appendString:@"AXIS[\"Y\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"2163\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
+ * Test EPSG 2171
+ */
+-(void) test2171{
+    
+    NSString *code = @"2171";
+    double delta = 0.01;
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"Pulkovo 1942(58) / Poland zone I\",BASEGEOGCRS[\"Pulkovo 1942(58)\","];
+    [definition appendString:@"DATUM[\"Pulkovo 1942(58)\","];
+    [definition appendString:@"ELLIPSOID[\"Krassowsky 1940\",6378245,298.3,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7024]],"];
+    [definition appendString:@"ID[\"EPSG\",6179]],ID[\"EPSG\",4179]],"];
+    [definition appendString:@"CONVERSION[\"Poland zone I\",METHOD[\"Oblique Stereographic\",ID[\"EPSG\",9809]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",50.625,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",21.083333333,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.9998,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",4637000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",5647000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"X-axis translation\",33.4,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis translation\",-146.6,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis translation\",-76.3,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"X-axis rotation\",-0.359,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis rotation\",-0.053,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis rotation\",0.844,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Scale difference\",-0.84,SCALEUNIT[\"parts per million\",1E-06]],"];
+    [definition appendString:@"ID[\"EPSG\",18281]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4530]],AXIS[\"Northing (X)\",north],AXIS[\"Easting (Y)\",east],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2171]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"Pulkovo 1942(58) / Poland zone I (deprecated)\","];
+    [definition appendString:@"GEOGCS[\"Pulkovo 1942(58)\","];
+    [definition appendString:@"DATUM[\"Pulkovo_1942_58\","];
+    [definition appendString:@"SPHEROID[\"Krassowsky 1940\",6378245,298.3,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7024\"]],"];
+    [definition appendString:@"TOWGS84[33.4,-146.6,-76.3,-0.359,-0.053,0.844,-0.84],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6179\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4179\"]],"];
+    [definition appendString:@"PROJECTION[\"Oblique_Stereographic\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",50.625],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",21.08333333333333],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",0.9998],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",4637000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",5647000],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"2171\"]]"];
     
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
     
