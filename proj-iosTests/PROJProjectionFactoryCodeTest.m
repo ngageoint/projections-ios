@@ -153,6 +153,70 @@
 }
 
 /**
+ * Test EPSG 2065
+ */
+-(void) test2065{
+    
+    NSString *code = @"2065";
+    double minX = 12.09;
+    double minY = 47.73;
+    double maxX = 22.56;
+    double maxY = 51.06;
+    
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"S-JTSK (Ferro) / Krovak\",BASEGEOGCRS[\"S-JTSK (Ferro)\","];
+    [definition appendString:@"DATUM[\"System of the Unified Trigonometrical Cadastral Network (Ferro)\","];
+    [definition appendString:@"ELLIPSOID[\"Bessel 1841\",6377397.155,299.1528128,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7004]],ID[\"EPSG\",6818]],"];
+    [definition appendString:@"PRIMEM[\"Ferro\",-17.666666667,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],ID[\"EPSG\",8909]],ID[\"EPSG\",4818]],"];
+    [definition appendString:@"CONVERSION[\"Krovak\",METHOD[\"Krovak\",ID[\"EPSG\",9819]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of projection centre\",49.5,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of origin\",42.5,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Co-latitude of cone axis\",30.288139753,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of pseudo standard parallel\",78.5,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor on pseudo standard parallel\",0.9999,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"X-axis translation\",589,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis translation\",76,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis translation\",480,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"ID[\"EPSG\",19952]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",6501]],AXIS[\"Southing (X)\",south],AXIS[\"Westing (Y)\",west],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2065]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"S-JTSK (Ferro) / Krovak\","];
+    [definition appendString:@"GEOGCS[\"S-JTSK (Ferro)\","];
+    [definition appendString:@"DATUM[\"System_Jednotne_Trigonometricke_Site_Katastralni_Ferro\","];
+    [definition appendString:@"SPHEROID[\"Bessel 1841\",6377397.155,299.1528128,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7004\"]],"];
+    [definition appendString:@"TOWGS84[589,76,480,0,0,0,0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6818\"]],"];
+    [definition appendString:@"PRIMEM[\"Ferro\",-17.66666666666667,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8909\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4818\"]],"];
+    [definition appendString:@"PROJECTION[\"Krovak\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_center\",49.5],"];
+    [definition appendString:@"PARAMETER[\"longitude_of_center\",42.5],"];
+    [definition appendString:@"PARAMETER[\"azimuth\",30.28813972222222],"];
+    [definition appendString:@"PARAMETER[\"pseudo_standard_parallel_1\",78.5],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",0.9999],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",0],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"X\",SOUTH],"];
+    [definition appendString:@"AXIS[\"Y\",WEST],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"2065\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+}
+
+/**
  * Test EPSG 2066
  */
 -(void) test2066{
