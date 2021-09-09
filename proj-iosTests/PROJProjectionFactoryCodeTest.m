@@ -494,6 +494,56 @@
 }
 
 /**
+ * Test EPSG 2200
+ */
+-(void) test2200{
+    
+    NSString *code = @"2200";
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"ATS77 / New Brunswick Stereographic (ATS77)\",BASEGEOGCRS[\"ATS77\","];
+    [definition appendString:@"DATUM[\"Average Terrestrial System 1977\","];
+    [definition appendString:@"ELLIPSOID[\"Average Terrestrial System 1977\",6378135,298.257,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7041]],"];
+    [definition appendString:@"ID[\"EPSG\",6122]],ID[\"EPSG\",4122]],"];
+    [definition appendString:@"CONVERSION[\"New Brunswick Stereographic (ATS77)\",METHOD[\"Oblique Stereographic\",ID[\"EPSG\",9809]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",46.5,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",-66.5,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.999912,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",300000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",800000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",19945]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4500]],AXIS[\"Northing (N)\",north],AXIS[\"Easting (E)\",east],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2200]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"ATS77 / New Brunswick Stereographic (ATS77)\","];
+    [definition appendString:@"GEOGCS[\"ATS77\","];
+    [definition appendString:@"DATUM[\"Average_Terrestrial_System_1977\","];
+    [definition appendString:@"SPHEROID[\"Average Terrestrial System 1977\",6378135,298.257,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7041\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6122\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4122\"]],"];
+    [definition appendString:@"PROJECTION[\"Oblique_Stereographic\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",46.5],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",-66.5],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",0.999912],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",300000],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",800000],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"2200\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
  * Test EPSG 3035
  */
 -(void) test3035{
@@ -2063,6 +2113,67 @@
     [definition appendString:@"AXIS[\"Easting\",EAST],"];
     [definition appendString:@"AXIS[\"Northing\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"27258\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    
+}
+
+/**
+ * Test EPSG 28991
+ */
+-(void) test28991{
+
+    NSString *code = @"28991";
+    double delta = 0.01;
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"Amersfoort / RD Old\",BASEGEOGCRS[\"Amersfoort\","];
+    [definition appendString:@"DATUM[\"Amersfoort\","];
+    [definition appendString:@"ELLIPSOID[\"Bessel 1841\",6377397.155,299.1528128,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7004]],"];
+    [definition appendString:@"ID[\"EPSG\",6289]],ID[\"EPSG\",4289]],"];
+    [definition appendString:@"CONVERSION[\"RD Old\",METHOD[\"Oblique Stereographic\",ID[\"EPSG\",9809]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",52.156160556,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",5.387638889,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",0.9999079,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"X-axis translation\",565.417,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis translation\",50.3319,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis translation\",465.552,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"X-axis rotation\",-0.398957,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis rotation\",0.343988,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis rotation\",-1.8774,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Scale difference\",4.0725,SCALEUNIT[\"parts per million\",1E-06]],"];
+    [definition appendString:@"ID[\"EPSG\",19913]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4499]],AXIS[\"Easting (X)\",east],AXIS[\"Northing (Y)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",28991]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"Amersfoort / RD Old\","];
+    [definition appendString:@"GEOGCS[\"Amersfoort\","];
+    [definition appendString:@"DATUM[\"Amersfoort\","];
+    [definition appendString:@"SPHEROID[\"Bessel 1841\",6377397.155,299.1528128,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7004\"]],"];
+    [definition appendString:@"TOWGS84[565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6289\"]],"];
+    [definition appendString:@"RIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4289\"]],"];
+    [definition appendString:@"PROJECTION[\"Oblique_Stereographic\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",52.15616055555555],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",5.38763888888889],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",0.9999079],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",0],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"X\",EAST],"];
+    [definition appendString:@"AXIS[\"Y\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"28991\"]]"];
 
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
     
