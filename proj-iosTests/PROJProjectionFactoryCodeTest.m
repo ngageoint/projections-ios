@@ -142,7 +142,11 @@
 -(void) test2057{
 
     NSString *code = @"2057";
-    double delta = 0.001;
+    double delta = 0.0001;
+    double minX = 52.5;
+    double minY = 27.39;
+    double maxX = 52.71;
+    double maxY = 27.61;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"Rassadiran / Nakhl e Taqi\",BASEGEOGCRS[\"Rassadiran\","];
@@ -163,7 +167,7 @@
     [definition appendString:@"AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2057]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"Rassadiran / Nakhl e Taqi\",GEOGCS[\"Rassadiran\","];
@@ -547,7 +551,11 @@
 -(void) test2171{
     
     NSString *code = @"2171";
-    double delta = 0.01;
+    double delta = 0.0001;
+    double minX = 14.14;
+    double minY = 49.0;
+    double maxX = 24.15;
+    double maxY = 54.89;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"Pulkovo 1942(58) / Poland zone I\",BASEGEOGCRS[\"Pulkovo 1942(58)\","];
@@ -571,7 +579,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4530]],AXIS[\"Northing (X)\",north],AXIS[\"Easting (Y)\",east],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2171]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"Pulkovo 1942(58) / Poland zone I (deprecated)\","];
@@ -596,7 +604,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"2171\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -968,7 +976,11 @@
 -(void) test3376{
 
     NSString *code = @"3376";
-    double delta = 0.0001;
+    double delta = 0.00001;
+    double minX = 109.31;
+    double minY = 0.85;
+    double maxX = 119.61;
+    double maxY = 7.67;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"GDM2000 / East Malaysia BRSO\",BASEGEOGCRS[\"GDM2000\","];
@@ -987,7 +999,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",3376]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"GDM2000 / East Malaysia BRSO\",GEOGCS[\"GDM2000\","];
@@ -2460,7 +2472,11 @@
 -(void) test28991{
 
     NSString *code = @"28991";
-    double delta = 0.01;
+    double delta = 0.0001;
+    double minX = 3.2;
+    double minY = 50.75;
+    double maxX = 7.22;
+    double maxY = 53.7;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"Amersfoort / RD Old\",BASEGEOGCRS[\"Amersfoort\","];
@@ -2484,7 +2500,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4499]],AXIS[\"Easting (X)\",east],AXIS[\"Northing (Y)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",28991]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"Amersfoort / RD Old\","];
@@ -2511,7 +2527,7 @@
     [definition appendString:@"AXIS[\"Y\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"28991\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -2579,7 +2595,11 @@
 -(void) test31600{
 
     NSString *code = @"31600";
-    double delta = 0.001;
+    double delta = 0.00001;
+    double minX = 20.26;
+    double minY = 43.62;
+    double maxX = 29.74;
+    double maxY = 48.27;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"Dealul Piscului 1930 / Stereo 33\",BASEGEOGCRS[\"Dealul Piscului 1930\","];
@@ -2599,7 +2619,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4499]],AXIS[\"Easting (X)\",east],AXIS[\"Northing (Y)\",north]"];
     [definition appendString:@",LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",31600]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"Dealul Piscului 1930 / Stereo 33\","];
@@ -2626,7 +2646,7 @@
     [definition appendString:@"AXIS[\"Y\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"31600\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
 }
 
