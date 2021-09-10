@@ -9,6 +9,7 @@
 #ifndef proj_ios_Bridging_Header_h
 #define proj_ios_Bridging_Header_h
 
+#import "crs-ios-Bridging-Header.h"
 #import "proj_ios.h"
 #import "PROJAuthorityProjections.h"
 #import "PROJCRSParser.h"
