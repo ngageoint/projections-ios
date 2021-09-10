@@ -73,6 +73,63 @@
 }
 
 /**
+ * Test EPSG 2046
+ */
+-(void) test2046{
+    
+    NSString *code = @"2046";
+    double minX = 13.33;
+    double minY = -50.32;
+    double maxX = 42.85;
+    double maxY = -22.13;
+    
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"Hartebeesthoek94 / Lo15\",BASEGEOGCRS[\"Hartebeesthoek94\","];
+    [definition appendString:@"DATUM[\"Hartebeesthoek94\","];
+    [definition appendString:@"ELLIPSOID[\"WGS 84\",6378137,298.2572236,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7030]],"];
+    [definition appendString:@"ID[\"EPSG\",6148]],ID[\"EPSG\",4148]],"];
+    [definition appendString:@"CONVERSION[\"South African Survey Grid zone 15\",METHOD[\"Transverse Mercator (South Orientated)\",ID[\"EPSG\",9808]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",15,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",1,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"ID[\"EPSG\",17515]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",6503]],AXIS[\"Westing (Y)\",west],AXIS[\"Southing (X)\",south],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2046]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"Hartebeesthoek94 / Lo15\","];
+    [definition appendString:@"GEOGCS[\"Hartebeesthoek94\","];
+    [definition appendString:@"DATUM[\"Hartebeesthoek94\","];
+    [definition appendString:@"SPHEROID[\"WGS 84\",6378137,298.257223563,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7030\"]],"];
+    [definition appendString:@"TOWGS84[0,0,0,0,0,0,0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6148\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4148\"]],"];
+    [definition appendString:@"PROJECTION[\"Transverse_Mercator_South_Orientated\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",0],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",15],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",1],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",0],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"Y\",WEST],"];
+    [definition appendString:@"AXIS[\"X\",SOUTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"2046\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+}
+
+/**
  * Test EPSG 2056
  */
 -(void) test2056{
@@ -2305,6 +2362,66 @@
 }
 
 /**
+ * Test EPSG 22275
+ */
+-(void) test22275{
+
+    NSString *code = @"22275";
+    double minX = 16.45;
+    double minY = -34.88;
+    double maxX = 32.95;
+    double maxY = -22.13;
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"Cape / Lo15\",BASEGEOGCRS[\"Cape\","];
+    [definition appendString:@"DATUM[\"Cape\","];
+    [definition appendString:@"ELLIPSOID[\"Clarke 1880 (Arc)\",6378249.145,293.4663077,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7013]],"];
+    [definition appendString:@"ID[\"EPSG\",6222]],ID[\"EPSG\",4222]],"];
+    [definition appendString:@"CONVERSION[\"South African Survey Grid zone 15\",METHOD[\"Transverse Mercator (South Orientated)\",ID[\"EPSG\",9808]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",15,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",1,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"];
+    [definition appendString:@"PARAMETER[\"X-axis translation\",-136,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis translation\",-108,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis translation\",-292,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"ID[\"EPSG\",17515]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",6503]],AXIS[\"Westing (Y)\",west],AXIS[\"Southing (X)\",south],"];
+    [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",22275]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"Cape / Lo15\","];
+    [definition appendString:@"GEOGCS[\"Cape\","];
+    [definition appendString:@"DATUM[\"Cape\","];
+    [definition appendString:@"SPHEROID[\"Clarke 1880 (Arc)\",6378249.145,293.4663077,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7013\"]],"];
+    [definition appendString:@"TOWGS84[-136,-108,-292,0,0,0,0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6222\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4222\"]],"];
+    [definition appendString:@"PROJECTION[\"Transverse_Mercator_South_Orientated\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",0],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",15],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",1],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",0],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"UNIT[\"metre\",1,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
+    [definition appendString:@"AXIS[\"Y\",WEST],"];
+    [definition appendString:@"AXIS[\"X\",SOUTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"22275\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+}
+
+/**
  * Test EPSG 27200
  */
 -(void) test27200{
@@ -2526,6 +2643,66 @@
     [definition appendString:@"AXIS[\"X\",EAST],"];
     [definition appendString:@"AXIS[\"Y\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"28991\"]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+}
+
+/**
+ * Test EPSG 29371
+ */
+-(void) test29371{
+
+    NSString *code = @"29371";
+    double minX = 8.24;
+    double minY = -30.64;
+    double maxX = 25.27;
+    double maxY = -16.95;
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"Schwarzeck / Lo22/11\",BASEGEOGCRS[\"Schwarzeck\","];
+    [definition appendString:@"DATUM[\"Schwarzeck\","];
+    [definition appendString:@"ELLIPSOID[\"Bessel Namibia (GLM)\",6377397.155,299.1528128,LENGTHUNIT[\"German legal metre\",1.0000135965,ID[\"EPSG\",9031]],ID[\"EPSG\",7046]],"];
+    [definition appendString:@"ID[\"EPSG\",6293]],ID[\"EPSG\",4293]],"];
+    [definition appendString:@"CONVERSION[\"South West African Survey Grid zone 11\",METHOD[\"Transverse Mercator (South Orientated)\",ID[\"EPSG\",9808]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of natural origin\",-22,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of natural origin\",11,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Scale factor at natural origin\",1,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"];
+    [definition appendString:@"PARAMETER[\"False easting\",0,LENGTHUNIT[\"German legal metre\",1.0000135965,ID[\"EPSG\",9031]]],"];
+    [definition appendString:@"PARAMETER[\"False northing\",0,LENGTHUNIT[\"German legal metre\",1.0000135965,ID[\"EPSG\",9031]]],"];
+    [definition appendString:@"PARAMETER[\"X-axis translation\",616,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Y-axis translation\",97,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"PARAMETER[\"Z-axis translation\",-251,LENGTHUNIT[\"metre\",1.0]],"];
+    [definition appendString:@"ID[\"EPSG\",17611]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",6502]],AXIS[\"Westing (Y)\",west],AXIS[\"Southing (X)\",south],"];
+    [definition appendString:@"LENGTHUNIT[\"German legal metre\",1.0000135965,ID[\"EPSG\",9031]],ID[\"EPSG\",29371]]"];
+
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"Schwarzeck / Lo22/11\","];
+    [definition appendString:@"GEOGCS[\"Schwarzeck\","];
+    [definition appendString:@"DATUM[\"Schwarzeck\","];
+    [definition appendString:@"SPHEROID[\"Bessel Namibia (GLM)\",6377483.865280419,299.1528128,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7046\"]],"];
+    [definition appendString:@"TOWGS84[616,97,-251,0,0,0,0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6293\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4293\"]],"];
+    [definition appendString:@"PROJECTION[\"Transverse_Mercator_South_Orientated\"],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",-22],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",11],"];
+    [definition appendString:@"PARAMETER[\"scale_factor\",1],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",0],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"UNIT[\"German legal metre\",1.0000135965,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9031\"]],"];
+    [definition appendString:@"AXIS[\"Y\",WEST],"];
+    [definition appendString:@"AXIS[\"X\",SOUTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"29371\"]]"];
 
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
