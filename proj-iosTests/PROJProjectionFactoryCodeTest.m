@@ -651,6 +651,66 @@
 }
 
 /**
+ * Test EPSG 2251
+ */
+-(void) test2251{
+    
+    NSString *code = @"2251";
+    double delta = 0.001;
+    double minX = -172.54;
+    double minY = 23.81;
+    double maxX = -47.74;
+    double maxY = 86.46;
+
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"PROJCRS[\"NAD83 / Michigan North (ft)\",BASEGEOGCRS[\"NAD83\","];
+    [definition appendString:@"DATUM[\"North American Datum 1983\","];
+    [definition appendString:@"ELLIPSOID[\"GRS 1980\",6378137,298.2572221,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7019]],"];
+    [definition appendString:@"ID[\"EPSG\",6269]],ID[\"EPSG\",4269]],"];
+    [definition appendString:@"CONVERSION[\"SPCS83 Michigan North zone (International feet)\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of false origin\",44.783333333,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Longitude of false origin\",-87,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of 1st standard parallel\",47.083333333,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Latitude of 2nd standard parallel\",45.483333333,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"];
+    [definition appendString:@"PARAMETER[\"Easting at false origin\",26246719.16,LENGTHUNIT[\"foot\",0.3048,ID[\"EPSG\",9002]]],"];
+    [definition appendString:@"PARAMETER[\"Northing at false origin\",0,LENGTHUNIT[\"foot\",0.3048,ID[\"EPSG\",9002]]],"];
+    [definition appendString:@"ID[\"EPSG\",15333]],"];
+    [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4495]],AXIS[\"Easting (X)\",east],AXIS[\"Northing (Y)\",north],"];
+    [definition appendString:@"LENGTHUNIT[\"foot\",0.3048,ID[\"EPSG\",9002]],ID[\"EPSG\",2251]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"PROJCS[\"NAD83 / Michigan North (ft)\","];
+    [definition appendString:@"GEOGCS[\"NAD83\","];
+    [definition appendString:@"DATUM[\"North_American_Datum_1983\","];
+    [definition appendString:@"SPHEROID[\"GRS 1980\",6378137,298.257222101,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7019\"]],"];
+    [definition appendString:@"TOWGS84[0,0,0,0,0,0,0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6269\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4269\"]],"];
+    [definition appendString:@"PROJECTION[\"Lambert_Conformal_Conic_2SP\"],"];
+    [definition appendString:@"PARAMETER[\"standard_parallel_1\",47.08333333333334],"];
+    [definition appendString:@"PARAMETER[\"standard_parallel_2\",45.48333333333333],"];
+    [definition appendString:@"PARAMETER[\"latitude_of_origin\",44.78333333333333],"];
+    [definition appendString:@"PARAMETER[\"central_meridian\",-87],"];
+    [definition appendString:@"PARAMETER[\"false_easting\",26246719.16],"];
+    [definition appendString:@"PARAMETER[\"false_northing\",0],"];
+    [definition appendString:@"UNIT[\"foot\",0.3048,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9002\"]],"];
+    [definition appendString:@"AXIS[\"X\",EAST],"];
+    [definition appendString:@"AXIS[\"Y\",NORTH],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"2251\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+}
+
+/**
  * Test EPSG 3035
  */
 -(void) test3035{
