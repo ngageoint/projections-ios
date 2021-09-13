@@ -210,7 +210,7 @@
  *            coordinate authority
  * @param code
  *            authority coordinate code
- * @param paramStr
+ * @param params
  *            proj4 string
  * @return projection
  */
@@ -236,7 +236,7 @@
  *            coordinate authority
  * @param code
  *            authority coordinate code
- * @param paramStr
+ * @param params
  *            proj4 string
  * @return projection
  */
@@ -262,7 +262,7 @@
  *            coordinate authority
  * @param code
  *            authority coordinate code
- * @param paramStr
+ * @param params
  *            proj4 string
  * @return projection
  */
