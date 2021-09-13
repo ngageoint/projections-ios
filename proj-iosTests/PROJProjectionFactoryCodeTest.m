@@ -3210,7 +3210,7 @@
     }else{
         transformCode = 3857;
         PROJProjectionTransform *boundsTransform = [PROJProjectionTransform transformFromEpsg:4326 andToEpsg:3857];
-        NSArray<NSDecimalNumber *> *projectedBounds = [boundsTransform transformWithMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+        NSArray<NSDecimalNumber *> *projectedBounds = [boundsTransform transformMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
         minX = [[projectedBounds objectAtIndex:0] doubleValue];
         minY = [[projectedBounds objectAtIndex:1] doubleValue];
         maxX = [[projectedBounds objectAtIndex:2] doubleValue];

@@ -44,6 +44,10 @@
     return [[PROJProjectionTransform alloc] initWithFromAuthority:fromAuthority andFromCode:fromCode andToProjection:toProjection];
 }
 
++(PROJProjectionTransform *) transformWithProjectionTransform: (PROJProjectionTransform *) transform{
+    return [[PROJProjectionTransform alloc] initWithProjectionTransform:transform];
+}
+
 -(instancetype) initWithFromProjection: (PROJProjection *) fromProjection andToProjection: (PROJProjection *) toProjection{
     self = [super init];
     if(self != nil){
@@ -102,6 +106,10 @@
     return [self initWithFromProjection:fromProjection andToProjection:toProjection];
 }
 
+-(instancetype) initWithProjectionTransform: (PROJProjectionTransform *) transform{
+    return [self initWithFromProjection:transform.fromProjection andToProjection:transform.toProjection];
+}
+
 -(void) free{
     [_fromProjection free];
     [_toProjection free];
@@ -146,13 +154,13 @@
     return [PROJLocationCoordinate3D coordinateWithCoordinate:to andZ:toZ];
 }
 
--(NSArray<NSDecimalNumber *> *) transformWithX: (double) x andY: (double) y{
+-(NSArray<NSDecimalNumber *> *) transformX: (double) x andY: (double) y{
     CLLocationCoordinate2D fromCoord = CLLocationCoordinate2DMake(y, x);
     CLLocationCoordinate2D toCoord = [self transform:fromCoord];
     return [NSArray arrayWithObjects:[NSDecimalNumber numberWithDouble:toCoord.longitude], [NSDecimalNumber numberWithDouble:toCoord.latitude], nil];
 }
 
--(NSArray<NSDecimalNumber *> *) transformWithMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY{
+-(NSArray<NSDecimalNumber *> *) transformMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY{
     
     CLLocationCoordinate2D lowerLeft = CLLocationCoordinate2DMake(minY, minX);
     CLLocationCoordinate2D lowerRight = CLLocationCoordinate2DMake(minY, maxX);

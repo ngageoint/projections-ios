@@ -114,6 +114,15 @@
 +(PROJProjectionTransform *) transformFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (PROJProjection *) toProjection;
 
 /**
+ *  Create
+ *
+ *  @param transform projection transform
+ *
+ *  @return new projection transform
+ */
++(PROJProjectionTransform *) transformWithProjectionTransform: (PROJProjectionTransform *) transform;
+
+/**
  *  Initialize
  *
  *  @param fromProjection from projection
@@ -200,6 +209,15 @@
 -(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (PROJProjection *) toProjection;
 
 /**
+ *  Initialize
+ *
+ *  @param transform projection transform
+ *
+ *  @return new projection transform
+ */
+-(instancetype) initWithProjectionTransform: (PROJProjectionTransform *) transform;
+
+/**
  * Free the projection memory
  */
 -(void) free;
@@ -230,7 +248,7 @@
  *
  *  @return transformed coordinates as [x, y]
  */
--(NSArray<NSDecimalNumber *> *) transformWithX: (double) x andY: (double) y;
+-(NSArray<NSDecimalNumber *> *) transformX: (double) x andY: (double) y;
 
 /**
  * Transform the coordinate bounds
@@ -242,7 +260,7 @@
  *
  * @return transformed coordinate bounds as [minX, minY, maxX, maxY]
  */
--(NSArray<NSDecimalNumber *> *) transformWithMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY;
+-(NSArray<NSDecimalNumber *> *) transformMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY;
 
 /**
  * Is the from and to projection the same?
