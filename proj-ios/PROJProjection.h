@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "projects.h"
+#import "proj_api.h"
 #import "PROJUnits.h"
 #import "CRSObject.h"
 #import "PROJProjectionTransform.h"
@@ -381,15 +381,6 @@
  * @return transform
  */
 -(PROJProjectionTransform *) transformationWithProjection: (PROJProjection *) projection;
-
-/**
- *  Convert the value to meters
- *
- *  @param value value
- *
- *  @return meters
- */
--(double) toMeters: (double) value;
 
 /**
  *  Get the projection unit

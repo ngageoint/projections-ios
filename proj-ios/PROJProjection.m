@@ -231,10 +231,6 @@
     return [PROJProjectionTransform transformFromProjection:self andToProjection:projection];
 }
 
--(double) toMeters: (double) value{
-    return value / _crs->vfr_meter;
-}
-
 -(enum PROJUnit) unit{
     
     enum PROJUnit unit = PROJ_UNIT_NONE;
