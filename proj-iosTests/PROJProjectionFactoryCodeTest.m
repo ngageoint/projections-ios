@@ -27,6 +27,10 @@
 -(void) test2036{
     
     NSString *code = @"2036";
+    double minX = -120.0;
+    double minY = 44.61;
+    double maxX = -57.1;
+    double maxY = 62.56;
     
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"NAD83(CSRS98) / New Brunswick Stereo\",BASEGEOGCRS[\"NAD83(CSRS98)\","];
@@ -43,7 +47,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4500]],AXIS[\"Northing (N)\",north],AXIS[\"Easting (E)\",east],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2036]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"NAD83(CSRS98) / New Brunswick Stereo (deprecated)\","];
@@ -68,7 +72,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"2036\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -242,7 +246,7 @@
     [definition appendString:@"PARAMETER[\"false_northing\",3044969.194],AUTHORITY[\"EPSG\",\"2057\"],"];
     [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(5.0, -53.0);
     CLLocationCoordinate2D expectedCoordinate = CLLocationCoordinate2DMake(1.8282612229838397E7, -1.1608322257560592E7);
@@ -390,6 +394,10 @@
 -(void) test2085{
     
     NSString *code = @"2085";
+    double minX = -85.01;
+    double minY = 21.38;
+    double maxX = -76.91;
+    double maxY = 23.25;
     
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"NAD27 / Cuba Norte\",BASEGEOGCRS[\"NAD27\","];
@@ -406,7 +414,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4532]],AXIS[\"Northing (Y)\",north],AXIS[\"Easting (X)\",east],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2085]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"NAD27 / Cuba Norte (deprecated)\","];
@@ -430,7 +438,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"2085\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -558,6 +566,10 @@
 -(void) test2163{
     
     NSString *code = @"2163";
+    double minX = 167.65;
+    double minY = 15.56;
+    double maxX = -65.69;
+    double maxY = 74.71;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"US National Atlas Equal Area\",BASEGEOGCRS[\"Unspecified datum based upon the Clarke 1866 Authalic Sphere\","];
@@ -573,7 +585,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4499]],AXIS[\"Easting (X)\",east],AXIS[\"Northing (Y)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2163]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"US National Atlas Equal Area\","];
@@ -598,7 +610,7 @@
     [definition appendString:@"AXIS[\"Y\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"2163\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -671,6 +683,10 @@
 -(void) test2200{
     
     NSString *code = @"2200";
+    double minX = -69.05;
+    double minY = 44.56;
+    double maxX = -63.7;
+    double maxY = 48.07;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"ATS77 / New Brunswick Stereographic (ATS77)\",BASEGEOGCRS[\"ATS77\","];
@@ -687,7 +703,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4500]],AXIS[\"Northing (N)\",north],AXIS[\"Easting (E)\",east],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2200]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"ATS77 / New Brunswick Stereographic (ATS77)\","];
@@ -711,7 +727,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"2200\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -781,6 +797,10 @@
 -(void) test3035{
 
     NSString *code = @"3035";
+    double minX = -16.1;
+    double minY = 32.88;
+    double maxX = 40.18;
+    double maxY = 84.17;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"ETRS89-extended / LAEA Europe\",BASEGEOGCRS[\"ETRS89\","];
@@ -807,7 +827,7 @@
     [definition appendString:@"AXIS[\"Northing (Y)\",north],AXIS[\"Easting (X)\",east],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",3035]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"ETRS89 / ETRS-LAEA\",GEOGCS[\"ETRS89\","];
@@ -828,7 +848,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"3035\"],"];
     [definition appendString:@"AXIS[\"X\",EAST],AXIS[\"Y\",NORTH]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"ETRS89 / LAEA Europe\",GEOGCRS[\"ETRS89\","];
@@ -848,7 +868,7 @@
     [definition appendString:@"UNIT[\"metre\",1,ID[\"EPSG\",\"9001\"]],"];
     [definition appendString:@"ID[\"EPSG\",\"3035\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
 }
 
@@ -912,6 +932,10 @@
 -(void) test3083{
     
     NSString *code = @"3083";
+    double minX = -172.54;
+    double minY = 23.81;
+    double maxX = -47.74;
+    double maxY = 86.46;
     
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"NAD83 / Texas Centric Albers Equal Area\",BASEGEOGCRS[\"NAD83\","];
@@ -929,7 +953,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4499]],AXIS[\"Easting (X)\",east],AXIS[\"Northing (Y)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",3083]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"NAD83 / Texas Centric Albers Equal Area\","];
@@ -957,7 +981,7 @@
     [definition appendString:@"AXIS[\"Y\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"3083\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -967,6 +991,10 @@
 -(void) test3375{
 
     NSString *code = @"3375";
+    double minX = 98.02;
+    double minY = 1.13;
+    double maxX = 105.82;
+    double maxY = 7.81;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"GDM2000 / Peninsula RSO\",BASEGEOGCRS[\"GDM2000\","];
@@ -986,7 +1014,7 @@
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],"];
     [definition appendString:@"ID[\"EPSG\",3375]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"GDM2000 / Peninsula RSO\",GEOGCS[\"GDM2000\","];
@@ -1005,7 +1033,7 @@
     [definition appendString:@"PARAMETER[\"false_northing\",0],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"3375\"],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(3.06268465621428, 101.70979078430528);
     CLLocationCoordinate2D expectedCoordinate = CLLocationCoordinate2DMake(338944.957259175, 412597.5327153324);
@@ -1075,7 +1103,7 @@
     [definition appendString:@"PARAMETER[\"false_northing\",0],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"3376\"],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(3.0626847, 114.7097908);
     CLLocationCoordinate2D expectedCoordinate = CLLocationCoordinate2DMake(339160.75510987174, 558597.8802098362);
@@ -1103,6 +1131,10 @@
 -(void) test3395{
 
     NSString *code = @"3395";
+    double minX = -180.0;
+    double minY = -80.0;
+    double maxX = 180.0;
+    double maxY = 84.0;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"WGS 84 / World Mercator\",BASEGEOGCRS[\"WGS 84\","];
@@ -1125,7 +1157,7 @@
     [definition appendString:@"AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",3395]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"WGS 84 / World Mercator\",GEOGCS[\"WGS 84\","];
@@ -1146,7 +1178,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"3395\"],"];
     [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"WGS 84 / World Mercator\",GEOGCS[\"WGS 84\","];
@@ -1167,7 +1199,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"3395\"],"];
     [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"WGS 84 / World Mercator\","];
@@ -1189,7 +1221,7 @@
     [definition appendString:@"AXIS[\"Northing (N)\",north,ORDER[2]],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",\"3395\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
 }
 
@@ -1199,6 +1231,10 @@
 -(void) test3410{
     
     NSString *code = @"3410";
+    double minX = -180.0;
+    double minY = -86.0;
+    double maxX = 180.0;
+    double maxY = 86.0;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"NSIDC EASE-Grid Global\",BASEGEOGCRS[\"Unspecified datum based upon the International 1924 Authalic Sphere\","];
@@ -1214,7 +1250,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4499]],AXIS[\"Easting (X)\",east],AXIS[\"Northing (Y)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",3410]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"NSIDC EASE-Grid Global\","];
@@ -1239,7 +1275,7 @@
     [definition appendString:@"AXIS[\"Y\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"3410\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -1249,6 +1285,10 @@
 -(void) test3786{
     
     NSString *code = @"3786";
+    double minX = -180.0;
+    double minY = -90.0;
+    double maxX = 180.0;
+    double maxY = 90.0;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"World Equidistant Cylindrical (Sphere)\",BASEGEOGCRS[\"Unspecified datum based upon the GRS 1980 Authalic Sphere\","];
@@ -1264,7 +1304,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4499]],AXIS[\"Easting (X)\",east],AXIS[\"Northing (Y)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",3786]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"World Equidistant Cylindrical (Sphere) (deprecated)\","];
@@ -1289,7 +1329,7 @@
     [definition appendString:@"AXIS[\"Y\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"3786\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -1429,6 +1469,10 @@
 -(void) test3978{
 
     NSString *code = @"3978";
+    double minX = -172.54;
+    double minY = 23.81;
+    double maxX = -47.74;
+    double maxY = 86.46;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"NAD83 / Canada Atlas Lambert\",BASEGEOGCRS[\"NAD83\","];
@@ -1446,7 +1490,7 @@
     [definition appendString:@"AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",3978]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"NAD83 / Canada Atlas Lambert\",GEOGCS[\"NAD83\","];
@@ -1468,7 +1512,7 @@
     [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"3978\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"NAD83 / Canada Atlas Lambert\",GEOGCRS[\"NAD83\","];
@@ -1491,7 +1535,7 @@
     [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],"];
     [definition appendString:@"ID[\"EPSG\",\"3978\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
 }
 
@@ -1564,6 +1608,10 @@
 -(void) test4005{
     
     NSString *code = @"4005";
+    double minX = -180.0;
+    double minY = -90.0;
+    double maxX = 180.0;
+    double maxY = 90.0;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"GEOGCRS[\"Unknown datum based upon the Bessel Modified ellipsoid\","];
@@ -1574,7 +1622,7 @@
     [definition appendString:@"AXIS[\"latitude (Lat)\",north],AXIS[\"longitude (Lon)\",east],"];
     [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],ID[\"EPSG\",4005]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"GEOGCS[\"Unknown datum based upon the Bessel Modified ellipsoid\","];
@@ -1588,7 +1636,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"4005\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -1635,6 +1683,10 @@
 -(void) test4035{
     
     NSString *code = @"4035";
+    double minX = -180.0;
+    double minY = -90.0;
+    double maxX = 180.0;
+    double maxY = 90.0;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"GEOGCRS[\"Unknown datum based upon the Authalic Sphere\","];
@@ -1645,7 +1697,7 @@
     [definition appendString:@"AXIS[\"latitude (Lat)\",north],AXIS[\"longitude (Long)\",east],"];
     [definition appendString:@"ANGLEUNIT[\"degree minute second hemisphere\",1,ID[\"EPSG\",9108]],ID[\"EPSG\",4035]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"GEOGCS[\"Unknown datum based upon the Authalic Sphere\","];
@@ -1659,7 +1711,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9108\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"4035\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -1669,6 +1721,10 @@
 -(void) test4047{
     
     NSString *code = @"4047";
+    double minX = -180.0;
+    double minY = -90.0;
+    double maxX = 180.0;
+    double maxY = 90.0;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"GEOGCRS[\"Unspecified datum based upon the GRS 1980 Authalic Sphere\","];
@@ -1679,7 +1735,7 @@
     [definition appendString:@"AXIS[\"latitude (Lat)\",north],AXIS[\"longitude (Lon)\",east],"];
     [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],ID[\"EPSG\",4047]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"GEOGCS[\"Unspecified datum based upon the GRS 1980 Authalic Sphere\","];
@@ -1693,7 +1749,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"4047\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -1703,6 +1759,10 @@
 -(void) test4055{
     
     NSString *code = @"4055";
+    double minX = -180.0;
+    double minY = -90.0;
+    double maxX = 180.0;
+    double maxY = 90.0;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"GEOGCRS[\"Popular Visualisation CRS\","];
@@ -1715,7 +1775,7 @@
     [definition appendString:@"AXIS[\"latitude (Lat)\",north],AXIS[\"longitude (Lon)\",east],"];
     [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],ID[\"EPSG\",4055]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"Popular Visualisation CRS\",BASEGEOGCRS[\"Popular Visualisation CRS\","];
@@ -1734,7 +1794,7 @@
     [definition appendString:@"AXIS[\"latitude (Lat)\",north],AXIS[\"longitude (Lon)\",east],"];
     [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],ID[\"EPSG\",4055]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"GEOGCS[\"Popular Visualisation CRS\","];
@@ -1749,7 +1809,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"4055\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -1759,6 +1819,10 @@
 -(void) test4071{
 
     NSString *code = @"4071";
+    double minX = -48.1;
+    double minY = -15.94;
+    double maxX = -47.1;
+    double maxY = -15.37;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"Chua / UTM zone 23S\",BASEGEOGCRS[\"Chua\","];
@@ -1778,7 +1842,7 @@
     [definition appendString:@"AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",4071]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"Chua / UTM zone 23S\","];
@@ -1805,7 +1869,7 @@
     [definition appendString:@"AXIS[\"Northing\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"4071\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -1815,6 +1879,10 @@
 -(void) test4326{
     
     NSString *code = @"4326";
+    double minX = -180.0;
+    double minY = -90.0;
+    double maxX = 180.0;
+    double maxY = 90.0;
     
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"GEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\","];
@@ -1831,7 +1899,7 @@
     [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],"];
     [definition appendString:@"ID[\"EPSG\",4326]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\","];
@@ -1843,7 +1911,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"4326\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\","];
@@ -1851,7 +1919,7 @@
     [definition appendString:@"PRIMEM[\"Greenwich\",0],"];
     [definition appendString:@"UNIT[\"degree\",0.0174532925199433]]"];
     
-    [self projectionTestSpecifiedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestSpecifiedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -1915,6 +1983,10 @@
 -(void) test5041{
 
     NSString *code = @"5041";
+    double minX = -180.0;
+    double minY = 60.0;
+    double maxX = 180.0;
+    double maxY = 90.0;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"WGS 84 / UPS North (E,N)\",BASEGEOGCRS[\"WGS 84\","];
@@ -1939,7 +2011,7 @@
     [definition appendString:@"AXIS[\"Northing (N)\",South,MERIDIAN[180.0,ANGLEUNIT[\"degree\",0.0174532925199433]]],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",5041]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"WGS 84 / UPS North (E,N)\","];
@@ -1961,7 +2033,7 @@
     [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"5041\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"WGS 84 / UPS North (E,N)\","];
@@ -1988,7 +2060,7 @@
     [definition appendString:@"ORDER[2]],LENGTHUNIT[\"metre\",1.0],"];
     [definition appendString:@"ID[\"EPSG\",\"5041\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
 }
 
@@ -1998,6 +2070,10 @@
 -(void) test5042{
 
     NSString *code = @"5042";
+    double minX = -180.0;
+    double minY = -90.0;
+    double maxX = 180.0;
+    double maxY = -60.0;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"WGS 84 / UPS South (E,N)\",BASEGEOGCRS[\"WGS 84\","];
@@ -2022,7 +2098,7 @@
     [definition appendString:@"AXIS[\"Northing (N)\",North,MERIDIAN[0.0,ANGLEUNIT[\"degree\",0.0174532925199433]]],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",5042]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"WGS 84 / UPS South (E,N)\","];
@@ -2044,7 +2120,7 @@
     [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"5042\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"WGS 84 / UPS South (E,N)\","];
@@ -2071,7 +2147,7 @@
     [definition appendString:@"ORDER[2]],LENGTHUNIT[\"metre\",1.0],"];
     [definition appendString:@"ID[\"EPSG\",\"5042\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
 }
 
@@ -2081,7 +2157,7 @@
 -(void) test5472{
     
     NSString *code = @"5472";
-    double delta = 0.0001;
+    double delta = 0.00000001;
     double minX = -83.04;
     double minY = 7.15;
     double maxX = -77.19;
@@ -2420,6 +2496,10 @@
 -(void) test27200{
 
     NSString *code = @"27200";
+    double minX = 166.37;
+    double minY = -47.33;
+    double maxX = 178.63;
+    double maxY = -34.1;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"NZGD49 / New Zealand Map Grid\",BASEGEOGCRS[\"NZGD49\","];
@@ -2435,7 +2515,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",27200]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"NZGD49 / New Zealand Map Grid\","];
@@ -2461,7 +2541,7 @@
     [definition appendString:@"AXIS[\"Northing\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"27200\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -2471,6 +2551,10 @@
 -(void) test27258{
 
     NSString *code = @"27258";
+    double minX = 165.87;
+    double minY = -47.65;
+    double maxX = 168.0;
+    double maxY = -42.59;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"NZGD49 / UTM zone 58S\",BASEGEOGCRS[\"NZGD49\","];
@@ -2487,7 +2571,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",27258]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"NZGD49 / UTM zone 58S\","];
@@ -2514,7 +2598,7 @@
     [definition appendString:@"AXIS[\"Northing\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"27258\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -2826,6 +2910,10 @@
 -(void) test32660{
 
     NSString *code = @"32660";
+    double minX = 174.0;
+    double minY = 0.0;
+    double maxX = 180.0;
+    double maxY = 84.0;
 
     NSMutableString *definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"WGS 84 / UTM zone 60N\",BASEGEOGCRS[\"WGS 84\","];
@@ -2848,7 +2936,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",32660]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"WGS 84 / UTM zone 60N\",GEOGCS[\"WGS 84\","];
@@ -2870,7 +2958,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"32660\"],"];
     [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"WGS 84 / UTM zone 60N\",GEOGCRS[\"WGS 84\","];
@@ -2890,7 +2978,7 @@
     [definition appendString:@"AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],"];
     [definition appendString:@"ID[\"EPSG\",\"32660\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
 }
 
@@ -2922,6 +3010,29 @@
  */
 -(void) projectionTestSpecifiedWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition{
     [self projectionTestSpecifiedWithAuthority:authority andCode:code andDefinition:definition andDelta:0];
+}
+
+/**
+ * Test projection creation and transformations with specified authority and
+ * epsg
+ *
+ * @param authority
+ *            authority
+ * @param code
+ *            code
+ * @param definition
+ *            WKT definition
+ * @param minX
+ *            min x in degrees
+ * @param minY
+ *            min y in degrees
+ * @param maxX
+ *            max x in degrees
+ * @param maxY
+ *            max y in degrees
+ */
+-(void) projectionTestSpecifiedWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition andMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY{
+    [self projectionTestSpecifiedWithAuthority:authority andCode:code andDefinition:definition andDelta:0 andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 }
 
 /**
@@ -3021,6 +3132,31 @@
  */
 -(void) projectionTestSpecifiedWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition andDelta: (double) delta{
     [self projectionTestSpecifiedWithAuthority:authority andCode:code andCompareAuthority:authority andCompareCode:code andDefinition:definition andDelta:delta];
+}
+
+/**
+ * Test projection creation and transformations with specified authority and
+ * epsg
+ *
+ * @param authority
+ *            authority
+ * @param code
+ *            code
+ * @param definition
+ *            WKT definition
+ * @param delta
+ *            delta comparison
+ * @param minX
+ *            min x in degrees
+ * @param minY
+ *            min y in degrees
+ * @param maxX
+ *            max x in degrees
+ * @param maxY
+ *            max y in degrees
+ */
+-(void) projectionTestSpecifiedWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition andDelta: (double) delta andMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY{
+    [self projectionTestSpecifiedWithAuthority:authority andCode:code andCompareAuthority:authority andCompareCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 }
 
 /**
@@ -3146,6 +3282,36 @@
 }
 
 /**
+ * Test projection creation and transformations with specified authority and
+ * epsg
+ *
+ * @param authority
+ *            authority
+ * @param code
+ *            code
+ * @param compareAuthority
+ *            compare authority
+ * @param compareCode
+ *            compare code
+ * @param definition
+ *            WKT definition
+ * @param delta
+ *            delta comparison
+ * @param minX
+ *            min x in degrees
+ * @param minY
+ *            min y in degrees
+ * @param maxX
+ *            max x in degrees
+ * @param maxY
+ *            max y in degrees
+ */
+-(void) projectionTestSpecifiedWithAuthority: (NSString *) authority andCode: (NSString *) code andCompareAuthority: (NSString *) compareAuthority andCompareCode: (NSString *) compareCode andDefinition: (NSString *) definition andDelta: (double) delta andMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY{
+    PROJProjection *projection = [PROJProjectionFactory projectionWithAuthority:authority andCode:code andDefinition:definition];
+    [self projectionTestWithAuthority:authority andCode:code andCompareAuthority:compareAuthority andCompareCode:compareCode andDefinition:definition andProjection:projection andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+}
+
+/**
  * Test projection creation and transformations
  *
  * @param authority
@@ -3204,8 +3370,16 @@
 
     [self compareProjection:projection withProjection:projection2 andCompareAuthority:compareAuthority andCompareCode:compareCode andDelta:delta];
 
+    if(minY <= -90.0){
+        minY = -89.99999999;
+    }
+    if(maxY >= 90.0){
+        maxY = 89.99999999;
+    }
+    
     int transformCode;
-    if([projection isUnit:PROJ_UNIT_METERS]){
+    BOOL meters = [projection isUnit:PROJ_UNIT_METERS];
+    if(meters){
         transformCode = 4326;
     }else{
         transformCode = 3857;
@@ -3226,9 +3400,23 @@
     PROJProjectionTransform *transformFrom2 = [projection2 transformationWithProjection:transformProjection];
 
     double xRange = maxX - minX;
+    if(xRange < 0){
+        if(meters){
+            xRange += (2 * PROJ_WGS84_HALF_WORLD_LON_WIDTH);
+        }else{
+            xRange += (2 * PROJ_WEB_MERCATOR_HALF_WORLD_WIDTH);
+        }
+    }
     double yRange = maxY - minY;
     double midX = minX + (xRange / 2.0);
     double midY = minY + (yRange / 2.0);
+    if(meters){
+        if(midX > PROJ_WGS84_HALF_WORLD_LON_WIDTH){
+            midX -= (2 * PROJ_WGS84_HALF_WORLD_LON_WIDTH);
+        }
+    }else if(midX > PROJ_WEB_MERCATOR_HALF_WORLD_WIDTH){
+        midX -= (2 * PROJ_WEB_MERCATOR_HALF_WORLD_WIDTH);
+    }
 
     [self coordinateTestWithX:minX andY:minY andDelta:delta andTransformTo:transformTo andTransformTo2:transformTo2 andTransformFrom:transformFrom andTransformFrom2:transformFrom2];
     [self coordinateTestWithX:minX andY:maxY andDelta:delta andTransformTo:transformTo andTransformTo2:transformTo2 andTransformFrom:transformFrom andTransformFrom2:transformFrom2];
@@ -3243,6 +3431,13 @@
     for(int i = 0; i < 10; i++){
         
         double x = minX + ([PROJTestUtils randomDouble] * xRange);
+        if(meters){
+            if(x > PROJ_WGS84_HALF_WORLD_LON_WIDTH){
+                x -= (2 * PROJ_WGS84_HALF_WORLD_LON_WIDTH);
+            }
+        }else if(x > PROJ_WEB_MERCATOR_HALF_WORLD_WIDTH){
+            x -= (2 * PROJ_WEB_MERCATOR_HALF_WORLD_WIDTH);
+        }
         double y = minY + ([PROJTestUtils randomDouble] * yRange);
         [self coordinateTestWithX:x andY:y andDelta:delta andTransformTo:transformTo andTransformTo2:transformTo2 andTransformFrom:transformFrom andTransformFrom2:transformFrom2];
     }
