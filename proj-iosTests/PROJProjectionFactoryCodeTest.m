@@ -2704,7 +2704,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"7004\"]],"];
     [definition appendString:@"TOWGS84[565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"6289\"]],"];
-    [definition appendString:@"RIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
     [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
