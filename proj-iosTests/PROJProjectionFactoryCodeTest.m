@@ -195,6 +195,8 @@
     
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:2600670.52 andY:1199667.32 toAuthority:PROJ_AUTHORITY_EPSG andCodeInt:PROJ_EPSG_WEB_MERCATOR andX:829045.23 andY:5933605.15 andDelta:0.01];
+    
 }
 
 /**
@@ -266,6 +268,8 @@
     [PROJProjectionFactory clearTransform:transform];
     [PROJProjectionFactory clearTransform:transform2];
 
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:-1.160832226E7 andY:1.828261223E7 toAuthority:PROJ_AUTHORITY_EPSG andCodeInt:PROJ_EPSG_WORLD_GEODETIC_SYSTEM andX:-53.0 andY:5.0 andDelta:0.01];
+    
 }
 
 /**
@@ -870,6 +874,8 @@
 
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:4388138.60 andY:3321736.46 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"4258" andX:11.0 andY:53.0 andDelta:0.01];
+    
 }
 
 /**
@@ -1461,6 +1467,8 @@
 
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition];
 
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:-352695.04030562507 andY:7578309.225014557 toAuthority:PROJ_AUTHORITY_EPSG andCodeInt:PROJ_EPSG_WORLD_GEODETIC_SYSTEM andX:-3.1683134533969364 andY:56.0998025292667 andDelta:0.00000000000001];
+    
 }
 
 /**
@@ -1807,6 +1815,8 @@
     
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:-180.0 andY:-85.01794318500549 toAuthority:PROJ_AUTHORITY_EPSG andCodeInt:PROJ_EPSG_WEB_MERCATOR andX:-20037508.342789244 andY:-20037366.780895382 andDelta:0.001];
+    
 }
 
 /**
@@ -1916,6 +1926,19 @@
     [definition appendString:@"UNIT[\"degree\",0.0174532925199433]]"];
     
     [self projectionTestSpecifiedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:3.8142776 andY:51.285914 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"23031" andX:556878.9016076007 andY:5682145.166264554 andDelta:0.00001];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:6.685 andY:51.425 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"31466" andX:2547685.01212 andY:5699155.7345 andDelta:10.0];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:5.387638889 andY:52.156160556 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"28992" andX:155029.789189814 andY:463109.954032542 andDelta:0.01];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:-126.54 andY:54.15 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"3005" andX:964813.103719 andY:1016486.305862 andDelta:0.000001];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:-127.0 andY:52.11 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"3153" andX:931625.9111828626 andY:789252.646454557 andDelta:0.0000000000001];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:-76.640625 andY:49.921875 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"3785" andX:-8531595.34908 andY:6432756.94421 andDelta:0.00001];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:-93 andY:42 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"32615" andX:500000 andY:4649776.22482 andDelta:0.000001];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:-113.109375 andY:60.28125 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"32612" andX:383357.429537 andY:6684599.06392 andDelta:0.000001];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:9.735465995870696 andY:64.68347938261206 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"32633" andX:249032.839239894 andY:7183612.30572229 andDelta:0.000000001];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:33 andY:42 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"32636" andX:500000 andY:4649776.224819178 andDelta:0.000000001];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:0 andY:-75 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"3031" andX:0 andY:1638783.238407 andDelta:0.000001];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:-57.65625 andY:-79.21875 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"3031" andX:-992481.633786 andY:628482.06328 andDelta:0.000001];
     
 }
 
@@ -2654,6 +2677,13 @@
 
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:327420.988668 andY:690284.547110 toAuthority:PROJ_AUTHORITY_EPSG andCodeInt:PROJ_EPSG_WEB_MERCATOR andX:-352695.04030562507 andY:7578309.225014557 andDelta:0.01];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:-90619.28789678006 andY:10097.131147458786 toAuthority:PROJ_AUTHORITY_EPSG andCodeInt:PROJ_EPSG_WORLD_GEODETIC_SYSTEM andX:-8.82 andY:49.79 andDelta:0.01];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:612435.55 andY:1234954.16 toAuthority:PROJ_AUTHORITY_EPSG andCodeInt:PROJ_EPSG_WORLD_GEODETIC_SYSTEM andX:1.9200000236235546 andY:60.93999999543101 andDelta:0.01];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:327420.988668 andY:690284.547110 toAuthority:PROJ_AUTHORITY_EPSG andCodeInt:PROJ_EPSG_WORLD_GEODETIC_SYSTEM andX:-3.1683134533969364 andY:56.0998025292667 andDelta:0.01];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:343733.1404 andY:612144.530677 toAuthority:PROJ_AUTHORITY_EPSG andCodeInt:PROJ_EPSG_WORLD_GEODETIC_SYSTEM andX:-2.89 andY:55.4 andDelta:0.1];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:398089 andY:383867 toAuthority:PROJ_AUTHORITY_EPSG andCodeInt:PROJ_EPSG_WORLD_GEODETIC_SYSTEM andX:-2.0301713578021983 andY:53.35168607080468 andDelta:0.01];
+    
 }
 
 /**
@@ -2893,6 +2923,8 @@
 
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:5439627.33 andY:5661628.09 toAuthority:PROJ_AUTHORITY_EPSG andCodeInt:PROJ_EPSG_WEB_MERCATOR andX:1573657.37 andY:6636624.41 andDelta:0.01];
+    
 }
 
 /**
@@ -3418,7 +3450,7 @@
     [PROJTestUtils assertEqualWithValue:code andValue2:projection.code];
     [PROJTestUtils assertEqualWithValue:definition andValue2:projection.definition];
 
-    PROJProjection *projection2 = [PROJProjectionFactory cachelessProjectionWithName:compareCode];
+    PROJProjection *projection2 = [PROJProjectionFactory cachelessProjectionWithAuthority:compareAuthority andCode:compareCode];
 
     [self compareProjection:projection withProjection:projection2 andCompareAuthority:compareAuthority andCompareCode:compareCode andDelta:delta];
 
@@ -3674,6 +3706,43 @@
         }
     }
     
+}
+
+-(void) checkTransformWithAuthority: (NSString *) authority1 andCode: (NSString *) code1 andDefinition: (NSString *) definition andX: (double) x1 andY: (double) y1 toAuthority: (NSString *) authority2 andCodeInt: (int) code2 andX: (double) x2 andY: (double) y2 andDelta: (double) delta{
+    [self checkTransformWithAuthority:authority1 andCode:code1 andDefinition:definition andX:x1 andY:y1 toAuthority:authority2 andCode:[NSString stringWithFormat:@"%d",code2] andX:x2 andY:y2 andDelta:delta];
+}
+
+-(void) checkTransformWithAuthority: (NSString *) authority1 andCode: (NSString *) code1 andDefinition: (NSString *) definition andX: (double) x1 andY: (double) y1 toAuthority: (NSString *) authority2 andCode: (NSString *) code2 andX: (double) x2 andY: (double) y2 andDelta: (double) delta{
+    [self checkTransformWithAuthority:authority1 andCode:code1 andX:x1 andY:y1 toAuthority:authority2 andCode:code2 andX:x2 andY:y2 andDelta:delta];
+    [self checkTransformWithDefinition:definition andX:x1 andY:y1 toAuthority:authority2 andCode:code2 andX:x2 andY:y2 andDelta:delta];
+    [self checkTransformWithAuthority:authority2 andCode:code2 andX:x2 andY:y2 toAuthority:authority1 andCode:code1 andX:x1 andY:y1 andDelta:delta];
+}
+
+-(void) checkTransformWithDefinition: (NSString *) definition andX: (double) x1 andY: (double) y1 toAuthority: (NSString *) authority2 andCode: (NSString *) code2 andX: (double) x2 andY: (double) y2 andDelta: (double) delta{
+    
+    PROJProjection *projection = [PROJProjectionFactory projectionByDefinition:definition];
+    [self checkTransformWithProjection:projection andX:x1 andY:y1 toAuthority:authority2 andCode:code2 andX:x2 andY:y2 andDelta:delta];
+    
+}
+
+-(void) checkTransformWithAuthority: (NSString *) authority1 andCode: (NSString *) code1 andX: (double) x1 andY: (double) y1 toAuthority: (NSString *) authority2 andCode: (NSString *) code2 andX: (double) x2 andY: (double) y2 andDelta: (double) delta{
+    
+    PROJProjection *projection = [PROJProjectionFactory cachelessProjectionWithAuthority:authority1 andCode:code1];
+    [self checkTransformWithProjection:projection andX:x1 andY:y1 toAuthority:authority2 andCode:code2 andX:x2 andY:y2 andDelta:delta];
+    
+}
+
+-(void) checkTransformWithProjection: (PROJProjection *) projection andX: (double) x1 andY: (double) y1 toAuthority: (NSString *) authority andCode: (NSString *) code andX: (double) x2 andY: (double) y2 andDelta: (double) delta{
+    
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(y1, x1);
+    PROJProjectionTransform *transform = [PROJProjectionTransform transformFromProjection:projection andToAuthority:authority andToCode:code];
+    
+    CLLocationCoordinate2D coordinate2 = [transform transform:coordinate];
+    
+    [PROJTestUtils assertEqualDoubleWithValue:x2 andValue2:coordinate2.longitude andDelta:delta];
+    [PROJTestUtils assertEqualDoubleWithValue:y2 andValue2:coordinate2.latitude andDelta:delta];
+    
+    [PROJProjectionFactory clearTransform:transform];
 }
 
 @end
