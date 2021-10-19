@@ -3720,7 +3720,7 @@
 
 -(void) checkTransformWithDefinition: (NSString *) definition andX: (double) x1 andY: (double) y1 toAuthority: (NSString *) authority2 andCode: (NSString *) code2 andX: (double) x2 andY: (double) y2 andDelta: (double) delta{
     
-    PROJProjection *projection = [PROJProjectionFactory projectionByDefinition:definition];
+    PROJProjection *projection = [PROJProjectionFactory cachelessProjectionByDefinition:definition];
     [self checkTransformWithProjection:projection andX:x1 andY:y1 toAuthority:authority2 andCode:code2 andX:x2 andY:y2 andDelta:delta];
     
 }
