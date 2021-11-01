@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '12.0'
+platform :ios, '15.0'
 
 target 'proj-ios' do
   pod 'proj4-ios', '~> 4.9.3'

@@ -7,6 +7,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 ## 1.0.1 (TBD)
 
 * crs-ios version 1.0.1
+* iOS platform and deployment target 15.0
 
 ## [1.0.0](https://github.com/ngageoint/projections-ios/releases/tag/1.0.0) (09-16-2021)
 
