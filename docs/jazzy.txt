@@ -1,12 +1,10 @@
-// Replace "union" in Pods/proj4-ios/src/projects.h with "struct"
-
 jazzy \
   --objc \
   --author NGA \
   --author_url https://www.nga.mil \
   --github_url https://github.com/ngageoint/projections-ios \
-  --github-file-prefix https://github.com/ngageoint/projections-ios/tree/1.0.0 \
-  --module-version 1.0.0 \
+  --github-file-prefix https://github.com/ngageoint/projections-ios/tree/1.0.1 \
+  --module-version 1.0.1 \
   --umbrella-header proj-ios/proj-ios-Bridging-Header.h \
   --framework-root . \
   --module proj-ios \
