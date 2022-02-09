@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'proj-ios'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.license          =  {:type => 'MIT', :file => 'LICENSE' }
   s.summary          = 'iOS SDK for Projections'
   s.homepage         = 'https://github.com/ngageoint/projections-ios'
