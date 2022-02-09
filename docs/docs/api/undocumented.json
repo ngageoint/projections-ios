@@ -5043,55 +5043,62 @@
     {
       "file": "/Users/osbornb/git/projections-ios/Pods/crs-ios/crs-ios/geo/CRSGeoDatums.h",
       "line": 18,
-      "symbol": "CRSGeoDatumType.CRS_DATUM_NAD27",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/projections-ios/Pods/crs-ios/crs-ios/geo/CRSGeoDatums.h",
-      "line": 19,
       "symbol": "CRSGeoDatumType.CRS_DATUM_NAD83",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/projections-ios/Pods/crs-ios/crs-ios/geo/CRSGeoDatums.h",
+      "line": 19,
+      "symbol": "CRSGeoDatumType.CRS_DATUM_ETRS89",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/projections-ios/Pods/crs-ios/crs-ios/geo/CRSGeoDatums.h",
       "line": 20,
-      "symbol": "CRSGeoDatumType.CRS_DATUM_POTSDAM",
+      "symbol": "CRSGeoDatumType.CRS_DATUM_NAD27",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/projections-ios/Pods/crs-ios/crs-ios/geo/CRSGeoDatums.h",
       "line": 21,
-      "symbol": "CRSGeoDatumType.CRS_DATUM_CARTHAGE",
+      "symbol": "CRSGeoDatumType.CRS_DATUM_POTSDAM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/projections-ios/Pods/crs-ios/crs-ios/geo/CRSGeoDatums.h",
       "line": 22,
-      "symbol": "CRSGeoDatumType.CRS_DATUM_HERMANNSKOGEL",
+      "symbol": "CRSGeoDatumType.CRS_DATUM_CARTHAGE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/projections-ios/Pods/crs-ios/crs-ios/geo/CRSGeoDatums.h",
       "line": 23,
-      "symbol": "CRSGeoDatumType.CRS_DATUM_IRE65",
+      "symbol": "CRSGeoDatumType.CRS_DATUM_HERMANNSKOGEL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/projections-ios/Pods/crs-ios/crs-ios/geo/CRSGeoDatums.h",
       "line": 24,
-      "symbol": "CRSGeoDatumType.CRS_DATUM_NZGD49",
+      "symbol": "CRSGeoDatumType.CRS_DATUM_IRE65",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/projections-ios/Pods/crs-ios/crs-ios/geo/CRSGeoDatums.h",
       "line": 25,
+      "symbol": "CRSGeoDatumType.CRS_DATUM_NZGD49",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/projections-ios/Pods/crs-ios/crs-ios/geo/CRSGeoDatums.h",
+      "line": 26,
       "symbol": "CRSGeoDatumType.CRS_DATUM_OSGB36",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"

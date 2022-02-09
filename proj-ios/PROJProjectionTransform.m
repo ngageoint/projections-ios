@@ -177,6 +177,16 @@
     double toMinY = MIN(projectedLowerLeft.latitude, projectedLowerRight.latitude);
     double toMaxY = MAX(projectedUpperLeft.latitude, projectedUpperRight.latitude);
     
+    if(toMinX > toMaxX){
+        toMinX = MAX(projectedLowerLeft.longitude, projectedUpperLeft.longitude);
+        toMaxX = MIN(projectedLowerRight.longitude, projectedUpperRight.longitude);
+    }
+    
+    if(toMinY > toMaxY){
+        toMinY = MAX(projectedLowerLeft.latitude, projectedLowerRight.latitude);
+        toMaxY = MIN(projectedUpperLeft.latitude, projectedUpperRight.latitude);
+    }
+    
     return [NSArray arrayWithObjects:
             [NSDecimalNumber numberWithDouble:toMinX],
             [NSDecimalNumber numberWithDouble:toMinY],
