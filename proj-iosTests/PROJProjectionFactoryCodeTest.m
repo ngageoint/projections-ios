@@ -1880,6 +1880,62 @@
 }
 
 /**
+ * Test EPSG 4258
+ */
+-(void) test4258{
+    
+    NSString *code = @"4258";
+    double minX = -16.11;
+    double minY = 32.88;
+    double maxX = 40.18;
+    double maxY = 84.73;
+    
+    NSMutableString *definition = [NSMutableString string];
+    [definition appendString:@"GEOGCRS[\"ETRS89\",ENSEMBLE[\"European Terrestrial Reference System 1989 ensemble\","];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1989\", ID[\"EPSG\",1178]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1990\", ID[\"EPSG\",1179]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1991\", ID[\"EPSG\",1180]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1992\", ID[\"EPSG\",1181]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1993\", ID[\"EPSG\",1182]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1994\", ID[\"EPSG\",1183]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1996\", ID[\"EPSG\",1184]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 1997\", ID[\"EPSG\",1185]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 2000\", ID[\"EPSG\",1186]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 2005\", ID[\"EPSG\",1204]],"];
+    [definition appendString:@"MEMBER[\"European Terrestrial Reference Frame 2014\", ID[\"EPSG\",1206]],"];
+    [definition appendString:@"ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7019]],"];
+    [definition appendString:@"ENSEMBLEACCURACY[0.1],ID[\"EPSG\",6258]],"];
+    [definition appendString:@"CS[ellipsoidal,2,ID[\"EPSG\",6422]],"];
+    [definition appendString:@"AXIS[\"latitude (Lat)\",north],AXIS[\"longitude (Lon)\",east],"];
+    [definition appendString:@"ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],"];
+    [definition appendString:@"ID[\"EPSG\",4258]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:0.001 andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+    definition = [NSMutableString string];
+    [definition appendString:@"GEOGCS[\"ETRS89\","];
+    [definition appendString:@"DATUM[\"European_Terrestrial_Reference_System_1989\","];
+    [definition appendString:@"SPHEROID[\"GRS 1980\",6378137,298.257222101,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"7019\"]],"];
+    [definition appendString:@"TOWGS84[0,0,0,0,0,0,0],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"6258\"]],"];
+    [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
+    [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"9122\"]],"];
+    [definition appendString:@"AUTHORITY[\"EPSG\",\"4258\"]]"];
+    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:3.8142776 andY:51.285914 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"23031" andX:556878.9016076007 andY:5682145.166264554 andDelta:0.001];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:6.685 andY:51.425 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"31466" andX:2547685.01212 andY:5699155.7345 andDelta:10.0];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:5.387638889 andY:52.156160556 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"28992" andX:155029.789189814 andY:463109.954032542 andDelta:0.01];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:9.735465995870696 andY:64.68347938261206 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"32633" andX:249032.839239894 andY:7183612.30572229 andDelta:0.000000001];
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:33 andY:42 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"32636" andX:500000 andY:4649776.224819178 andDelta:0.000000001];
+    
+}
+
+/**
  * Test EPSG 4326
  */
 -(void) test4326{
