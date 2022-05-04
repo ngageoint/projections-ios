@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.3 (TBD)
+## [1.0.3](https://github.com/ngageoint/projections-ios/releases/tag/1.0.3) (05-04-2022)
 
 * crs-ios version 1.0.3
 * Non projected ETRS89 GeoDatum fix (EPSG:4258)
