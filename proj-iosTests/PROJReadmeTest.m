@@ -9,7 +9,6 @@
 #import "PROJReadmeTest.h"
 #import "PROJProjectionFactory.h"
 #import "PROJProjectionConstants.h"
-#import "PROJProjectionTransform.h"
 #import "PROJTestUtils.h"
 
 @implementation PROJReadmeTest

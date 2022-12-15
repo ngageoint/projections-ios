@@ -6,10 +6,7 @@
 //  Copyright © 2021 NGA. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "proj_api.h"
-#import "CRSObject.h"
-#import "CRSGeoCoordinateReferenceSystem.h"
 #import "CRSProjectedCoordinateReferenceSystem.h"
 #import "CRSCompoundCoordinateReferenceSystem.h"
 
