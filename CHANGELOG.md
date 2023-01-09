@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## [1.0.4](https://github.com/ngageoint/projections-ios/releases/tag/1.0.4) (TBD)
+## [1.0.4](https://github.com/ngageoint/projections-ios/releases/tag/1.0.4) (01-09-2023)
 
 * crs-ios version 1.0.4
 * Imports cleanup and simplification
