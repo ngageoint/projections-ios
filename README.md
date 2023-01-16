@@ -59,6 +59,14 @@ CLLocationCoordinate2D inverseTransformed = [inverseTransform transform:transfor
 
 [![Build & Test](https://github.com/ngageoint/projections-ios/workflows/Build%20&%20Test/badge.svg)](https://github.com/ngageoint/projections-ios/actions/workflows/build-test.yml)
 
+**IMPORTANT** -
+Be sure your Mac has the `autoconf`, `automake`, and `glibtoolize` utilities.  These are required to build
+the [proj4-ios](https://cocoapods.org/pods/proj4-ios) dependency.  Without them, `pod install` will fail.  The easiest way to get these is to [`brew install`](https://brew.sh/) them:
+```
+brew install automake
+brew install libtool
+```
+
 Build this repository using Xcode and/or CocoaPods:
 
     pod repo update
@@ -73,6 +81,8 @@ Run tests from Xcode or from command line:
     xcodebuild test -workspace 'proj-ios.xcworkspace' -scheme proj-ios -destination 'platform=iOS Simulator,name=iPhone 14'
 
 ### Include Library ###
+
+See the [above note](https://github.com/ngageoint/projections-ios#build) about `automake` and `glibtoolize`.
 
 Include this repository by specifying it in a Podfile using a supported option.
 
