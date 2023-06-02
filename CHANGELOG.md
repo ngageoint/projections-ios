@@ -4,9 +4,9 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.5 (TBD)
+## [1.0.5](https://github.com/ngageoint/projections-ios/releases/tag/1.0.5) (06-02-2023)
 
-* TBD
+* proj4-ios version 4.9.3.1
 
 ## [1.0.4](https://github.com/ngageoint/projections-ios/releases/tag/1.0.4) (01-09-2023)
 
