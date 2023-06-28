@@ -11,30 +11,30 @@
 
 @implementation PROJCRSParser
 
-+(projPJ) parseText: (NSString *) wkt{
++(PJ *) parseText: (NSString *) wkt{
     return [self createProj:[CRSProjParser paramsTextFromText:wkt]];
 }
 
-+(projPJ) convertCRS: (CRSObject *) crs{
++(PJ *) convertCRS: (CRSObject *) crs{
     return [self createProj:[CRSProjParser paramsTextFromCRS:crs]];
 }
 
-+(projPJ) convertGeo: (CRSGeoCoordinateReferenceSystem *) geo{
++(PJ *) convertGeo: (CRSGeoCoordinateReferenceSystem *) geo{
     return [self createProj:[CRSProjParser paramsTextFromGeo:geo]];
 }
 
-+(projPJ) convertProjected: (CRSProjectedCoordinateReferenceSystem *) projected{
++(PJ *) convertProjected: (CRSProjectedCoordinateReferenceSystem *) projected{
     return [self createProj:[CRSProjParser paramsTextFromProjected:projected]];
 }
 
-+(projPJ) convertCompound: (CRSCompoundCoordinateReferenceSystem *) compound{
++(PJ *) convertCompound: (CRSCompoundCoordinateReferenceSystem *) compound{
     return [self createProj:[CRSProjParser paramsTextFromCompound:compound]];
 }
 
-+(projPJ) createProj: (NSString *) params{
-    projPJ crs = NULL;
++(PJ *) createProj: (NSString *) params{
+    PJ *crs = NULL;
     if(params != nil){
-        crs = pj_init_plus([params UTF8String]);
+        crs = proj_create(PJ_DEFAULT_CTX, [params UTF8String]);
     }
     return crs;
 }

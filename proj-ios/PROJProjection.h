@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "projects.h"
+#import "proj.h"
 #import "PROJUnits.h"
 #import "CRSObject.h"
 #import "PROJProjectionTransform.h"
@@ -29,7 +29,7 @@
  */
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
-                           andCrs: (projPJ) crs;
+                           andCrs: (PJ *) crs;
 
 /**
  *  Initialize
@@ -42,7 +42,7 @@
  */
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                     andIntCode: (int) code
-                           andCrs: (projPJ) crs;
+                           andCrs: (PJ *) crs;
 
 /**
  *  Initialize
@@ -55,7 +55,7 @@
  */
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                           andCrs: (projPJ) crs;
+                           andCrs: (PJ *) crs;
 
 /**
  *  Initialize
@@ -69,7 +69,7 @@
  */
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition;
 
 /**
@@ -84,7 +84,7 @@
  */
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                     andIntCode: (int) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition;
 
 /**
@@ -99,7 +99,7 @@
  */
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition;
 
 /**
@@ -115,7 +115,7 @@
  */
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                  andDefinitionCrs: (CRSObject *) definitionCRS;
 
@@ -132,7 +132,7 @@
  */
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                     andIntCode: (int) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                  andDefinitionCrs: (CRSObject *) definitionCRS;
 
@@ -149,7 +149,7 @@
  */
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                  andDefinitionCrs: (CRSObject *) definitionCRS;
 
@@ -164,7 +164,7 @@
  */
 -(instancetype) initWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
-                           andCrs: (projPJ) crs;
+                           andCrs: (PJ *) crs;
 
 /**
  *  Initialize
@@ -177,7 +177,7 @@
  */
 -(instancetype) initWithAuthority: (NSString *) authority
                     andIntCode: (int) code
-                           andCrs: (projPJ) crs;
+                           andCrs: (PJ *) crs;
 
 /**
  *  Initialize
@@ -190,7 +190,7 @@
  */
 -(instancetype) initWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                           andCrs: (projPJ) crs;
+                           andCrs: (PJ *) crs;
 
 /**
  *  Initialize
@@ -204,7 +204,7 @@
  */
 -(instancetype) initWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition;
 
 /**
@@ -219,7 +219,7 @@
  */
 -(instancetype) initWithAuthority: (NSString *) authority
                     andIntCode: (int) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition;
 
 /**
@@ -234,7 +234,7 @@
  */
 -(instancetype) initWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition;
 
 /**
@@ -250,7 +250,7 @@
  */
 -(instancetype) initWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                  andDefinitionCrs: (CRSObject *) definitionCRS;
 
@@ -267,7 +267,7 @@
  */
 -(instancetype) initWithAuthority: (NSString *) authority
                     andIntCode: (int) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                  andDefinitionCrs: (CRSObject *) definitionCRS;
 
@@ -284,7 +284,7 @@
  */
 -(instancetype) initWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                  andDefinitionCrs: (CRSObject *) definitionCRS;
 
@@ -312,7 +312,7 @@
  *
  * @return coordinate reference system
  */
--(projPJ) crs;
+-(PJ *) crs;
 
 /**
  * Check if a lat lon crs

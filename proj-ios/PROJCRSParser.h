@@ -6,7 +6,7 @@
 //  Copyright © 2021 NGA. All rights reserved.
 //
 
-#import "proj_api.h"
+#import "proj.h"
 #import "CRSProjectedCoordinateReferenceSystem.h"
 #import "CRSCompoundCoordinateReferenceSystem.h"
 
@@ -22,7 +22,7 @@
  *            crs well-known text
  * @return coordinate reference system
  */
-+(projPJ) parseText: (NSString *) wkt;
++(PJ *) parseText: (NSString *) wkt;
 
 /**
  * Convert a CRS object into a proj4 coordinate reference system
@@ -31,7 +31,7 @@
  *            CRS object
  * @return coordinate reference system
  */
-+(projPJ) convertCRS: (CRSObject *) crs;
++(PJ *) convertCRS: (CRSObject *) crs;
 
 /**
  * Convert a geodetic or geographic crs into a proj4 coordinate reference
@@ -41,7 +41,7 @@
  *            geodetic or geographic crs
  * @return coordinate reference system
  */
-+(projPJ) convertGeo: (CRSGeoCoordinateReferenceSystem *) geo;
++(PJ *) convertGeo: (CRSGeoCoordinateReferenceSystem *) geo;
 
 /**
  * Convert a projected crs into a proj4 coordinate reference system
@@ -50,7 +50,7 @@
  *            projected crs
  * @return coordinate reference system
  */
-+(projPJ) convertProjected: (CRSProjectedCoordinateReferenceSystem *) projected;
++(PJ *) convertProjected: (CRSProjectedCoordinateReferenceSystem *) projected;
 
 /**
  * Convert a compound crs into a proj4 coordinate reference system
@@ -59,6 +59,6 @@
  *            compound crs
  * @return coordinate reference system
  */
-+(projPJ) convertCompound: (CRSCompoundCoordinateReferenceSystem *) compound;
++(PJ *) convertCompound: (CRSCompoundCoordinateReferenceSystem *) compound;
 
 @end

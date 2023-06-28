@@ -25,7 +25,7 @@
 /**
  *  Projection Coordinate Reference System
  */
-@property (nonatomic) projPJ crs;
+@property (nonatomic) PJ *crs;
 
 /**
  *  True if a lat lon crs
@@ -48,46 +48,46 @@
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
-                                 andCrs: (projPJ) crs{
+                                 andCrs: (PJ *) crs{
     return [[PROJProjection alloc] initWithAuthority:authority andNumberCode:code andCrs:crs];
 }
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                     andIntCode: (int) code
-                                     andCrs: (projPJ) crs{
+                                     andCrs: (PJ *) crs{
     return [[PROJProjection alloc] initWithAuthority:authority andIntCode:code andCrs:crs];
 }
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                                 andCrs: (projPJ) crs{
+                                 andCrs: (PJ *) crs{
     return [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs];
 }
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                           andDefinition: (NSString *) definition{
     return [[PROJProjection alloc] initWithAuthority:authority andNumberCode:code andCrs:crs andDefinition:definition];
 }
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                     andIntCode: (int) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                               andDefinition: (NSString *) definition{
     return [[PROJProjection alloc] initWithAuthority:authority andIntCode:code andCrs:crs andDefinition:definition];
 }
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                           andDefinition: (NSString *) definition{
     return [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andDefinition:definition];
 }
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                        andDefinitionCrs: (CRSObject *) definitionCRS{
     return [[PROJProjection alloc] initWithAuthority:authority andNumberCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
@@ -95,7 +95,7 @@
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                     andIntCode: (int) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                            andDefinitionCrs: (CRSObject *) definitionCRS{
     return [[PROJProjection alloc] initWithAuthority:authority andIntCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
@@ -103,52 +103,52 @@
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                        andDefinitionCrs: (CRSObject *) definitionCRS{
     return [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
 }
 
--(instancetype) initWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andCrs: (projPJ) crs{
+-(instancetype) initWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andCrs: (PJ *) crs{
     return [self initWithAuthority:authority andNumberCode:code andCrs:crs andDefinition:nil];
 }
 
 -(instancetype) initWithAuthority: (NSString *) authority
                     andIntCode: (int) code
-                           andCrs: (projPJ) crs{
+                           andCrs: (PJ *) crs{
     return [self initWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andCrs:crs];
 }
 
 -(instancetype) initWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                           andCrs: (projPJ) crs{
+                           andCrs: (PJ *) crs{
     return [self initWithAuthority:authority andCode:code andCrs:crs andDefinition:nil];
 }
 
 -(instancetype) initWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition{
     return [self initWithAuthority:authority andNumberCode:code andCrs:crs andDefinition:definition andDefinitionCrs:nil];
 }
 
 -(instancetype) initWithAuthority: (NSString *) authority
                     andIntCode: (int) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition{
     return [self initWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andCrs:crs andDefinition:definition];
 }
 
 -(instancetype) initWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition{
     return [self initWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:nil];
 }
 
 -(instancetype) initWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                  andDefinitionCrs: (CRSObject *) definitionCRS{
     return [self initWithAuthority:authority andCode:(code != nil ? [code stringValue] : nil) andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
@@ -156,7 +156,7 @@
 
 -(instancetype) initWithAuthority: (NSString *) authority
                     andIntCode: (int) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                  andDefinitionCrs: (CRSObject *) definitionCRS{
     return [self initWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
@@ -164,7 +164,7 @@
 
 -(instancetype) initWithAuthority: (NSString *) authority
                           andCode: (NSString *) code
-                           andCrs: (projPJ) crs
+                           andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                  andDefinitionCrs: (CRSObject *) definitionCRS{
     self = [super init];
@@ -175,7 +175,8 @@
         _authority = authority;
         _code = code;
         _crs = crs;
-        _isLatLong = pj_is_latlong(crs);
+        _isLatLong = NO; // TODO
+        //_isLatLong = proj_get_type(crs); // TODO
         _definition = definition;
         _definitionCRS = definitionCRS;
     }
@@ -184,7 +185,7 @@
 
 -(void) free{
     if(_crs != NULL){
-        pj_free(_crs);
+        proj_destroy(_crs);
         _crs = NULL;
     }
 }
@@ -197,7 +198,7 @@
     return _code;
 }
 
--(projPJ) crs{
+-(PJ *) crs{
     return _crs;
 }
 
@@ -232,7 +233,9 @@
 }
 
 -(double) toMeters: (double) value{
-    return value / _crs->vfr_meter;
+    return 0; // TODO
+    //return _crs.units[0].to_meter;
+    //return value / _crs->vfr_meter;
 }
 
 -(enum PROJUnit) unit{

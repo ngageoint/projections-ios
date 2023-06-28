@@ -381,7 +381,7 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
 
             if(projection == nil){
 
-                projPJ crs = [PROJCRSParser convertCRS:definitionCRS];
+                PJ *crs = [PROJCRSParser convertCRS:definitionCRS];
                 if(crs != nil){
                     projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
                     if(cacheProjection){
@@ -493,7 +493,7 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     if(definition != nil && definition.length > 0){
         
         @try{
-            projPJ crs = nil;
+            PJ *crs = nil;
             CRSObject *definitionCRS = [CRSReader read:definition];
             if(definitionCRS != nil){
                 crs = [PROJCRSParser convertCRS:definitionCRS];
@@ -529,7 +529,7 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     PROJProjection *projection = nil;
     
     if (params != nil && params.length > 0) {
-        projPJ crs = pj_init_plus([params UTF8String]);
+        PJ *crs = proj_create(PJ_DEFAULT_CTX, [params UTF8String]);
         if(crs != nil){
             projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition];
             [projections addProjection:projection];
@@ -559,7 +559,7 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     NSString *parameters = [PROJProjectionRetriever projectionWithAuthority:authority andCode:code];
     
     if(parameters != nil && parameters.length > 0){
-        projPJ crs = pj_init_plus([parameters UTF8String]);
+        PJ *crs = proj_create(PJ_DEFAULT_CTX, [parameters UTF8String]);
         if(crs != nil){
             projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition];
             [projections addProjection:projection];
@@ -569,6 +569,46 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     }
     
     return projection;
+}
+
+/**
+ * Create a projection from the coordinate authority and code name TODO
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            coordinate code
+ * @param definition
+ *            WKT coordinate definition
+ * @return projection
+ */
++(PROJProjection *) fromNameWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition{
+
+    PROJProjection *projection = nil;
+
+    NSString *name = [self coordinateNameWithAuthority:authority andCode:code];
+    PJ *crs = proj_create(PJ_DEFAULT_CTX, [name UTF8String]);
+    if(crs != nil){
+        projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition];
+        [projections addProjection:projection];
+    }else{
+        NSLog(@"Failed to create projection for authority: %@, code: %@", authority, code);
+    }
+
+    return projection;
+}
+
+/**
+ * Build a coordinate name from the authority and code TODO
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            coordinate code
+ * @return name
+ */
++(NSString *) coordinateNameWithAuthority: (NSString *) authority andCode: (NSString *) code{
+    return [NSString stringWithFormat:@"+init=%@:%@", [authority uppercaseString], code];
 }
 
 @end

@@ -122,33 +122,37 @@
 
 -(PROJLocationCoordinate3D *) transform3d: (PROJLocationCoordinate3D *) from{
     
-    CLLocationCoordinate2D to = CLLocationCoordinate2DMake(from.coordinate.latitude, from.coordinate.longitude);
+    PJ_COORD c_in;
     
-    if(self.fromProjection.isLatLong){
-        to.latitude *= DEG_TO_RAD;
-        to.longitude *= DEG_TO_RAD;
-    }
-    
-    double zValue = 0;
     BOOL hasZ = [from hasZ];
     if(hasZ){
-        zValue = [from.z doubleValue];
+        c_in.xyz.x = from.coordinate.longitude;
+        c_in.xyz.y = from.coordinate.latitude;
+        c_in.xyz.z = [from.z doubleValue];
+    } else {
+        c_in.xy.x = from.coordinate.longitude;
+        c_in.xy.y = from.coordinate.latitude;
     }
     
-    int value = pj_transform(self.fromProjection.crs, self.toProjection.crs, 1, 0, &to.longitude, &to.latitude, hasZ ? &zValue : NULL);
+    PJ_CONTEXT *context = proj_context_create();
     
-    if(value != 0){
-        [NSException raise:@"Transform Error" format:@"Failed to transform authority: %@, code: %@, latitude: %f, longitude: %f to authority: %@, code: %@, Error: %d", self.fromProjection.authority, self.fromProjection.code, from.coordinate.latitude, from.coordinate.longitude, self.toProjection.authority, self.toProjection.code, value];
-    }
+    const char *fromString = proj_as_proj_string(context, self.fromProjection.crs, PJ_PROJ_4, NULL);
+    const char *toString = proj_as_proj_string(context, self.toProjection.crs, PJ_PROJ_4, NULL);
     
-    if(self.toProjection.isLatLong){
-        to.latitude *= RAD_TO_DEG;
-        to.longitude *= RAD_TO_DEG;
-    }
+    PJ *transform = proj_create_crs_to_crs(context, fromString, toString, NULL);
+
+    PJ_COORD c_out = proj_trans(transform, PJ_FWD, c_in);
+
+    proj_destroy(transform);
+    proj_context_destroy(context);
     
-    NSDecimalNumber * toZ = nil;
+    CLLocationCoordinate2D to;
+    NSDecimalNumber *toZ = nil;
     if(hasZ){
-        toZ = [[NSDecimalNumber alloc] initWithDouble:zValue];
+        to = CLLocationCoordinate2DMake(c_out.xyz.y, c_out.xyz.x);
+        toZ = [[NSDecimalNumber alloc] initWithDouble:c_out.xyz.z];
+    } else {
+        to = CLLocationCoordinate2DMake(c_out.xy.y, c_out.xy.x);
     }
     
     return [PROJLocationCoordinate3D coordinateWithCoordinate:to andZ:toZ];

@@ -17,6 +17,8 @@
 		042FC6D31B96421E00549A4B /* proj-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* proj-ios-Prefix.pch */; };
 		042FC6D51B96453E00549A4B /* proj_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* proj_ios.h */; };
 		0472B51B1C03590500496B87 /* proj-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* proj-ios-Bridging-Header.h */; };
+		04974DA32A49D8D200CEEC2A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04974DA22A49D8D200CEEC2A /* libsqlite3.tbd */; };
+		04974DA52A49D93900CEEC2A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04974DA42A49D93900CEEC2A /* libc++.tbd */; };
 		04BCA97F2698D69D0015DEC0 /* PROJCRSParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BCA97D2698D69D0015DEC0 /* PROJCRSParser.h */; };
 		04BCA9802698D69D0015DEC0 /* PROJCRSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BCA97E2698D69D0015DEC0 /* PROJCRSParser.m */; };
 		04C393C422DD200F0049F6C0 /* projections.ogc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C393C322DD200E0049F6C0 /* projections.ogc.plist */; };
@@ -76,6 +78,8 @@
 		042FC69E1B96421E00549A4B /* proj-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "proj-ios-Prefix.pch"; sourceTree = "<group>"; };
 		042FC6D41B96453E00549A4B /* proj_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = proj_ios.h; sourceTree = "<group>"; };
 		0472B51A1C03590500496B87 /* proj-ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "proj-ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		04974DA22A49D8D200CEEC2A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
+		04974DA42A49D93900CEEC2A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/lib/libc++.tbd"; sourceTree = DEVELOPER_DIR; };
 		04BCA97D2698D69D0015DEC0 /* PROJCRSParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJCRSParser.h; sourceTree = "<group>"; };
 		04BCA97E2698D69D0015DEC0 /* PROJCRSParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PROJCRSParser.m; sourceTree = "<group>"; };
 		04C393C322DD200E0049F6C0 /* projections.ogc.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = projections.ogc.plist; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04974DA52A49D93900CEEC2A /* libc++.tbd in Frameworks */,
+				04974DA32A49D8D200CEEC2A /* libsqlite3.tbd in Frameworks */,
 				455990E02D380E531EE4ACDC /* libPods-proj-ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +239,8 @@
 		63206AE083C9F99B2058A9EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04974DA42A49D93900CEEC2A /* libc++.tbd */,
+				04974DA22A49D8D200CEEC2A /* libsqlite3.tbd */,
 				499642A447440D35F38311C9 /* libPods-proj-iosTests.a */,
 				CF2802BAC0915BABF2D048D9 /* libPods-proj-ios.a */,
 			);
