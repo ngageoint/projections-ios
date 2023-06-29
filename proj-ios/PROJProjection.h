@@ -382,15 +382,6 @@
 -(PROJProjectionTransform *) transformationWithProjection: (PROJProjection *) projection;
 
 /**
- *  Convert the value to meters
- *
- *  @param value value
- *
- *  @return meters
- */
--(double) toMeters: (double) value;
-
-/**
  *  Get the projection unit
  *
  *  @return unit

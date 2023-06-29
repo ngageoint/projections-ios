@@ -175,8 +175,8 @@
         _authority = authority;
         _code = code;
         _crs = crs;
-        _isLatLong = NO; // TODO
-        //_isLatLong = proj_get_type(crs); // TODO
+        PJ_PROJ_INFO info = proj_pj_info(crs);
+        _isLatLong = info.id != NULL && [[NSString stringWithUTF8String:info.id] isEqualToString:@"longlat"];
         _definition = definition;
         _definitionCRS = definitionCRS;
     }
@@ -230,12 +230,6 @@
 
 -(PROJProjectionTransform *) transformationWithProjection: (PROJProjection *) projection{
     return [PROJProjectionTransform transformFromProjection:self andToProjection:projection];
-}
-
--(double) toMeters: (double) value{
-    return 0; // TODO
-    //return _crs.units[0].to_meter;
-    //return value / _crs->vfr_meter;
 }
 
 -(enum PROJUnit) unit{
