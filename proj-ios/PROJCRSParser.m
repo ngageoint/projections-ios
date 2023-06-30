@@ -12,7 +12,7 @@
 @implementation PROJCRSParser
 
 +(PJ *) parseText: (NSString *) wkt{
-    return [self createProj:[CRSProjParser paramsTextFromText:wkt]];
+    return proj_create_from_wkt(PJ_DEFAULT_CTX, [wkt UTF8String], NULL, NULL, NULL);
 }
 
 +(PJ *) convertCRS: (CRSObject *) crs{

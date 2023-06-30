@@ -39,8 +39,10 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
         defaultOrder = [NSOrderedSet orderedSetWithObjects:
                         [NSNumber numberWithInt:PROJ_FACTORY_CACHE],
                         [NSNumber numberWithInt:PROJ_FACTORY_DEFINITION],
+                        [NSNumber numberWithInt:PROJ_FACTORY_DEFINITION_PARAMETERS],
                         [NSNumber numberWithInt:PROJ_FACTORY_PARAMETERS],
                         [NSNumber numberWithInt:PROJ_FACTORY_PROPERTIES],
+                        [NSNumber numberWithInt:PROJ_FACTORY_NAME],
                         nil];
     }
     if(projections == nil){
@@ -296,6 +298,14 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
             projection = [self fromDefinition:definition withAuthority:authority andCode:code];
             break;
 
+        case PROJ_FACTORY_DEFINITION_PARAMETERS:
+            projection = [self fromDefinitionParamsWithAuthority:authority andCode:code andDefinition:definition];
+            break;
+
+        case PROJ_FACTORY_NAME:
+            projection = [self fromNameWithAuthority:authority andCode:code andDefinition:definition];
+            break;
+
         case PROJ_FACTORY_PARAMETERS:
             projection = [self fromParams:params withAuthority:authority andCode:code andDefinition:definition];
             break;
@@ -381,7 +391,11 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
 
             if(projection == nil){
 
-                PJ *crs = [PROJCRSParser convertCRS:definitionCRS];
+                PJ *crs = [PROJCRSParser parseText:definition];
+                crs = nil; // TODO parse wkt currently breaking tests
+                if (crs == nil) {
+                    crs = [PROJCRSParser convertCRS:definitionCRS];
+                }
                 if(crs != nil){
                     projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
                     if(cacheProjection){
@@ -490,6 +504,42 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
 
     PROJProjection *projection = nil;
     
+    if(definition != nil && definition.length > 0){
+
+        @try{
+            PJ *crs = nil;
+            CRSObject *definitionCRS = [CRSReader read:definition];
+            if(definitionCRS != nil){
+                crs = [PROJCRSParser parseText:definition];
+            }
+            if(crs != nil){
+                projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
+                [projections addProjection:projection];
+            }
+        }@catch (NSException *exception) {
+            NSLog(@"Failed to create projection for authority: %@, code: %@, definition: %@, error: %@", authority, code, definition, exception);
+        }
+
+    }
+
+    return projection;
+}
+
+/**
+ * Create a projection from the WKT definition converted to params
+ *
+ * @param definition
+ *            WKT coordinate definition
+ * @param authority
+ *            authority
+ * @param code
+ *            coordinate code
+ * @return projection
+ */
++(PROJProjection *) fromDefinitionParamsWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition{
+
+    PROJProjection *projection = nil;
+
     if(definition != nil && definition.length > 0){
         
         @try{

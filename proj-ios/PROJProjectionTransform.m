@@ -136,10 +136,28 @@
     
     PJ_CONTEXT *context = proj_context_create();
     
-    const char *fromString = proj_as_proj_string(context, self.fromProjection.crs, PJ_PROJ_4, NULL);
-    const char *toString = proj_as_proj_string(context, self.toProjection.crs, PJ_PROJ_4, NULL);
-    
-    PJ *transform = proj_create_crs_to_crs(context, fromString, toString, NULL);
+    PJ *transform = nil;
+    BOOL isFromCRS = proj_is_crs(self.fromProjection.crs);
+    BOOL isToCRS = proj_is_crs(self.toProjection.crs);
+    if(isFromCRS && isToCRS) {
+        transform = proj_create_crs_to_crs_from_pj(context, self.fromProjection.crs, self.toProjection.crs, NULL, NULL);
+    } else {
+        const char *fromString; // TODO
+        //if (isFromCRS) {
+            //fromString = proj_as_wkt(context, self.fromProjection.crs, PJ_WKT2_2019, NULL);
+            //fromString = [[NSString stringWithFormat:@"%s:%s", proj_get_id_auth_name(self.fromProjection.crs, 0), proj_get_id_code(self.fromProjection.crs, 0)] UTF8String];
+        //} else {
+            fromString = proj_as_proj_string(context, self.fromProjection.crs, PJ_PROJ_4, NULL);
+        //}
+        const char *toString; // TODO
+        //if (isToCRS) {
+            //toString = proj_as_wkt(context, self.toProjection.crs, PJ_WKT2_2019, NULL);
+            //toString = [[NSString stringWithFormat:@"%s:%s", proj_get_id_auth_name(self.toProjection.crs, 0), proj_get_id_code(self.toProjection.crs, 0)] UTF8String];
+        //} else {
+            toString = proj_as_proj_string(context, self.toProjection.crs, PJ_PROJ_4, NULL);
+        //}
+        transform = proj_create_crs_to_crs(context, fromString, toString, NULL);
+    }
 
     PJ_COORD c_out = proj_trans(transform, PJ_FWD, c_in);
 

@@ -12,26 +12,37 @@
  * Well-known text representation of coordinate reference systems category type
  */
 enum PROJProjectionFactoryType{
+
     /**
      * Cached projections from previous retrievals
      */
     PROJ_FACTORY_CACHE,
-    
+
     /**
-     * Well-Known Text Definition parsing and proj4 conversion
+     * Well-Known Text Definition PROJ creation
      */
     PROJ_FACTORY_DEFINITION,
-    
+
     /**
-     * proj4 creation from proj4 projection parameters
+     * Well-Known Text Definition parameter parsing and PROJ parameter creation
+     */
+    PROJ_FACTORY_DEFINITION_PARAMETERS,
+
+    /**
+     * PROJ creation from a well-known coordinate reference system name
+     */
+    PROJ_FACTORY_NAME,
+
+    /**
+     * PROJ creation from PROJ projection parameters
      */
     PROJ_FACTORY_PARAMETERS,
-    
+
     /**
-     * Creation from project and custom properties of configured proj4 projection parameters
+     * Creation from project and custom properties of configured PROJ projection parameters
      */
     PROJ_FACTORY_PROPERTIES
-    
+
 };
 
 @interface PROJProjectionFactoryTypes : NSObject
