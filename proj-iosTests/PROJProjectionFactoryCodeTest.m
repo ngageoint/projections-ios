@@ -82,6 +82,7 @@
 -(void) test2046{
     
     NSString *code = @"2046";
+    double delta = 0.00001;
     double minX = 13.33;
     double minY = -50.32;
     double maxX = 42.85;
@@ -102,7 +103,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",6503]],AXIS[\"Westing (Y)\",west],AXIS[\"Southing (X)\",south],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2046]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"Hartebeesthoek94 / Lo15\","];
@@ -687,6 +688,7 @@
 -(void) test2200{
     
     NSString *code = @"2200";
+    double delta = 0.00000001;
     double minX = -69.05;
     double minY = 44.56;
     double maxX = -63.7;
@@ -707,7 +709,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4500]],AXIS[\"Northing (N)\",north],AXIS[\"Easting (E)\",east],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2200]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"ATS77 / New Brunswick Stereographic (ATS77)\","];
@@ -731,7 +733,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"2200\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -2512,6 +2514,7 @@
 -(void) test22275{
 
     NSString *code = @"22275";
+    double delta = 0.00000001;
     double minX = 16.45;
     double minY = -34.88;
     double maxX = 32.95;
@@ -2535,7 +2538,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",6503]],AXIS[\"Westing (Y)\",west],AXIS[\"Southing (X)\",south],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",22275]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"Cape / Lo15\","];
@@ -2562,7 +2565,7 @@
     [definition appendString:@"AXIS[\"X\",SOUTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"22275\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -3727,9 +3730,6 @@
     [PROJTestUtils assertEqualWithValue:[self string:info1.description] andValue2:[self string:info2.description]];
     [PROJTestUtils assertEqualIntWithValue:info1.has_inverse andValue2:info2.has_inverse];
     [PROJTestUtils assertEqualDoubleWithValue:info1.accuracy andValue2:info2.accuracy];
-
-    NSString *projString1 = [self string:proj_as_proj_string(PJ_DEFAULT_CTX, crs,PJ_PROJ_4, NULL)]; // TODO
-    NSString *projString2 = [self string:proj_as_proj_string(PJ_DEFAULT_CTX, crs2,PJ_PROJ_4, NULL)]; // TODO
     
 }
 

@@ -38,8 +38,8 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     if(defaultOrder == nil){
         defaultOrder = [NSOrderedSet orderedSetWithObjects:
                         [NSNumber numberWithInt:PROJ_FACTORY_CACHE],
-                        [NSNumber numberWithInt:PROJ_FACTORY_DEFINITION],
                         [NSNumber numberWithInt:PROJ_FACTORY_DEFINITION_PARAMETERS],
+                        [NSNumber numberWithInt:PROJ_FACTORY_DEFINITION],
                         [NSNumber numberWithInt:PROJ_FACTORY_PARAMETERS],
                         [NSNumber numberWithInt:PROJ_FACTORY_PROPERTIES],
                         [NSNumber numberWithInt:PROJ_FACTORY_NAME],
@@ -391,11 +391,11 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
 
             if(projection == nil){
 
-                PJ *crs = [PROJCRSParser parseText:definition];
-                crs = nil; // TODO parse wkt currently breaking tests
-                if (crs == nil) {
-                    crs = [PROJCRSParser convertCRS:definitionCRS];
-                }
+                //PJ *crs = [PROJCRSParser parseText:definition];
+                //if (crs == nil) {
+                //    crs = [PROJCRSParser convertCRS:definitionCRS];
+                //}
+                PJ *crs = crs = [PROJCRSParser convertCRS:definitionCRS];
                 if(crs != nil){
                     projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
                     if(cacheProjection){
@@ -658,7 +658,7 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
  * @return name
  */
 +(NSString *) coordinateNameWithAuthority: (NSString *) authority andCode: (NSString *) code{
-    return [NSString stringWithFormat:@"+init=%@:%@", [authority uppercaseString], code];
+    return [NSString stringWithFormat:@"%@:%@", [authority uppercaseString], code];
 }
 
 @end

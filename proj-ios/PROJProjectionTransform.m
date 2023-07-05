@@ -9,6 +9,7 @@
 #import "PROJProjectionTransform.h"
 #import "PROJProjectionFactory.h"
 #import "PROJProjectionConstants.h"
+#import "CRSAxisDirectionTypes.h"
 
 @implementation PROJProjectionTransform
 
@@ -122,58 +123,100 @@
 
 -(PROJLocationCoordinate3D *) transform3d: (PROJLocationCoordinate3D *) from{
     
+    double x = from.coordinate.longitude;
+    double y = from.coordinate.latitude;
+
+    BOOL isFromCRS = proj_is_crs(self.fromProjection.crs);
+    BOOL isToCRS = proj_is_crs(self.toProjection.crs);
+
+    PJ_CONTEXT *context = proj_context_create();
+
+    if (isFromCRS && [self swapAxisWithContext:context andCRS:self.fromProjection.crs]) {
+        double newY = x;
+        x = y;
+        y = newY;
+    }
+
     PJ_COORD c_in;
     
     BOOL hasZ = [from hasZ];
     if(hasZ){
-        c_in.xyz.x = from.coordinate.longitude;
-        c_in.xyz.y = from.coordinate.latitude;
+        c_in.xyz.x = x;
+        c_in.xyz.y = y;
         c_in.xyz.z = [from.z doubleValue];
     } else {
-        c_in.xy.x = from.coordinate.longitude;
-        c_in.xy.y = from.coordinate.latitude;
+        c_in.xy.x = x;
+        c_in.xy.y = y;
     }
     
-    PJ_CONTEXT *context = proj_context_create();
-    
     PJ *transform = nil;
-    BOOL isFromCRS = proj_is_crs(self.fromProjection.crs);
-    BOOL isToCRS = proj_is_crs(self.toProjection.crs);
     if(isFromCRS && isToCRS) {
         transform = proj_create_crs_to_crs_from_pj(context, self.fromProjection.crs, self.toProjection.crs, NULL, NULL);
     } else {
-        const char *fromString; // TODO
-        //if (isFromCRS) {
-            //fromString = proj_as_wkt(context, self.fromProjection.crs, PJ_WKT2_2019, NULL);
-            //fromString = [[NSString stringWithFormat:@"%s:%s", proj_get_id_auth_name(self.fromProjection.crs, 0), proj_get_id_code(self.fromProjection.crs, 0)] UTF8String];
-        //} else {
+        const char *fromString;
+        if (isFromCRS) {
+            fromString = proj_as_wkt(context, self.fromProjection.crs, PJ_WKT2_2019, NULL);
+        } else {
             fromString = proj_as_proj_string(context, self.fromProjection.crs, PJ_PROJ_4, NULL);
-        //}
-        const char *toString; // TODO
-        //if (isToCRS) {
-            //toString = proj_as_wkt(context, self.toProjection.crs, PJ_WKT2_2019, NULL);
-            //toString = [[NSString stringWithFormat:@"%s:%s", proj_get_id_auth_name(self.toProjection.crs, 0), proj_get_id_code(self.toProjection.crs, 0)] UTF8String];
-        //} else {
+        }
+        const char *toString;
+        if (isToCRS) {
+            toString = proj_as_wkt(context, self.toProjection.crs, PJ_WKT2_2019, NULL);
+        } else {
             toString = proj_as_proj_string(context, self.toProjection.crs, PJ_PROJ_4, NULL);
-        //}
+        }
         transform = proj_create_crs_to_crs(context, fromString, toString, NULL);
     }
 
     PJ_COORD c_out = proj_trans(transform, PJ_FWD, c_in);
+    
+    double toX;
+    double toY;
+    NSDecimalNumber *toZ = nil;
+    if(hasZ){
+        toX = c_out.xyz.x;
+        toY = c_out.xyz.y;
+        toZ = [[NSDecimalNumber alloc] initWithDouble:c_out.xyz.z];
+    } else {
+        toX = c_out.xy.x;
+        toY = c_out.xy.y;
+    }
+    
+    if (isToCRS && [self swapAxisWithContext:context andCRS:self.toProjection.crs]) {
+        double newY = toX;
+        toX = toY;
+        toY = newY;
+    }
 
     proj_destroy(transform);
     proj_context_destroy(context);
-    
-    CLLocationCoordinate2D to;
-    NSDecimalNumber *toZ = nil;
-    if(hasZ){
-        to = CLLocationCoordinate2DMake(c_out.xyz.y, c_out.xyz.x);
-        toZ = [[NSDecimalNumber alloc] initWithDouble:c_out.xyz.z];
-    } else {
-        to = CLLocationCoordinate2DMake(c_out.xy.y, c_out.xy.x);
-    }
-    
+
+    CLLocationCoordinate2D to = CLLocationCoordinate2DMake(toY, toX);
+
     return [PROJLocationCoordinate3D coordinateWithCoordinate:to andZ:toZ];
+}
+
+-(BOOL) swapAxisWithContext: (PJ_CONTEXT *) context andCRS: (PJ *) crs{
+    BOOL swap = NO;
+    PJ *cs = proj_crs_get_coordinate_system(context, crs);
+    int axisCount = proj_cs_get_axis_count(context, cs);
+    if (axisCount > 0) {
+        const char *axisDirection = "";
+        proj_cs_get_axis_info(context, cs, 0, NULL, NULL, &axisDirection, NULL, NULL, NULL, NULL);
+        enum CRSAxisDirectionType directionType = [CRSAxisDirectionTypes type:[NSString stringWithUTF8String:axisDirection]];
+        if (directionType != -1) {
+            switch (directionType) {
+                case CRS_AXIS_NORTH:
+                case CRS_AXIS_SOUTH:
+                    swap = YES;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    proj_destroy(cs);
+    return swap;
 }
 
 -(NSArray<NSDecimalNumber *> *) transformX: (double) x andY: (double) y{
