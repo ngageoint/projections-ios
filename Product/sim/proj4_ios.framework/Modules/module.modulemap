@@ -1,0 +1,6 @@
+framework module proj4_ios {
+  umbrella header "proj4-ios-umbrella.h"
+
+  export *
+  module * { export * }
+}

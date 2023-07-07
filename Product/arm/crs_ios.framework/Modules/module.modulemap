@@ -1,0 +1,6 @@
+framework module crs_ios {
+  umbrella header "crs-ios-umbrella.h"
+
+  export *
+  module * { export * }
+}

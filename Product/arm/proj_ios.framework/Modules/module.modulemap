@@ -1,0 +1,6 @@
+framework module proj_ios {
+  umbrella header "proj_ios.h"
+
+  export *
+  module * { export * }
+}

@@ -6,9 +6,9 @@
 //  Copyright © 2021 NGA. All rights reserved.
 //
 
-#import "proj_api.h"
-#import "CRSProjectedCoordinateReferenceSystem.h"
-#import "CRSCompoundCoordinateReferenceSystem.h"
+#import <proj4_ios/proj_api.h>
+#import <crs_ios/CRSProjectedCoordinateReferenceSystem.h>
+#import <crs_ios/CRSCompoundCoordinateReferenceSystem.h>
 
 /**
  * Coordinate Reference System Well-known text parser

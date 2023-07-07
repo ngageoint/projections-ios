@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "projects.h"
+#import <proj4_ios/projects.h>
 #import "PROJUnits.h"
-#import "CRSObject.h"
+#import <crs_ios/CRSObject.h>
 #import "PROJProjectionTransform.h"
 
 @class PROJProjectionTransform;
