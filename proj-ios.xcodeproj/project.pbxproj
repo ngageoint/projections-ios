@@ -13,7 +13,7 @@
 		04236CD926CEAF4D00F6190E /* PROJProjectionFactoryTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04236CD726CEAF4D00F6190E /* PROJProjectionFactoryTypes.m */; };
 		04236CDC26CEC37B00F6190E /* PROJProjectionFactoryCodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04236CDB26CEC37B00F6190E /* PROJProjectionFactoryCodeTest.m */; };
 		042FC6571B963FE500549A4B /* proj_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FC64B1B963FE500549A4B /* proj_ios.framework */; };
-		042FC6AF1B96421E00549A4B /* (null) in Headers */ = {isa = PBXBuildFile; };
+		042FC6AF1B96421E00549A4B /* BuildFile in Headers */ = {isa = PBXBuildFile; };
 		042FC6D31B96421E00549A4B /* proj-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* proj-ios-Prefix.pch */; };
 		042FC6D51B96453E00549A4B /* proj_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* proj_ios.h */; };
 		0472B51B1C03590500496B87 /* proj-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* proj-ios-Bridging-Header.h */; };
@@ -274,7 +274,7 @@
 				04F4561F209A47C800FC299E /* PROJAuthorityProjections.h in Headers */,
 				04F4561D209A47C800FC299E /* PROJProjectionConstants.h in Headers */,
 				04F45615209A47C800FC299E /* PROJProjectionFactory.h in Headers */,
-				042FC6AF1B96421E00549A4B /* (null) in Headers */,
+				042FC6AF1B96421E00549A4B /* BuildFile in Headers */,
 				04F4561C209A47C800FC299E /* PROJProjectionRetriever.h in Headers */,
 				04236CD826CEAF4D00F6190E /* PROJProjectionFactoryTypes.h in Headers */,
 				04F45617209A47C800FC299E /* PROJProjection.h in Headers */,
@@ -297,6 +297,7 @@
 				042FC6471B963FE500549A4B /* Frameworks */,
 				042FC6481B963FE500549A4B /* Headers */,
 				042FC6491B963FE500549A4B /* Resources */,
+				39E91CB51D1141702FB8767C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -384,6 +385,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		39E91CB51D1141702FB8767C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-proj-ios/Pods-proj-ios-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/PROJ/PROJ.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PROJ.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-proj-ios/Pods-proj-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A047BB626AE642B283582B82 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
