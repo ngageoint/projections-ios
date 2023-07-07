@@ -141,3 +141,9 @@ let inverseTransformed : CLLocationCoordinate2D = inverseTransform.transform(tra
 
 * [proj4](https://trac.osgeo.org/proj/) (The MIT License (MIT)) - Cartographic projection software
 * [Coordinate Reference Systems](https://github.com/ngageoint/coordinate-reference-systems-ios) (The MIT License (MIT)) - Coordinate Reference Systems Library
+
+# Update 
+
+* modify files header import by framework
+
+* change build settings for building Xcframework 
