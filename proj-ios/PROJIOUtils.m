@@ -15,10 +15,14 @@
     return [self resourcePathWithName:name andType:PROJ_PROPERTY_LIST_TYPE];
 }
 
++(NSString *) databasePath{
+    return [self resourcePathWithName:[NSString stringWithFormat:@"%@/%@", PROJ_BUNDLE_NAME, PROJ_DATABASE_NAME] andType:PROJ_DATABASE_TYPE];
+}
+
 +(NSString *) resourcePathWithName: (NSString *) name andType: (NSString *) type{
     
-    NSString * resource = [NSString stringWithFormat:@"%@/%@", PROJ_BUNDLE_NAME, name];
-    NSString * resourcePath = [[NSBundle mainBundle] pathForResource:resource ofType:type];
+    NSString *resource = [NSString stringWithFormat:@"%@/%@", PROJ_IOS_BUNDLE_NAME, name];
+    NSString *resourcePath = [[NSBundle mainBundle] pathForResource:resource ofType:type];
     if(resourcePath == nil){
         resourcePath = [[NSBundle bundleForClass:[self class]] pathForResource:resource ofType:type];
         if(resourcePath == nil){

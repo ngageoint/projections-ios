@@ -20,6 +20,13 @@
 +(NSString *) propertyListPathWithName: (NSString *) name;
 
 /**
+ *  Get the path of the PROJ database file
+ *
+ *  @return database file path
+ */
++(NSString *) databasePath;
+
+/**
  *  Get the path of the resource file with name and file type
  *
  *  @param name file name
