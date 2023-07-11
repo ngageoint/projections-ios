@@ -82,7 +82,6 @@
 -(void) test2046{
     
     NSString *code = @"2046";
-    double delta = 0.00001;
     double minX = 13.33;
     double minY = -50.32;
     double maxX = 42.85;
@@ -103,7 +102,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",6503]],AXIS[\"Westing (Y)\",west],AXIS[\"Southing (X)\",south],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2046]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"Hartebeesthoek94 / Lo15\","];
@@ -688,7 +687,6 @@
 -(void) test2200{
     
     NSString *code = @"2200";
-    double delta = 0.00000001;
     double minX = -69.05;
     double minY = 44.56;
     double maxX = -63.7;
@@ -709,7 +707,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4500]],AXIS[\"Northing (N)\",north],AXIS[\"Easting (E)\",east],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2200]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"ATS77 / New Brunswick Stereographic (ATS77)\","];
@@ -733,7 +731,7 @@
     [definition appendString:@"AUTHORITY[\"EPSG\",\"9001\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"2200\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -2289,7 +2287,6 @@
 -(void) test7405{
 
     NSString *code = @"7405";
-    double delta = 0.01;
     double minX = -7.5600;
     double minY = 49.9600;
     double maxX = 1.7800;
@@ -2316,7 +2313,7 @@
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",5701]],"];
     [definition appendString:@"ID[\"EPSG\",7405]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andCompareAuthority:PROJ_AUTHORITY_EPSG andCompareCode:@"27700" andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andCompareAuthority:PROJ_AUTHORITY_EPSG andCompareCode:@"27700" andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"COMPD_CS[\"OSGB 1936 / British National Grid + ODN height\","];
@@ -2324,7 +2321,7 @@
     [definition appendString:@"DATUM[\"OSGB_1936\","];
     [definition appendString:@"SPHEROID[\"Airy 1830\",6377563.396,299.3249646,"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"7001\"]],"];
-    //[definition appendString:@"TOWGS84[446.448,-125.157,542.06,0.15,0.247,0.842,-20.489],"];
+    [definition appendString:@"TOWGS84[446.448,-125.157,542.06,0.15,0.247,0.842,-20.489],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"6277\"]],"];
     [definition appendString:@"PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],"];
     [definition appendString:@"UNIT[\"degree\",0.0174532925199433,"];
@@ -2345,8 +2342,8 @@
     [definition appendString:@"AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"5701\"]],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"7405\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andCompareAuthority:PROJ_AUTHORITY_EPSG andCompareCode:@"27700" andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
-    
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andCompareAuthority:PROJ_AUTHORITY_EPSG andCompareCode:@"27700" andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+
 }
 
 /**
@@ -2514,7 +2511,6 @@
 -(void) test22275{
 
     NSString *code = @"22275";
-    double delta = 0.00000001;
     double minX = 16.45;
     double minY = -34.88;
     double maxX = 32.95;
@@ -2538,7 +2534,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",6503]],AXIS[\"Westing (Y)\",west],AXIS[\"Southing (X)\",south],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",22275]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"Cape / Lo15\","];
@@ -2565,7 +2561,7 @@
     [definition appendString:@"AXIS[\"X\",SOUTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"22275\"]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -2602,7 +2598,7 @@
     [definition appendString:@"DATUM[\"New_Zealand_Geodetic_Datum_1949\","];
     [definition appendString:@"SPHEROID[\"International 1924\",6378388,297,"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"7022\"]],"];
-    //[definition appendString:@"TOWGS84[59.47,-5.04,187.44,0.47,-0.1,1.024,-4.5993],"];
+    [definition appendString:@"TOWGS84[59.47,-5.04,187.44,0.47,-0.1,1.024,-4.5993],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"6272\"]],"];
     [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
@@ -2716,7 +2712,7 @@
     [definition appendString:@"DATUM[\"OSGB_1936\","];
     [definition appendString:@"SPHEROID[\"Airy 1830\",6377563.396,299.3249646,"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"7001\"]],"];
-    //[definition appendString:@"TOWGS84[446.448,-125.157,542.06,0.15,0.247,0.842,-20.489],"];
+    [definition appendString:@"TOWGS84[446.448,-125.157,542.06,0.15,0.247,0.842,-20.489],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"6277\"]],"];
     [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
@@ -2931,7 +2927,7 @@
     [definition appendString:@"DATUM[\"TM65\","];
     [definition appendString:@"SPHEROID[\"Airy Modified 1849\",6377340.189,299.3249646,"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"7002\"]],"];
-    //[definition appendString:@"TOWGS84[482.5,-130.6,564.6,-1.042,-0.214,-0.631,8.15],"];
+    [definition appendString:@"TOWGS84[482.5,-130.6,564.6,-1.042,-0.214,-0.631,8.15],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"6299\"]],"];
     [definition appendString:@"PRIMEM[\"Greenwich\",0,"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"8901\"]],"];
