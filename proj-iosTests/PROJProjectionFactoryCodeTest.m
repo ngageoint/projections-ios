@@ -1930,7 +1930,7 @@
     [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:3.8142776 andY:51.285914 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"23031" andX:556878.9016076007 andY:5682145.166264554 andDelta:0.001];
-    //[self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:6.685 andY:51.425 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"31466" andX:2547685.01212 andY:5699155.7345 andDelta:10.0]; // TODO
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:6.685 andY:51.425 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"31466" andX:2547685.01212 andY:5699155.7345 andDelta:10.0];
     [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:5.387638889 andY:52.156160556 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"28992" andX:155029.789189814 andY:463109.954032542 andDelta:0.01];
     [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:9.735465995870696 andY:64.68347938261206 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"32633" andX:249032.839239894 andY:7183612.30572229 andDelta:0.000000001];
     [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:33 andY:42 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"32636" andX:500000 andY:4649776.224819178 andDelta:0.000000001];
@@ -1986,7 +1986,7 @@
     [self projectionTestSpecifiedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:3.8142776 andY:51.285914 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"23031" andX:556878.9016076007 andY:5682145.166264554 andDelta:0.00001];
-    //[self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:6.685 andY:51.425 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"31466" andX:2547685.01212 andY:5699155.7345 andDelta:10.0]; // TODO
+    [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:6.685 andY:51.425 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"31466" andX:2547685.01212 andY:5699155.7345 andDelta:10.0];
     [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:5.387638889 andY:52.156160556 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"28992" andX:155029.789189814 andY:463109.954032542 andDelta:0.01];
     [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:-126.54 andY:54.15 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"3005" andX:964813.103719 andY:1016486.305862 andDelta:0.000001];
     [self checkTransformWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andX:-127.0 andY:52.11 toAuthority:PROJ_AUTHORITY_EPSG andCode:@"3153" andX:931625.9111828626 andY:789252.646454557 andDelta:0.0000000000001];

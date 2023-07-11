@@ -11,6 +11,7 @@
 #import "PROJProjectionConstants.h"
 #import "CRSReader.h"
 #import "PROJCRSParser.h"
+#import "PROJIOUtils.h"
 
 /**
  * Default projection factory retrieval order
@@ -35,6 +36,10 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
 @implementation PROJProjectionFactory
 
 +(void) initialize{
+
+    // Copy the PROJ database file to the current directory
+    [PROJIOUtils copyDatabase];
+
     if(defaultOrder == nil){
         defaultOrder = [NSOrderedSet orderedSetWithObjects:
                         [NSNumber numberWithInt:PROJ_FACTORY_CACHE],

@@ -39,4 +39,18 @@
     return resourcePath;
 }
 
++(void) copyDatabase{
+
+    NSString *databasePath = [self databasePath];
+    NSString *databaseName = [databasePath lastPathComponent];
+
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+
+    NSString *currentPath = [fileManager currentDirectoryPath];
+    NSString *databaseCopyPath = [currentPath stringByAppendingPathComponent:databaseName];
+
+    [fileManager copyItemAtPath:databasePath toPath:databaseCopyPath error:nil];
+
+}
+
 @end

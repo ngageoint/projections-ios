@@ -36,4 +36,9 @@
  */
 +(NSString *) resourcePathWithName: (NSString *) name andType: (NSString *) type;
 
+/**
+ *  Copy the PROJ database file to the current directory
+ */
++(void) copyDatabase;
+
 @end
