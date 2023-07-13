@@ -144,6 +144,6 @@ let inverseTransformed : CLLocationCoordinate2D = inverseTransform.transform(tra
 
 # Update 
 
-* modify files header import by framework
-
-* change build settings for building Xcframework 
+* modify some files header import other fraemwork by `import <xxx/xxxx.h>`
+* change build settings for building Xcframework
+* generate binary Xcframework
