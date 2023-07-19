@@ -10,6 +10,8 @@
 #import "PROJProjectionFactory.h"
 #import "PROJProjectionConstants.h"
 #import "CRSAxisDirectionTypes.h"
+#import "CRSSimpleCoordinateReferenceSystem.h"
+#import "CRSCompoundCoordinateReferenceSystem.h"
 
 @implementation PROJProjectionTransform
 
@@ -131,7 +133,7 @@
 
     PJ_CONTEXT *context = proj_context_create();
 
-    if (isFromCRS && [self swapAxisWithContext:context andCRS:self.fromProjection.crs]) {
+    if (isFromCRS && [self swapAxisWithContext:context andProjection:self.fromProjection]) {
         double newY = x;
         x = y;
         y = newY;
@@ -182,7 +184,7 @@
         toY = c_out.xy.y;
     }
     
-    if (isToCRS && [self swapAxisWithContext:context andCRS:self.toProjection.crs]) {
+    if (isToCRS && [self swapAxisWithContext:context andProjection:self.toProjection]) {
         double newY = toX;
         toX = toY;
         toY = newY;
@@ -196,18 +198,75 @@
     return [PROJLocationCoordinate3D coordinateWithCoordinate:to andZ:toZ];
 }
 
--(BOOL) swapAxisWithContext: (PJ_CONTEXT *) context andCRS: (PJ *) crs{
+-(BOOL) swapAxisWithContext: (PJ_CONTEXT *) context andProjection: (PROJProjection *) projection{
     BOOL swap = NO;
+    PJ *crs = projection.crs;
     PJ *cs = proj_crs_get_coordinate_system(context, crs);
     int axisCount = proj_cs_get_axis_count(context, cs);
     if (axisCount > 0) {
-        const char *axisDirection = "";
-        proj_cs_get_axis_info(context, cs, 0, NULL, NULL, &axisDirection, NULL, NULL, NULL, NULL);
-        enum CRSAxisDirectionType directionType = [CRSAxisDirectionTypes type:[NSString stringWithUTF8String:axisDirection]];
-        if (directionType != -1) {
-            switch (directionType) {
-                case CRS_AXIS_NORTH:
-                case CRS_AXIS_SOUTH:
+        if (axisCount > 1) {
+            const char *firstAxisDirection = "";
+            const char *secondAxisDirection = "";
+            proj_cs_get_axis_info(context, cs, 0, NULL, NULL, &firstAxisDirection, NULL, NULL, NULL, NULL);
+            proj_cs_get_axis_info(context, cs, 1, NULL, NULL, &secondAxisDirection, NULL, NULL, NULL, NULL);
+            enum CRSAxisDirectionType firstAxis = [CRSAxisDirectionTypes type:[NSString stringWithUTF8String:firstAxisDirection]];
+            enum CRSAxisDirectionType secondAxis = [CRSAxisDirectionTypes type:[NSString stringWithUTF8String:secondAxisDirection]];
+            swap = [self swapWithFirstAxis:firstAxis andSecondAxis:secondAxis];
+        }
+    } else {
+        CRSObject *crsObject = projection.definitionCRS;
+        if (crsObject != nil) {
+            if ([crsObject isKindOfClass:[CRSCompoundCoordinateReferenceSystem class]]) {
+                CRSCompoundCoordinateReferenceSystem *compound = (CRSCompoundCoordinateReferenceSystem *) crsObject;
+                for (int i = 0; i < compound.coordinateReferenceSystems.count; i++) {
+                    CRSObject *compoundCrs = [compound.coordinateReferenceSystems objectAtIndex:i];
+                    swap = [self swapWithCRS:compoundCrs];
+                    if (swap) {
+                        break;
+                    }
+                }
+            } else {
+                swap = [self swapWithCRS:crsObject];
+            }
+        }
+    }
+    proj_destroy(cs);
+    return swap;
+}
+
+-(BOOL) swapWithCRS: (CRSObject *) crs {
+    BOOL swap = NO;
+    if ([crs isKindOfClass:[CRSSimpleCoordinateReferenceSystem class]]) {
+        CRSSimpleCoordinateReferenceSystem *simple = (CRSSimpleCoordinateReferenceSystem *) crs;
+        CRSCoordinateSystem *cs = simple.coordinateSystem;
+        if (cs != nil) {
+            NSMutableArray<CRSAxis *> *axes = cs.axes;
+            if (axes != nil && axes.count > 1) {
+                enum CRSAxisDirectionType firstAxis = [axes objectAtIndex:0].direction;
+                enum CRSAxisDirectionType secondAxis = [axes objectAtIndex:1].direction;
+                swap = [self swapWithFirstAxis:firstAxis andSecondAxis:secondAxis];
+            }
+        }
+    }
+    return swap;
+}
+
+-(BOOL) swapWithFirstAxis: (enum CRSAxisDirectionType) firstAxis andSecondAxis: (enum CRSAxisDirectionType) secondAxis {
+    BOOL swap = NO;
+    if (firstAxis != -1 && secondAxis != -1) {
+        switch (firstAxis) {
+            case CRS_AXIS_NORTH:
+            case CRS_AXIS_SOUTH:
+                swap = YES;
+                break;
+            default:
+                break;
+        }
+        if (swap) {
+            swap = NO;
+            switch (secondAxis) {
+                case CRS_AXIS_EAST:
+                case CRS_AXIS_WEST:
                     swap = YES;
                     break;
                 default:
@@ -215,7 +274,6 @@
             }
         }
     }
-    proj_destroy(cs);
     return swap;
 }
 
