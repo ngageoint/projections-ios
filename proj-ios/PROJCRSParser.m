@@ -8,6 +8,7 @@
 
 #import "PROJCRSParser.h"
 #import "CRSProjParser.h"
+#import "CRSKeyword.h"
 
 @implementation PROJCRSParser
 
@@ -37,6 +38,19 @@
         crs = proj_create(PJ_DEFAULT_CTX, [params UTF8String]);
     }
     return crs;
+}
+
++(BOOL) hasToWGS84: (CRSObject *) crs {
+    BOOL has = [crs extraWithName:[CRSKeyword nameOfType:CRS_KEYWORD_TOWGS84]] != nil;
+    if (!has) {
+        if ([crs isKindOfClass:[CRSProjectedCoordinateReferenceSystem class]]) {
+            CRSProjectedCoordinateReferenceSystem *projected = (CRSProjectedCoordinateReferenceSystem *) crs;
+            if (projected.base != nil) {
+                has = [projected.base extraWithName:[CRSKeyword nameOfType:CRS_KEYWORD_TOWGS84]] != nil;
+            }
+        }
+    }
+    return has;
 }
 
 @end

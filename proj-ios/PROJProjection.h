@@ -109,6 +109,23 @@
  *  @param code      coordinate code
  *  @param crs       coordinate reference system
  *  @param definition  well-known text coordinate definition
+ *  @param params    PROJ parameters
+ *
+ *  @return new projection
+ */
++(PROJProjection *) projectionWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (PJ *) crs
+                          andDefinition: (NSString *) definition
+                            andParams: (NSString *) params;
+
+/**
+ *  Initialize
+ *
+ *  @param authority coordinate authority
+ *  @param code      coordinate code
+ *  @param crs       coordinate reference system
+ *  @param definition  well-known text coordinate definition
  *  @param definitionCRS definition parsed coordinate reference system
  *
  *  @return new projection
@@ -244,6 +261,23 @@
  *  @param code      coordinate code
  *  @param crs       coordinate reference system
  *  @param definition  well-known text coordinate definition
+ *  @param params    PROJ parameters
+ *
+ *  @return new projection
+ */
+-(instancetype) initWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (PJ *) crs
+                    andDefinition: (NSString *) definition
+                        andParams: (NSString *) params;
+
+/**
+ *  Initialize
+ *
+ *  @param authority coordinate authority
+ *  @param code      coordinate code
+ *  @param crs       coordinate reference system
+ *  @param definition  well-known text coordinate definition
  *  @param definitionCRS definition parsed coordinate reference system
  *
  *  @return new projection
@@ -287,6 +321,25 @@
                            andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                  andDefinitionCrs: (CRSObject *) definitionCRS;
+
+/**
+ *  Initialize
+ *
+ *  @param authority coordinate authority
+ *  @param code      coordinate code
+ *  @param crs       coordinate reference system
+ *  @param definition  well-known text coordinate definition
+ *  @param definitionCRS definition parsed coordinate reference system
+ *  @param params    PROJ parameters
+ *
+ *  @return new projection
+ */
+-(instancetype) initWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (PJ *) crs
+                    andDefinition: (NSString *) definition
+                 andDefinitionCrs: (CRSObject *) definitionCRS
+                        andParams: (NSString *) params;
 
 /**
  * Free the projection memory
@@ -334,6 +387,13 @@
  * @return coordinate reference system
  */
 -(CRSObject *) definitionCRS;
+
+/**
+ * Get the PROJ params
+ *
+ * @return params
+ */
+-(NSString *) params;
 
 /**
  * Get the transformation from this Projection to the EPSG code. Each thread

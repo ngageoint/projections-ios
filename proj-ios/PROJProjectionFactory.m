@@ -43,11 +43,11 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     if(defaultOrder == nil){
         defaultOrder = [NSOrderedSet orderedSetWithObjects:
                         [NSNumber numberWithInt:PROJ_FACTORY_CACHE],
-                        [NSNumber numberWithInt:PROJ_FACTORY_DEFINITION_PARAMETERS],
                         [NSNumber numberWithInt:PROJ_FACTORY_DEFINITION],
+                        [NSNumber numberWithInt:PROJ_FACTORY_DEFINITION_PARAMETERS],
                         [NSNumber numberWithInt:PROJ_FACTORY_PARAMETERS],
-                        [NSNumber numberWithInt:PROJ_FACTORY_PROPERTIES],
                         [NSNumber numberWithInt:PROJ_FACTORY_NAME],
+                        [NSNumber numberWithInt:PROJ_FACTORY_PROPERTIES],
                         nil];
     }
     if(projections == nil){
@@ -396,11 +396,15 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
 
             if(projection == nil){
 
-                //PJ *crs = [PROJCRSParser parseText:definition];
-                //if (crs == nil) {
-                //    crs = [PROJCRSParser convertCRS:definitionCRS];
-                //}
-                PJ *crs = crs = [PROJCRSParser convertCRS:definitionCRS];
+                PJ *crs = nil;
+                if ([PROJCRSParser hasToWGS84:definitionCRS]) {
+                    crs = [PROJCRSParser convertCRS:definitionCRS];
+                } else {
+                    crs = [PROJCRSParser parseText:definition];
+                    if (crs == nil) {
+                        crs = [PROJCRSParser convertCRS:definitionCRS];
+                    }
+                }
                 if(crs != nil){
                     projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
                     if(cacheProjection){
@@ -514,7 +518,7 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
         @try{
             PJ *crs = nil;
             CRSObject *definitionCRS = [CRSReader read:definition];
-            if(definitionCRS != nil){
+            if (definitionCRS != nil && ![PROJCRSParser hasToWGS84:definitionCRS]) {
                 crs = [PROJCRSParser parseText:definition];
             }
             if(crs != nil){
@@ -586,7 +590,7 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     if (params != nil && params.length > 0) {
         PJ *crs = proj_create(PJ_DEFAULT_CTX, [params UTF8String]);
         if(crs != nil){
-            projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition];
+            projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andParams:params];
             [projections addProjection:projection];
         }else{
             NSLog(@"Failed to create projection for authority: %@, code: %@, parameters: %@", authority, code, params);
@@ -616,7 +620,7 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     if(parameters != nil && parameters.length > 0){
         PJ *crs = proj_create(PJ_DEFAULT_CTX, [parameters UTF8String]);
         if(crs != nil){
-            projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition];
+            projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andParams:parameters];
             [projections addProjection:projection];
         }else{
             NSLog(@"Failed to create projection for authority: %@, code: %@, parameters: %@", authority, code, parameters);

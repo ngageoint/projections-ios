@@ -42,6 +42,11 @@
  */
 @property (nonatomic, strong) CRSObject *definitionCRS;
 
+/**
+ *  PROJ Parameters
+ */
+@property (nonatomic, strong) NSString *params;
+
 @end
 
 @implementation PROJProjection
@@ -83,6 +88,14 @@
                            andCrs: (PJ *) crs
                           andDefinition: (NSString *) definition{
     return [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (PJ *) crs
+                          andDefinition: (NSString *) definition
+                            andParams: (NSString *) params{
+    return [[PROJProjection alloc] initWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andParams:params];
 }
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority
@@ -147,6 +160,14 @@
 }
 
 -(instancetype) initWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (PJ *) crs
+                    andDefinition: (NSString *) definition
+                        andParams: (NSString *) params{
+    return [self initWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:nil andParams:params];
+}
+
+-(instancetype) initWithAuthority: (NSString *) authority
                     andNumberCode: (NSNumber *) code
                            andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
@@ -167,6 +188,15 @@
                            andCrs: (PJ *) crs
                     andDefinition: (NSString *) definition
                  andDefinitionCrs: (CRSObject *) definitionCRS{
+    return [self initWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS andParams:nil];
+}
+
+-(instancetype) initWithAuthority: (NSString *) authority
+                          andCode: (NSString *) code
+                           andCrs: (PJ *) crs
+                    andDefinition: (NSString *) definition
+                 andDefinitionCrs: (CRSObject *) definitionCRS
+                        andParams: (NSString *) params{
     self = [super init];
     if(self != nil){
         if(authority == nil || code == nil || crs == nil){
@@ -179,6 +209,7 @@
         _isLatLong = info.id != NULL && [[NSString stringWithUTF8String:info.id] isEqualToString:@"longlat"];
         _definition = definition;
         _definitionCRS = definitionCRS;
+        _params = params;
     }
     return self;
 }
@@ -212,6 +243,10 @@
 
 -(CRSObject *) definitionCRS{
     return _definitionCRS;
+}
+
+-(NSString *) params{
+    return _params;
 }
 
 -(PROJProjectionTransform *) transformationWithEpsg: (int) epsg{

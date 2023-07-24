@@ -61,4 +61,13 @@
  */
 +(PJ *) convertCompound: (CRSCompoundCoordinateReferenceSystem *) compound;
 
+/**
+ * Determine if a CRS object contains 'towgs84' information
+ *
+ * @param crs
+ *            CRS object
+ * @return true if has towgs84
+ */
++(BOOL) hasToWGS84: (CRSObject *) crs;
+
 @end

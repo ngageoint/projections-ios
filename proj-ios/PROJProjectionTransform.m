@@ -158,13 +158,17 @@
         const char *fromString;
         if (isFromCRS) {
             fromString = proj_as_wkt(context, self.fromProjection.crs, PJ_WKT2_2019, NULL);
-        } else {
+        } else if (self.fromProjection.params != nil) {
+            fromString = [self.fromProjection.params UTF8String];
+        } else{
             fromString = proj_as_proj_string(context, self.fromProjection.crs, PJ_PROJ_4, NULL);
         }
         const char *toString;
         if (isToCRS) {
             toString = proj_as_wkt(context, self.toProjection.crs, PJ_WKT2_2019, NULL);
-        } else {
+        } else if (self.toProjection.params != nil) {
+            toString = [self.toProjection.params UTF8String];
+        } else{
             toString = proj_as_proj_string(context, self.toProjection.crs, PJ_PROJ_4, NULL);
         }
         transform = proj_create_crs_to_crs(context, fromString, toString, NULL);
