@@ -1008,6 +1008,7 @@
 -(void) test3083{
     
     NSString *code = @"3083";
+    double delta = 0.0001;
     double minX = -172.54;
     double minY = 23.81;
     double maxX = -47.74;
@@ -1057,7 +1058,7 @@
     [definition appendString:@"AXIS[\"Y\",NORTH],"];
     [definition appendString:@"AUTHORITY[\"EPSG\",\"3083\"]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
 }
 
@@ -3556,6 +3557,8 @@
 -(void) projectionTestDerivedWithAuthority: (NSString *) authority andCode: (NSString *) code andCompareAuthority: (NSString *) compareAuthority andCompareCode: (NSString *) compareCode andDefinition: (NSString *) definition andDelta: (double) delta andMinX: (double) minX andMinY: (double) minY andMaxX: (double) maxX andMaxY: (double) maxY{
     PROJProjection *projection = [PROJProjectionFactory projectionByDefinition:definition];
     [self projectionTestWithAuthority:authority andCode:code andCompareAuthority:compareAuthority andCompareCode:compareCode andDefinition:definition andProjection:projection andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    PROJProjection *projection2 = [PROJProjectionFactory projectionWithAuthority:authority andCode:code andDefinition:definition];
+    [self projectionTestWithAuthority:authority andCode:code andCompareAuthority:compareAuthority andCompareCode:compareCode andDefinition:definition andProjection:projection2 andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 }
 
 /**

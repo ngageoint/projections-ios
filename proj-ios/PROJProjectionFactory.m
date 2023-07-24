@@ -518,8 +518,12 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
         @try{
             PJ *crs = nil;
             CRSObject *definitionCRS = [CRSReader read:definition];
-            if (definitionCRS != nil && ![PROJCRSParser hasToWGS84:definitionCRS]) {
-                crs = [PROJCRSParser parseText:definition];
+            if (definitionCRS != nil) {
+                if ([PROJCRSParser hasToWGS84:definitionCRS]) {
+                    crs = [PROJCRSParser convertCRS:definitionCRS];
+                } else {
+                    crs = [PROJCRSParser parseText:definition];
+                }
             }
             if(crs != nil){
                 projection = [PROJProjection projectionWithAuthority:authority andCode:code andCrs:crs andDefinition:definition andDefinitionCrs:definitionCRS];
