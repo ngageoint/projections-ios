@@ -635,7 +635,7 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
 }
 
 /**
- * Create a projection from the coordinate authority and code name TODO
+ * Create a projection from the coordinate authority and code name
  *
  * @param authority
  *            coordinate authority
@@ -662,7 +662,7 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
 }
 
 /**
- * Build a coordinate name from the authority and code TODO
+ * Build a coordinate name from the authority and code
  *
  * @param authority
  *            coordinate authority
