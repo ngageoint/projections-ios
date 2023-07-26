@@ -2882,7 +2882,7 @@
 -(void) test28991{
 
     NSString *code = @"28991";
-    double delta = 0.001;
+    double delta = 0.0001;
     double minX = 3.2;
     double minY = 50.75;
     double maxX = 7.22;
@@ -3065,7 +3065,6 @@
 -(void) test31469{
 
     NSString *code = @"31469";
-    double delta = 0.0001;
     double minX = 5.87;
     double minY = 47.27;
     double maxX = 13.84;
@@ -3087,7 +3086,7 @@
     [definition appendString:@"CS[Cartesian,2,ID[\"EPSG\",4530]],AXIS[\"Northing (X)\",north],AXIS[\"Easting (Y)\",east],"];
     [definition appendString:@"LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",31469]]"];
 
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
 
     definition = [NSMutableString string];
     [definition appendString:@"PROJCS[\"DHDN / 3-degree Gauss-Kruger zone 5\","];
@@ -3839,16 +3838,6 @@
     }
     
     [PROJTestUtils assertEqualWithValue:projection andValue2:projection2];
-    
-    PJ *crs = [projection crs];
-    PJ *crs2 = [projection2 crs];
-    
-    PJ_PROJ_INFO info1 = proj_pj_info(crs);
-    PJ_PROJ_INFO info2 = proj_pj_info(crs2);
-    //[PROJTestUtils assertEqualWithValue:[self string:info1.id] andValue2:[self string:info2.id]];
-    //[PROJTestUtils assertEqualWithValue:[self string:info1.description] andValue2:[self string:info2.description]];
-    //[PROJTestUtils assertEqualIntWithValue:info1.has_inverse andValue2:info2.has_inverse];
-    //[PROJTestUtils assertEqualDoubleWithValue:info1.accuracy andValue2:info2.accuracy];
     
 }
 
