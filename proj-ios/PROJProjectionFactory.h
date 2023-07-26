@@ -88,6 +88,28 @@
 /**
  * Get the projection for the EPSG code
  *
+ * @param type
+ *            projection factory retrieval type
+ * @param epsg
+ *            EPSG coordinate code
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andEpsg: (NSNumber *) epsg;
+
+/**
+ * Get the projection for the EPSG code
+ *
+ * @param types
+ *            projection factory retrieval types
+ * @param epsg
+ *            EPSG coordinate code
+ * @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andEpsg: (NSNumber *) epsg;
+
+/**
+ * Get the projection for the EPSG code
+ *
  * @param epsg
  *            EPSG coordinate code
  * @return projection
@@ -102,6 +124,28 @@
  * @return projection
  */
 +(PROJProjection *) cachelessProjectionWithEpsgInt: (int) epsg;
+
+/**
+ * Get the projection for the EPSG code
+ *
+ * @param type
+ *            projection factory retrieval type
+ * @param epsg
+ *            EPSG coordinate code
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andEpsgInt: (int) epsg;
+
+/**
+ * Get the projection for the EPSG code
+ *
+ * @param types
+ *            projection factory retrieval types
+ * @param epsg
+ *            EPSG coordinate code
+ * @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andEpsgInt: (int) epsg;
 
 /**
  *  Get the projection for the projection name, expected as 'authority:code' or 'epsg_code'
@@ -120,6 +164,28 @@
  * @return projection
  */
 +(PROJProjection *) cachelessProjectionWithName: (NSString *) name;
+
+/**
+ *  Get the projection for the projection name, expected as 'authority:code' or 'epsg_code'
+ *
+ *  @param type
+ *            projection factory retrieval type
+ *  @param name projection name
+ *
+ *  @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andName: (NSString *) name;
+
+/**
+ *  Get the projection for the projection name, expected as 'authority:code' or 'epsg_code'
+ *
+ *  @param types
+ *            projection factory retrieval types
+ *  @param name projection name
+ *
+ *  @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andName: (NSString *) name;
 
 /**
  * Get the projection for authority and code
@@ -146,6 +212,32 @@
 /**
  * Get the projection for authority and code
  *
+ * @param type
+ *            projection factory retrieval type
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code;
+
+/**
+ * Get the projection for authority and code
+ *
+ * @param types
+ *            projection factory retrieval types
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code;
+
+/**
+ * Get the projection for authority and code
+ *
  * @param authority
  *            coordinate authority
  * @param code
@@ -168,6 +260,32 @@
 /**
  * Get the projection for authority and code
  *
+ * @param type
+ *            projection factory retrieval type
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code;
+
+/**
+ * Get the projection for authority and code
+ *
+ * @param types
+ *            projection factory retrieval types
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andIntCode: (int) code;
+
+/**
+ * Get the projection for authority and code
+ *
  * @param authority
  *            coordinate authority
  * @param code
@@ -186,6 +304,32 @@
  * @return projection
  */
 +(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andCode: (NSString *) code;
+
+/**
+ * Get the projection for authority and code
+ *
+ * @param type
+ *            projection factory retrieval type
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code;
+
+/**
+ * Get the projection for authority and code
+ *
+ * @param types
+ *            projection factory retrieval types
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andCode: (NSString *) code;
 
 /**
  * Get the projection for authority, code, and parameter string
@@ -216,6 +360,36 @@
 /**
  * Get the projection for authority, code, and parameter string
  *
+ * @param type
+ *            projection factory retrieval type
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param params
+ *            proj4 string
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params;
+
+/**
+ * Get the projection for authority, code, and parameter string
+ *
+ * @param types
+ *            projection factory retrieval types
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param params
+ *            proj4 string
+ * @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params;
+
+/**
+ * Get the projection for authority, code, and parameter string
+ *
  * @param authority
  *            coordinate authority
  * @param code
@@ -242,6 +416,36 @@
 /**
  * Get the projection for authority, code, and parameter string
  *
+ * @param type
+ *            projection factory retrieval type
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param params
+ *            proj4 string
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params;
+
+/**
+ * Get the projection for authority, code, and parameter string
+ *
+ * @param types
+ *            projection factory retrieval types
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param params
+ *            proj4 string
+ * @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params;
+
+/**
+ * Get the projection for authority, code, and parameter string
+ *
  * @param authority
  *            coordinate authority
  * @param code
@@ -264,6 +468,36 @@
  * @return projection
  */
 +(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params;
+
+/**
+ * Get the projection for authority, code, and parameter string
+ *
+ * @param type
+ *            projection factory retrieval type
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param params
+ *            proj4 string
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params;
+
+/**
+ * Get the projection for authority, code, and parameter string
+ *
+ * @param types
+ *            projection factory retrieval types
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param params
+ *            proj4 string
+ * @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params;
 
 /**
  * Get the projection for the authority, code, and definition
@@ -294,6 +528,36 @@
 /**
  * Get the projection for the authority, code, and definition
  *
+ * @param type
+ *            projection factory retrieval type
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the authority, code, and definition
+ *
+ * @param types
+ *            projection factory retrieval types
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the authority, code, and definition
+ *
  * @param authority
  *            coordinate authority
  * @param code
@@ -320,6 +584,36 @@
 /**
  * Get the projection for the authority, code, and definition
  *
+ * @param type
+ *            projection factory retrieval type
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the authority, code, and definition
+ *
+ * @param types
+ *            projection factory retrieval types
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andIntCode: (int) code andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the authority, code, and definition
+ *
  * @param authority
  *            coordinate authority
  * @param code
@@ -342,6 +636,36 @@
  * @return projection
  */
 +(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the authority, code, and definition
+ *
+ * @param type
+ *            projection factory retrieval type
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the authority, code, and definition
+ *
+ * @param types
+ *            projection factory retrieval types
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the authority, code, definition, and custom
@@ -379,6 +703,42 @@
  * Get the projection for the authority, code, definition, and custom
  * parameter array
  *
+ * @param type
+ *            projection factory retrieval type
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param params
+ *            proj4 string
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the authority, code, definition, and custom
+ * parameter array
+ *
+ * @param types
+ *            projection factory retrieval types
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param params
+ *            proj4 string
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the authority, code, definition, and custom
+ * parameter array
+ *
  * @param authority
  *            coordinate authority
  * @param code
@@ -406,6 +766,42 @@
  * @return projection
  */
 +(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the authority, code, definition, and custom
+ * parameter array
+ *
+ * @param type
+ *            projection factory retrieval type
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param params
+ *            proj4 string
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition;
+
+/**
+ * Get the projection for the authority, code, definition, and custom
+ * parameter array
+ *
+ * @param types
+ *            projection factory retrieval types
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            authority coordinate code
+ * @param params
+ *            proj4 string
+ * @param definition
+ *            definition
+ * @return projection
+ */
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the authority, code, definition, and custom

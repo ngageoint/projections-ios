@@ -116,12 +116,28 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     return [self cachelessProjectionWithAuthority:PROJ_AUTHORITY_EPSG andNumberCode:epsg];
 }
 
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andEpsg: (NSNumber *) epsg{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andEpsg:epsg];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andEpsg: (NSNumber *) epsg{
+    return [self projectionWithTypes:types andAuthority:PROJ_AUTHORITY_EPSG andNumberCode:epsg];
+}
+
 +(PROJProjection *) projectionWithEpsgInt: (int) epsg{
     return [self projectionWithEpsg:[NSNumber numberWithInt:epsg]];
 }
 
 +(PROJProjection *) cachelessProjectionWithEpsgInt: (int) epsg{
     return [self cachelessProjectionWithEpsg:[NSNumber numberWithInt:epsg]];
+}
+
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andEpsgInt: (int) epsg{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andEpsgInt:epsg];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andEpsgInt: (int) epsg{
+    return [self projectionWithTypes:types andEpsg:[NSNumber numberWithInt:epsg]];
 }
 
 +(PROJProjection *) projectionWithName: (NSString *) name{
@@ -134,12 +150,29 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     return [self cachelessProjectionWithAuthority:[authorityAndCode objectAtIndex:0] andCode:[authorityAndCode objectAtIndex:1]];
 }
 
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andName: (NSString *) name{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andName:name];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andName: (NSString *) name{
+    NSArray<NSString *> *authorityAndCode = [self parseAuthorityAndCode:name];
+    return [self projectionWithTypes:types andAuthority:[authorityAndCode objectAtIndex:0] andCode:[authorityAndCode objectAtIndex:1]];
+}
+
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code{
     return [self projectionWithAuthority:authority andCode:[code stringValue]];
 }
 
 +(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code{
     return [self cachelessProjectionWithAuthority:authority andCode:[code stringValue]];
+}
+
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andAuthority:authority andNumberCode:code];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code{
+    return [self projectionWithTypes:types andAuthority:authority andCode:[code stringValue]];
 }
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code{
@@ -150,12 +183,28 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     return [self cachelessProjectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code]];
 }
 
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andAuthority:authority andIntCode:code];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andIntCode: (int) code{
+    return [self projectionWithTypes:types andAuthority:authority andNumberCode:[NSNumber numberWithInt:code]];
+}
+
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code{
     return [self projectionWithAuthority:authority andCode:code andParams:nil andDefinition:nil];
 }
 
 +(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andCode: (NSString *) code{
     return [self cachelessProjectionWithAuthority:authority andCode:code andParams:nil andDefinition:nil];
+}
+
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andAuthority:authority andCode:code];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andCode: (NSString *) code{
+    return [self projectionWithTypes:types andAuthority:authority andCode:code andParams:nil andDefinition:nil];
 }
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params{
@@ -166,12 +215,28 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     return [self cachelessProjectionWithAuthority:authority andCode:[code stringValue] andParams:params];
 }
 
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andAuthority:authority andNumberCode:code andParams:params];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params{
+    return [self projectionWithTypes:types andAuthority:authority andCode:[code stringValue] andParams:params];
+}
+
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params{
     return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params];
 }
 
 +(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params{
     return [self cachelessProjectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params];
+}
+
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andAuthority:authority andIntCode:code andParams:params];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params{
+    return [self projectionWithTypes:types andAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params];
 }
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params{
@@ -182,12 +247,28 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     return [self cachelessProjectionWithAuthority:authority andCode:code andParams:params andDefinition:nil];
 }
 
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andAuthority:authority andCode:code andParams:params];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params{
+    return [self projectionWithTypes:types andAuthority:authority andCode:code andParams:params andDefinition:nil];
+}
+
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andDefinition: (NSString *) definition{
     return [self projectionWithAuthority:authority andCode:[code stringValue] andDefinition:definition];
 }
 
 +(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andDefinition: (NSString *) definition{
     return [self cachelessProjectionWithAuthority:authority andCode:[code stringValue] andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andDefinition: (NSString *) definition{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andAuthority:authority andNumberCode:code andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andDefinition: (NSString *) definition{
+    return [self projectionWithTypes:types andAuthority:authority andCode:[code stringValue] andDefinition:definition];
 }
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code andDefinition: (NSString *) definition{
@@ -198,12 +279,28 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     return [self cachelessProjectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andDefinition:definition];
 }
 
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code andDefinition: (NSString *) definition{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andAuthority:authority andIntCode:code andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andIntCode: (int) code andDefinition: (NSString *) definition{
+    return [self projectionWithTypes:types andAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andDefinition:definition];
+}
+
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition{
     return [self projectionWithAuthority:authority andCode:code andParams:nil andDefinition:definition];
 }
 
 +(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition{
     return [self cachelessProjectionWithAuthority:authority andCode:code andParams:nil andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andAuthority:authority andCode:code andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition{
+    return [self projectionWithTypes:types andAuthority:authority andCode:code andParams:nil andDefinition:definition];
 }
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
@@ -214,12 +311,28 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     return [self cachelessProjectionWithAuthority:authority andCode:[code stringValue] andParams:params andDefinition:definition];
 }
 
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andAuthority:authority andNumberCode:code andParams:params andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
+    return [self projectionWithTypes:types andAuthority:authority andCode:[code stringValue] andParams:params andDefinition:definition];
+}
+
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition{
     return [self projectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params andDefinition:definition];
 }
 
 +(PROJProjection *) cachelessProjectionWithAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition{
     return [self cachelessProjectionWithAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition{
+    return [self projectionWithTypes:[NSOrderedSet orderedSetWithObject:[NSNumber numberWithInt:type]] andAuthority:authority andIntCode:code andParams:params andDefinition:definition];
+}
+
++(PROJProjection *) projectionWithTypes: (NSOrderedSet<NSNumber *> *) types andAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition{
+    return [self projectionWithTypes:types andAuthority:authority andNumberCode:[NSNumber numberWithInt:code] andParams:params andDefinition:definition];
 }
 
 +(PROJProjection *) projectionWithAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params andDefinition: (NSString *) definition{
