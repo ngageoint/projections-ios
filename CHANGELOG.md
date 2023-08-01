@@ -4,9 +4,13 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.6 (TBD)
+## 2.0.0 (TBD)
 
-* TBD
+* [PROJ](https://github.com/ngageoint/PROJ) (a [PROJ](https://github.com/OSGeo/PROJ) C and C++ build) has replaced the [proj4-ios](https://github.com/bosborn/proj.4/tree/4.9.3) (a [PROJ.4](https://proj.org/en/9.2/faq.html#what-happened-to-proj-4) C build) dependency
+* PROJ version 9.2.1.4
+* sqlite3 and c++ dependencies for PROJ
+* Projection factory creation type support by direct WKT definitions (vs parameter conversions) and projection names
+* Projection factory single projection creation support by specified preferred factory types
 
 ## [1.0.5](https://github.com/ngageoint/projections-ios/releases/tag/1.0.5) (06-02-2023)
 

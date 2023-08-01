@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'proj-ios'
-  s.version          = '1.0.6'
+  s.version          = '2.0.0'
   s.license          =  {:type => 'MIT', :file => 'LICENSE' }
   s.summary          = 'iOS SDK for Projections'
   s.homepage         = 'https://github.com/ngageoint/projections-ios'
@@ -17,6 +17,8 @@ Pod::Spec.new do |s|
   s.exclude_files = 'proj-ios/**/Info.plist'
   s.resource_bundle = { 'proj-ios' => ['proj-ios/**/*.plist'] }
   s.frameworks = 'Foundation'
+
+  s.libraries = 'sqlite3', 'c++'
 
   s.dependency 'PROJ', '~> 9.2.1.4'
   s.dependency 'crs-ios', '~> 1.0.4'
