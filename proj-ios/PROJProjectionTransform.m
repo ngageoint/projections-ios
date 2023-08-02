@@ -61,7 +61,6 @@
 }
 
 -(instancetype) initWithFromEpsg: (int) fromEpsg andToEpsg: (int) toEpsg{
-
     return [self initWithFromAuthority:PROJ_AUTHORITY_EPSG andFromIntCode:fromEpsg andToAuthority:PROJ_AUTHORITY_EPSG andToIntCode:toEpsg];
 }
 
@@ -75,8 +74,8 @@
 
 -(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode{
     
-    PROJProjection * fromProjection = [PROJProjectionFactory projectionWithAuthority:fromAuthority andCode:fromCode];
-    PROJProjection * toProjection = [PROJProjectionFactory projectionWithAuthority:toAuthority andCode:toCode];
+    PROJProjection *fromProjection = [PROJProjectionFactory projectionWithAuthority:fromAuthority andCode:fromCode];
+    PROJProjection *toProjection = [PROJProjectionFactory projectionWithAuthority:toAuthority andCode:toCode];
     
     return [self initWithFromProjection:fromProjection andToProjection:toProjection];
 }
@@ -90,7 +89,7 @@
 
 -(instancetype) initWithFromProjection: (PROJProjection *) fromProjection andToAuthority: (NSString *) toAuthority andToCode: (NSString *) toCode{
     
-    PROJProjection * toProjection = [PROJProjectionFactory projectionWithAuthority:toAuthority andCode:toCode];
+    PROJProjection *toProjection = [PROJProjectionFactory projectionWithAuthority:toAuthority andCode:toCode];
     
     return [self initWithFromProjection:fromProjection andToProjection:toProjection];
 }
@@ -104,7 +103,7 @@
 
 -(instancetype) initWithFromAuthority: (NSString *) fromAuthority andFromCode: (NSString *) fromCode andToProjection: (PROJProjection *) toProjection{
     
-    PROJProjection * fromProjection = [PROJProjectionFactory projectionWithAuthority:fromAuthority andCode:fromCode];
+    PROJProjection *fromProjection = [PROJProjectionFactory projectionWithAuthority:fromAuthority andCode:fromCode];
     
     return [self initWithFromProjection:fromProjection andToProjection:toProjection];
 }
@@ -119,7 +118,7 @@
 }
 
 -(CLLocationCoordinate2D) transform: (CLLocationCoordinate2D) from{
-    PROJLocationCoordinate3D * result = [self transform3d:[PROJLocationCoordinate3D coordinateWithCoordinate:from]];
+    PROJLocationCoordinate3D *result = [self transform3d:[PROJLocationCoordinate3D coordinateWithCoordinate:from]];
     return result.coordinate;
 }
 
@@ -128,31 +127,27 @@
     double x = from.coordinate.longitude;
     double y = from.coordinate.latitude;
 
+    double z = 0;
+    BOOL hasZ = [from hasZ];
+    if (hasZ) {
+        z = [from.z doubleValue];
+    }
+
     BOOL isFromCRS = proj_is_crs(self.fromProjection.crs);
     BOOL isToCRS = proj_is_crs(self.toProjection.crs);
 
     PJ_CONTEXT *context = proj_context_create();
 
     if (isFromCRS && [self swapAxisWithContext:context andProjection:self.fromProjection]) {
-        double newY = x;
+        double swap = x;
         x = y;
-        y = newY;
+        y = swap;
     }
 
-    PJ_COORD c_in;
-    
-    BOOL hasZ = [from hasZ];
-    if(hasZ){
-        c_in.xyz.x = x;
-        c_in.xyz.y = y;
-        c_in.xyz.z = [from.z doubleValue];
-    } else {
-        c_in.xy.x = x;
-        c_in.xy.y = y;
-    }
+    PJ_COORD c_in = proj_coord(x, y, z, 0);
     
     PJ *transform = nil;
-    if(isFromCRS && isToCRS) {
+    if (isFromCRS && isToCRS) {
         transform = proj_create_crs_to_crs_from_pj(context, self.fromProjection.crs, self.toProjection.crs, NULL, NULL);
     } else {
         const char *fromString;
@@ -160,7 +155,7 @@
             fromString = proj_as_wkt(context, self.fromProjection.crs, PJ_WKT2_2019, NULL);
         } else if (self.fromProjection.params != nil) {
             fromString = [self.fromProjection.params UTF8String];
-        } else{
+        } else {
             fromString = proj_as_proj_string(context, self.fromProjection.crs, PJ_PROJ_4, NULL);
         }
         const char *toString;
@@ -168,30 +163,26 @@
             toString = proj_as_wkt(context, self.toProjection.crs, PJ_WKT2_2019, NULL);
         } else if (self.toProjection.params != nil) {
             toString = [self.toProjection.params UTF8String];
-        } else{
+        } else {
             toString = proj_as_proj_string(context, self.toProjection.crs, PJ_PROJ_4, NULL);
         }
         transform = proj_create_crs_to_crs(context, fromString, toString, NULL);
     }
 
     PJ_COORD c_out = proj_trans(transform, PJ_FWD, c_in);
-    
-    double toX;
-    double toY;
+
+    double toX = c_out.xy.x;
+    double toY = c_out.xy.y;
+
     NSDecimalNumber *toZ = nil;
-    if(hasZ){
-        toX = c_out.xyz.x;
-        toY = c_out.xyz.y;
+    if (hasZ) {
         toZ = [[NSDecimalNumber alloc] initWithDouble:c_out.xyz.z];
-    } else {
-        toX = c_out.xy.x;
-        toY = c_out.xy.y;
     }
-    
+
     if (isToCRS && [self swapAxisWithContext:context andProjection:self.toProjection]) {
-        double newY = toX;
+        double swap = toX;
         toX = toY;
-        toY = newY;
+        toY = swap;
     }
 
     proj_destroy(transform);

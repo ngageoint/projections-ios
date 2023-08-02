@@ -28,7 +28,6 @@
 -(void) test2036{
     
     NSString *code = @"2036";
-    double delta = 0.0001;
     double minX = -120.0;
     double minY = 44.61;
     double maxX = -57.1;
@@ -74,7 +73,7 @@
     [definition appendString:@"BBOX[44.56,-69.05,48.07,-63.7]],"];
     [definition appendString:@"ID[\"EPSG\",2036]]"];
     
-    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andDelta:delta andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
+    [self projectionTestDerivedWithAuthority:PROJ_AUTHORITY_EPSG andCode:code andDefinition:definition andMinX:minX andMinY:minY andMaxX:maxX andMaxY:maxY];
     
     definition = [NSMutableString string];
     [definition appendString:@"PROJCRS[\"NAD83(CSRS98) / New Brunswick Stereo\",BASEGEOGCRS[\"NAD83(CSRS98)\","];
@@ -301,8 +300,8 @@
     PROJProjection *projection = [PROJProjectionFactory projectionByDefinition:definition];
     PROJProjectionTransform *transform = [PROJProjectionTransform transformFromEpsg:4326 andToProjection:projection];
     CLLocationCoordinate2D projectedCoordinate = [transform transform:coordinate];
-    [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.longitude andValue2:projectedCoordinate.longitude andDelta:.001];
-    [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.latitude andValue2:projectedCoordinate.latitude andDelta:.001];
+    [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.longitude andValue2:projectedCoordinate.longitude andDelta:.0000001];
+    [PROJTestUtils assertEqualDoubleWithValue:expectedCoordinate.latitude andValue2:projectedCoordinate.latitude andDelta:.00000001];
 
     PROJProjection *projection2 = [PROJProjectionFactory cachelessProjectionWithName:code];
     PROJProjectionTransform *transform2 = [PROJProjectionTransform transformFromEpsg:4326 andToProjection:projection2];
@@ -1008,7 +1007,7 @@
 -(void) test3083{
     
     NSString *code = @"3083";
-    double delta = 0.0001;
+    double delta = 0.00001;
     double minX = -172.54;
     double minY = 23.81;
     double maxX = -47.74;
@@ -2509,7 +2508,6 @@
     [PROJTestUtils assertEqualWithValue:[NSString stringWithFormat:@"%d", code] andValue2:projection.code];
     [PROJTestUtils assertEqualWithValue:definition andValue2:projection.definition];
     [PROJTestUtils assertTrue:[[NSString stringWithUTF8String:proj_pj_info(projection.crs).id] hasPrefix:@"lcc"]];
-    //[PROJTestUtils assertEqualDoubleWithValue:[[[CRSGeoDatums fromType:CRS_DATUM_NAD83] ellipsoid] equatorRadius] andValue2:projection.crs->a];
 
 }
 
@@ -2543,7 +2541,6 @@
     [PROJTestUtils assertEqualWithValue:[NSString stringWithFormat:@"%d", code] andValue2:projection.code];
     [PROJTestUtils assertEqualWithValue:definition andValue2:projection.definition];
     [PROJTestUtils assertTrue:[[NSString stringWithUTF8String:proj_pj_info(projection.crs).id] hasPrefix:@"lcc"]];
-    //[PROJTestUtils assertEqualDoubleWithValue:[[[CRSGeoDatums fromType:CRS_DATUM_NAD83] ellipsoid] equatorRadius] andValue2:projection.crs->a];
 
 }
 
