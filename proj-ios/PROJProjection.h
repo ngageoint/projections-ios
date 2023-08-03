@@ -368,13 +368,6 @@
 -(PJ *) crs;
 
 /**
- * Check if a lat lon crs
- *
- * @return true if a lat lon crs
- */
--(BOOL) isLatLong;
-
-/**
  * Get the well-known text coordinate definition
  *
  * @return definition

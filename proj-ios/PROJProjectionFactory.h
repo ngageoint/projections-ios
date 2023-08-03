@@ -974,4 +974,35 @@
  */
 +(void) clearTransform: (PROJProjectionTransform *) transform;
 
+/**
+ * Build a coordinate name from the authority and code
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            coordinate code
+ * @return name
+ */
++(NSString *) coordinateNameWithAuthority: (NSString *) authority andCode: (NSString *) code;
+
+/**
+ * Build a coordinate name from the authority and code
+ *
+ * @param authority
+ *            coordinate authority
+ * @param code
+ *            coordinate code
+ * @return name
+ */
++(NSString *) coordinateNameWithAuthority: (NSString *) authority andIntCode: (int) code;
+
+/**
+ * Get the unit of the coordinate reference system
+ *
+ * @param crs
+ *            coordinate reference system
+ * @return unit
+ */
++(enum PROJUnit) unitOfCRS: (PJ *) crs;
+
 @end

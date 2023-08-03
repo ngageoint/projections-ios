@@ -598,6 +598,40 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     [self clearProjection:transform.toProjection];
 }
 
++(NSString *) coordinateNameWithAuthority: (NSString *) authority andCode: (NSString *) code{
+    return [NSString stringWithFormat:@"%@:%@", [authority uppercaseString], code];
+}
+
++(NSString *) coordinateNameWithAuthority: (NSString *) authority andIntCode: (int) code{
+    return [self coordinateNameWithAuthority:authority andCode:[NSString stringWithFormat:@"%d", code]];
+}
+
++(enum PROJUnit) unitOfCRS: (PJ *) crs{
+
+    PJ_PROJ_INFO info = proj_pj_info(crs);
+    BOOL degrees = info.id != NULL && [[NSString stringWithUTF8String:info.id] isEqualToString:@"longlat"];
+
+    if (!degrees && proj_is_crs(crs)) {
+        PJ_CONTEXT *context = proj_context_create();
+        PJ *crs2 = proj_create(context, [[self coordinateNameWithAuthority:PROJ_AUTHORITY_EPSG andIntCode:PROJ_EPSG_WEB_MERCATOR] UTF8String]);
+        PJ *transform = proj_create_crs_to_crs_from_pj(context, crs, crs2, NULL, NULL);
+        degrees = proj_degree_input(transform, PJ_FWD);
+        proj_destroy(crs2);
+        proj_destroy(transform);
+        proj_context_destroy(context);
+    }
+
+    enum PROJUnit unit = PROJ_UNIT_NONE;
+
+    if (degrees) {
+        unit = PROJ_UNIT_DEGREES;
+    } else {
+        unit = PROJ_UNIT_METERS;
+    }
+
+    return unit;
+}
+
 /**
  * Retrieve a projection from the cache
  *
@@ -772,19 +806,6 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
     }
 
     return projection;
-}
-
-/**
- * Build a coordinate name from the authority and code
- *
- * @param authority
- *            coordinate authority
- * @param code
- *            coordinate code
- * @return name
- */
-+(NSString *) coordinateNameWithAuthority: (NSString *) authority andCode: (NSString *) code{
-    return [NSString stringWithFormat:@"%@:%@", [authority uppercaseString], code];
 }
 
 @end

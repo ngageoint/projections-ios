@@ -28,10 +28,9 @@
 @property (nonatomic) PJ *crs;
 
 /**
- *  True if a lat lon crs
+ *  Projection unit
  */
-@property (nonatomic) BOOL isLatLong;
-
+@property (nonatomic) enum PROJUnit unit;
 /**
  *  Well-Known Text Coordinate Definition
  */
@@ -205,8 +204,7 @@
         _authority = authority;
         _code = code;
         _crs = crs;
-        PJ_PROJ_INFO info = proj_pj_info(crs);
-        _isLatLong = info.id != NULL && [[NSString stringWithUTF8String:info.id] isEqualToString:@"longlat"];
+        _unit = [PROJProjectionFactory unitOfCRS:crs];
         _definition = definition;
         _definitionCRS = definitionCRS;
         _params = params;
@@ -231,10 +229,6 @@
 
 -(PJ *) crs{
     return _crs;
-}
-
--(BOOL) isLatLong{
-    return _isLatLong;
 }
 
 -(NSString *) definition{
@@ -268,16 +262,7 @@
 }
 
 -(enum PROJUnit) unit{
-    
-    enum PROJUnit unit = PROJ_UNIT_NONE;
-    
-    if(_isLatLong){
-        unit = PROJ_UNIT_DEGREES;
-    }else{
-        unit = PROJ_UNIT_METERS;
-    }
-    
-    return unit;
+    return _unit;
 }
 
 -(BOOL) isUnit: (enum PROJUnit) unit{
