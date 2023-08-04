@@ -342,9 +342,19 @@
                         andParams: (NSString *) params;
 
 /**
- * Free the projection memory
+ * Destroy the projection memory
  */
 -(void) free;
+
+/**
+ * Destroy the projection memory
+ */
+-(void) close;
+
+/**
+ * Destroy the projection memory
+ */
+-(void) destroy;
 
 /**
  * Get the coordinate authority

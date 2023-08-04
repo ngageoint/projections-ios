@@ -89,7 +89,7 @@
 
 -(void) removeProjection: (PROJProjection *) projection{
     [self removeAuthority:[projection authority] andCode:[projection code]];
-    [projection free];
+    [projection destroy];
 }
 
 -(int) authorityCount{

@@ -53,6 +53,9 @@ PROJProjectionTransform *inverseTransform = [transform inverseTransformation];
 CLLocationCoordinate2D transformed = [transform transform:coordinate];
 CLLocationCoordinate2D inverseTransformed = [inverseTransform transform:transformed];
 
+[transform destroy];
+[inverseTransform destroy];
+
 ```
 
 ### Build ###
@@ -134,6 +137,9 @@ let inverseTransform : PROJProjectionTransform = transform.inverseTransformation
 
 let transformed : CLLocationCoordinate2D = transform.transform(coordinate)
 let inverseTransformed : CLLocationCoordinate2D = inverseTransform.transform(transformed)
+
+transform.destroy()
+inverseTransform.destroy()
 
 ```
 

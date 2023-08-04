@@ -216,9 +216,19 @@
 -(instancetype) initWithProjectionTransform: (PROJProjectionTransform *) transform;
 
 /**
- * Free the projection memory
+ * Destroy the transform memory
  */
 -(void) free;
+
+/**
+ * Destroy the transform memory
+ */
+-(void) close;
+
+/**
+ * Destroy the transform memory
+ */
+-(void) destroy;
 
 /**
  *  Transform a location coordinate

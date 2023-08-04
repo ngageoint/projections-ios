@@ -77,7 +77,7 @@
     PROJProjection *projection = [_codeProjections objectForKey:key];
     if(projection != nil){
         [_codeProjections removeObjectForKey:key];
-        [projection free];
+        [projection destroy];
     }
 }
 

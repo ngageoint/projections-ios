@@ -67,6 +67,9 @@
     CLLocationCoordinate2D transformed = [transform transform:coordinate];
     CLLocationCoordinate2D inverseTransformed = [inverseTransform transform:transformed];
 
+    [transform destroy];
+    [inverseTransform destroy];
+
     return transformed;
 }
 

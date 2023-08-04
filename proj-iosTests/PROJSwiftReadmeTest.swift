@@ -62,6 +62,9 @@ class PROJSwiftReadmeTest: XCTestCase{
         let transformed : CLLocationCoordinate2D = transform.transform(coordinate)
         let inverseTransformed : CLLocationCoordinate2D = inverseTransform.transform(transformed)
 
+        transform.destroy()
+        inverseTransform.destroy()
+
         return transformed;
     }
     

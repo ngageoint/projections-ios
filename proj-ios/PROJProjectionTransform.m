@@ -13,6 +13,30 @@
 #import "CRSSimpleCoordinateReferenceSystem.h"
 #import "CRSCompoundCoordinateReferenceSystem.h"
 
+@interface PROJProjectionTransform()
+
+/**
+ *  Transform context
+ */
+@property (nonatomic) PJ_CONTEXT *context;
+
+/**
+ *  Projection Transform
+ */
+@property (nonatomic) PJ *transform;
+
+/**
+ *  Swap the axis values of the from projection
+ */
+@property (nonatomic) BOOL swapFrom;
+
+/**
+ *  Swap the axis values of the to projection
+ */
+@property (nonatomic) BOOL swapTo;
+
+@end
+
 @implementation PROJProjectionTransform
 
 +(PROJProjectionTransform *) transformFromProjection: (PROJProjection *) fromProjection andToProjection: (PROJProjection *) toProjection{
@@ -54,8 +78,25 @@
 -(instancetype) initWithFromProjection: (PROJProjection *) fromProjection andToProjection: (PROJProjection *) toProjection{
     self = [super init];
     if(self != nil){
-        self.fromProjection = fromProjection;
-        self.toProjection = toProjection;
+        _fromProjection = fromProjection;
+        _toProjection = toProjection;
+
+        _context = proj_context_create();
+
+        BOOL isFromCRS = proj_is_crs(fromProjection.crs);
+        BOOL isToCRS = proj_is_crs(toProjection.crs);
+
+        _swapFrom = isFromCRS && [self swapAxisWithProjection:fromProjection];
+        _swapTo = isToCRS && [self swapAxisWithProjection:toProjection];
+
+        if (isFromCRS && isToCRS) {
+            _transform = proj_create_crs_to_crs_from_pj(_context, fromProjection.crs, toProjection.crs, NULL, NULL);
+        } else {
+            const char *fromString = [self stringFromProjection:fromProjection];
+            const char *toString = [self stringFromProjection:toProjection];
+            _transform = proj_create_crs_to_crs(_context, fromString, toString, NULL);
+        }
+
     }
     return self;
 }
@@ -112,9 +153,35 @@
     return [self initWithFromProjection:transform.fromProjection andToProjection:transform.toProjection];
 }
 
+-(const char *) stringFromProjection: (PROJProjection *) projection{
+    const char *value;
+    if (proj_is_crs(projection.crs)) {
+        value = proj_as_wkt(_context, projection.crs, PJ_WKT2_2019, NULL);
+    } else if (projection.params != nil) {
+        value = [projection.params UTF8String];
+    } else {
+        value = proj_as_proj_string(_context, projection.crs, PJ_PROJ_4, NULL);
+    }
+    return value;
+}
+
 -(void) free{
-    [_fromProjection free];
-    [_toProjection free];
+    [self destroy];
+}
+
+-(void) close{
+    [self destroy];
+}
+
+-(void) destroy{
+    if(_transform != NULL){
+        proj_destroy(_transform);
+        _transform = NULL;
+    }
+    if(_context != NULL){
+        proj_context_destroy(_context);
+        _context = NULL;
+    }
 }
 
 -(CLLocationCoordinate2D) transform: (CLLocationCoordinate2D) from{
@@ -133,43 +200,15 @@
         z = [from.z doubleValue];
     }
 
-    BOOL isFromCRS = proj_is_crs(self.fromProjection.crs);
-    BOOL isToCRS = proj_is_crs(self.toProjection.crs);
-
-    PJ_CONTEXT *context = proj_context_create();
-
-    if (isFromCRS && [self swapAxisWithContext:context andProjection:self.fromProjection]) {
+    if (_swapFrom) {
         double swap = x;
         x = y;
         y = swap;
     }
 
     PJ_COORD c_in = proj_coord(x, y, z, 0);
-    
-    PJ *transform = nil;
-    if (isFromCRS && isToCRS) {
-        transform = proj_create_crs_to_crs_from_pj(context, self.fromProjection.crs, self.toProjection.crs, NULL, NULL);
-    } else {
-        const char *fromString;
-        if (isFromCRS) {
-            fromString = proj_as_wkt(context, self.fromProjection.crs, PJ_WKT2_2019, NULL);
-        } else if (self.fromProjection.params != nil) {
-            fromString = [self.fromProjection.params UTF8String];
-        } else {
-            fromString = proj_as_proj_string(context, self.fromProjection.crs, PJ_PROJ_4, NULL);
-        }
-        const char *toString;
-        if (isToCRS) {
-            toString = proj_as_wkt(context, self.toProjection.crs, PJ_WKT2_2019, NULL);
-        } else if (self.toProjection.params != nil) {
-            toString = [self.toProjection.params UTF8String];
-        } else {
-            toString = proj_as_proj_string(context, self.toProjection.crs, PJ_PROJ_4, NULL);
-        }
-        transform = proj_create_crs_to_crs(context, fromString, toString, NULL);
-    }
 
-    PJ_COORD c_out = proj_trans(transform, PJ_FWD, c_in);
+    PJ_COORD c_out = proj_trans(_transform, PJ_FWD, c_in);
 
     double toX = c_out.xy.x;
     double toY = c_out.xy.y;
@@ -179,31 +218,28 @@
         toZ = [[NSDecimalNumber alloc] initWithDouble:c_out.xyz.z];
     }
 
-    if (isToCRS && [self swapAxisWithContext:context andProjection:self.toProjection]) {
+    if (_swapTo) {
         double swap = toX;
         toX = toY;
         toY = swap;
     }
-
-    proj_destroy(transform);
-    proj_context_destroy(context);
 
     CLLocationCoordinate2D to = CLLocationCoordinate2DMake(toY, toX);
 
     return [PROJLocationCoordinate3D coordinateWithCoordinate:to andZ:toZ];
 }
 
--(BOOL) swapAxisWithContext: (PJ_CONTEXT *) context andProjection: (PROJProjection *) projection{
+-(BOOL) swapAxisWithProjection: (PROJProjection *) projection{
     BOOL swap = NO;
     PJ *crs = projection.crs;
-    PJ *cs = proj_crs_get_coordinate_system(context, crs);
-    int axisCount = proj_cs_get_axis_count(context, cs);
+    PJ *cs = proj_crs_get_coordinate_system(_context, crs);
+    int axisCount = proj_cs_get_axis_count(_context, cs);
     if (axisCount > 0) {
         if (axisCount > 1) {
             const char *firstAxisDirection = "";
             const char *secondAxisDirection = "";
-            proj_cs_get_axis_info(context, cs, 0, NULL, NULL, &firstAxisDirection, NULL, NULL, NULL, NULL);
-            proj_cs_get_axis_info(context, cs, 1, NULL, NULL, &secondAxisDirection, NULL, NULL, NULL, NULL);
+            proj_cs_get_axis_info(_context, cs, 0, NULL, NULL, &firstAxisDirection, NULL, NULL, NULL, NULL);
+            proj_cs_get_axis_info(_context, cs, 1, NULL, NULL, &secondAxisDirection, NULL, NULL, NULL, NULL);
             enum CRSAxisDirectionType firstAxis = [CRSAxisDirectionTypes type:[NSString stringWithUTF8String:firstAxisDirection]];
             enum CRSAxisDirectionType secondAxis = [CRSAxisDirectionTypes type:[NSString stringWithUTF8String:secondAxisDirection]];
             swap = [self swapWithFirstAxis:firstAxis andSecondAxis:secondAxis];

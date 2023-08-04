@@ -596,6 +596,7 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
 +(void) clearTransform: (PROJProjectionTransform *) transform{
     [self clearProjection:transform.fromProjection];
     [self clearProjection:transform.toProjection];
+    [transform destroy];
 }
 
 +(NSString *) coordinateNameWithAuthority: (NSString *) authority andCode: (NSString *) code{

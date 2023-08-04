@@ -3694,6 +3694,7 @@
         minY = [[projectedBounds objectAtIndex:1] doubleValue];
         maxX = [[projectedBounds objectAtIndex:2] doubleValue];
         maxY = [[projectedBounds objectAtIndex:3] doubleValue];
+        [boundsTransform destroy];
     }
     
     PROJProjection *transformProjection = [PROJProjectionFactory projectionWithEpsgInt:transformCode];
@@ -3753,6 +3754,8 @@
     
     [PROJProjectionFactory clearTransform:transformTo];
     [PROJProjectionFactory clearTransform:transformTo2];
+    [PROJProjectionFactory clearTransform:transformFrom];
+    [PROJProjectionFactory clearTransform:transformFrom2];
     
 }
 

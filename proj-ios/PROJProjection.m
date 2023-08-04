@@ -213,6 +213,14 @@
 }
 
 -(void) free{
+    [self destroy];
+}
+
+-(void) close{
+    [self destroy];
+}
+
+-(void) destroy{
     if(_crs != NULL){
         proj_destroy(_crs);
         _crs = NULL;
