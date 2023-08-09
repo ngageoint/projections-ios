@@ -145,5 +145,5 @@ inverseTransform.destroy()
 
 ### Remote Dependencies ###
 
-* [proj4](https://trac.osgeo.org/proj/) (The MIT License (MIT)) - Cartographic projection software
+* [PROJ](https://proj.org/) (The MIT License (MIT)) - Cartographic projection software
 * [Coordinate Reference Systems](https://github.com/ngageoint/coordinate-reference-systems-ios) (The MIT License (MIT)) - Coordinate Reference Systems Library
