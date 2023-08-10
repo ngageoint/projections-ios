@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 2.0.0 (TBD)
+## [2.0.0](https://github.com/ngageoint/projections-ios/releases/tag/2.0.0) (08-10-2023)
 
 * [PROJ](https://github.com/ngageoint/PROJ) (a [PROJ](https://github.com/OSGeo/PROJ) C and C++ build) has replaced the [proj4-ios](https://github.com/bosborn/proj.4/tree/4.9.3) (a [PROJ.4](https://proj.org/en/9.2/faq.html#what-happened-to-proj-4) C build) dependency
 * PROJ version 9.2.1.4

@@ -3,8 +3,8 @@ jazzy \
   --author NGA \
   --author_url https://www.nga.mil \
   --github_url https://github.com/ngageoint/projections-ios \
-  --github-file-prefix https://github.com/ngageoint/projections-ios/tree/1.0.5 \
-  --module-version 1.0.5 \
+  --github-file-prefix https://github.com/ngageoint/projections-ios/tree/2.0.0 \
+  --module-version 2.0.0 \
   --umbrella-header proj-ios/proj-ios-Bridging-Header.h \
   --framework-root . \
   --module proj-ios \
