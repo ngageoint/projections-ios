@@ -37,8 +37,9 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
 
 +(void) initialize{
 
-    // Copy the PROJ database file to the current directory
-    [PROJIOUtils copyDatabase];
+    // Set the PROJ database path
+    NSString *databasePath = [PROJIOUtils databasePath];
+    proj_context_set_database_path(PJ_DEFAULT_CTX, [databasePath UTF8String], NULL, NULL);
 
     if(defaultOrder == nil){
         defaultOrder = [NSOrderedSet orderedSetWithObjects:
@@ -614,11 +615,16 @@ static NSMutableOrderedSet<NSNumber *> *cachelessOrder;
 
     if (!degrees && proj_is_crs(crs)) {
         PJ_CONTEXT *context = proj_context_create();
-        PJ *crs2 = proj_create(context, [[self coordinateNameWithAuthority:PROJ_AUTHORITY_EPSG andIntCode:PROJ_EPSG_WEB_MERCATOR] UTF8String]);
-        PJ *transform = proj_create_crs_to_crs_from_pj(context, crs, crs2, NULL, NULL);
-        degrees = proj_degree_input(transform, PJ_FWD);
-        proj_destroy(crs2);
-        proj_destroy(transform);
+        NSString *webMercator = [self coordinateNameWithAuthority:PROJ_AUTHORITY_EPSG andIntCode:PROJ_EPSG_WEB_MERCATOR];
+        PJ *crs2 = proj_create(context, [webMercator UTF8String]);
+        if (crs2 != nil) {
+            PJ *transform = proj_create_crs_to_crs_from_pj(context, crs, crs2, NULL, NULL);
+            degrees = proj_degree_input(transform, PJ_FWD);
+            proj_destroy(crs2);
+            proj_destroy(transform);
+        } else {
+            NSLog(@"Failed to create projection for %@. PROJ database may not be set.", webMercator);
+        }
         proj_context_destroy(context);
     }
 

@@ -91,12 +91,12 @@ Include this repository by specifying it in a Podfile using a supported option.
 
 Pull from [CocoaPods](https://cocoapods.org/pods/proj-ios):
 
-    pod 'proj-ios', '~> 2.0.0'
+    pod 'proj-ios', '~> 2.0.1'
 
 Pull from GitHub:
 
     pod 'proj-ios', :git => 'https://github.com/ngageoint/projections-ios.git', :branch => 'master'
-    pod 'proj-ios', :git => 'https://github.com/ngageoint/projections-ios.git', :tag => '2.0.0'
+    pod 'proj-ios', :git => 'https://github.com/ngageoint/projections-ios.git', :tag => '2.0.1'
 
 Include as local project:
 

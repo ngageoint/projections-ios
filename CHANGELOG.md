@@ -4,9 +4,9 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 2.0.1 (TBD)
+## [2.0.1](https://github.com/ngageoint/projections-ios/releases/tag/2.0.1) (08-16-2023)
 
-* TBD
+* Set the PROJ database path to the PROJ bundle file (instead of copying the file to the working directory)
 
 ## [2.0.0](https://github.com/ngageoint/projections-ios/releases/tag/2.0.0) (08-10-2023)
 
