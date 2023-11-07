@@ -4,9 +4,11 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 2.0.2 (TBD)
+## [2.0.2](https://github.com/ngageoint/projections-ios/releases/tag/2.0.2) (11-07-2023)
 
-* TBD
+* Module definition
+* crs-ios version 1.0.5
+* PROJ version 9.3.0
 
 ## [2.0.1](https://github.com/ngageoint/projections-ios/releases/tag/2.0.1) (08-16-2023)
 

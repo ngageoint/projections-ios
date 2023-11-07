@@ -13,10 +13,11 @@
 		04236CD926CEAF4D00F6190E /* PROJProjectionFactoryTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04236CD726CEAF4D00F6190E /* PROJProjectionFactoryTypes.m */; };
 		04236CDC26CEC37B00F6190E /* PROJProjectionFactoryCodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04236CDB26CEC37B00F6190E /* PROJProjectionFactoryCodeTest.m */; };
 		042FC6571B963FE500549A4B /* proj_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FC64B1B963FE500549A4B /* proj_ios.framework */; };
-		042FC6AF1B96421E00549A4B /* BuildFile in Headers */ = {isa = PBXBuildFile; };
+		042FC6AF1B96421E00549A4B /* (null) in Headers */ = {isa = PBXBuildFile; };
 		042FC6D31B96421E00549A4B /* proj-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* proj-ios-Prefix.pch */; };
 		042FC6D51B96453E00549A4B /* proj_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* proj_ios.h */; };
 		0472B51B1C03590500496B87 /* proj-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* proj-ios-Bridging-Header.h */; };
+		0493A5962AE8420F000B75E6 /* proj_ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493A5952AE8420F000B75E6 /* proj_ios.swift */; };
 		04974DA32A49D8D200CEEC2A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04974DA22A49D8D200CEEC2A /* libsqlite3.tbd */; };
 		04974DA52A49D93900CEEC2A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04974DA42A49D93900CEEC2A /* libc++.tbd */; };
 		04BCA97F2698D69D0015DEC0 /* PROJCRSParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BCA97D2698D69D0015DEC0 /* PROJCRSParser.h */; };
@@ -78,6 +79,7 @@
 		042FC69E1B96421E00549A4B /* proj-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "proj-ios-Prefix.pch"; sourceTree = "<group>"; };
 		042FC6D41B96453E00549A4B /* proj_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = proj_ios.h; sourceTree = "<group>"; };
 		0472B51A1C03590500496B87 /* proj-ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "proj-ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		0493A5952AE8420F000B75E6 /* proj_ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = proj_ios.swift; sourceTree = "<group>"; };
 		04974DA22A49D8D200CEEC2A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		04974DA42A49D93900CEEC2A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/lib/libc++.tbd"; sourceTree = DEVELOPER_DIR; };
 		04BCA97D2698D69D0015DEC0 /* PROJCRSParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PROJCRSParser.h; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				042FC6D41B96453E00549A4B /* proj_ios.h */,
+				0493A5952AE8420F000B75E6 /* proj_ios.swift */,
 				04F4560B209A47C700FC299E /* PROJAuthorityProjections.h */,
 				04F455FB209A47C700FC299E /* PROJAuthorityProjections.m */,
 				04BCA97D2698D69D0015DEC0 /* PROJCRSParser.h */,
@@ -274,7 +277,7 @@
 				04F4561F209A47C800FC299E /* PROJAuthorityProjections.h in Headers */,
 				04F4561D209A47C800FC299E /* PROJProjectionConstants.h in Headers */,
 				04F45615209A47C800FC299E /* PROJProjectionFactory.h in Headers */,
-				042FC6AF1B96421E00549A4B /* BuildFile in Headers */,
+				042FC6AF1B96421E00549A4B /* (null) in Headers */,
 				04F4561C209A47C800FC299E /* PROJProjectionRetriever.h in Headers */,
 				04236CD826CEAF4D00F6190E /* PROJProjectionFactoryTypes.h in Headers */,
 				04F45617209A47C800FC299E /* PROJProjection.h in Headers */,
@@ -338,6 +341,7 @@
 				TargetAttributes = {
 					042FC64A1B963FE500549A4B = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 1500;
 					};
 					042FC6551B963FE500549A4B = {
 						CreatedOnToolsVersion = 6.4;
@@ -450,6 +454,7 @@
 				04236CD926CEAF4D00F6190E /* PROJProjectionFactoryTypes.m in Sources */,
 				04F45610209A47C800FC299E /* PROJProjectionTransform.m in Sources */,
 				04F4560F209A47C800FC299E /* PROJAuthorityProjections.m in Sources */,
+				0493A5962AE8420F000B75E6 /* proj_ios.swift in Sources */,
 				04F45629209B40F800FC299E /* PROJConstants.m in Sources */,
 				04F45625209B3FD000FC299E /* PROJIOUtils.m in Sources */,
 				04F4561B209A47C800FC299E /* PROJLocationCoordinate3D.m in Sources */,
@@ -605,6 +610,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4FD24597D37A9C5402B3279A /* Pods-proj-ios.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -616,6 +622,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mil.nga.proj;
 				PRODUCT_NAME = proj_ios;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -623,6 +631,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DDE9611B54A8A4AC3941F59D /* Pods-proj-ios.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -634,6 +643,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mil.nga.proj;
 				PRODUCT_NAME = proj_ios;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -641,6 +651,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6179C77188B4A0E8D4DEDBEB /* Pods-proj-iosTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -663,6 +674,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B17E59AE80997CC09DD740D6 /* Pods-proj-iosTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

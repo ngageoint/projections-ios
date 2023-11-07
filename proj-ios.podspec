@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/NGA_GEOINT'
   s.source           = { :git => 'https://github.com/ngageoint/projections-ios.git', :tag => s.version }
   s.requires_arc     = true
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 
   s.platform         = :ios, '12.0'
   s.ios.deployment_target = '12.0'
@@ -20,6 +21,6 @@ Pod::Spec.new do |s|
 
   s.libraries = 'sqlite3', 'c++'
 
-  s.dependency 'PROJ', '~> 9.2.1.4'
-  s.dependency 'crs-ios', '~> 1.0.4'
+  s.dependency 'PROJ', '~> 9.3.0'
+  s.dependency 'crs-ios', '~> 1.0.5'
 end

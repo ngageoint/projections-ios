@@ -81,7 +81,7 @@ Open proj-ios.xcworkspace in Xcode or build from command line:
 
 Run tests from Xcode or from command line:
 
-    xcodebuild test -workspace 'proj-ios.xcworkspace' -scheme proj-ios -destination 'platform=iOS Simulator,name=iPhone 14'
+    xcodebuild test -workspace 'proj-ios.xcworkspace' -scheme proj-ios -destination 'platform=iOS Simulator,name=iPhone 15'
 
 ### Include Library ###
 
@@ -91,12 +91,12 @@ Include this repository by specifying it in a Podfile using a supported option.
 
 Pull from [CocoaPods](https://cocoapods.org/pods/proj-ios):
 
-    pod 'proj-ios', '~> 2.0.1'
+    pod 'proj-ios', '~> 2.0.2'
 
 Pull from GitHub:
 
     pod 'proj-ios', :git => 'https://github.com/ngageoint/projections-ios.git', :branch => 'master'
-    pod 'proj-ios', :git => 'https://github.com/ngageoint/projections-ios.git', :tag => '2.0.1'
+    pod 'proj-ios', :git => 'https://github.com/ngageoint/projections-ios.git', :tag => '2.0.2'
 
 Include as local project:
 
