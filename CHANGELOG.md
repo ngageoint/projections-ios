@@ -4,6 +4,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## 2.0.3 (TBD)
+
+* TBD
+
 ## [2.0.2](https://github.com/ngageoint/projections-ios/releases/tag/2.0.2) (11-07-2023)
 
 * Module definition
