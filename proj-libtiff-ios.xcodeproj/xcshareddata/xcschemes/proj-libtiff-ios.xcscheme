@@ -15,23 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "042FC64A1B963FE500549A4B"
-               BuildableName = "proj_ios.framework"
-               BlueprintName = "proj-ios"
-               ReferencedContainer = "container:proj-ios.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "042FC6551B963FE500549A4B"
-               BuildableName = "proj_iosTests.xctest"
-               BlueprintName = "proj-iosTests"
-               ReferencedContainer = "container:proj-ios.xcodeproj">
+               BuildableName = "proj_libtiff_ios.framework"
+               BlueprintName = "proj-libtiff-ios"
+               ReferencedContainer = "container:proj-libtiff-ios.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +31,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "042FC64A1B963FE500549A4B"
-            BuildableName = "proj_ios.framework"
-            BlueprintName = "proj-ios"
-            ReferencedContainer = "container:proj-ios.xcodeproj">
+            BuildableName = "proj_libtiff_ios.framework"
+            BlueprintName = "proj-libtiff-ios"
+            ReferencedContainer = "container:proj-libtiff-ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -56,9 +42,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "042FC6551B963FE500549A4B"
-               BuildableName = "proj_iosTests.xctest"
-               BlueprintName = "proj-iosTests"
-               ReferencedContainer = "container:proj-ios.xcodeproj">
+               BuildableName = "proj-libtiff-iosTests.xctest"
+               BlueprintName = "proj-libtiff-iosTests"
+               ReferencedContainer = "container:proj-libtiff-ios.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -77,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "042FC64A1B963FE500549A4B"
-            BuildableName = "proj_ios.framework"
-            BlueprintName = "proj-ios"
-            ReferencedContainer = "container:proj-ios.xcodeproj">
+            BuildableName = "proj_libtiff_ios.framework"
+            BlueprintName = "proj-libtiff-ios"
+            ReferencedContainer = "container:proj-libtiff-ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </LaunchAction>
@@ -93,9 +79,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "042FC64A1B963FE500549A4B"
-            BuildableName = "proj_ios.framework"
-            BlueprintName = "proj-ios"
-            ReferencedContainer = "container:proj-ios.xcodeproj">
+            BuildableName = "proj_libtiff_ios.framework"
+            BlueprintName = "proj-libtiff-ios"
+            ReferencedContainer = "container:proj-libtiff-ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

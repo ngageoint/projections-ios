@@ -18,7 +18,8 @@ jobs:
       run: |
         brew install automake
         brew install libtool
+        brew install libtiff
     - name: Install
       run: pod install
     - name: Build
-      run: xcodebuild build-for-testing -workspace proj-ios.xcworkspace -scheme proj-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14'
+      run: xcodebuild build-for-testing -workspace proj-libtiff-ios.xcworkspace -scheme proj-libtiff-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14'
