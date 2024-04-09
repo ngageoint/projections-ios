@@ -21,6 +21,6 @@ Pod::Spec.new do |s|
 
   s.libraries = 'sqlite3', 'c++'
 
-  s.dependency 'PROJ', '~> 9.3.0'
+  s.dependency 'PROJ', '~> 9.4.0'
   s.dependency 'crs-ios', '~> 1.0.5'
 end
