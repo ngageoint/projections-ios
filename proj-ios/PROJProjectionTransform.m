@@ -6,12 +6,13 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "PROJProjectionTransform.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
-#import "CRSAxisDirectionTypes.h"
-#import "CRSSimpleCoordinateReferenceSystem.h"
-#import "CRSCompoundCoordinateReferenceSystem.h"
+//# "proj.h"
+@import proj;
+@import CoordinateReferenceSystems;
+
+#import <Projections/PROJProjectionTransform.h>
+#import <Projections/PROJProjectionFactory.h>
+#import <Projections/PROJProjectionConstants.h>
 
 @interface PROJProjectionTransform()
 

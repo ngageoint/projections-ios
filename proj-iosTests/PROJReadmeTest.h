@@ -9,7 +9,8 @@
 #import <XCTest/XCTest.h>
 
 /**
- * README example tests
+ * README example tests used on the README.md
+
  */
 @interface PROJReadmeTest : XCTestCase
 

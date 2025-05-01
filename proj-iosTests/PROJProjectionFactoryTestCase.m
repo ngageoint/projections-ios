@@ -8,9 +8,7 @@
 
 #import "PROJProjectionFactoryTestCase.h"
 #import "PROJTestUtils.h"
-#import "PROJProjectionConstants.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionRetriever.h"
+@import Projections;
 
 @implementation PROJProjectionFactoryTestCase
 

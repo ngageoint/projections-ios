@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "PROJProjectionConstants.h"
+#import <Projections/PROJProjectionConstants.h>
 
 NSString * const PROJ_PROPERTIES = @"projections";
 NSString * const PROJ_AUTHORITY_EPSG = @"EPSG";

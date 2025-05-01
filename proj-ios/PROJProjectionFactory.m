@@ -6,12 +6,14 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionRetriever.h"
-#import "PROJProjectionConstants.h"
-#import "CRSReader.h"
-#import "PROJCRSParser.h"
-#import "PROJIOUtils.h"
+@import proj;
+@import CoordinateReferenceSystems;
+
+#import <Projections/PROJProjectionFactory.h>
+#import <Projections/PROJProjectionRetriever.h>
+#import <Projections/PROJProjectionConstants.h>
+#import <Projections/PROJCRSParser.h>
+#import <Projections/PROJIOUtils.h>
 
 /**
  * Default projection factory retrieval order
