@@ -6,9 +6,11 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "PROJProjection.h"
-#import "PROJProjectionConstants.h"
-#import "PROJProjectionFactory.h"
+@import proj;
+@import CoordinateReferenceSystems;
+#import <Projections/PROJProjection.h>
+#import <Projections/PROJProjectionConstants.h>
+#import <Projections/PROJProjectionFactory.h>
 
 @interface PROJProjection()
 

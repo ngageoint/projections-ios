@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "PROJProjectionRetriever.h"
-#import "PROJProjectionConstants.h"
-#import "PROJIOUtils.h"
+#import <Projections/PROJProjectionRetriever.h>
+#import <Projections/PROJProjectionConstants.h>
+#import <Projections/PROJIOUtils.h>
 
 static NSMutableDictionary<NSString *, NSMutableDictionary *> *properties;
 

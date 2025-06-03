@@ -60,58 +60,49 @@ CLLocationCoordinate2D inverseTransformed = [inverseTransform transform:transfor
 
 ### Build ###
 
-[![Build & Test](https://github.com/ngageoint/projections-ios/workflows/Build%20&%20Test/badge.svg)](https://github.com/ngageoint/projections-ios/actions/workflows/build-test.yml)
+[![Build](https://github.com/ngageoint/projections-ios/actions/workflows/build.yml/badge.svg)](https://github.com/ngageoint/projections-ios/actions/workflows/build.yml)
 
-**IMPORTANT** -
-Be sure your Mac has the `autoconf`, `automake`, and `glibtoolize` utilities.  These are required to build
-the [PROJ](https://github.com/ngageoint/PROJ) dependency.  Without them, `pod install` will fail.  The easiest way to get these is to [`brew install`](https://brew.sh/) them:
-```
-brew install automake
-brew install libtool
-```
 
-Build this repository using Xcode and/or CocoaPods:
+Build this repository SPM:
 
-    pod repo update
-    pod install
+    swift build
 
-Open proj-ios.xcworkspace in Xcode or build from command line:
+Run tests for SPM:
+    
+    swift test
+    
+Open Package in Xcode:
 
-    xcodebuild -workspace 'proj-ios.xcworkspace' -scheme proj-ios build
-
-Run tests from Xcode or from command line:
-
-    xcodebuild test -workspace 'proj-ios.xcworkspace' -scheme proj-ios -destination 'platform=iOS Simulator,name=iPhone 15'
+    open Package.swift
 
 ### Include Library ###
 
-See the [above note](https://github.com/ngageoint/projections-ios#build) about `automake` and `glibtoolize`.
+Use this library via SPM in your Package.swift:
 
-Include this repository by specifying it in a Podfile using a supported option.
+    dependencies: [
+        .package(url: "https://github.com/ngageoint/projections-ios.git", branch: "release/3.0.0"),
+    ]
+    
+Or as a tagged release:
 
-Pull from [CocoaPods](https://cocoapods.org/pods/proj-ios):
+    dependencies: [
+        .package(url: "https://github.com/ngageoint/projections-ios.git", from: "3.0.0"),
+    ]
 
-    pod 'proj-ios', '~> 2.0.3'
+Reference it in your Package.swift target:
 
-If you use `use_modular_headers!` in your Podfile, disable modular headers for the [PROJ](https://github.com/ngageoint/PROJ) dependency:
-
-    pod 'proj-ios', '~> 2.0.3'
-    pod 'PROJ', :modular_headers => false
-
-Pull from GitHub:
-
-    pod 'proj-ios', :git => 'https://github.com/ngageoint/projections-ios.git', :branch => 'master'
-    pod 'proj-ios', :git => 'https://github.com/ngageoint/projections-ios.git', :tag => '2.0.3'
-
-Include as local project:
-
-    pod 'proj-ios', :path => '../projections-ios'
+    .target(
+        name: "projections",
+        dependencies: [
+            .product(name: "projections", package: "projections-ios"),
+        ],
+    ),
 
 ### Swift ###
 
-To use from Swift, import the proj-ios bridging header from the Swift project's bridging header
+To use from Swift, import the library:
 
-    #import "proj-ios-Bridging-Header.h"
+    import projections
 
 ```swift
 

@@ -6,9 +6,10 @@
 //  Copyright © 2021 NGA. All rights reserved.
 //
 
-#import "PROJCRSParser.h"
-#import "CRSProjParser.h"
-#import "CRSKeyword.h"
+#import <Projections/PROJCRSParser.h>
+
+@import proj;
+@import CoordinateReferenceSystems;
 
 @implementation PROJCRSParser
 

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "PROJLocationCoordinate3D.h"
+#import <Projections/PROJLocationCoordinate3D.h>
 
 @implementation PROJLocationCoordinate3D
 

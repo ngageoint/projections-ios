@@ -4,9 +4,11 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 2.0.4 (TBD)
 
-* TBD
+## 3.0.0
+* Refactored to support Swift Package Manager because Cocoapods are deprecated
+* Restructuring files to better align with SPM format and updating header includes
+* Renamed framework Projections since dashes break resource bundle paths in SPM.
 
 ## [2.0.3](https://github.com/ngageoint/projections-ios/releases/tag/2.0.3) (04-09-2024)
 

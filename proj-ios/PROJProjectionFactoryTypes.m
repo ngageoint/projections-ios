@@ -6,7 +6,7 @@
 //  Copyright © 2021 NGA. All rights reserved.
 //
 
-#import "PROJProjectionFactoryTypes.h"
+#import <Projections/PROJProjectionFactoryTypes.h>
 
 @implementation PROJProjectionFactoryTypes
 

@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "PROJProjections.h"
+#import <Projections/PROJProjections.h>
 
 @interface PROJProjections()
 

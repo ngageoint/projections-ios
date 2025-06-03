@@ -7,9 +7,8 @@
 //
 
 #import "PROJReadmeTest.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
 #import "PROJTestUtils.h"
+@import Projections;
 
 @implementation PROJReadmeTest
 

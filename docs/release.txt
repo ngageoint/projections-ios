@@ -1,20 +1,14 @@
 
+Swift Build & Test:
+
+    swift build
+    swift test
+
 Xcode Build:
 
-xcodebuild -workspace 'proj-ios.xcworkspace' -scheme proj-ios build
+    open Package.swift
+    Command + B
 
 Xcode Test:
-
-xcodebuild test -workspace 'proj-ios.xcworkspace' -scheme proj-ios -destination 'platform=iOS Simulator,name=iPhone 15'
-
-CocoaPods Local Lint:
-
-pod lib lint proj-ios.podspec --use-libraries
-
-CocoaPods GitHub Release Lint:
-
-pod spec lint proj-ios.podspec --use-libraries
-
-CocoaPods Deploy To Trunk:
-
-pod trunk push proj-ios.podspec --use-libraries
+    open Package.swift
+    Command + U

@@ -6,7 +6,7 @@
 //  Copyright © 2017 NGA. All rights reserved.
 //
 
-#import "PROJAuthorityProjections.h"
+#import <Projections/PROJAuthorityProjections.h>
 
 @interface PROJAuthorityProjections()
 
