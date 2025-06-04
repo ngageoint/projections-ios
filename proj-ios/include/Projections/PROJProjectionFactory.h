@@ -39,7 +39,7 @@
  * @param type
  *            retrieval type
  */
-+(void) removeOrderType: (enum PROJProjectionFactoryType) type;
++(void) removeOrderType: (PROJProjectionFactoryType) type;
 
 /**
  * Set the projection factory retrieval order
@@ -94,7 +94,7 @@
  *            EPSG coordinate code
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andEpsg: (NSNumber *) epsg;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andEpsg: (NSNumber *) epsg;
 
 /**
  * Get the projection for the EPSG code
@@ -134,7 +134,7 @@
  *            EPSG coordinate code
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andEpsgInt: (int) epsg;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andEpsgInt: (int) epsg;
 
 /**
  * Get the projection for the EPSG code
@@ -174,7 +174,7 @@
  *
  *  @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andName: (NSString *) name;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andName: (NSString *) name;
 
 /**
  *  Get the projection for the projection name, expected as 'authority:code' or 'epsg_code'
@@ -220,7 +220,7 @@
  *            authority coordinate code
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code;
 
 /**
  * Get the projection for authority and code
@@ -268,7 +268,7 @@
  *            authority coordinate code
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code;
 
 /**
  * Get the projection for authority and code
@@ -316,7 +316,7 @@
  *            authority coordinate code
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code;
 
 /**
  * Get the projection for authority and code
@@ -370,7 +370,7 @@
  *            proj4 string
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params;
 
 /**
  * Get the projection for authority, code, and parameter string
@@ -426,7 +426,7 @@
  *            proj4 string
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params;
 
 /**
  * Get the projection for authority, code, and parameter string
@@ -482,7 +482,7 @@
  *            proj4 string
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params;
 
 /**
  * Get the projection for authority, code, and parameter string
@@ -538,7 +538,7 @@
  *            definition
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andDefinition: (NSString *) definition;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the authority, code, and definition
@@ -594,7 +594,7 @@
  *            definition
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code andDefinition: (NSString *) definition;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the authority, code, and definition
@@ -650,7 +650,7 @@
  *            definition
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the authority, code, and definition
@@ -715,7 +715,7 @@
  *            definition
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params andDefinition: (NSString *) definition;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andAuthority: (NSString *) authority andNumberCode: (NSNumber *) code andParams: (NSString *) params andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the authority, code, definition, and custom
@@ -783,7 +783,7 @@
  *            definition
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andAuthority: (NSString *) authority andIntCode: (int) code andParams: (NSString *) params andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the authority, code, definition, and custom
@@ -869,7 +869,7 @@
  *            definition
  * @return projection
  */
-+(PROJProjection *) projectionWithType: (enum PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params andDefinition: (NSString *) definition;
++(PROJProjection *) projectionWithType: (PROJProjectionFactoryType) type andAuthority: (NSString *) authority andCode: (NSString *) code andParams: (NSString *) params andDefinition: (NSString *) definition;
 
 /**
  * Get the projection for the definition
@@ -1003,6 +1003,6 @@
  *            coordinate reference system
  * @return unit
  */
-+(enum PROJUnit) unitOfCRS: (PJ *) crs;
++(PROJUnit) unitOfCRS: (PJ *) crs;
 
 @end

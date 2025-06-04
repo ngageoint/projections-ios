@@ -11,7 +11,7 @@
 /**
  * Enumeration of projection units
  */
-enum PROJUnit{
+typedef NS_ENUM(int, PROJUnit) {
     PROJ_UNIT_DEGREES,
     PROJ_UNIT_METERS,
     PROJ_UNIT_NONE

@@ -11,7 +11,7 @@
 /**
  * Well-known text representation of coordinate reference systems category type
  */
-enum PROJProjectionFactoryType{
+typedef NS_ENUM(int, PROJProjectionFactoryType) {
 
     /**
      * Cached projections from previous retrievals

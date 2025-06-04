@@ -450,7 +450,7 @@ typedef struct PJconsts PJ;
  *
  *  @return unit
  */
--(enum PROJUnit) unit;
+-(PROJUnit) unit;
 
 /**
  * Determine if the projection is in the provided unit
@@ -459,7 +459,7 @@ typedef struct PJconsts PJ;
  *            unit
  * @return true if in the provided unit
  */
--(BOOL) isUnit: (enum PROJUnit) unit;
+-(BOOL) isUnit: (PROJUnit) unit;
 
 /**
  * Check if this projection is equal to the authority and code

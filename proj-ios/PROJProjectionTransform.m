@@ -241,8 +241,8 @@
             const char *secondAxisDirection = "";
             proj_cs_get_axis_info(_context, cs, 0, NULL, NULL, &firstAxisDirection, NULL, NULL, NULL, NULL);
             proj_cs_get_axis_info(_context, cs, 1, NULL, NULL, &secondAxisDirection, NULL, NULL, NULL, NULL);
-            enum CRSAxisDirectionType firstAxis = [CRSAxisDirectionTypes type:[NSString stringWithUTF8String:firstAxisDirection]];
-            enum CRSAxisDirectionType secondAxis = [CRSAxisDirectionTypes type:[NSString stringWithUTF8String:secondAxisDirection]];
+            CRSAxisDirectionType firstAxis = [CRSAxisDirectionTypes type:[NSString stringWithUTF8String:firstAxisDirection]];
+            CRSAxisDirectionType secondAxis = [CRSAxisDirectionTypes type:[NSString stringWithUTF8String:secondAxisDirection]];
             swap = [self swapWithFirstAxis:firstAxis andSecondAxis:secondAxis];
         }
     } else {
@@ -274,8 +274,8 @@
         if (cs != nil) {
             NSMutableArray<CRSAxis *> *axes = cs.axes;
             if (axes != nil && axes.count > 1) {
-                enum CRSAxisDirectionType firstAxis = [axes objectAtIndex:0].direction;
-                enum CRSAxisDirectionType secondAxis = [axes objectAtIndex:1].direction;
+                CRSAxisDirectionType firstAxis = [axes objectAtIndex:0].direction;
+                CRSAxisDirectionType secondAxis = [axes objectAtIndex:1].direction;
                 swap = [self swapWithFirstAxis:firstAxis andSecondAxis:secondAxis];
             }
         }
@@ -283,7 +283,7 @@
     return swap;
 }
 
--(BOOL) swapWithFirstAxis: (enum CRSAxisDirectionType) firstAxis andSecondAxis: (enum CRSAxisDirectionType) secondAxis {
+-(BOOL) swapWithFirstAxis: (CRSAxisDirectionType) firstAxis andSecondAxis: (CRSAxisDirectionType) secondAxis {
     BOOL swap = NO;
     if (firstAxis != -1 && secondAxis != -1) {
         switch (firstAxis) {

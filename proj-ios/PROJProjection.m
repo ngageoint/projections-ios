@@ -32,7 +32,7 @@
 /**
  *  Projection unit
  */
-@property (nonatomic) enum PROJUnit unit;
+@property (nonatomic) PROJUnit unit;
 /**
  *  Well-Known Text Coordinate Definition
  */
@@ -271,11 +271,11 @@
     return [PROJProjectionTransform transformFromProjection:self andToProjection:projection];
 }
 
--(enum PROJUnit) unit{
+-(PROJUnit) unit{
     return _unit;
 }
 
--(BOOL) isUnit: (enum PROJUnit) unit{
+-(BOOL) isUnit: (PROJUnit) unit{
     return [self unit] == unit;
 }
 
